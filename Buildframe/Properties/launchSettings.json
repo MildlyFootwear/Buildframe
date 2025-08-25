@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Buildframe": {
+      "commandName": "Project",
+      "commandLineArgs": "-debug"
+    }
+  }
+}
