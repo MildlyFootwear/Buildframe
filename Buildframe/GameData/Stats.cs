@@ -39,6 +39,8 @@ namespace Buildframe.GameData
         public double baseRadiation = 0;
         public double baseViral = 0;
         public double baseCorrosive = 0;
+        public double baseMagnetic = 0;
+        public double baseGas = 0;
 
         public double baseMultishot = 1;
 
@@ -75,6 +77,8 @@ namespace Buildframe.GameData
         public double modRadiation = 0;
         public double modViral = 0;
         public double modCorrosive = 0;
+        public double modMagnetic = 0;
+        public double modGas = 0;
 
         public double modMultishot = 0;
 
@@ -110,6 +114,8 @@ namespace Buildframe.GameData
         public double finalRadiation = 0;
         public double finalViral = 0;
         public double finalCorrosive = 0;
+        public double finalMagnetic = 0;
+        public double finalGas = 0;
 
         public double finalMultishot = 0;
 

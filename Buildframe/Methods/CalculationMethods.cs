@@ -38,6 +38,8 @@ namespace Buildframe.Methods
                 stats.baseRadiation += s.baseRadiation;
                 stats.baseViral += s.baseViral;
                 stats.baseCorrosive += s.baseCorrosive;
+                stats.baseMagnetic += s.baseMagnetic;
+                stats.baseGas += s.baseGas;
 
                 stats.baseMultishot += s.baseMultishot;
 
@@ -72,6 +74,8 @@ namespace Buildframe.Methods
                 stats.modRadiation += s.modRadiation;
                 stats.modViral += s.modViral;
                 stats.modCorrosive += s.modCorrosive;
+                stats.modMagnetic += s.modMagnetic;
+                stats.modGas += s.modGas;
 
                 stats.modMultishot += s.modMultishot;
 
@@ -104,6 +108,8 @@ namespace Buildframe.Methods
                 stats.finalRadiation += s.finalRadiation;
                 stats.finalViral += s.finalViral;
                 stats.finalCorrosive += s.finalCorrosive;
+                stats.finalMagnetic += s.finalMagnetic;
+                stats.finalGas += s.finalGas;
 
                 stats.finalMultishot += s.finalMultishot;
 
@@ -121,16 +127,13 @@ namespace Buildframe.Methods
         {
             WriteLineIfDebug("\ncalculateDPS\n\n"+stats.name);
 
-            double damageSlash = stats.baseSlash * (1 + stats.modSlash / 100);
-            double damageImpact = stats.baseImpact * (1 + stats.modImpact / 100);
-            double damagePuncture = stats.basePuncture * (1 + stats.modPuncture / 100);
-            double damagePhysical = damageSlash + damageImpact + damagePuncture;
-
-            WriteLineIfDebug("Slash " + damageSlash + "\nImpact " + damageImpact + "\nPuncture " + damagePuncture+"\nPhysical "+damagePhysical);
-
-            double baseDamage = damagePhysical + stats.baseFire + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast;
+            double baseDamage = stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseFire + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
 
             WriteLineIfDebug("baseDamage " + baseDamage);
+
+            double modSlash = stats.baseSlash * (stats.modSlash / 100);
+            double modImpact = stats.baseImpact * (stats.modImpact / 100);
+            double modPuncture = stats.basePuncture * (stats.modPuncture / 100);
 
             double modFire = baseDamage * (stats.modFire / 100);
             double modElectric = baseDamage * (stats.modElectric / 100);
@@ -143,13 +146,15 @@ namespace Buildframe.Methods
             double modViral = baseDamage * (stats.modViral / 100);
             double modRadiation = baseDamage * (stats.modRadiation / 100);
             double modBlast = baseDamage * (stats.modBlast / 100);
+            double modMagnetic = baseDamage * (stats.modMagnetic / 100);
+            double modGas = baseDamage * (stats.modGas / 100);
 
-            WriteLineIfDebug("modCorrosive " + modCorrosive + "\nmodViral " + modViral + "\nmodRadiation " + modRadiation + "\nmodBlast " + modBlast);
+            WriteLineIfDebug("modCorrosive " + modCorrosive + "\nmodViral " + modViral + "\nmodRadiation " + modRadiation + "\nmodBlast " + modBlast + "\nmodMagnetic " + modMagnetic + "\nmodGas " + modGas);
 
+            double modElemental = modFire + modElectric + modCold + modToxin + modCorrosive + modViral + modRadiation + modBlast + modMagnetic + modGas;
+            double modPhysical = modSlash + modImpact + modPuncture;
 
-            double modElemental = modFire + modElectric + modCold + modToxin + modCorrosive + modViral + modRadiation + modBlast;
-
-            double moddedDamage = (baseDamage + modElemental) * (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100);
+            double moddedDamage = (baseDamage + modElemental + modPhysical) * (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100);
 
             double critChance = stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance;
             double critDamage = stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage;

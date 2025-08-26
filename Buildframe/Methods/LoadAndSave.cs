@@ -62,6 +62,10 @@ namespace Buildframe.Methods
                     stats.baseViral = Convert.ToDouble(split[1]);
                 if (split[0] == "baseCorrosive")
                     stats.baseCorrosive = Convert.ToDouble(split[1]);
+                if (split[0] == "baseMagnetic")
+                    stats.baseMagnetic = Convert.ToDouble(split[1]);
+                if (split[0] == "baseGas")
+                    stats.baseGas = Convert.ToDouble(split[1]);
 
                 if (split[0] == "baseMultishot")
                     stats.baseMultishot = Convert.ToDouble(split[1]);
@@ -119,6 +123,10 @@ namespace Buildframe.Methods
                     stats.modViral = Convert.ToDouble(split[1]);
                 if (split[0] == "modCorrosive")
                     stats.modCorrosive = Convert.ToDouble(split[1]);
+                if (split[0] == "modMagnetic")
+                    stats.modMagnetic = Convert.ToDouble(split[1]);
+                if (split[0] == "modGas")
+                    stats.modGas = Convert.ToDouble(split[1]);
 
                 if (split[0] == "modMultishot")
                     stats.modMultishot = Convert.ToDouble(split[1]);
@@ -176,6 +184,10 @@ namespace Buildframe.Methods
                     stats.finalViral = Convert.ToDouble(split[1]);
                 if (split[0] == "finalCorrosive")
                     stats.finalCorrosive = Convert.ToDouble(split[1]);
+                if (split[0] == "finalMagnetic")
+                    stats.finalMagnetic = Convert.ToDouble(split[1]);
+                if (split[0] == "finalGas")
+                    stats.finalGas = Convert.ToDouble(split[1]);
 
                 if (split[0] == "finalMultishot")
                     stats.finalMultishot = Convert.ToDouble(split[1]);
@@ -223,6 +235,8 @@ namespace Buildframe.Methods
             s += "\nbaseRadiation=" + Convert.ToString(stats.baseRadiation);
             s += "\nbaseViral=" + Convert.ToString(stats.baseViral);
             s += "\nbaseCorrosive=" + Convert.ToString(stats.baseCorrosive);
+            s += "\nbaseMagnetic=" + Convert.ToString(stats.baseMagnetic);
+            s += "\nbaseGas=" + Convert.ToString(stats.baseGas);
 
             s += "\nbaseMultishot=" + Convert.ToString(stats.baseMultishot);
 
@@ -257,6 +271,8 @@ namespace Buildframe.Methods
             s += "\nmodRadiation=" + Convert.ToString(stats.modRadiation);
             s += "\nmodViral=" + Convert.ToString(stats.modViral);
             s += "\nmodCorrosive=" + Convert.ToString(stats.modCorrosive);
+            s += "\nmodMagnetic=" + Convert.ToString(stats.modMagnetic);
+            s += "\nmodGas=" + Convert.ToString(stats.modGas);
 
             s += "\nmodMultishot=" + Convert.ToString(stats.modMultishot);
 
@@ -290,6 +306,8 @@ namespace Buildframe.Methods
             s += "\nfinalRadiation=" + Convert.ToString(stats.finalRadiation);
             s += "\nfinalViral=" + Convert.ToString(stats.finalViral);
             s += "\nfinalCorrosive=" + Convert.ToString(stats.finalCorrosive);
+            s += "\nfinalMagnetic=" + Convert.ToString(stats.finalMagnetic);
+            s += "\nfinalGas=" + Convert.ToString(stats.finalGas);
 
             s += "\nfinalMultishot=" + Convert.ToString(stats.finalMultishot);
 
