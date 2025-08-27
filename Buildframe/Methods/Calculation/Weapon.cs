@@ -53,8 +53,8 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateReloadMult(Stats stats)
         {
-            double efficiency = calculateAmmoEfficiency(stats);
-            if (efficiency >= 100)
+            double ammoEfficiency = calculateAmmoEfficiency(stats);
+            if (ammoEfficiency >= 100)
             {
                 return 1;
             }
@@ -63,7 +63,12 @@ namespace Buildframe.Methods.Calculation
             {
                 return 1;
             }
-            return calculateMagazine(stats) / (1 - calculateAmmoEfficiency(stats) / 100) / calculateSpeed(stats) / calculateReloadTime(stats);
+            double reloadTime = calculateReloadTime(stats);
+            if (reloadTime == 0)
+            {
+                return 1;
+            }
+            return (magazine / (1 - ammoEfficiency / 100) / calculateSpeed(stats)) + reloadTime / reloadTime;
         }
         public static double calculateDPS(Stats stats, bool reload = false)
         {
