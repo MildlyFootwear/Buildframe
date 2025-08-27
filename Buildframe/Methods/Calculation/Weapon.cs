@@ -68,7 +68,7 @@ namespace Buildframe.Methods.Calculation
             {
                 return 1;
             }
-            return (magazine / (1 - ammoEfficiency / 100) / calculateSpeed(stats)) + reloadTime / reloadTime;
+            return 1 - (reloadTime / ((magazine / (1 - ammoEfficiency / 100) / calculateSpeed(stats)) + reloadTime));
         }
         public static double calculateDPS(Stats stats, bool reload = false)
         {
