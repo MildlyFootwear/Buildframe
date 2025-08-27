@@ -24,6 +24,7 @@ namespace Buildframe.GameData
 
         public double baseReloadTime = 0;
         public double baseAmmoEfficiency = 0;
+        public double baseMagazine = 0;
         public double baseChargeTime = 0;
 
         public double baseSlash = 0;
@@ -61,6 +62,7 @@ namespace Buildframe.GameData
         public double modAttackSpeed = 0;
 
         public double modReloadTime = 0;
+        public double modMagazine = 0;
         public double modAmmoEfficiency = 0;
         public double modChargeTime = 0;
 
@@ -98,6 +100,7 @@ namespace Buildframe.GameData
         public double finalAttackSpeed = 0;
 
         public double finalReloadTime = 0;
+        public double finalMagazine = 0;
         public double finalAmmoEfficiency = 0;
         public double finalChargeTime = 0;
 

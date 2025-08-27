@@ -33,6 +33,8 @@ namespace Buildframe.Methods
 
                 if (split[0] == "baseReloadTime")
                     stats.baseReloadTime = Convert.ToDouble(split[1]);
+                if (split[0] == "baseMagazine")
+                    stats.baseMagazine = Convert.ToDouble(split[1]);
                 if (split[0] == "baseAmmoEfficiency")
                     stats.baseAmmoEfficiency = Convert.ToDouble(split[1]);
                 if (split[0] == "baseChargeTime")
@@ -94,6 +96,8 @@ namespace Buildframe.Methods
 
                 if (split[0] == "modReloadTime")
                     stats.modReloadTime = Convert.ToDouble(split[1]);
+                if (split[0] == "modMagazine")
+                    stats.modMagazine = Convert.ToDouble(split[1]);
                 if (split[0] == "modAmmoEfficiency")
                     stats.modAmmoEfficiency = Convert.ToDouble(split[1]);
                 if (split[0] == "modChargeTime")
@@ -155,6 +159,8 @@ namespace Buildframe.Methods
 
                 if (split[0] == "finalReloadTime")
                     stats.finalReloadTime = Convert.ToDouble(split[1]);
+                if (split[0] == "finalMagazine")
+                    stats.finalMagazine = Convert.ToDouble(split[1]);
                 if (split[0] == "finalAmmoEfficiency")
                     stats.finalAmmoEfficiency = Convert.ToDouble(split[1]);
                 if (split[0] == "finalChargeTime")
