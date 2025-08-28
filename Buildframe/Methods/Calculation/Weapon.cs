@@ -112,7 +112,7 @@ namespace Buildframe.Methods.Calculation
 
             double modSpeed = calculateModSpeed(stats);
 
-            double modMultishot = stats.baseMultishot * (1 + stats.modMultishot / 100) + stats.finalMultishot;
+            double modMultishot = calculateModMultishot(stats);
 
             double reloadMult = calculateModReloadMult(stats);
 
