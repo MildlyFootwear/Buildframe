@@ -11,7 +11,7 @@ namespace Buildframe.Methods.Calculation
     {
         public static double calculateBaseDamage(Stats stats)
         {
-            return stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseFire + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
+            return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseFire + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
         public static double calculateModDamagePreCrit(Stats stats)
         {
