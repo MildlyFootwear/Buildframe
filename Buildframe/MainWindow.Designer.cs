@@ -33,12 +33,13 @@
             toolStripDropDownButton1 = new ToolStripDropDownButton();
             addWeaponToolStripMenuItem = new ToolStripMenuItem();
             loadWeaponToolStripMenuItem = new ToolStripMenuItem();
+            toolstripButtonEffectWizard = new ToolStripButton();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolstripButtonEffectWizard });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(560, 25);
@@ -60,15 +61,25 @@
             // addWeaponToolStripMenuItem
             // 
             addWeaponToolStripMenuItem.Name = "addWeaponToolStripMenuItem";
-            addWeaponToolStripMenuItem.Size = new Size(180, 22);
+            addWeaponToolStripMenuItem.Size = new Size(147, 22);
             addWeaponToolStripMenuItem.Text = "Add Weapon";
             // 
             // loadWeaponToolStripMenuItem
             // 
             loadWeaponToolStripMenuItem.Name = "loadWeaponToolStripMenuItem";
-            loadWeaponToolStripMenuItem.Size = new Size(180, 22);
+            loadWeaponToolStripMenuItem.Size = new Size(147, 22);
             loadWeaponToolStripMenuItem.Text = "Load Weapon";
             loadWeaponToolStripMenuItem.Click += loadWeaponToolStripMenuItem_Click;
+            // 
+            // toolstripButtonEffectWizard
+            // 
+            toolstripButtonEffectWizard.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolstripButtonEffectWizard.Image = (Image)resources.GetObject("toolstripButtonEffectWizard.Image");
+            toolstripButtonEffectWizard.ImageTransparentColor = Color.Magenta;
+            toolstripButtonEffectWizard.Name = "toolstripButtonEffectWizard";
+            toolstripButtonEffectWizard.Size = new Size(78, 22);
+            toolstripButtonEffectWizard.Text = "Create Effect";
+            toolstripButtonEffectWizard.Click += toolstripButtonEffectWizard_Click;
             // 
             // MainWindow
             // 
@@ -79,6 +90,7 @@
             Margin = new Padding(2);
             Name = "MainWindow";
             Text = "Buildframe";
+            FormClosing += MainWindow_FormClosing;
             Load += MainWindow_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
@@ -92,5 +104,6 @@
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem addWeaponToolStripMenuItem;
         private ToolStripMenuItem loadWeaponToolStripMenuItem;
+        private ToolStripButton toolstripButtonEffectWizard;
     }
 }

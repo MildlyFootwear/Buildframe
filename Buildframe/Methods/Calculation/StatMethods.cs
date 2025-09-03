@@ -8,21 +8,33 @@ using System.Threading.Tasks;
 
 namespace Buildframe.Methods
 {
-    public class CalculationMethods
+    public class StatMethods
     {
         public static Stats sumStats(List<Stats> statsList)
         {
             Stats stats = new Stats();
 
+            foreach (Stats s  in statsList) {
+                if (s.incarnon)
+                {
+                    stats.incarnon = true;
+                }
+            }
+
             foreach (Stats s in statsList)
             {
+
                 stats.baseDamage += s.baseDamage;
                 stats.baseDamagePercentage += s.baseDamagePercentage;
 
                 stats.baseAttackSpeed += s.baseAttackSpeed;
 
                 stats.baseReloadTime += s.baseReloadTime;
-                stats.baseAmmoEfficiency += s.baseAmmoEfficiency;
+                if (!stats.incarnon)
+                {
+                    stats.baseMagazine += s.baseMagazine;
+                    stats.baseAmmoEfficiency += s.baseAmmoEfficiency;
+                }
                 stats.baseChargeTime += s.baseChargeTime;
 
                 stats.baseSlash += s.baseSlash;
@@ -58,7 +70,11 @@ namespace Buildframe.Methods
                 stats.modAttackSpeed += s.modAttackSpeed;
 
                 stats.modReloadTime += s.modReloadTime;
-                stats.modAmmoEfficiency += s.modAmmoEfficiency;
+                if (!stats.incarnon)
+                {
+                    stats.modMagazine += s.modMagazine;
+                    stats.modAmmoEfficiency += s.modAmmoEfficiency;
+                }
                 stats.modChargeTime += s.modChargeTime;
 
                 stats.modSlash += s.modSlash;
@@ -92,7 +108,12 @@ namespace Buildframe.Methods
                 stats.finalAttackSpeed += s.finalAttackSpeed;
 
                 stats.finalReloadTime += s.finalReloadTime;
-                stats.finalAmmoEfficiency += s.finalAmmoEfficiency;
+                if (!stats.incarnon)
+                {
+                    stats.finalMagazine += s.finalMagazine;
+                    stats.finalAmmoEfficiency += s.finalAmmoEfficiency;
+
+                }
                 stats.finalChargeTime += s.finalChargeTime;
 
                 stats.finalSlash += s.finalSlash;

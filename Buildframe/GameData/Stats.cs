@@ -13,7 +13,7 @@ namespace Buildframe.GameData
         public string description = "";
         public string id = "";
 
-
+        public bool incarnon = false;
 
         // This section is used for base stats, such as weapons and most incarnon perks.
 
@@ -27,9 +27,9 @@ namespace Buildframe.GameData
         public double baseMagazine = 0;
         public double baseChargeTime = 0;
 
-        public double baseSlash = 0;
         public double baseImpact = 0;
         public double basePuncture = 0;
+        public double baseSlash = 0;
 
         public double baseFire = 0;
         public double baseCold = 0;
