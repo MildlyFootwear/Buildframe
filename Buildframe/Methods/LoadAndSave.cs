@@ -22,6 +22,8 @@ namespace Buildframe.Methods
                     stats.description = split[1];
                 if (split[0] == "id")
                     stats.id = split[1];
+                if (split[0] == "incarnon")
+                    stats.incarnon = Convert.ToBoolean(split[1]);
 
                 if (split[0] == "baseDamage")
                     stats.baseDamage = Convert.ToDouble(split[1]);
@@ -217,7 +219,7 @@ namespace Buildframe.Methods
             s += "name=" + stats.name;
             s += "\ndescription=" + stats.description;
             s += "\nid=" + stats.id;
-
+            s += "\nincarnon=" + Convert.ToString(stats.incarnon);
 
             s += "\nbaseDamage=" + Convert.ToString(stats.baseDamage);
             s += "\nbaseDamagePercentage=" + Convert.ToString(stats.baseDamagePercentage);
