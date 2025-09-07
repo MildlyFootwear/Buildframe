@@ -6,13 +6,15 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Buildframe.Methods
+namespace Buildframe.Methods.Calculation
 {
     public class StatMethods
     {
         public static Stats sumStats(List<Stats> statsList)
         {
             Stats stats = new Stats();
+
+            stats.name = statsList[0].name;
 
             foreach (Stats s  in statsList) {
                 if (s.incarnon)

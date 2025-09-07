@@ -1,3 +1,5 @@
+using Buildframe.GameData;
+
 namespace Buildframe
 {
     public partial class MainWindow : Form
@@ -5,6 +7,31 @@ namespace Buildframe
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public Weapon baseWeapon = new Weapon();
+        public Weapon currentWeapon = new Weapon();
+        public List<Stats> selectedStats = new List<Stats>();
+        public List<Stats> fireModesWithAppliedStats = new();
+
+        public void loadWeapon(Weapon weapon)
+        {
+
+            foreach (Stats stat in weapon.fireModes)
+            {
+                List<Stats> stats = new List<Stats>();
+                stats.Add(stat);
+                stats.AddRange(selectedStats);
+                Stats appliedStats = Methods.Calculation.StatMethods.sumStats(stats);
+                fireModesWithAppliedStats.Add(appliedStats);
+            }
+
+            currentWeapon = weapon;
+        }
+
+        public void updateWeaponStats()
+        {
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -32,6 +59,11 @@ namespace Buildframe
             Settings.Default.SavedPosition = this.Location;
             Settings.Default.SavedSize = this.Size;
             Settings.Default.Save();
+        }
+
+        private void labelFireRate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,6 +9,11 @@ namespace Buildframe.GameData
 {
     public class Weapon
     {
-        Dictionary<string, Stats> fireModes = new Dictionary<string, Stats>();
+        public List<Stats> fireModes = new List<Stats>();
+        public string id = "";
+        public string name = "";
+        public string tags = "";
+        public string description = "";
+
     }
 }
