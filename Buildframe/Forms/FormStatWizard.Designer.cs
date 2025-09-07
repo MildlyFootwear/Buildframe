@@ -83,12 +83,14 @@
             tabControl1 = new TabControl();
             identifiersPage = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
+            label78 = new Label();
             label27 = new Label();
             textBoxName = new TextBox();
             label26 = new Label();
             label25 = new Label();
             textBoxID = new TextBox();
             textBoxDescription = new TextBox();
+            textBoxTags = new TextBox();
             modPage = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
             numericUpDownAbilityWeaponDamage = new NumericUpDown();
@@ -995,28 +997,41 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel2.Controls.Add(label27, 0, 2);
+            tableLayoutPanel2.Controls.Add(label78, 0, 2);
+            tableLayoutPanel2.Controls.Add(label27, 0, 3);
             tableLayoutPanel2.Controls.Add(textBoxName, 1, 1);
             tableLayoutPanel2.Controls.Add(label26, 0, 1);
             tableLayoutPanel2.Controls.Add(label25, 0, 0);
             tableLayoutPanel2.Controls.Add(textBoxID, 1, 0);
-            tableLayoutPanel2.Controls.Add(textBoxDescription, 1, 2);
+            tableLayoutPanel2.Controls.Add(textBoxDescription, 1, 3);
+            tableLayoutPanel2.Controls.Add(textBoxTags, 1, 2);
             tableLayoutPanel2.Location = new Point(3, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 221F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 191F));
             tableLayoutPanel2.Size = new Size(371, 283);
             tableLayoutPanel2.TabIndex = 0;
             // 
+            // label78
+            // 
+            label78.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label78.AutoSize = true;
+            label78.Location = new Point(4, 61);
+            label78.Name = "label78";
+            label78.Size = new Size(30, 29);
+            label78.TabIndex = 22;
+            label78.Text = "Tags";
+            label78.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // label27
             // 
-            label27.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label27.AutoSize = true;
-            label27.Location = new Point(4, 61);
+            label27.Location = new Point(4, 91);
             label27.Name = "label27";
-            label27.Size = new Size(67, 221);
+            label27.Size = new Size(67, 15);
             label27.TabIndex = 19;
             label27.Text = "Description";
             // 
@@ -1058,11 +1073,18 @@
             // 
             // textBoxDescription
             // 
-            textBoxDescription.Location = new Point(78, 64);
+            textBoxDescription.Location = new Point(78, 94);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
-            textBoxDescription.Size = new Size(289, 192);
+            textBoxDescription.Size = new Size(289, 173);
             textBoxDescription.TabIndex = 20;
+            // 
+            // textBoxTags
+            // 
+            textBoxTags.Location = new Point(78, 64);
+            textBoxTags.Name = "textBoxTags";
+            textBoxTags.Size = new Size(289, 23);
+            textBoxTags.TabIndex = 21;
             // 
             // modPage
             // 
@@ -2691,5 +2713,7 @@
         private Label label29;
         private NumericUpDown numericUpDownModDamageFaction;
         private Label label52;
+        private Label label78;
+        private TextBox textBoxTags;
     }
 }

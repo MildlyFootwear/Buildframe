@@ -23,6 +23,8 @@ namespace Buildframe.Methods
                     stats.description = split[1];
                 if (split[0] == "id")
                     stats.id = split[1];
+                if (split[0] == "tags")
+                    stats.tags = split[1];
                 if (split[0] == "incarnon")
                     stats.incarnon = Convert.ToBoolean(split[1]);
 
@@ -223,6 +225,7 @@ namespace Buildframe.Methods
             s += "\ndescription=" + stats.description;
             s += "\nid=" + stats.id;
             s += "\nincarnon=" + Convert.ToString(stats.incarnon);
+            s += "\ntags=" + stats.tags;
 
             s += "\nbaseDamage=" + Convert.ToString(stats.baseDamage);
             s += "\nbaseDamagePercentage=" + Convert.ToString(stats.baseDamagePercentage);

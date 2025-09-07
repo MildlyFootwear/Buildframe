@@ -10,6 +10,7 @@ namespace Buildframe
     {
         public static string ToolName = "Buildframe";
         public static string LatestVer = "";
+        public static List<string> ProhibPathChars = ["|", "<", ">", "?", "*", "//", "\\\\"];
 
         public static bool ToolDebug = false;
 

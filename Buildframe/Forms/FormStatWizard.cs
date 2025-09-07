@@ -23,6 +23,7 @@ namespace Buildframe.Forms
             textBoxName.Text = stats.name;
             textBoxDescription.Text = stats.description;
             textBoxID.Text = stats.id;
+            textBoxTags.Text = stats.tags;
             checkBoxIncarnon.Checked = stats.incarnon;
 
             numericUpDownBaseDamage.Value = (decimal)stats.baseDamage;
@@ -108,6 +109,7 @@ namespace Buildframe.Forms
             stats.name = textBoxName.Text;
             stats.description = textBoxDescription.Text;
             stats.id = textBoxID.Text;
+            stats.tags = textBoxTags.Text;
             stats.incarnon = checkBoxIncarnon.Checked;
 
             stats.baseDamage = (double)numericUpDownBaseDamage.Value;
@@ -185,7 +187,14 @@ namespace Buildframe.Forms
             stats.finalStatusChance = (double)numericUpDownFinalStatusChance.Value;
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
 
-            LoadAndSave.saveStatToFile(stats.id + ".cfg", stats);
+            string fileName = stats.name + " " + stats.id + ".cfg";
+
+            foreach (string s in CommonVars.ProhibPathChars)
+            {
+                fileName = fileName.Replace(s, "");
+            }
+
+            LoadAndSave.saveStatToFile(stats.name + " " + stats.id + ".cfg", stats);
         }
 
         private void FormStatWizard_Load(object sender, EventArgs e)

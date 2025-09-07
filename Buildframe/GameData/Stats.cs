@@ -9,9 +9,10 @@ namespace Buildframe.GameData
     public class Stats
     {
 
-        public string name = "";
-        public string description = "";
         public string id = "";
+        public string name = "";
+        public string tags = "";
+        public string description = "";
 
         public bool incarnon = false;
 
