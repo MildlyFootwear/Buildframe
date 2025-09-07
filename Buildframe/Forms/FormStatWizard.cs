@@ -18,6 +18,89 @@ namespace Buildframe.Forms
             InitializeComponent();
         }
 
+        private void loadStatsToForm(GameData.Stats stats)
+        {
+            textBoxName.Text = stats.name;
+            textBoxDescription.Text = stats.description;
+            textBoxID.Text = stats.id;
+            checkBoxIncarnon.Checked = stats.incarnon;
+
+            numericUpDownBaseDamage.Value = (decimal)stats.baseDamage;
+            numericUpDownBaseAttackSpeed.Value = (decimal)stats.baseAttackSpeed;
+            numericUpDownBaseReloadTime.Value = (decimal)stats.baseReloadTime;
+            numericUpDownBaseAmmoEfficiency.Value = (decimal)stats.baseAmmoEfficiency;
+            numericUpDownBaseMagazine.Value = (decimal)stats.baseMagazine;
+            numericUpDownBaseChargeTime.Value = (decimal)stats.baseChargeTime;
+            numericUpDownBaseImpact.Value = (decimal)stats.baseImpact;
+            numericUpDownBasePuncture.Value = (decimal)stats.basePuncture;
+            numericUpDownBaseSlash.Value = (decimal)stats.baseSlash;
+            numericUpDownBaseFire.Value = (decimal)stats.baseFire;
+            numericUpDownBaseCold.Value = (decimal)stats.baseCold;
+            numericUpDownBaseElectric.Value = (decimal)stats.baseElectric;
+            numericUpDownBaseToxin.Value = (decimal)stats.baseToxin;
+            numericUpDownBaseBlast.Value = (decimal)stats.baseBlast;
+            numericUpDownBaseRadiation.Value = (decimal)stats.baseRadiation;
+            numericUpDownBaseViral.Value = (decimal)stats.baseViral;
+            numericUpDownBaseCorrosive.Value = (decimal)stats.baseCorrosive;
+            numericUpDownBaseMagnetic.Value = (decimal)stats.baseMagnetic;
+            numericUpDownBaseGas.Value = (decimal)stats.baseGas;
+            numericUpDownBaseMultishot.Value = (decimal)stats.baseMultishot;
+            numericUpDownBaseCriticalChance.Value = (decimal)stats.baseCriticalChance;
+            numericUpDownBaseCriticalDamage.Value = (decimal)stats.baseCriticalDamage;
+            numericUpDownBaseStatusChance.Value = (decimal)stats.baseStatusChance;
+            numericUpDownBaseStatusDamage.Value = (decimal)stats.baseStatusDamage;
+
+            numericUpDownModDamage.Value = (decimal)stats.modDamage;
+            numericUpDownAbilityWeaponDamage.Value = (decimal)stats.modDamagePercentage;
+            numericUpDownModDamageFaction.Value = (decimal)stats.modDamageFaction;
+            numericUpDownModAttackSpeed.Value = (decimal)stats.modAttackSpeed;
+            numericUpDownModReloadTime.Value = (decimal)stats.modReloadTime;
+            numericUpDownModMagazine.Value = (decimal)stats.modMagazine;
+            numericUpDownModChargeTime.Value = (decimal)stats.modChargeTime;
+            numericUpDownModImpact.Value = (decimal)stats.modImpact;
+            numericUpDownModPuncture.Value = (decimal)stats.modPuncture;
+            numericUpDownModSlash.Value = (decimal)stats.modSlash;
+            numericUpDownModFire.Value = (decimal)stats.modFire;
+            numericUpDownModCold.Value = (decimal)stats.modCold;
+            numericUpDownModElectric.Value = (decimal)stats.modElectric;
+            numericUpDownModToxin.Value = (decimal)stats.modToxin;
+            numericUpDownModBlast.Value = (decimal)stats.modBlast;
+            numericUpDownModRadiation.Value = (decimal)stats.modRadiation;
+            numericUpDownModViral.Value = (decimal)stats.modViral;
+            numericUpDownModCorrosive.Value = (decimal)stats.modCorrosive;
+            numericUpDownModMagnetic.Value = (decimal)stats.modMagnetic;
+            numericUpDownModGas.Value = (decimal)stats.modGas;
+            numericUpDownModMultishot.Value = (decimal)stats.modMultishot;
+            numericUpDownModCriticalChance.Value = (decimal)stats.modCriticalChance;
+            numericUpDownModCriticalDamage.Value = (decimal)stats.modCriticalDamage;
+            numericUpDownModStatusChance.Value = (decimal)stats.modStatusChance;
+            numericUpDownModStatusDamage.Value = (decimal)stats.modStatusDamage;
+
+            numericUpDownFinalDamage.Value = (decimal)stats.finalDamage;
+            numericUpDownFinalAttackSpeed.Value = (decimal)stats.finalAttackSpeed;
+            numericUpDownFinalReloadTime.Value = (decimal)stats.finalReloadTime;
+            numericUpDownFinalMagazine.Value = (decimal)stats.finalMagazine;
+            numericUpDownFinalChargeTime.Value = (decimal)stats.finalChargeTime;
+            numericUpDownFinalImpact.Value = (decimal)stats.finalImpact;
+            numericUpDownFinalPuncture.Value = (decimal)stats.finalPuncture;
+            numericUpDownFinalSlash.Value = (decimal)stats.finalSlash;
+            numericUpDownFinalFire.Value = (decimal)stats.finalFire;
+            numericUpDownFinalCold.Value = (decimal)stats.finalCold;
+            numericUpDownFinalElectric.Value = (decimal)stats.finalElectric;
+            numericUpDownFinalToxin.Value = (decimal)stats.finalToxin;
+            numericUpDownFinalBlast.Value = (decimal)stats.finalBlast;
+            numericUpDownFinalRadiation.Value = (decimal)stats.finalRadiation;
+            numericUpDownFinalViral.Value = (decimal)stats.finalViral;
+            numericUpDownFinalCorrosive.Value = (decimal)stats.finalCorrosive;
+            numericUpDownFinalMagnetic.Value = (decimal)stats.finalMagnetic;
+            numericUpDownFinalGas.Value = (decimal)stats.finalGas;
+            numericUpDownFinalMultishot.Value = (decimal)stats.finalMultishot;
+            numericUpDownFinalCriticalChance.Value = (decimal)stats.finalCriticalChance;
+            numericUpDownFinalCriticalDamage.Value = (decimal)stats.finalCriticalDamage;
+            numericUpDownFinalStatusChance.Value = (decimal)stats.finalStatusChance;
+            numericUpDownFinalStatusDamage.Value = (decimal)stats.finalStatusDamage;
+        }
+
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
             GameData.Stats stats = new GameData.Stats();
@@ -102,12 +185,43 @@ namespace Buildframe.Forms
             stats.finalStatusChance = (double)numericUpDownFinalStatusChance.Value;
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
 
-            LoadAndSave.saveStatToFile(stats.id+".cfg", stats);
+            LoadAndSave.saveStatToFile(stats.id + ".cfg", stats);
         }
 
         private void FormStatWizard_Load(object sender, EventArgs e)
         {
             textBoxID.Text = Guid.NewGuid().ToString();
+        }
+
+        private void FormStatWizard_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void tabControl1_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (files.Length > 0)
+                {
+                    string filePath = files[0];
+                    GameData.Stats stats = LoadAndSave.loadStatFile(filePath);
+                    if (stats != null)
+                    {
+                        loadStatsToForm(stats);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to load stats from the dropped file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void tabControl1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
         }
     }
 }

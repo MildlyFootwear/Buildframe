@@ -963,6 +963,7 @@
             // 
             // tabControl1
             // 
+            tabControl1.AllowDrop = true;
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.Controls.Add(identifiersPage);
             tabControl1.Controls.Add(basePage);
@@ -973,6 +974,8 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(430, 344);
             tabControl1.TabIndex = 1;
+            tabControl1.DragDrop += tabControl1_DragDrop;
+            tabControl1.DragEnter += tabControl1_DragEnter;
             // 
             // identifiersPage
             // 
@@ -2416,6 +2419,7 @@
             // 
             // FormStatWizard
             // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
@@ -2427,6 +2431,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Stat Creation Wizard";
             Load += FormStatWizard_Load;
+            DragDrop += FormStatWizard_DragDrop;
             basePage.ResumeLayout(false);
             basePage.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

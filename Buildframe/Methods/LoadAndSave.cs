@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Buildframe.GameData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Buildframe.Methods
 {
     public class LoadAndSave
     {
-        public static void loadStatFileTo(string path, List<GameData.Stats> destination)
+        public static Stats loadStatFile(string path)
         {
-            GameData.Stats stats = new GameData.Stats();
+            Stats stats = new Stats();
 
             foreach (string s in File.ReadAllLines(path))
             {
@@ -210,6 +211,8 @@ namespace Buildframe.Methods
                 if (split[0] == "finalStatusDamage")
                     stats.finalStatusDamage = Convert.ToDouble(split[1]);
             }
+
+            return stats;
         }
 
         public static void saveStatToFile(string path, GameData.Stats stats)
