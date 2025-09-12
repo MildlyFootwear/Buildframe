@@ -1,5 +1,6 @@
 using Instance_Manager.Methods;
 using System.Collections.Immutable;
+using Buildframe.Methods;
 
 namespace Buildframe
 {
@@ -33,6 +34,7 @@ namespace Buildframe
             }
 
             WriteLineIfDebug("Starting.");
+            WriteLineIfDebug("Running from: " + envAPPLOC);
 
             UpdateMethods updateMethods = new UpdateMethods();
 
@@ -61,6 +63,11 @@ namespace Buildframe
                     }
                 }
             }
+
+            LoadAndSave.loadFireModeFiles();
+            LoadAndSave.loadModFiles();
+            LoadAndSave.loadArcaneFiles();
+            LoadAndSave.loadMiscFiles();
 
             Application.Run(new MainWindow());
 

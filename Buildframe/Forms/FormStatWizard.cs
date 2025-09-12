@@ -187,19 +187,39 @@ namespace Buildframe.Forms
             stats.finalStatusChance = (double)numericUpDownFinalStatusChance.Value;
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
 
-            string fileName = stats.name + " " + stats.id + ".cfg";
+            string fileName = stats.id + " " + stats.name + ".cfg";
 
             foreach (string s in CommonVars.ProhibPathChars)
             {
                 fileName = fileName.Replace(s, "");
             }
 
-            LoadAndSave.saveStatToFile(stats.name + " " + stats.id + ".cfg", stats);
+            string filePath = envAPPLOC;
+
+            if (comboBox1.SelectedIndex == 0)
+            {
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "FireModes", fileName);
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Mods", fileName);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Arcanes", fileName);
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Misc", fileName);
+            }
+
+            LoadAndSave.saveStatToFile(filePath, stats);
         }
 
         private void FormStatWizard_Load(object sender, EventArgs e)
         {
             textBoxID.Text = Guid.NewGuid().ToString();
+            comboBox1.SelectedIndex = 0;
         }
 
         private void FormStatWizard_DragDrop(object sender, DragEventArgs e)

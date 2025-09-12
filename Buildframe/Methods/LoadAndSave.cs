@@ -331,9 +331,58 @@ namespace Buildframe.Methods
             s += "\nfinalStatusChance=" + Convert.ToString(stats.finalStatusChance);
             s += "\nfinalStatusDamage=" + Convert.ToString(stats.finalStatusDamage);
 
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+
             File.WriteAllText(path, s);
 
         }
 
+        public static void loadFireModeFiles()
+        {
+            fireModeStats.Clear();
+            string directory = Path.Combine(envAPPLOC, "Data", "FireModes");
+            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            {
+                WriteLineIfDebug("Loading fire mode file: " + file);
+                Stats stats = loadStatFile(file);
+                fireModeStats.Add(stats.id, stats);
+            }
+        }
+
+        public static void loadArcaneFiles()
+        {
+            arcaneStats.Clear();
+            string directory = Path.Combine(envAPPLOC, "Data", "Arcanes");
+            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            {
+                WriteLineIfDebug("Loading arcane file: " + file);
+                Stats stats = loadStatFile(file);
+                arcaneStats.Add(stats.id, stats);
+            }
+        }
+
+        public static void loadModFiles()
+        {
+            modStats.Clear();
+            string directory = Path.Combine(envAPPLOC, "Data", "Mods");
+            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            {
+                WriteLineIfDebug("Loading mod file: " + file);
+                Stats stats = loadStatFile(file);
+                modStats.Add(stats.id, stats);
+            }
+        }
+
+        public static void loadMiscFiles()
+        {
+            miscStats.Clear();
+            string directory = Path.Combine(envAPPLOC, "Data", "Misc");
+            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            {
+                WriteLineIfDebug("Loading misc file: " + file);
+                Stats stats = loadStatFile(file);
+                miscStats.Add(stats.id, stats);
+            }
+        }
     }
 }

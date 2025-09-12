@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             TabPage basePage;
-            checkBoxIncarnon = new CheckBox();
             tableLayoutPanel1 = new TableLayoutPanel();
+            checkBoxIncarnon = new CheckBox();
             numericUpDownBaseCorrosive = new NumericUpDown();
             numericUpDownBaseViral = new NumericUpDown();
             numericUpDownBaseRadiation = new NumericUpDown();
@@ -194,6 +194,7 @@
             numericUpDownFinalMagnetic = new NumericUpDown();
             numericUpDownFinalGas = new NumericUpDown();
             buttonConfirm = new Button();
+            comboBox1 = new ComboBox();
             basePage = new TabPage();
             basePage.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -281,28 +282,14 @@
             // 
             // basePage
             // 
-            basePage.Controls.Add(checkBoxIncarnon);
             basePage.Controls.Add(tableLayoutPanel1);
             basePage.Location = new Point(4, 27);
             basePage.Name = "basePage";
             basePage.Padding = new Padding(3);
-            basePage.Size = new Size(422, 313);
+            basePage.Size = new Size(399, 313);
             basePage.TabIndex = 0;
             basePage.Text = "Base Stats";
             basePage.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxIncarnon
-            // 
-            checkBoxIncarnon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            checkBoxIncarnon.BackgroundImageLayout = ImageLayout.None;
-            checkBoxIncarnon.CheckAlign = ContentAlignment.MiddleCenter;
-            checkBoxIncarnon.Location = new Point(150, 256);
-            checkBoxIncarnon.Margin = new Padding(0);
-            checkBoxIncarnon.Name = "checkBoxIncarnon";
-            checkBoxIncarnon.Size = new Size(54, 16);
-            checkBoxIncarnon.TabIndex = 79;
-            checkBoxIncarnon.TextAlign = ContentAlignment.MiddleCenter;
-            checkBoxIncarnon.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -314,6 +301,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.Controls.Add(checkBoxIncarnon, 1, 12);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseCorrosive, 3, 10);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseViral, 3, 9);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseRadiation, 3, 8);
@@ -378,9 +366,22 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(371, 313);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
+            tableLayoutPanel1.Size = new Size(371, 309);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // checkBoxIncarnon
+            // 
+            checkBoxIncarnon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            checkBoxIncarnon.BackgroundImageLayout = ImageLayout.None;
+            checkBoxIncarnon.CheckAlign = ContentAlignment.MiddleCenter;
+            checkBoxIncarnon.Location = new Point(127, 289);
+            checkBoxIncarnon.Margin = new Padding(0);
+            checkBoxIncarnon.Name = "checkBoxIncarnon";
+            checkBoxIncarnon.Size = new Size(77, 19);
+            checkBoxIncarnon.TabIndex = 79;
+            checkBoxIncarnon.TextAlign = ContentAlignment.MiddleCenter;
+            checkBoxIncarnon.UseVisualStyleBackColor = true;
             // 
             // numericUpDownBaseCorrosive
             // 
@@ -820,7 +821,7 @@
             label18.AutoSize = true;
             label18.Location = new Point(208, 289);
             label18.Name = "label18";
-            label18.Size = new Size(50, 23);
+            label18.Size = new Size(50, 19);
             label18.TabIndex = 41;
             label18.Text = "baseGas";
             label18.TextAlign = ContentAlignment.MiddleCenter;
@@ -958,7 +959,7 @@
             label28.AutoSize = true;
             label28.Location = new Point(4, 289);
             label28.Name = "label28";
-            label28.Size = new Size(54, 23);
+            label28.Size = new Size(54, 19);
             label28.TabIndex = 78;
             label28.Text = "Incarnon";
             label28.TextAlign = ContentAlignment.MiddleCenter;
@@ -974,7 +975,7 @@
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(430, 344);
+            tabControl1.Size = new Size(407, 344);
             tabControl1.TabIndex = 1;
             tabControl1.DragDrop += tabControl1_DragDrop;
             tabControl1.DragEnter += tabControl1_DragEnter;
@@ -984,7 +985,7 @@
             identifiersPage.Controls.Add(tableLayoutPanel2);
             identifiersPage.Location = new Point(4, 27);
             identifiersPage.Name = "identifiersPage";
-            identifiersPage.Size = new Size(422, 313);
+            identifiersPage.Size = new Size(399, 313);
             identifiersPage.TabIndex = 2;
             identifiersPage.Text = "Identifiers";
             identifiersPage.UseVisualStyleBackColor = true;
@@ -1092,7 +1093,7 @@
             modPage.Location = new Point(4, 27);
             modPage.Name = "modPage";
             modPage.Padding = new Padding(3);
-            modPage.Size = new Size(422, 313);
+            modPage.Size = new Size(399, 313);
             modPage.TabIndex = 1;
             modPage.Text = "Mod Stats";
             modPage.UseVisualStyleBackColor = true;
@@ -1777,7 +1778,7 @@
             finalPage.Controls.Add(tableLayoutPanel4);
             finalPage.Location = new Point(4, 27);
             finalPage.Name = "finalPage";
-            finalPage.Size = new Size(422, 313);
+            finalPage.Size = new Size(399, 313);
             finalPage.TabIndex = 3;
             finalPage.Text = "Final Stats";
             finalPage.UseVisualStyleBackColor = true;
@@ -2439,6 +2440,16 @@
             buttonConfirm.UseVisualStyleBackColor = true;
             buttonConfirm.Click += buttonConfirm_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Warframe Arcane/Buff", "Weapon Fire Mode" });
+            comboBox1.Location = new Point(228, 322);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(163, 23);
+            comboBox1.TabIndex = 3;
+            // 
             // FormStatWizard
             // 
             AllowDrop = true;
@@ -2447,6 +2458,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(994, 958);
+            Controls.Add(comboBox1);
             Controls.Add(buttonConfirm);
             Controls.Add(tabControl1);
             Name = "FormStatWizard";
@@ -2715,5 +2727,6 @@
         private Label label52;
         private Label label78;
         private TextBox textBoxTags;
+        private ComboBox comboBox1;
     }
 }
