@@ -341,6 +341,7 @@ namespace Buildframe.Methods
         {
             fireModeStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "FireModes");
+            Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading fire mode file: " + file);
@@ -353,6 +354,7 @@ namespace Buildframe.Methods
         {
             arcaneStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "Arcanes");
+            Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading arcane file: " + file);
@@ -365,6 +367,7 @@ namespace Buildframe.Methods
         {
             modStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "Mods");
+            Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading mod file: " + file);
@@ -377,6 +380,7 @@ namespace Buildframe.Methods
         {
             miscStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "Misc");
+            Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading misc file: " + file);

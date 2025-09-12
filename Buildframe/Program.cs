@@ -40,30 +40,6 @@ namespace Buildframe
 
             updateMethods.CheckForUpdate();
 
-            if (argsL.Count == 0)
-            {
-                WriteLineIfDebug("No args passed.");
-            }
-            else
-            {
-                WriteLineIfDebug("Using args:");
-                int ind = 0;
-                foreach (string arg in argsL)
-                {
-                    WriteLineIfDebug("    " + arg);
-                    ind++;
-                }
-                if (argsL.Count != argsL.Count)
-                {
-                    WriteLineIfDebug("Exe args:");
-                    while (ind < argsL.Count)
-                    {
-                        WriteLineIfDebug("    " + argsL[ind]);
-                        ind++;
-                    }
-                }
-            }
-
             LoadAndSave.loadFireModeFiles();
             LoadAndSave.loadModFiles();
             LoadAndSave.loadArcaneFiles();
