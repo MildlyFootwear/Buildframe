@@ -93,6 +93,7 @@
             textBoxID = new TextBox();
             textBoxDescription = new TextBox();
             textBoxTags = new TextBox();
+            label82 = new Label();
             modPage = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
             numericUpDownAbilityWeaponDamage = new NumericUpDown();
@@ -1019,29 +1020,31 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel2.Controls.Add(label78, 0, 2);
-            tableLayoutPanel2.Controls.Add(label27, 0, 3);
-            tableLayoutPanel2.Controls.Add(textBoxName, 1, 1);
-            tableLayoutPanel2.Controls.Add(label26, 0, 1);
-            tableLayoutPanel2.Controls.Add(label25, 0, 0);
-            tableLayoutPanel2.Controls.Add(textBoxID, 1, 0);
-            tableLayoutPanel2.Controls.Add(textBoxDescription, 1, 3);
-            tableLayoutPanel2.Controls.Add(textBoxTags, 1, 2);
+            tableLayoutPanel2.Controls.Add(label78, 0, 3);
+            tableLayoutPanel2.Controls.Add(label27, 0, 4);
+            tableLayoutPanel2.Controls.Add(textBoxName, 1, 2);
+            tableLayoutPanel2.Controls.Add(label26, 0, 2);
+            tableLayoutPanel2.Controls.Add(label25, 0, 1);
+            tableLayoutPanel2.Controls.Add(textBoxID, 1, 1);
+            tableLayoutPanel2.Controls.Add(textBoxDescription, 1, 4);
+            tableLayoutPanel2.Controls.Add(textBoxTags, 1, 3);
+            tableLayoutPanel2.Controls.Add(label82, 0, 0);
             tableLayoutPanel2.Location = new Point(3, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 4;
+            tableLayoutPanel2.RowCount = 5;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 251F));
-            tableLayoutPanel2.Size = new Size(371, 343);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(372, 322);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // label78
             // 
             label78.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label78.AutoSize = true;
-            label78.Location = new Point(4, 61);
+            label78.Location = new Point(4, 112);
             label78.Name = "label78";
             label78.Size = new Size(30, 29);
             label78.TabIndex = 22;
@@ -1051,7 +1054,7 @@
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(4, 91);
+            label27.Location = new Point(4, 142);
             label27.Name = "label27";
             label27.Size = new Size(67, 15);
             label27.TabIndex = 19;
@@ -1059,7 +1062,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(78, 34);
+            textBoxName.Location = new Point(78, 85);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(289, 23);
             textBoxName.TabIndex = 18;
@@ -1068,7 +1071,7 @@
             // 
             label26.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label26.AutoSize = true;
-            label26.Location = new Point(4, 31);
+            label26.Location = new Point(4, 82);
             label26.Name = "label26";
             label26.Size = new Size(39, 29);
             label26.TabIndex = 17;
@@ -1079,7 +1082,7 @@
             // 
             label25.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label25.AutoSize = true;
-            label25.Location = new Point(4, 1);
+            label25.Location = new Point(4, 52);
             label25.Name = "label25";
             label25.Size = new Size(18, 29);
             label25.TabIndex = 16;
@@ -1088,14 +1091,14 @@
             // 
             // textBoxID
             // 
-            textBoxID.Location = new Point(78, 4);
+            textBoxID.Location = new Point(78, 55);
             textBoxID.Name = "textBoxID";
             textBoxID.Size = new Size(289, 23);
             textBoxID.TabIndex = 0;
             // 
             // textBoxDescription
             // 
-            textBoxDescription.Location = new Point(78, 94);
+            textBoxDescription.Location = new Point(78, 145);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.Size = new Size(289, 173);
@@ -1103,10 +1106,23 @@
             // 
             // textBoxTags
             // 
-            textBoxTags.Location = new Point(78, 64);
+            textBoxTags.Location = new Point(78, 115);
             textBoxTags.Name = "textBoxTags";
             textBoxTags.Size = new Size(289, 23);
             textBoxTags.TabIndex = 21;
+            textBoxTags.Text = "Any";
+            // 
+            // label82
+            // 
+            label82.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label82.AutoSize = true;
+            tableLayoutPanel2.SetColumnSpan(label82, 2);
+            label82.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label82.Location = new Point(4, 1);
+            label82.Name = "label82";
+            label82.Size = new Size(364, 50);
+            label82.TabIndex = 23;
+            label82.Text = "This is for information and behavior within this application.\r\nSeperate tags with spaces, they will be used for sorting within the UI.";
             // 
             // modPage
             // 
@@ -2797,5 +2813,6 @@
         private Label label79;
         private Label label80;
         private Label label81;
+        private Label label82;
     }
 }

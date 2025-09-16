@@ -198,11 +198,11 @@ namespace Buildframe.Forms
 
             if (comboBox1.SelectedIndex == 0)
             {
-                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "FireModes", fileName);
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Mods", fileName);
             }
             else if (comboBox1.SelectedIndex == 1)
             {
-                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Mods", fileName);
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Arcanes", fileName);
             }
             else if (comboBox1.SelectedIndex == 2)
             {
@@ -210,10 +210,12 @@ namespace Buildframe.Forms
             }
             else if (comboBox1.SelectedIndex == 3)
             {
-                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Misc", fileName);
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "FireModes", fileName);
             }
 
             LoadAndSave.saveStatToFile(filePath, stats);
+
+            Close();
         }
 
         private void FormStatWizard_Load(object sender, EventArgs e)
@@ -236,7 +238,7 @@ namespace Buildframe.Forms
                 {
                     string filePath = files[0];
                     GameData.Stats stats = LoadAndSave.loadStatFile(filePath);
-                    if (stats != null)
+                    if (stats.id != "")
                     {
                         loadStatsToForm(stats);
                     }

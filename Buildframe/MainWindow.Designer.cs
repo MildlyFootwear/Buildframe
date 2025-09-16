@@ -85,17 +85,17 @@
             labelWeaponName = new Label();
             comboBox1 = new ComboBox();
             tableLayoutPanel2 = new TableLayoutPanel();
-            comboBox10 = new ComboBox();
-            comboBox9 = new ComboBox();
-            comboBox8 = new ComboBox();
-            comboBox7 = new ComboBox();
-            comboBox6 = new ComboBox();
-            comboBox5 = new ComboBox();
-            comboBox4 = new ComboBox();
+            comboBoxMod8 = new ComboBox();
+            comboBoxMod7 = new ComboBox();
+            comboBoxMod6 = new ComboBox();
+            comboBoxMod5 = new ComboBox();
+            comboBoxMod4 = new ComboBox();
+            comboBoxMod3 = new ComboBox();
+            comboBoxMod2 = new ComboBox();
             label2 = new Label();
-            comboBox2 = new ComboBox();
+            comboBoxWeaponArcane = new ComboBox();
             label1 = new Label();
-            comboBox3 = new ComboBox();
+            comboBoxMod1 = new ComboBox();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -109,6 +109,7 @@
             toolStrip1.Size = new Size(1045, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
+            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
             // toolStripDropDownButton1
             // 
@@ -676,109 +677,106 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(comboBox10, 1, 6);
-            tableLayoutPanel2.Controls.Add(comboBox9, 0, 6);
-            tableLayoutPanel2.Controls.Add(comboBox8, 1, 5);
-            tableLayoutPanel2.Controls.Add(comboBox7, 0, 5);
-            tableLayoutPanel2.Controls.Add(comboBox6, 1, 4);
-            tableLayoutPanel2.Controls.Add(comboBox5, 0, 4);
-            tableLayoutPanel2.Controls.Add(comboBox4, 1, 3);
+            tableLayoutPanel2.Controls.Add(comboBoxMod8, 1, 6);
+            tableLayoutPanel2.Controls.Add(comboBoxMod7, 0, 6);
+            tableLayoutPanel2.Controls.Add(comboBoxMod6, 1, 5);
+            tableLayoutPanel2.Controls.Add(comboBoxMod5, 0, 5);
+            tableLayoutPanel2.Controls.Add(comboBoxMod4, 1, 4);
+            tableLayoutPanel2.Controls.Add(comboBoxMod3, 0, 4);
+            tableLayoutPanel2.Controls.Add(comboBoxMod2, 1, 3);
             tableLayoutPanel2.Controls.Add(label2, 0, 2);
-            tableLayoutPanel2.Controls.Add(comboBox2, 0, 1);
+            tableLayoutPanel2.Controls.Add(comboBoxWeaponArcane, 0, 1);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
-            tableLayoutPanel2.Controls.Add(comboBox3, 0, 3);
+            tableLayoutPanel2.Controls.Add(comboBoxMod1, 0, 3);
             tableLayoutPanel2.Location = new Point(320, 81);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 7;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Size = new Size(343, 188);
             tableLayoutPanel2.TabIndex = 3;
             // 
-            // comboBox10
+            // comboBoxMod8
             // 
-            comboBox10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox10.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox10.FormattingEnabled = true;
-            comboBox10.Location = new Point(172, 163);
-            comboBox10.Margin = new Padding(1);
-            comboBox10.Name = "comboBox10";
-            comboBox10.Size = new Size(170, 23);
-            comboBox10.TabIndex = 10;
+            comboBoxMod8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod8.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod8.FormattingEnabled = true;
+            comboBoxMod8.Location = new Point(172, 163);
+            comboBoxMod8.Margin = new Padding(1);
+            comboBoxMod8.Name = "comboBoxMod8";
+            comboBoxMod8.Size = new Size(170, 23);
+            comboBoxMod8.TabIndex = 10;
             // 
-            // comboBox9
+            // comboBoxMod7
             // 
-            comboBox9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox9.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new Point(1, 163);
-            comboBox9.Margin = new Padding(1);
-            comboBox9.Name = "comboBox9";
-            comboBox9.Size = new Size(169, 23);
-            comboBox9.TabIndex = 9;
+            comboBoxMod7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod7.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod7.FormattingEnabled = true;
+            comboBoxMod7.Location = new Point(1, 163);
+            comboBoxMod7.Margin = new Padding(1);
+            comboBoxMod7.Name = "comboBoxMod7";
+            comboBoxMod7.Size = new Size(169, 23);
+            comboBoxMod7.TabIndex = 9;
             // 
-            // comboBox8
+            // comboBoxMod6
             // 
-            comboBox8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox8.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new Point(172, 138);
-            comboBox8.Margin = new Padding(1);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new Size(170, 23);
-            comboBox8.TabIndex = 8;
+            comboBoxMod6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod6.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod6.FormattingEnabled = true;
+            comboBoxMod6.Location = new Point(172, 138);
+            comboBoxMod6.Margin = new Padding(1);
+            comboBoxMod6.Name = "comboBoxMod6";
+            comboBoxMod6.Size = new Size(170, 23);
+            comboBoxMod6.TabIndex = 8;
             // 
-            // comboBox7
+            // comboBoxMod5
             // 
-            comboBox7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox7.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox7.FormattingEnabled = true;
-            comboBox7.Location = new Point(1, 138);
-            comboBox7.Margin = new Padding(1);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new Size(169, 23);
-            comboBox7.TabIndex = 7;
+            comboBoxMod5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod5.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod5.FormattingEnabled = true;
+            comboBoxMod5.Location = new Point(1, 138);
+            comboBoxMod5.Margin = new Padding(1);
+            comboBoxMod5.Name = "comboBoxMod5";
+            comboBoxMod5.Size = new Size(169, 23);
+            comboBoxMod5.TabIndex = 7;
             // 
-            // comboBox6
+            // comboBoxMod4
             // 
-            comboBox6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(172, 113);
-            comboBox6.Margin = new Padding(1);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(170, 23);
-            comboBox6.TabIndex = 6;
+            comboBoxMod4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod4.FormattingEnabled = true;
+            comboBoxMod4.Location = new Point(172, 113);
+            comboBoxMod4.Margin = new Padding(1);
+            comboBoxMod4.Name = "comboBoxMod4";
+            comboBoxMod4.Size = new Size(170, 23);
+            comboBoxMod4.TabIndex = 6;
             // 
-            // comboBox5
+            // comboBoxMod3
             // 
-            comboBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(1, 113);
-            comboBox5.Margin = new Padding(1);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(169, 23);
-            comboBox5.TabIndex = 5;
+            comboBoxMod3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod3.FormattingEnabled = true;
+            comboBoxMod3.Location = new Point(1, 113);
+            comboBoxMod3.Margin = new Padding(1);
+            comboBoxMod3.Name = "comboBoxMod3";
+            comboBoxMod3.Size = new Size(169, 23);
+            comboBoxMod3.TabIndex = 5;
             // 
-            // comboBox4
+            // comboBoxMod2
             // 
-            comboBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(172, 88);
-            comboBox4.Margin = new Padding(1);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(170, 23);
-            comboBox4.TabIndex = 4;
+            comboBoxMod2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod2.FormattingEnabled = true;
+            comboBoxMod2.Location = new Point(172, 88);
+            comboBoxMod2.Margin = new Padding(1);
+            comboBoxMod2.Name = "comboBoxMod2";
+            comboBoxMod2.Size = new Size(170, 23);
+            comboBoxMod2.TabIndex = 4;
             // 
             // label2
             // 
@@ -792,16 +790,16 @@
             label2.Text = "Weapon Mods";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // comboBox2
+            // comboBoxWeaponArcane
             // 
-            comboBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel2.SetColumnSpan(comboBox2, 2);
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(3, 32);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(337, 23);
-            comboBox2.TabIndex = 1;
+            comboBoxWeaponArcane.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel2.SetColumnSpan(comboBoxWeaponArcane, 2);
+            comboBoxWeaponArcane.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxWeaponArcane.FormattingEnabled = true;
+            comboBoxWeaponArcane.Location = new Point(3, 32);
+            comboBoxWeaponArcane.Name = "comboBoxWeaponArcane";
+            comboBoxWeaponArcane.Size = new Size(337, 23);
+            comboBoxWeaponArcane.TabIndex = 1;
             // 
             // label1
             // 
@@ -815,16 +813,16 @@
             label1.Text = "Weapon Arcane";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // comboBox3
+            // comboBoxMod1
             // 
-            comboBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(1, 88);
-            comboBox3.Margin = new Padding(1);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(169, 23);
-            comboBox3.TabIndex = 3;
+            comboBoxMod1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMod1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMod1.FormattingEnabled = true;
+            comboBoxMod1.Location = new Point(1, 88);
+            comboBoxMod1.Margin = new Padding(1);
+            comboBoxMod1.Name = "comboBoxMod1";
+            comboBoxMod1.Size = new Size(169, 23);
+            comboBoxMod1.TabIndex = 3;
             // 
             // MainWindow
             // 
@@ -912,15 +910,15 @@
         private Label labelDamageValue;
         private TableLayoutPanel tableLayoutPanel2;
         private Label label1;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxWeaponArcane;
         private Label label2;
-        private ComboBox comboBox10;
-        private ComboBox comboBox9;
-        private ComboBox comboBox8;
-        private ComboBox comboBox7;
-        private ComboBox comboBox6;
-        private ComboBox comboBox5;
-        private ComboBox comboBox4;
-        private ComboBox comboBox3;
+        private ComboBox comboBoxMod8;
+        private ComboBox comboBoxMod7;
+        private ComboBox comboBoxMod6;
+        private ComboBox comboBoxMod5;
+        private ComboBox comboBoxMod4;
+        private ComboBox comboBoxMod3;
+        private ComboBox comboBoxMod2;
+        private ComboBox comboBoxMod1;
     }
 }

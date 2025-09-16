@@ -34,6 +34,16 @@ namespace Buildframe
 
         }
 
+        public void loadArcanesToSelectionBox()
+        {
+            comboBoxWeaponArcane.Items.Clear(); 
+            comboBoxWeaponArcane.Items.Add("None");
+            foreach (Stats stat in CommonVars.arcaneStats.Values)
+            {
+                comboBoxWeaponArcane.Items.Add(stat.name);
+            }
+        }
+
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Text = Settings.Default.ToolName + " " + Settings.Default.Version;
@@ -41,6 +51,7 @@ namespace Buildframe
                 this.Location = Settings.Default.SavedPosition; WriteLineIfDebug("    Set position to " + this.Location);
             if (Settings.Default.SavedSize != new Size(1, 1))
                 this.Size = Settings.Default.SavedSize; WriteLineIfDebug("    Set size to " + this.Size);
+            loadArcanesToSelectionBox();
         }
 
         private void loadWeaponToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,6 +73,11 @@ namespace Buildframe
         }
 
         private void labelFireRate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
