@@ -711,6 +711,7 @@
             comboBoxMod8.Name = "comboBoxMod8";
             comboBoxMod8.Size = new Size(170, 23);
             comboBoxMod8.TabIndex = 10;
+            comboBoxMod8.SelectedIndexChanged += comboBoxMod8_SelectedIndexChanged;
             // 
             // comboBoxMod7
             // 
@@ -722,6 +723,7 @@
             comboBoxMod7.Name = "comboBoxMod7";
             comboBoxMod7.Size = new Size(169, 23);
             comboBoxMod7.TabIndex = 9;
+            comboBoxMod7.SelectedIndexChanged += comboBoxMod7_SelectedIndexChanged;
             // 
             // comboBoxMod6
             // 
@@ -733,6 +735,7 @@
             comboBoxMod6.Name = "comboBoxMod6";
             comboBoxMod6.Size = new Size(170, 23);
             comboBoxMod6.TabIndex = 8;
+            comboBoxMod6.SelectedIndexChanged += comboBoxMod6_SelectedIndexChanged;
             // 
             // comboBoxMod5
             // 
@@ -744,6 +747,7 @@
             comboBoxMod5.Name = "comboBoxMod5";
             comboBoxMod5.Size = new Size(169, 23);
             comboBoxMod5.TabIndex = 7;
+            comboBoxMod5.SelectedIndexChanged += comboBoxMod5_SelectedIndexChanged;
             // 
             // comboBoxMod4
             // 
@@ -755,6 +759,7 @@
             comboBoxMod4.Name = "comboBoxMod4";
             comboBoxMod4.Size = new Size(170, 23);
             comboBoxMod4.TabIndex = 6;
+            comboBoxMod4.SelectedIndexChanged += comboBoxMod4_SelectedIndexChanged;
             // 
             // comboBoxMod3
             // 
@@ -766,6 +771,7 @@
             comboBoxMod3.Name = "comboBoxMod3";
             comboBoxMod3.Size = new Size(169, 23);
             comboBoxMod3.TabIndex = 5;
+            comboBoxMod3.SelectedIndexChanged += comboBoxMod3_SelectedIndexChanged;
             // 
             // comboBoxMod2
             // 
@@ -777,6 +783,7 @@
             comboBoxMod2.Name = "comboBoxMod2";
             comboBoxMod2.Size = new Size(170, 23);
             comboBoxMod2.TabIndex = 4;
+            comboBoxMod2.SelectedIndexChanged += comboBoxMod2_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -801,6 +808,7 @@
             comboBoxWeaponArcane.Name = "comboBoxWeaponArcane";
             comboBoxWeaponArcane.Size = new Size(337, 23);
             comboBoxWeaponArcane.TabIndex = 1;
+            comboBoxWeaponArcane.SelectedIndexChanged += comboBoxWeaponArcane_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -824,6 +832,7 @@
             comboBoxMod1.Name = "comboBoxMod1";
             comboBoxMod1.Size = new Size(169, 23);
             comboBoxMod1.TabIndex = 3;
+            comboBoxMod1.SelectedIndexChanged += comboBoxMod1_SelectedIndexChanged;
             // 
             // MainWindow
             // 

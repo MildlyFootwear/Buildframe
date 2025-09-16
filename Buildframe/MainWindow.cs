@@ -13,10 +13,11 @@ namespace Buildframe
         public Weapon baseWeapon = new Weapon();
         public Weapon currentWeapon = new Weapon();
         public List<Stats> selectedStats = new List<Stats>();
-        public List<Stats> fireModesWithAppliedStats = new(); 
-        public List<string> validModIDs = new(); 
-        public List<string> validArcaneIDs = new(); 
+        public List<Stats> fireModesWithAppliedStats = new();
+        public List<string> validModIDs = new();
+        public List<string> validArcaneIDs = new();
         public List<string> validMiscIDs = new();
+        public List<ComboBox> modBoxes = new List<ComboBox>();
         public string[] tags;
 
         public void loadWeapon(Weapon weapon)
@@ -36,12 +37,30 @@ namespace Buildframe
 
         public void updateWeaponStats()
         {
-
+            selectedStats.Clear();
+            foreach (ComboBox box in modBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    int idIndex = box.SelectedIndex - 1;
+                    string statID = validModIDs[idIndex];
+                    selectedStats.Add(modStats[statID]);
+                    WriteLineIfDebug("    Selected stats added mod: " + modStats[statID].name);
+                }
+            }
+            if (comboBoxWeaponArcane.SelectedIndex > 0)
+            {
+                int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
+                string statID = validArcaneIDs[idIndex];
+                selectedStats.Add(arcaneStats[statID]);
+                WriteLineIfDebug("    Selected stats added arcane: " + arcaneStats[statID].name);
+            }
         }
 
         public bool hasTag(Stats stat)
         {
-            if (stat.tags.Contains("Any")) {
+            if (stat.tags.Contains("Any"))
+            {
                 return true;
             }
             foreach (string tag in tags)
@@ -52,7 +71,7 @@ namespace Buildframe
                 }
             }
             return false;
-        }   
+        }
 
         public void loadValidIDs()
         {
@@ -78,7 +97,7 @@ namespace Buildframe
 
         public void loadArcanesToSelectionBox()
         {
-            comboBoxWeaponArcane.Items.Clear(); 
+            comboBoxWeaponArcane.Items.Clear();
             comboBoxWeaponArcane.Items.Add("None");
             foreach (string id in validArcaneIDs)
             {
@@ -139,6 +158,14 @@ namespace Buildframe
             comboBoxMod7.SelectedIndex = 0;
             comboBoxMod8.SelectedIndex = 0;
             comboBoxWeaponArcane.SelectedIndex = 0;
+            modBoxes.Add(comboBoxMod1);
+            modBoxes.Add(comboBoxMod2);
+            modBoxes.Add(comboBoxMod3);
+            modBoxes.Add(comboBoxMod4);
+            modBoxes.Add(comboBoxMod5);
+            modBoxes.Add(comboBoxMod6);
+            modBoxes.Add(comboBoxMod7);
+            modBoxes.Add(comboBoxMod8);
 
         }
 
@@ -168,6 +195,51 @@ namespace Buildframe
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void comboBoxMod1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxMod2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxMod3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxMod4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxMod5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxMod6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxMod7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxMod8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
+        }
+
+        private void comboBoxWeaponArcane_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateWeaponStats();
         }
     }
 }
