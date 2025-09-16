@@ -1,4 +1,5 @@
 using Buildframe.GameData;
+using static System.Windows.Forms.AxHost;
 
 namespace Buildframe
 {
@@ -12,11 +13,15 @@ namespace Buildframe
         public Weapon baseWeapon = new Weapon();
         public Weapon currentWeapon = new Weapon();
         public List<Stats> selectedStats = new List<Stats>();
-        public List<Stats> fireModesWithAppliedStats = new();
+        public List<Stats> fireModesWithAppliedStats = new(); 
+        public List<string> validModIDs = new(); 
+        public List<string> validArcaneIDs = new(); 
+        public List<string> validMiscIDs = new();
+        public string[] tags;
 
         public void loadWeapon(Weapon weapon)
         {
-
+            tags = weapon.tags.Split(' ');
             foreach (Stats stat in weapon.fireModes)
             {
                 List<Stats> stats = new List<Stats>();
@@ -34,14 +39,85 @@ namespace Buildframe
 
         }
 
+        public bool hasTag(Stats stat)
+        {
+            if (stat.tags.Contains("Any")) {
+                return true;
+            }
+            foreach (string tag in tags)
+            {
+                if (stat.tags.Contains(tag))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }   
+
+        public void loadValidIDs()
+        {
+            validModIDs.Clear();
+            validArcaneIDs.Clear();
+            validMiscIDs.Clear();
+            foreach (Stats stat in CommonVars.modStats.Values)
+            {
+                if (hasTag(stat))
+                    validModIDs.Add(stat.id);
+            }
+            foreach (Stats stat in CommonVars.arcaneStats.Values)
+            {
+                if (hasTag(stat))
+                    validArcaneIDs.Add(stat.id);
+            }
+            foreach (Stats stat in CommonVars.miscStats.Values)
+            {
+                if (hasTag(stat))
+                    validMiscIDs.Add(stat.id);
+            }
+        }
+
         public void loadArcanesToSelectionBox()
         {
             comboBoxWeaponArcane.Items.Clear(); 
             comboBoxWeaponArcane.Items.Add("None");
-            foreach (Stats stat in CommonVars.arcaneStats.Values)
+            foreach (string id in validArcaneIDs)
             {
-                comboBoxWeaponArcane.Items.Add(stat.name);
+                comboBoxWeaponArcane.Items.Add(arcaneStats[id].name);
             }
+        }
+
+        public void loadModsToSelectionBox()
+        {
+            comboBoxMod1.Items.Clear();
+            comboBoxMod2.Items.Clear();
+            comboBoxMod3.Items.Clear();
+            comboBoxMod4.Items.Clear();
+            comboBoxMod5.Items.Clear();
+            comboBoxMod6.Items.Clear();
+            comboBoxMod7.Items.Clear();
+            comboBoxMod8.Items.Clear();
+
+            comboBoxMod1.Items.Add("None");
+            comboBoxMod2.Items.Add("None");
+            comboBoxMod3.Items.Add("None");
+            comboBoxMod4.Items.Add("None");
+            comboBoxMod5.Items.Add("None");
+            comboBoxMod6.Items.Add("None");
+            comboBoxMod7.Items.Add("None");
+            comboBoxMod8.Items.Add("None");
+
+            foreach (string id in validModIDs)
+            {
+                comboBoxMod1.Items.Add(modStats[id].name);
+                comboBoxMod2.Items.Add(modStats[id].name);
+                comboBoxMod3.Items.Add(modStats[id].name);
+                comboBoxMod4.Items.Add(modStats[id].name);
+                comboBoxMod5.Items.Add(modStats[id].name);
+                comboBoxMod6.Items.Add(modStats[id].name);
+                comboBoxMod7.Items.Add(modStats[id].name);
+                comboBoxMod8.Items.Add(modStats[id].name);
+            }
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -51,7 +127,19 @@ namespace Buildframe
                 this.Location = Settings.Default.SavedPosition; WriteLineIfDebug("    Set position to " + this.Location);
             if (Settings.Default.SavedSize != new Size(1, 1))
                 this.Size = Settings.Default.SavedSize; WriteLineIfDebug("    Set size to " + this.Size);
+            loadValidIDs();
             loadArcanesToSelectionBox();
+            loadModsToSelectionBox();
+            comboBoxMod1.SelectedIndex = 0;
+            comboBoxMod2.SelectedIndex = 0;
+            comboBoxMod3.SelectedIndex = 0;
+            comboBoxMod4.SelectedIndex = 0;
+            comboBoxMod5.SelectedIndex = 0;
+            comboBoxMod6.SelectedIndex = 0;
+            comboBoxMod7.SelectedIndex = 0;
+            comboBoxMod8.SelectedIndex = 0;
+            comboBoxWeaponArcane.SelectedIndex = 0;
+
         }
 
         private void loadWeaponToolStripMenuItem_Click(object sender, EventArgs e)

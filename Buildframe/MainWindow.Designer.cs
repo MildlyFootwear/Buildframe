@@ -796,6 +796,7 @@
             tableLayoutPanel2.SetColumnSpan(comboBoxWeaponArcane, 2);
             comboBoxWeaponArcane.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxWeaponArcane.FormattingEnabled = true;
+            comboBoxWeaponArcane.Items.AddRange(new object[] { "None" });
             comboBoxWeaponArcane.Location = new Point(3, 32);
             comboBoxWeaponArcane.Name = "comboBoxWeaponArcane";
             comboBoxWeaponArcane.Size = new Size(337, 23);

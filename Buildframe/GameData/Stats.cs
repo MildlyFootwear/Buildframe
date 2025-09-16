@@ -44,7 +44,7 @@ namespace Buildframe.GameData
         public double baseMagnetic = 0;
         public double baseGas = 0;
 
-        public double baseMultishot = 1;
+        public double baseMultishot = 0;
 
         public double baseCriticalChance = 0;
         public double baseCriticalDamage = 0;

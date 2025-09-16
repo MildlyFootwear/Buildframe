@@ -78,9 +78,10 @@
             // 
             // textBoxName
             // 
+            textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxName.Location = new Point(50, 85);
             textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(289, 23);
+            textBoxName.Size = new Size(318, 23);
             textBoxName.TabIndex = 18;
             // 
             // label26
@@ -107,16 +108,18 @@
             // 
             // textBoxID
             // 
+            textBoxID.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxID.Location = new Point(50, 55);
             textBoxID.Name = "textBoxID";
-            textBoxID.Size = new Size(289, 23);
+            textBoxID.Size = new Size(318, 23);
             textBoxID.TabIndex = 0;
             // 
             // textBoxTags
             // 
+            textBoxTags.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTags.Location = new Point(50, 115);
             textBoxTags.Name = "textBoxTags";
-            textBoxTags.Size = new Size(289, 23);
+            textBoxTags.Size = new Size(318, 23);
             textBoxTags.TabIndex = 21;
             textBoxTags.Text = "Any";
             // 
