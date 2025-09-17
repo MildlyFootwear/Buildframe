@@ -235,6 +235,7 @@ namespace Buildframe.Methods
             s += "\nbaseReloadTime=" + Convert.ToString(stats.baseReloadTime);
             s += "\nbaseAmmoEfficiency=" + Convert.ToString(stats.baseAmmoEfficiency);
             s += "\nbaseChargeTime=" + Convert.ToString(stats.baseChargeTime);
+            s += "\nbaseMagazine=" + Convert.ToString(stats.baseMagazine);
 
             s += "\nbaseSlash=" + Convert.ToString(stats.baseSlash);
             s += "\nbaseImpact=" + Convert.ToString(stats.baseImpact);
@@ -271,6 +272,8 @@ namespace Buildframe.Methods
             s += "\nmodReloadTime=" + Convert.ToString(stats.modReloadTime);
             s += "\nmodAmmoEfficiency=" + Convert.ToString(stats.modAmmoEfficiency);
             s += "\nmodChargeTime=" + Convert.ToString(stats.modChargeTime);
+            s += "\nmodMagazine=" + Convert.ToString(stats.modMagazine);
+
 
             s += "\nmodSlash=" + Convert.ToString(stats.modSlash);
             s += "\nmodImpact=" + Convert.ToString(stats.modImpact);
@@ -306,6 +309,7 @@ namespace Buildframe.Methods
             s += "\nfinalReloadTime=" + Convert.ToString(stats.finalReloadTime);
             s += "\nfinalAmmoEfficiency=" + Convert.ToString(stats.finalAmmoEfficiency);
             s += "\nfinalChargeTime=" + Convert.ToString(stats.finalChargeTime);
+            s += "\nfinalMagazine=" + Convert.ToString(stats.finalMagazine);
 
             s += "\nfinalSlash=" + Convert.ToString(stats.finalSlash);
             s += "\nfinalImpact=" + Convert.ToString(stats.finalImpact);

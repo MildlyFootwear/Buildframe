@@ -35,9 +35,6 @@
             loadWeaponToolStripMenuItem = new ToolStripMenuItem();
             toolstripButtonEffectWizard = new ToolStripButton();
             tableLayoutPanel1 = new TableLayoutPanel();
-            labelDamageValue = new Label();
-            label35 = new Label();
-            label34 = new Label();
             labelSummedDPSSustainedValue = new Label();
             labelSummedDPSBurstValue = new Label();
             labelRadialDPSSustainedValue = new Label();
@@ -49,8 +46,6 @@
             labelRadialCriticalChanceValue = new Label();
             labelDPSSustainedValue = new Label();
             labelDPSBurstValue = new Label();
-            labelStatusMultishotValue = new Label();
-            labelStatusProjectileValue = new Label();
             labelAverageCriticalValue = new Label();
             labelCriticalDamageValue = new Label();
             labelCriticalChanceValue = new Label();
@@ -58,7 +53,6 @@
             labelMagazineValue = new Label();
             labelMultishotValue = new Label();
             labelFireRateValue = new Label();
-            label22 = new Label();
             label21 = new Label();
             label20 = new Label();
             label19 = new Label();
@@ -77,11 +71,14 @@
             labelFireRate = new Label();
             labelDPSSustained = new Label();
             labelDPSBurst = new Label();
-            labelStatus = new Label();
-            labelStatusProjectile = new Label();
             labelAmmoEfficiency = new Label();
             labelAmmoEfficiencyValue = new Label();
+            labelStatusProjectile = new Label();
+            labelStatus = new Label();
+            labelStatusProjectileValue = new Label();
+            labelStatusMultishotValue = new Label();
             labelDamage = new Label();
+            labelDamageValue = new Label();
             labelWeaponName = new Label();
             comboBox1 = new ComboBox();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -109,7 +106,6 @@
             toolStrip1.Size = new Size(1045, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
-            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
             // toolStripDropDownButton1
             // 
@@ -128,6 +124,7 @@
             addWeaponToolStripMenuItem.Name = "addWeaponToolStripMenuItem";
             addWeaponToolStripMenuItem.Size = new Size(147, 22);
             addWeaponToolStripMenuItem.Text = "Add Weapon";
+            addWeaponToolStripMenuItem.Click += addWeaponToolStripMenuItem_Click;
             // 
             // loadWeaponToolStripMenuItem
             // 
@@ -152,9 +149,6 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 58.13149F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 41.86851F));
-            tableLayoutPanel1.Controls.Add(labelDamageValue, 1, 12);
-            tableLayoutPanel1.Controls.Add(label35, 1, 23);
-            tableLayoutPanel1.Controls.Add(label34, 1, 22);
             tableLayoutPanel1.Controls.Add(labelSummedDPSSustainedValue, 1, 21);
             tableLayoutPanel1.Controls.Add(labelSummedDPSBurstValue, 1, 20);
             tableLayoutPanel1.Controls.Add(labelRadialDPSSustainedValue, 1, 19);
@@ -164,18 +158,15 @@
             tableLayoutPanel1.Controls.Add(labelRadialAverageCritMultValue, 1, 15);
             tableLayoutPanel1.Controls.Add(labelRadialCriticalMultiplierValue, 1, 14);
             tableLayoutPanel1.Controls.Add(labelRadialCriticalChanceValue, 1, 13);
-            tableLayoutPanel1.Controls.Add(labelDPSSustainedValue, 1, 11);
-            tableLayoutPanel1.Controls.Add(labelDPSBurstValue, 1, 10);
-            tableLayoutPanel1.Controls.Add(labelStatusMultishotValue, 1, 9);
-            tableLayoutPanel1.Controls.Add(labelStatusProjectileValue, 1, 8);
-            tableLayoutPanel1.Controls.Add(labelAverageCriticalValue, 1, 7);
-            tableLayoutPanel1.Controls.Add(labelCriticalDamageValue, 1, 6);
-            tableLayoutPanel1.Controls.Add(labelCriticalChanceValue, 1, 5);
+            tableLayoutPanel1.Controls.Add(labelDPSSustainedValue, 1, 12);
+            tableLayoutPanel1.Controls.Add(labelDPSBurstValue, 1, 11);
+            tableLayoutPanel1.Controls.Add(labelAverageCriticalValue, 1, 9);
+            tableLayoutPanel1.Controls.Add(labelCriticalDamageValue, 1, 8);
+            tableLayoutPanel1.Controls.Add(labelCriticalChanceValue, 1, 7);
             tableLayoutPanel1.Controls.Add(labelReloadValue, 1, 4);
             tableLayoutPanel1.Controls.Add(labelMagazineValue, 1, 2);
             tableLayoutPanel1.Controls.Add(labelMultishotValue, 1, 1);
             tableLayoutPanel1.Controls.Add(labelFireRateValue, 1, 0);
-            tableLayoutPanel1.Controls.Add(label22, 0, 22);
             tableLayoutPanel1.Controls.Add(label21, 0, 21);
             tableLayoutPanel1.Controls.Add(label20, 0, 20);
             tableLayoutPanel1.Controls.Add(label19, 0, 19);
@@ -185,20 +176,23 @@
             tableLayoutPanel1.Controls.Add(label15, 0, 15);
             tableLayoutPanel1.Controls.Add(label14, 0, 14);
             tableLayoutPanel1.Controls.Add(label13, 0, 13);
-            tableLayoutPanel1.Controls.Add(labelAverageCritical, 0, 7);
-            tableLayoutPanel1.Controls.Add(labelCriticalDamage, 0, 6);
-            tableLayoutPanel1.Controls.Add(labelCriticalChance, 0, 5);
+            tableLayoutPanel1.Controls.Add(labelAverageCritical, 0, 9);
+            tableLayoutPanel1.Controls.Add(labelCriticalDamage, 0, 8);
+            tableLayoutPanel1.Controls.Add(labelCriticalChance, 0, 7);
             tableLayoutPanel1.Controls.Add(labelReload, 0, 4);
             tableLayoutPanel1.Controls.Add(labelMagazine, 0, 2);
             tableLayoutPanel1.Controls.Add(labelMultishot, 0, 1);
             tableLayoutPanel1.Controls.Add(labelFireRate, 0, 0);
-            tableLayoutPanel1.Controls.Add(labelDPSSustained, 0, 11);
-            tableLayoutPanel1.Controls.Add(labelDPSBurst, 0, 10);
-            tableLayoutPanel1.Controls.Add(labelStatus, 0, 9);
-            tableLayoutPanel1.Controls.Add(labelStatusProjectile, 0, 8);
+            tableLayoutPanel1.Controls.Add(labelDPSSustained, 0, 12);
+            tableLayoutPanel1.Controls.Add(labelDPSBurst, 0, 11);
             tableLayoutPanel1.Controls.Add(labelAmmoEfficiency, 0, 3);
             tableLayoutPanel1.Controls.Add(labelAmmoEfficiencyValue, 1, 3);
-            tableLayoutPanel1.Controls.Add(labelDamage, 0, 12);
+            tableLayoutPanel1.Controls.Add(labelStatusProjectile, 0, 5);
+            tableLayoutPanel1.Controls.Add(labelStatus, 0, 6);
+            tableLayoutPanel1.Controls.Add(labelStatusProjectileValue, 1, 5);
+            tableLayoutPanel1.Controls.Add(labelStatusMultishotValue, 1, 6);
+            tableLayoutPanel1.Controls.Add(labelDamage, 0, 10);
+            tableLayoutPanel1.Controls.Add(labelDamageValue, 1, 10);
             tableLayoutPanel1.Location = new Point(12, 80);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 24;
@@ -226,35 +220,10 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(290, 528);
             tableLayoutPanel1.TabIndex = 1;
-            // 
-            // labelDamageValue
-            // 
-            labelDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelDamageValue.AutoSize = true;
-            labelDamageValue.Location = new Point(171, 253);
-            labelDamageValue.Name = "labelDamageValue";
-            labelDamageValue.Size = new Size(115, 20);
-            labelDamageValue.TabIndex = 48;
-            // 
-            // label35
-            // 
-            label35.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label35.AutoSize = true;
-            label35.Location = new Point(171, 484);
-            label35.Name = "label35";
-            label35.Size = new Size(115, 43);
-            label35.TabIndex = 47;
-            // 
-            // label34
-            // 
-            label34.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label34.AutoSize = true;
-            label34.Location = new Point(171, 463);
-            label34.Name = "label34";
-            label34.Size = new Size(115, 20);
-            label34.TabIndex = 46;
             // 
             // labelSummedDPSSustainedValue
             // 
@@ -341,7 +310,7 @@
             // 
             labelDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDPSSustainedValue.AutoSize = true;
-            labelDPSSustainedValue.Location = new Point(171, 232);
+            labelDPSSustainedValue.Location = new Point(171, 253);
             labelDPSSustainedValue.Name = "labelDPSSustainedValue";
             labelDPSSustainedValue.Size = new Size(115, 20);
             labelDPSSustainedValue.TabIndex = 35;
@@ -350,34 +319,16 @@
             // 
             labelDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDPSBurstValue.AutoSize = true;
-            labelDPSBurstValue.Location = new Point(171, 211);
+            labelDPSBurstValue.Location = new Point(171, 232);
             labelDPSBurstValue.Name = "labelDPSBurstValue";
             labelDPSBurstValue.Size = new Size(115, 20);
             labelDPSBurstValue.TabIndex = 34;
-            // 
-            // labelStatusMultishotValue
-            // 
-            labelStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelStatusMultishotValue.AutoSize = true;
-            labelStatusMultishotValue.Location = new Point(171, 190);
-            labelStatusMultishotValue.Name = "labelStatusMultishotValue";
-            labelStatusMultishotValue.Size = new Size(115, 20);
-            labelStatusMultishotValue.TabIndex = 33;
-            // 
-            // labelStatusProjectileValue
-            // 
-            labelStatusProjectileValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelStatusProjectileValue.AutoSize = true;
-            labelStatusProjectileValue.Location = new Point(171, 169);
-            labelStatusProjectileValue.Name = "labelStatusProjectileValue";
-            labelStatusProjectileValue.Size = new Size(115, 20);
-            labelStatusProjectileValue.TabIndex = 32;
             // 
             // labelAverageCriticalValue
             // 
             labelAverageCriticalValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelAverageCriticalValue.AutoSize = true;
-            labelAverageCriticalValue.Location = new Point(171, 148);
+            labelAverageCriticalValue.Location = new Point(171, 190);
             labelAverageCriticalValue.Name = "labelAverageCriticalValue";
             labelAverageCriticalValue.Size = new Size(115, 20);
             labelAverageCriticalValue.TabIndex = 31;
@@ -386,7 +337,7 @@
             // 
             labelCriticalDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelCriticalDamageValue.AutoSize = true;
-            labelCriticalDamageValue.Location = new Point(171, 127);
+            labelCriticalDamageValue.Location = new Point(171, 169);
             labelCriticalDamageValue.Name = "labelCriticalDamageValue";
             labelCriticalDamageValue.Size = new Size(115, 20);
             labelCriticalDamageValue.TabIndex = 30;
@@ -395,7 +346,7 @@
             // 
             labelCriticalChanceValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelCriticalChanceValue.AutoSize = true;
-            labelCriticalChanceValue.Location = new Point(171, 106);
+            labelCriticalChanceValue.Location = new Point(171, 148);
             labelCriticalChanceValue.Name = "labelCriticalChanceValue";
             labelCriticalChanceValue.Size = new Size(115, 20);
             labelCriticalChanceValue.TabIndex = 29;
@@ -435,15 +386,6 @@
             labelFireRateValue.Name = "labelFireRateValue";
             labelFireRateValue.Size = new Size(115, 20);
             labelFireRateValue.TabIndex = 25;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(4, 463);
-            label22.Name = "label22";
-            label22.Size = new Size(52, 15);
-            label22.TabIndex = 23;
-            label22.Text = "Fire Rate";
             // 
             // label21
             // 
@@ -529,7 +471,7 @@
             // labelAverageCritical
             // 
             labelAverageCritical.AutoSize = true;
-            labelAverageCritical.Location = new Point(4, 148);
+            labelAverageCritical.Location = new Point(4, 190);
             labelAverageCritical.Name = "labelAverageCritical";
             labelAverageCritical.Size = new Size(144, 15);
             labelAverageCritical.TabIndex = 8;
@@ -538,7 +480,7 @@
             // labelCriticalDamage
             // 
             labelCriticalDamage.AutoSize = true;
-            labelCriticalDamage.Location = new Point(4, 127);
+            labelCriticalDamage.Location = new Point(4, 169);
             labelCriticalDamage.Name = "labelCriticalDamage";
             labelCriticalDamage.Size = new Size(91, 15);
             labelCriticalDamage.TabIndex = 7;
@@ -547,7 +489,7 @@
             // labelCriticalChance
             // 
             labelCriticalChance.AutoSize = true;
-            labelCriticalChance.Location = new Point(4, 106);
+            labelCriticalChance.Location = new Point(4, 148);
             labelCriticalChance.Name = "labelCriticalChance";
             labelCriticalChance.Size = new Size(87, 15);
             labelCriticalChance.TabIndex = 6;
@@ -588,12 +530,11 @@
             labelFireRate.Size = new Size(52, 15);
             labelFireRate.TabIndex = 1;
             labelFireRate.Text = "Fire Rate";
-            labelFireRate.Click += labelFireRate_Click;
             // 
             // labelDPSSustained
             // 
             labelDPSSustained.AutoSize = true;
-            labelDPSSustained.Location = new Point(4, 232);
+            labelDPSSustained.Location = new Point(4, 253);
             labelDPSSustained.Name = "labelDPSSustained";
             labelDPSSustained.Size = new Size(90, 15);
             labelDPSSustained.TabIndex = 11;
@@ -602,29 +543,11 @@
             // labelDPSBurst
             // 
             labelDPSBurst.AutoSize = true;
-            labelDPSBurst.Location = new Point(4, 211);
+            labelDPSBurst.Location = new Point(4, 232);
             labelDPSBurst.Name = "labelDPSBurst";
             labelDPSBurst.Size = new Size(66, 15);
             labelDPSBurst.TabIndex = 10;
             labelDPSBurst.Text = "DPS (Burst)";
-            // 
-            // labelStatus
-            // 
-            labelStatus.AutoSize = true;
-            labelStatus.Location = new Point(4, 190);
-            labelStatus.Name = "labelStatus";
-            labelStatus.Size = new Size(101, 15);
-            labelStatus.TabIndex = 9;
-            labelStatus.Text = "Status (Multishot)";
-            // 
-            // labelStatusProjectile
-            // 
-            labelStatusProjectile.AutoSize = true;
-            labelStatusProjectile.Location = new Point(4, 169);
-            labelStatusProjectile.Name = "labelStatusProjectile";
-            labelStatusProjectile.Size = new Size(39, 15);
-            labelStatusProjectile.TabIndex = 12;
-            labelStatusProjectile.Text = "Status";
             // 
             // labelAmmoEfficiency
             // 
@@ -644,14 +567,59 @@
             labelAmmoEfficiencyValue.Size = new Size(115, 20);
             labelAmmoEfficiencyValue.TabIndex = 36;
             // 
+            // labelStatusProjectile
+            // 
+            labelStatusProjectile.AutoSize = true;
+            labelStatusProjectile.Location = new Point(4, 106);
+            labelStatusProjectile.Name = "labelStatusProjectile";
+            labelStatusProjectile.Size = new Size(39, 15);
+            labelStatusProjectile.TabIndex = 12;
+            labelStatusProjectile.Text = "Status";
+            // 
+            // labelStatus
+            // 
+            labelStatus.AutoSize = true;
+            labelStatus.Location = new Point(4, 127);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new Size(101, 15);
+            labelStatus.TabIndex = 9;
+            labelStatus.Text = "Status (Multishot)";
+            // 
+            // labelStatusProjectileValue
+            // 
+            labelStatusProjectileValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelStatusProjectileValue.AutoSize = true;
+            labelStatusProjectileValue.Location = new Point(171, 106);
+            labelStatusProjectileValue.Name = "labelStatusProjectileValue";
+            labelStatusProjectileValue.Size = new Size(115, 20);
+            labelStatusProjectileValue.TabIndex = 32;
+            // 
+            // labelStatusMultishotValue
+            // 
+            labelStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelStatusMultishotValue.AutoSize = true;
+            labelStatusMultishotValue.Location = new Point(171, 127);
+            labelStatusMultishotValue.Name = "labelStatusMultishotValue";
+            labelStatusMultishotValue.Size = new Size(115, 20);
+            labelStatusMultishotValue.TabIndex = 33;
+            // 
             // labelDamage
             // 
             labelDamage.AutoSize = true;
-            labelDamage.Location = new Point(4, 253);
+            labelDamage.Location = new Point(4, 211);
             labelDamage.Name = "labelDamage";
             labelDamage.Size = new Size(51, 15);
             labelDamage.TabIndex = 24;
             labelDamage.Text = "Damage";
+            // 
+            // labelDamageValue
+            // 
+            labelDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelDamageValue.AutoSize = true;
+            labelDamageValue.Location = new Point(171, 211);
+            labelDamageValue.Name = "labelDamageValue";
+            labelDamageValue.Size = new Size(115, 20);
+            labelDamageValue.TabIndex = 48;
             // 
             // labelWeaponName
             // 
@@ -872,7 +840,6 @@
         private Label labelWeaponName;
         private Label labelFireRate;
         private Label labelDamage;
-        private Label label22;
         private Label label21;
         private Label label20;
         private Label label19;
@@ -893,8 +860,6 @@
         private Label labelMagazine;
         private Label labelMultishot;
         private ComboBox comboBox1;
-        private Label label35;
-        private Label label34;
         private Label labelSummedDPSSustainedValue;
         private Label labelSummedDPSBurstValue;
         private Label labelRadialDPSSustainedValue;

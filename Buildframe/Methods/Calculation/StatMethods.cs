@@ -12,6 +12,10 @@ namespace Buildframe.Methods.Calculation
     {
         public static Stats sumStats(List<Stats> statsList)
         {
+            if (statsList.Count == 0)
+            {
+                return new Stats();
+            }
             Stats stats = new Stats();
 
             stats.name = statsList[0].name;

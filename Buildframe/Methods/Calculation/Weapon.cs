@@ -117,6 +117,7 @@ namespace Buildframe.Methods.Calculation
             double reloadMult = calculateModReloadMult(stats);
 
             double dps = moddedDamage * modMultishot * modSpeed;
+            dps *= averageCrit;
 
             if (reload)
             {

@@ -1642,6 +1642,7 @@
             numericUpDownModCriticalDamage.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             numericUpDownModCriticalDamage.Location = new Point(136, 268);
             numericUpDownModCriticalDamage.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModCriticalDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModCriticalDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModCriticalDamage.Name = "numericUpDownModCriticalDamage";
             numericUpDownModCriticalDamage.Size = new Size(75, 23);
@@ -1689,6 +1690,7 @@
             numericUpDownModMultishot.DecimalPlaces = 2;
             numericUpDownModMultishot.Location = new Point(136, 220);
             numericUpDownModMultishot.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModMultishot.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModMultishot.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModMultishot.Name = "numericUpDownModMultishot";
             numericUpDownModMultishot.Size = new Size(75, 23);
@@ -1701,6 +1703,7 @@
             numericUpDownModChargeTime.DecimalPlaces = 2;
             numericUpDownModChargeTime.Location = new Point(136, 196);
             numericUpDownModChargeTime.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModChargeTime.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModChargeTime.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModChargeTime.Name = "numericUpDownModChargeTime";
             numericUpDownModChargeTime.Size = new Size(75, 23);
@@ -1734,6 +1737,7 @@
             numericUpDownModMagazine.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModMagazine.Location = new Point(136, 172);
             numericUpDownModMagazine.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModMagazine.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModMagazine.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModMagazine.Name = "numericUpDownModMagazine";
             numericUpDownModMagazine.Size = new Size(75, 23);
@@ -1747,6 +1751,7 @@
             numericUpDownModReloadTime.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             numericUpDownModReloadTime.Location = new Point(136, 148);
             numericUpDownModReloadTime.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModReloadTime.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModReloadTime.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModReloadTime.Name = "numericUpDownModReloadTime";
             numericUpDownModReloadTime.Size = new Size(75, 23);
@@ -1782,6 +1787,7 @@
             numericUpDownModAttackSpeed.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             numericUpDownModAttackSpeed.Location = new Point(136, 124);
             numericUpDownModAttackSpeed.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModAttackSpeed.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModAttackSpeed.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModAttackSpeed.Name = "numericUpDownModAttackSpeed";
             numericUpDownModAttackSpeed.Size = new Size(75, 23);

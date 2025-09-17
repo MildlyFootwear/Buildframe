@@ -1,3 +1,4 @@
+using Buildframe.Forms;
 using Buildframe.GameData;
 using static System.Windows.Forms.AxHost;
 
@@ -12,13 +13,18 @@ namespace Buildframe
 
         public Weapon baseWeapon = new Weapon();
         public Weapon currentWeapon = new Weapon();
+        public Stats primary = fireModeStats.Values.ToArray()[0];
+        public Stats radial = new Stats();
         public List<Stats> selectedStats = new List<Stats>();
         public List<Stats> fireModesWithAppliedStats = new();
+        public Stats mergedStats = new();
+        public Stats primaryWithAppliedStats = new();
+        public Stats radialWithAppliedStats = new();
         public List<string> validModIDs = new();
         public List<string> validArcaneIDs = new();
         public List<string> validMiscIDs = new();
         public List<ComboBox> modBoxes = new List<ComboBox>();
-        public string[] tags;
+        public string[] tags = {"Any"};
 
         public void loadWeapon(Weapon weapon)
         {
@@ -55,11 +61,28 @@ namespace Buildframe
                 selectedStats.Add(arcaneStats[statID]);
                 WriteLineIfDebug("    Selected stats added arcane: " + arcaneStats[statID].name);
             }
+            mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
+            if (primary != null)
+            {
+                primaryWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { primary, mergedStats });
+                labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats), 2).ToString();
+                labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(primaryWithAppliedStats), 2).ToString() + "%";
+                labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(primaryWithAppliedStats), 2).ToString() + "x";
+                labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(primaryWithAppliedStats), 2).ToString() + "%";
+                labelDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats), 2).ToString();
+                labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(primaryWithAppliedStats), 2).ToString();
+                labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(primaryWithAppliedStats)).ToString();
+                labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(primaryWithAppliedStats), 2).ToString() + "s";
+                labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(primaryWithAppliedStats), 2).ToString() + "%";
+                labelMultishotValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats), 2).ToString();
+                labelDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats), 2).ToString();
+                labelDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats, true), 2).ToString();
+            }
         }
 
         public bool hasTag(Stats stat)
         {
-            if (stat.tags.Contains("Any"))
+            if (stat.tags.Contains("Any") || tags.Contains("Any"))
             {
                 return true;
             }
@@ -187,16 +210,6 @@ namespace Buildframe
             Settings.Default.Save();
         }
 
-        private void labelFireRate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void comboBoxMod1_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateWeaponStats();
@@ -240,6 +253,12 @@ namespace Buildframe
         private void comboBoxWeaponArcane_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateWeaponStats();
+        }
+
+        private void addWeaponToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormWeaponWizard form = new FormWeaponWizard();
+            form.ShowDialog();
         }
     }
 }
