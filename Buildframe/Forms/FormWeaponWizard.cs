@@ -16,5 +16,10 @@ namespace Buildframe.Forms
         {
             InitializeComponent();
         }
+
+        private void FormWeaponWizard_Load(object sender, EventArgs e)
+        {
+            textBoxID.Text = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
+        }
     }
 }

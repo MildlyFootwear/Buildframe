@@ -2545,7 +2545,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(994, 958);
+            ClientSize = new Size(466, 459);
             Controls.Add(tableLayoutPanel5);
             Name = "FormStatWizard";
             StartPosition = FormStartPosition.CenterParent;

@@ -188,7 +188,6 @@ namespace Buildframe.Forms
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
 
             string fileName = stats.id + " " + stats.name + ".cfg";
-
             foreach (string s in CommonVars.ProhibPathChars)
             {
                 fileName = fileName.Replace(s, "");
@@ -206,7 +205,7 @@ namespace Buildframe.Forms
             }
             else if (comboBox1.SelectedIndex == 2)
             {
-                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Arcanes", fileName);
+                filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Misc", fileName);
             }
             else if (comboBox1.SelectedIndex == 3)
             {
@@ -220,7 +219,7 @@ namespace Buildframe.Forms
 
         private void FormStatWizard_Load(object sender, EventArgs e)
         {
-            textBoxID.Text = Guid.NewGuid().ToString();
+            textBoxID.Text = Guid.NewGuid().ToString().Substring(0, 18);
             comboBox1.SelectedIndex = 0;
         }
 
@@ -241,6 +240,22 @@ namespace Buildframe.Forms
                     if (stats.id != "")
                     {
                         loadStatsToForm(stats);
+                        if (filePath.Contains("Mods"))
+                        {
+                            comboBox1.SelectedIndex = 0;
+                        }
+                        else if (filePath.Contains("Arcanes"))
+                        {
+                            comboBox1.SelectedIndex = 1;
+                        }
+                        else if (filePath.Contains("Misc"))
+                        {
+                            comboBox1.SelectedIndex = 2;
+                        }
+                        else if (filePath.Contains("FireModes"))
+                        {
+                            comboBox1.SelectedIndex = 3;
+                        }
                     }
                     else
                     {

@@ -144,7 +144,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel2);
             Name = "FormWeaponWizard";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Weapon Creation Wizard";
+            Load += FormWeaponWizard_Load;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
