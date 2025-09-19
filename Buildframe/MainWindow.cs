@@ -31,8 +31,6 @@ namespace Buildframe
 
         public void loadWeapon(Weapon weapon)
         {
-            stashBoxIDs();
-
             currentWeapon = weapon;
             tags = weapon.tags.Split(' ');
             comboBoxFireMode.Items.Clear();
@@ -46,12 +44,13 @@ namespace Buildframe
             loadArcanesToSelectionBox();
             loadModsToSelectionBox();
             comboBoxFireMode.SelectedIndex = 0;
+
+            updateWeaponStats();
         }
 
         public void updateWeaponStats()
         {
             selectedStats.Clear();
-            boxSelectedIDs.Clear();
             foreach (ComboBox box in modBoxes)
             {
                 if (box.SelectedIndex > 0)
@@ -211,6 +210,11 @@ namespace Buildframe
 
             foreach (ComboBox box in modBoxes)
             {
+                box.SelectedIndexChanged -= comboBoxMod_SelectedIndexChanged;
+            }
+
+            foreach (ComboBox box in modBoxes)
+            {
                 if (!boxSelectedIDs.ContainsKey(box))
                 {
                     box.SelectedIndex = 0;
@@ -223,6 +227,13 @@ namespace Buildframe
                     box.SelectedIndex = index;
                 }
             }
+
+            foreach (ComboBox box in modBoxes)
+            {
+                box.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            }
+
+            updateWeaponStats();
         }
 
         public void stashBoxIDs()
@@ -330,6 +341,7 @@ namespace Buildframe
 
         private void loadWeaponToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            stashBoxIDs();
 
             FormWeaponSelection form = new FormWeaponSelection();
             form.mainWindow = this;
@@ -352,8 +364,6 @@ namespace Buildframe
             loadValidIDs();
             loadArcanesToSelectionBox();
             loadModsToSelectionBox();
-
-            restoreFromStash();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -363,42 +373,7 @@ namespace Buildframe
             Settings.Default.Save();
         }
 
-        private void comboBoxMod1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateWeaponStats();
-        }
-
-        private void comboBoxMod2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateWeaponStats();
-        }
-
-        private void comboBoxMod3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateWeaponStats();
-        }
-
-        private void comboBoxMod4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateWeaponStats();
-        }
-
-        private void comboBoxMod5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateWeaponStats();
-        }
-
-        private void comboBoxMod6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateWeaponStats();
-        }
-
-        private void comboBoxMod7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateWeaponStats();
-        }
-
-        private void comboBoxMod8_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxMod_SelectedIndexChanged(object sender, EventArgs e)
         {
             updateWeaponStats();
         }

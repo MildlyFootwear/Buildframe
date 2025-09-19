@@ -122,14 +122,14 @@
             // addWeaponToolStripMenuItem
             // 
             addWeaponToolStripMenuItem.Name = "addWeaponToolStripMenuItem";
-            addWeaponToolStripMenuItem.Size = new Size(180, 22);
+            addWeaponToolStripMenuItem.Size = new Size(147, 22);
             addWeaponToolStripMenuItem.Text = "Add Weapon";
             addWeaponToolStripMenuItem.Click += addWeaponToolStripMenuItem_Click;
             // 
             // loadWeaponToolStripMenuItem
             // 
             loadWeaponToolStripMenuItem.Name = "loadWeaponToolStripMenuItem";
-            loadWeaponToolStripMenuItem.Size = new Size(180, 22);
+            loadWeaponToolStripMenuItem.Size = new Size(147, 22);
             loadWeaponToolStripMenuItem.Text = "Load Weapon";
             loadWeaponToolStripMenuItem.Click += loadWeaponToolStripMenuItem_Click;
             // 
@@ -702,7 +702,7 @@
             comboBoxMod8.Name = "comboBoxMod8";
             comboBoxMod8.Size = new Size(170, 23);
             comboBoxMod8.TabIndex = 10;
-            comboBoxMod8.SelectedIndexChanged += comboBoxMod8_SelectedIndexChanged;
+            comboBoxMod8.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // comboBoxMod7
             // 
@@ -714,7 +714,7 @@
             comboBoxMod7.Name = "comboBoxMod7";
             comboBoxMod7.Size = new Size(169, 23);
             comboBoxMod7.TabIndex = 9;
-            comboBoxMod7.SelectedIndexChanged += comboBoxMod7_SelectedIndexChanged;
+            comboBoxMod7.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // comboBoxMod6
             // 
@@ -726,7 +726,7 @@
             comboBoxMod6.Name = "comboBoxMod6";
             comboBoxMod6.Size = new Size(170, 23);
             comboBoxMod6.TabIndex = 8;
-            comboBoxMod6.SelectedIndexChanged += comboBoxMod6_SelectedIndexChanged;
+            comboBoxMod6.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // comboBoxMod5
             // 
@@ -738,7 +738,7 @@
             comboBoxMod5.Name = "comboBoxMod5";
             comboBoxMod5.Size = new Size(169, 23);
             comboBoxMod5.TabIndex = 7;
-            comboBoxMod5.SelectedIndexChanged += comboBoxMod5_SelectedIndexChanged;
+            comboBoxMod5.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // comboBoxMod4
             // 
@@ -750,7 +750,7 @@
             comboBoxMod4.Name = "comboBoxMod4";
             comboBoxMod4.Size = new Size(170, 23);
             comboBoxMod4.TabIndex = 6;
-            comboBoxMod4.SelectedIndexChanged += comboBoxMod4_SelectedIndexChanged;
+            comboBoxMod4.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // comboBoxMod3
             // 
@@ -762,7 +762,7 @@
             comboBoxMod3.Name = "comboBoxMod3";
             comboBoxMod3.Size = new Size(169, 23);
             comboBoxMod3.TabIndex = 5;
-            comboBoxMod3.SelectedIndexChanged += comboBoxMod3_SelectedIndexChanged;
+            comboBoxMod3.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // comboBoxMod2
             // 
@@ -774,7 +774,7 @@
             comboBoxMod2.Name = "comboBoxMod2";
             comboBoxMod2.Size = new Size(170, 23);
             comboBoxMod2.TabIndex = 4;
-            comboBoxMod2.SelectedIndexChanged += comboBoxMod2_SelectedIndexChanged;
+            comboBoxMod2.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -823,7 +823,7 @@
             comboBoxMod1.Name = "comboBoxMod1";
             comboBoxMod1.Size = new Size(169, 23);
             comboBoxMod1.TabIndex = 3;
-            comboBoxMod1.SelectedIndexChanged += comboBoxMod1_SelectedIndexChanged;
+            comboBoxMod1.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
             // MainWindow
             // 
