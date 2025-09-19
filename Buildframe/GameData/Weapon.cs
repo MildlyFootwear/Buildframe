@@ -18,5 +18,9 @@ namespace Buildframe.GameData
         public string tags = "";
         public string description = "";
 
+        override public string ToString()
+        {
+            return name;
+        }
     }
 }

@@ -293,7 +293,7 @@
             basePage.Location = new Point(4, 27);
             basePage.Name = "basePage";
             basePage.Padding = new Padding(3);
-            basePage.Size = new Size(414, 333);
+            basePage.Size = new Size(414, 296);
             basePage.TabIndex = 0;
             basePage.Text = "Base Stats";
             basePage.UseVisualStyleBackColor = true;
@@ -593,6 +593,7 @@
             numericUpDownBaseMultishot.DecimalPlaces = 2;
             numericUpDownBaseMultishot.Location = new Point(128, 196);
             numericUpDownBaseMultishot.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownBaseMultishot.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseMultishot.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownBaseMultishot.Name = "numericUpDownBaseMultishot";
             numericUpDownBaseMultishot.Size = new Size(75, 23);
@@ -616,6 +617,7 @@
             numericUpDownBaseMagazine.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseMagazine.Location = new Point(128, 148);
             numericUpDownBaseMagazine.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownBaseMagazine.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseMagazine.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownBaseMagazine.Name = "numericUpDownBaseMagazine";
             numericUpDownBaseMagazine.Size = new Size(75, 23);
@@ -997,7 +999,7 @@
             tabControl1.Location = new Point(3, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(422, 364);
+            tabControl1.Size = new Size(422, 333);
             tabControl1.TabIndex = 1;
             tabControl1.DragDrop += tabControl1_DragDrop;
             tabControl1.DragEnter += tabControl1_DragEnter;
@@ -1007,13 +1009,14 @@
             identifiersPage.Controls.Add(tableLayoutPanel2);
             identifiersPage.Location = new Point(4, 27);
             identifiersPage.Name = "identifiersPage";
-            identifiersPage.Size = new Size(414, 333);
+            identifiersPage.Size = new Size(414, 302);
             identifiersPage.TabIndex = 2;
             identifiersPage.Text = "Identifiers";
             identifiersPage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -1095,6 +1098,8 @@
             textBoxID.Name = "textBoxID";
             textBoxID.Size = new Size(289, 23);
             textBoxID.TabIndex = 0;
+            textBoxID.TextChanged += textBoxID_TextChanged;
+            textBoxID.Leave += textBoxID_Leave;
             // 
             // textBoxDescription
             // 
@@ -1130,7 +1135,7 @@
             modPage.Location = new Point(4, 27);
             modPage.Name = "modPage";
             modPage.Padding = new Padding(3);
-            modPage.Size = new Size(414, 333);
+            modPage.Size = new Size(414, 296);
             modPage.TabIndex = 1;
             modPage.Text = "Mod Stats";
             modPage.UseVisualStyleBackColor = true;
@@ -1835,7 +1840,7 @@
             finalPage.Controls.Add(tableLayoutPanel4);
             finalPage.Location = new Point(4, 27);
             finalPage.Name = "finalPage";
-            finalPage.Size = new Size(414, 333);
+            finalPage.Size = new Size(414, 296);
             finalPage.TabIndex = 3;
             finalPage.Text = "Final Stats";
             finalPage.UseVisualStyleBackColor = true;
@@ -2503,11 +2508,11 @@
             // 
             // buttonConfirm
             // 
-            buttonConfirm.Location = new Point(3, 373);
+            buttonConfirm.Location = new Point(3, 342);
             buttonConfirm.Name = "buttonConfirm";
             buttonConfirm.Size = new Size(75, 23);
             buttonConfirm.TabIndex = 2;
-            buttonConfirm.Text = "Confirm";
+            buttonConfirm.Text = "Create";
             buttonConfirm.UseVisualStyleBackColor = true;
             buttonConfirm.Click += buttonConfirm_Click;
             // 
@@ -2517,25 +2522,27 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Warframe Arcane/Buff", "Weapon Fire Mode" });
-            comboBox1.Location = new Point(262, 373);
+            comboBox1.Location = new Point(262, 342);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(163, 23);
             comboBox1.TabIndex = 3;
             // 
             // tableLayoutPanel5
             // 
+            tableLayoutPanel5.AutoSize = true;
+            tableLayoutPanel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel5.ColumnCount = 2;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel5.Controls.Add(tabControl1, 0, 0);
             tableLayoutPanel5.Controls.Add(comboBox1, 1, 1);
             tableLayoutPanel5.Controls.Add(buttonConfirm, 0, 1);
             tableLayoutPanel5.Location = new Point(1, 1);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 370F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 339F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(428, 408);
+            tableLayoutPanel5.Size = new Size(428, 368);
             tableLayoutPanel5.TabIndex = 4;
             // 
             // FormStatWizard
@@ -2545,7 +2552,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(466, 459);
+            ClientSize = new Size(1027, 808);
             Controls.Add(tableLayoutPanel5);
             Name = "FormStatWizard";
             StartPosition = FormStartPosition.CenterParent;
@@ -2644,6 +2651,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

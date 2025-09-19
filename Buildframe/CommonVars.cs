@@ -10,7 +10,7 @@ namespace Buildframe
     {
         public static string ToolName = "Buildframe";
         public static string LatestVer = "";
-        public static List<string> ProhibPathChars = ["|", "<", ">", "?", "*", "/", "\\"];
+        public static List<string> ProhibPathChars = ["|", "<", ">", "?", "*", "/", "\\",":"];
 
         public static bool ToolDebug = false;
 
@@ -18,9 +18,9 @@ namespace Buildframe
         public static string envAPPLOC = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public static Dictionary<string, GameData.Weapon> weaponStats = new();
-        public static Dictionary<string, GameData.Stats> fireModeStats = new Dictionary<string, GameData.Stats>();
-        public static Dictionary<string, GameData.Stats> modStats = new Dictionary<string, GameData.Stats>();
-        public static Dictionary<string, GameData.Stats> arcaneStats = new Dictionary<string, GameData.Stats>();
-        public static Dictionary<string, GameData.Stats> miscStats = new Dictionary<string, GameData.Stats>();
+        public static Dictionary<string, GameData.Stats> fireModeStats = new();
+        public static Dictionary<string, GameData.Stats> modStats = new();
+        public static Dictionary<string, GameData.Stats> arcaneStats = new();
+        public static Dictionary<string, GameData.Stats> miscStats = new();
     }
 }

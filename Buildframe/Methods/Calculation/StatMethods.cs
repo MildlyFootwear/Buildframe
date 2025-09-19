@@ -20,10 +20,11 @@ namespace Buildframe.Methods.Calculation
 
             stats.name = statsList[0].name;
 
-            foreach (Stats s  in statsList) {
+            foreach (Stats s in statsList) {
                 if (s.incarnon)
                 {
                     stats.incarnon = true;
+                    stats.baseMagazine = s.baseMagazine;
                 }
             }
 

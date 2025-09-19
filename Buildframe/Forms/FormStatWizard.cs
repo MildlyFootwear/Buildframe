@@ -192,6 +192,11 @@ namespace Buildframe.Forms
             {
                 fileName = fileName.Replace(s, "");
             }
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                string s = c.ToString();
+                fileName = fileName.Replace(s, "");
+            }
 
             string filePath = envAPPLOC;
 
@@ -236,7 +241,7 @@ namespace Buildframe.Forms
                 if (files.Length > 0)
                 {
                     string filePath = files[0];
-                    GameData.Stats stats = LoadAndSave.loadStatFile(filePath);
+                    GameData.Stats stats = LoadAndSave.loadStatFromFile(filePath);
                     if (stats.id != "")
                     {
                         loadStatsToForm(stats);
@@ -268,6 +273,26 @@ namespace Buildframe.Forms
         private void tabControl1_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxID_Leave(object sender, EventArgs e)
+        {
+            string id = textBoxID.Text;
+            foreach (string s in CommonVars.ProhibPathChars)
+            {
+                id = id.Replace(s, "");
+            }
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                string s = c.ToString();
+                id = id.Replace(s, "");
+            }
+            textBoxID.Text = id;
         }
     }
 }

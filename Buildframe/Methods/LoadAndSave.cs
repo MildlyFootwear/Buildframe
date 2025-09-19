@@ -9,7 +9,7 @@ namespace Buildframe.Methods
 {
     public class LoadAndSave
     {
-        public static Stats loadStatFile(string path)
+        public static Stats loadStatFromFile(string path)
         {
             Stats stats = new Stats();
 
@@ -219,6 +219,8 @@ namespace Buildframe.Methods
 
         public static void saveStatToFile(string path, GameData.Stats stats)
         {
+            WriteLineIfDebug("Saving stat file: " + path);
+
             string s = "";
 
             s += "name=" + stats.name;
@@ -341,17 +343,64 @@ namespace Buildframe.Methods
 
         }
 
-        public static void loadFireModeFiles()
+        public static void saveWeaponToFile(string path, GameData.Weapon weapon)
         {
-            fireModeStats.Clear();
-            string directory = Path.Combine(envAPPLOC, "Data", "FireModes");
-            Directory.CreateDirectory(directory);
-            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            string s = "";
+            s += "name=" + weapon.name;
+            s += "\ndescription=" + weapon.description;
+            s += "\nid=" + weapon.id;
+            s += "\ntags=" + weapon.tags;
+            s += "\nfireModes=";
+            foreach (Stats stats in weapon.fireModes)
             {
-                WriteLineIfDebug("Loading fire mode file: " + file);
-                Stats stats = loadStatFile(file);
-                fireModeStats.Add(stats.id, stats);
+                s += stats.id + ",";
             }
+            s += "\nfireModesRadials=";
+            foreach (KeyValuePair<string, Stats> pair in weapon.fireModesRadials)
+            {
+                s += pair.Key + ":" + pair.Value.id + ",";
+            }
+            File.WriteAllText(path, s);
+        }
+
+        public static Weapon loadWeaponFromFile(string path)
+        {
+            Weapon weapon = new Weapon();
+            foreach (string s in File.ReadAllLines(path))
+            {
+                string[] split = s.Split('=');
+
+                if (split[0] == "name")
+                    weapon.name = split[1];
+                if (split[0] == "description")
+                    weapon.description = split[1];
+                if (split[0] == "id")
+                    weapon.id = split[1];
+                if (split[0] == "tags")
+                    weapon.tags = split[1];
+
+                if (split[0] == "fireModes")
+                {
+                    foreach (string fm in split[1].Split(','))
+                    {
+                        if (fm != "" && fireModeStats.ContainsKey(fm))
+                            weapon.fireModes.Add(fireModeStats[fm]);
+                    }
+                }
+                if (split[0] == "fireModesRadials")
+                {
+                    foreach (string fm in split[1].Split(','))
+                    {
+                        if (fm != "")
+                        {
+                            string[] fmsplit = fm.Split(':');
+                            if (fmsplit.Length == 2 && fireModeStats.ContainsKey(fmsplit[1]))
+                                weapon.fireModesRadials.Add(fmsplit[0], fireModeStats[fmsplit[1]]);
+                        }
+                    }
+                }
+            }
+            return weapon;
         }
 
         public static void loadArcaneFiles()
@@ -362,9 +411,10 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading arcane file: " + file);
-                Stats stats = loadStatFile(file);
+                Stats stats = loadStatFromFile(file);
                 arcaneStats.Add(stats.id, stats);
             }
+            arcaneStats = arcaneStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
         }
 
         public static void loadModFiles()
@@ -375,9 +425,10 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading mod file: " + file);
-                Stats stats = loadStatFile(file);
+                Stats stats = loadStatFromFile(file);
                 modStats.Add(stats.id, stats);
             }
+            modStats = modStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
         }
 
         public static void loadMiscFiles()
@@ -388,9 +439,38 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading misc file: " + file);
-                Stats stats = loadStatFile(file);
+                Stats stats = loadStatFromFile(file);
                 miscStats.Add(stats.id, stats);
             }
+            miscStats = miscStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
+        }
+
+        public static void loadFireModeFiles()
+        {
+            fireModeStats.Clear();
+            string directory = Path.Combine(envAPPLOC, "Data", "FireModes");
+            Directory.CreateDirectory(directory);
+            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            {
+                WriteLineIfDebug("Loading fire mode file: " + file);
+                Stats stats = loadStatFromFile(file);
+                fireModeStats.Add(stats.id, stats);
+            }
+            fireModeStats = fireModeStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
+        }
+
+        public static void loadWeaponFiles()
+        {
+            weaponStats.Clear();
+            string directory = Path.Combine(envAPPLOC, "Data", "Weapons");
+            Directory.CreateDirectory(directory);
+            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            {
+                WriteLineIfDebug("Loading fire mode file: " + file);
+                Weapon wpn = loadWeaponFromFile(file);
+                weaponStats.Add(wpn.id, wpn);
+            }
+            weaponStats = weaponStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
         }
     }
 }

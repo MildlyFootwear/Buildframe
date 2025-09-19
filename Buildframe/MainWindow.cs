@@ -1,5 +1,6 @@
 using Buildframe.Forms;
 using Buildframe.GameData;
+using Buildframe.Methods;
 using static System.Windows.Forms.AxHost;
 
 namespace Buildframe
@@ -11,9 +12,8 @@ namespace Buildframe
             InitializeComponent();
         }
 
-        public Weapon baseWeapon = new Weapon();
-        public Weapon currentWeapon = new Weapon();
-        public Stats primary = fireModeStats.Values.ToArray()[0];
+        public Weapon currentWeapon = new();
+        public Stats primary = new Stats();
         public Stats radial = new Stats();
         public List<Stats> selectedStats = new List<Stats>();
         public List<Stats> fireModesWithAppliedStats = new();
@@ -23,27 +23,35 @@ namespace Buildframe
         public List<string> validModIDs = new();
         public List<string> validArcaneIDs = new();
         public List<string> validMiscIDs = new();
-        public List<ComboBox> modBoxes = new List<ComboBox>();
-        public string[] tags = {"Any"};
+        public List<ComboBox> modBoxes = new();
+        public List<Label> primaryValueLabels = new();
+        public List<Label> radialValueLabels = new();
+        public Dictionary<ComboBox, string> boxSelectedIDs = new();
+        public string[] tags = { "Any" };
 
         public void loadWeapon(Weapon weapon)
         {
-            tags = weapon.tags.Split(' ');
-            foreach (Stats stat in weapon.fireModes)
-            {
-                List<Stats> stats = new List<Stats>();
-                stats.Add(stat);
-                stats.AddRange(selectedStats);
-                Stats appliedStats = Methods.Calculation.StatMethods.sumStats(stats);
-                fireModesWithAppliedStats.Add(appliedStats);
-            }
+            stashBoxIDs();
 
             currentWeapon = weapon;
+            tags = weapon.tags.Split(' ');
+            comboBoxFireMode.Items.Clear();
+            foreach (Stats fm in weapon.fireModes)
+            {
+                comboBoxFireMode.Items.Add(fm.name);
+            }
+            labelWeaponName.Text = weapon.name;
+
+            loadValidIDs();
+            loadArcanesToSelectionBox();
+            loadModsToSelectionBox();
+            comboBoxFireMode.SelectedIndex = 0;
         }
 
         public void updateWeaponStats()
         {
             selectedStats.Clear();
+            boxSelectedIDs.Clear();
             foreach (ComboBox box in modBoxes)
             {
                 if (box.SelectedIndex > 0)
@@ -51,6 +59,7 @@ namespace Buildframe
                     int idIndex = box.SelectedIndex - 1;
                     string statID = validModIDs[idIndex];
                     selectedStats.Add(modStats[statID]);
+
                     WriteLineIfDebug("    Selected stats added mod: " + modStats[statID].name);
                 }
             }
@@ -59,13 +68,14 @@ namespace Buildframe
                 int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
                 string statID = validArcaneIDs[idIndex];
                 selectedStats.Add(arcaneStats[statID]);
+
                 WriteLineIfDebug("    Selected stats added arcane: " + arcaneStats[statID].name);
             }
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
-            if (primary != null)
+            if (primary.id != "")
             {
                 primaryWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { primary, mergedStats });
-                labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats), 2).ToString();
+                labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(primaryWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(primaryWithAppliedStats), 2).ToString() + "x";
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(primaryWithAppliedStats), 2).ToString() + "%";
@@ -77,6 +87,31 @@ namespace Buildframe
                 labelMultishotValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats), 2).ToString();
                 labelDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats), 2).ToString();
                 labelDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats, true), 2).ToString();
+            }
+            else
+            {
+                foreach (Label lbl in primaryValueLabels)
+                {
+                    lbl.Text = "N/A";
+                }
+            }
+            if (radial.id != "")
+            {
+                radialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { radial, mergedStats });
+                labelRadialAverageCritMultValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats), 2).ToString() + "x";
+                labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(radialWithAppliedStats), 2).ToString() + "%";
+                labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(radialWithAppliedStats), 2).ToString() + "x";
+                labelRadialStatusValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(radialWithAppliedStats), 2).ToString() + "%";
+                labelRadialDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats), 2).ToString();
+                labelRadialDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true), 2).ToString();
+
+            }
+            else
+            {
+                foreach (Label lbl in radialValueLabels)
+                {
+                    lbl.Text = "N/A";
+                }
             }
         }
 
@@ -120,11 +155,25 @@ namespace Buildframe
 
         public void loadArcanesToSelectionBox()
         {
+            string statID = "";
+            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane))
+            {
+                statID = boxSelectedIDs[comboBoxWeaponArcane];
+            }
             comboBoxWeaponArcane.Items.Clear();
             comboBoxWeaponArcane.Items.Add("None");
             foreach (string id in validArcaneIDs)
             {
                 comboBoxWeaponArcane.Items.Add(arcaneStats[id].name);
+            }
+            if (validArcaneIDs.Contains(statID))
+            {
+                int index = validArcaneIDs.IndexOf(statID) + 1;
+                comboBoxWeaponArcane.SelectedIndex = index;
+            }
+            else
+            {
+                comboBoxWeaponArcane.SelectedIndex = 0;
             }
         }
 
@@ -160,8 +209,72 @@ namespace Buildframe
                 comboBoxMod8.Items.Add(modStats[id].name);
             }
 
+            foreach (ComboBox box in modBoxes)
+            {
+                if (!boxSelectedIDs.ContainsKey(box))
+                {
+                    box.SelectedIndex = 0;
+                    continue;
+                }
+                string statID = boxSelectedIDs[box];
+                if (validModIDs.Contains(statID))
+                {
+                    int index = validModIDs.IndexOf(statID) + 1;
+                    box.SelectedIndex = index;
+                }
+            }
         }
 
+        public void stashBoxIDs()
+        {
+            boxSelectedIDs.Clear();
+            foreach (ComboBox box in modBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    int idIndex = box.SelectedIndex - 1;
+                    string statID = validModIDs[idIndex];
+                    boxSelectedIDs.Add(box, statID);
+                }
+            }
+            if (comboBoxWeaponArcane.SelectedIndex > 0)
+            {
+                int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
+                string statID = validArcaneIDs[idIndex];
+                boxSelectedIDs.Add(comboBoxWeaponArcane, statID);
+            }
+        }
+
+        public void restoreFromStash()
+        {
+            foreach (ComboBox box in modBoxes)
+            {
+                if (!boxSelectedIDs.ContainsKey(box))
+                {
+                    box.SelectedIndex = 0;
+                    continue;
+                }
+                string statID = boxSelectedIDs[box];
+                if (validModIDs.Contains(statID))
+                {
+                    int index = validModIDs.IndexOf(statID) + 1;
+                    box.SelectedIndex = index;
+                }
+            }
+            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane))
+            {
+                string statID = boxSelectedIDs[comboBoxWeaponArcane];
+                if (validArcaneIDs.Contains(statID))
+                {
+                    int index = validArcaneIDs.IndexOf(statID) + 1;
+                    comboBoxWeaponArcane.SelectedIndex = index;
+                }
+            }
+            else
+            {
+                comboBoxWeaponArcane.SelectedIndex = 0;
+            }
+        }
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Text = Settings.Default.ToolName + " " + Settings.Default.Version;
@@ -169,18 +282,6 @@ namespace Buildframe
                 this.Location = Settings.Default.SavedPosition; WriteLineIfDebug("    Set position to " + this.Location);
             if (Settings.Default.SavedSize != new Size(1, 1))
                 this.Size = Settings.Default.SavedSize; WriteLineIfDebug("    Set size to " + this.Size);
-            loadValidIDs();
-            loadArcanesToSelectionBox();
-            loadModsToSelectionBox();
-            comboBoxMod1.SelectedIndex = 0;
-            comboBoxMod2.SelectedIndex = 0;
-            comboBoxMod3.SelectedIndex = 0;
-            comboBoxMod4.SelectedIndex = 0;
-            comboBoxMod5.SelectedIndex = 0;
-            comboBoxMod6.SelectedIndex = 0;
-            comboBoxMod7.SelectedIndex = 0;
-            comboBoxMod8.SelectedIndex = 0;
-            comboBoxWeaponArcane.SelectedIndex = 0;
             modBoxes.Add(comboBoxMod1);
             modBoxes.Add(comboBoxMod2);
             modBoxes.Add(comboBoxMod3);
@@ -190,17 +291,69 @@ namespace Buildframe
             modBoxes.Add(comboBoxMod7);
             modBoxes.Add(comboBoxMod8);
 
+            primaryValueLabels.Add(labelDamageValue);
+            primaryValueLabels.Add(labelFireRateValue);
+            primaryValueLabels.Add(labelMagazineValue);
+            primaryValueLabels.Add(labelReloadValue);
+            primaryValueLabels.Add(labelAmmoEfficiencyValue);
+            primaryValueLabels.Add(labelMultishotValue);
+            primaryValueLabels.Add(labelAverageCriticalValue);
+            primaryValueLabels.Add(labelCriticalChanceValue);
+            primaryValueLabels.Add(labelCriticalDamageValue);
+            primaryValueLabels.Add(labelStatusProjectileValue);
+            primaryValueLabels.Add(labelStatusMultishotValue);
+            primaryValueLabels.Add(labelDPSBurstValue);
+            primaryValueLabels.Add(labelDPSSustainedValue);
+
+            radialValueLabels.Add(labelRadialAverageCritMultValue);
+            radialValueLabels.Add(labelRadialCriticalChanceValue);
+            radialValueLabels.Add(labelRadialCriticalMultiplierValue);
+            radialValueLabels.Add(labelRadialDPSBurstValue);
+            radialValueLabels.Add(labelRadialDPSSustainedValue);
+            radialValueLabels.Add(labelRadialStatusMultishotValue);
+            radialValueLabels.Add(labelRadialStatusValue);
+            radialValueLabels.Add(labelSummedDPSBurstValue);
+            radialValueLabels.Add(labelSummedDPSSustainedValue);
+
+
+            foreach (Label lbl in primaryValueLabels)
+            {
+                lbl.Text = "N/A";
+            }
+            foreach (Label lbl in radialValueLabels)
+            {
+                lbl.Text = "N/A";
+            }
+
+            loadWeapon(weaponStats.Values.ToList()[0]);
         }
 
         private void loadWeaponToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            FormWeaponSelection form = new FormWeaponSelection();
+            form.mainWindow = this;
+            form.ShowDialog();
+            loadWeapon(currentWeapon);
         }
 
         private void toolstripButtonEffectWizard_Click(object sender, EventArgs e)
         {
-            Forms.FormStatWizard form = new Forms.FormStatWizard();
+            stashBoxIDs();
+
+            FormStatWizard form = new FormStatWizard();
             form.ShowDialog();
+
+            LoadAndSave.loadFireModeFiles();
+            LoadAndSave.loadModFiles();
+            LoadAndSave.loadArcaneFiles();
+            LoadAndSave.loadMiscFiles();
+            LoadAndSave.loadWeaponFiles();
+            loadValidIDs();
+            loadArcanesToSelectionBox();
+            loadModsToSelectionBox();
+
+            restoreFromStash();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -259,6 +412,21 @@ namespace Buildframe
         {
             FormWeaponWizard form = new FormWeaponWizard();
             form.ShowDialog();
+            LoadAndSave.loadWeaponFiles();
+        }
+
+        private void comboBoxFireMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            primary = currentWeapon.fireModes[comboBoxFireMode.SelectedIndex];
+            if (currentWeapon.fireModesRadials.ContainsKey(primary.id))
+            {
+                radial = currentWeapon.fireModesRadials[primary.id];
+            }
+            else
+            {
+                radial = new Stats();
+            }
+            updateWeaponStats();
         }
     }
 }

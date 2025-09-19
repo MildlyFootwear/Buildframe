@@ -129,5 +129,9 @@ namespace Buildframe.GameData
         public double finalStatusChance = 0;
         public double finalStatusDamage = 0;
 
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

@@ -44,6 +44,7 @@ namespace Buildframe
             LoadAndSave.loadModFiles();
             LoadAndSave.loadArcaneFiles();
             LoadAndSave.loadMiscFiles();
+            LoadAndSave.loadWeaponFiles();
 
             Application.Run(new MainWindow());
 
