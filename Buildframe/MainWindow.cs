@@ -330,6 +330,110 @@ namespace Buildframe
                 comboBoxWeaponArcane.SelectedIndex = 0;
             }
         }
+
+        public void saveSelectedToFile(string path = "lastbuild.cfg")
+        {
+            if (currentWeapon.id == "")
+            {
+                return;
+            }
+            string s = "";
+            s += "weapon=" + currentWeapon.id + "\n";
+            if (comboBoxWeaponArcane.SelectedIndex > 0)
+            {
+                int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
+                string statID = validArcaneIDs[idIndex];
+                s += "arcane=" + statID + "\n";
+            }
+            else
+            {
+                s += "arcane=\n";
+            }
+            s += "mods=";
+            foreach (ComboBox box in modBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    int idIndex = box.SelectedIndex - 1;
+                    string statID = validModIDs[idIndex];
+                    s += statID + ":";
+                }
+            }
+            s += "\n";
+            s += "misc=";
+            foreach (ComboBox box in miscBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    int idIndex = box.SelectedIndex - 1;
+                    string statID = validMiscIDs[idIndex];
+                    s += statID + ":";
+                }
+            }
+            File.WriteAllText(path, s);
+            WriteLineIfDebug("Saved build to " + path);
+        }
+        public void loadSelectedFromFile(string path = "lastbuild.cfg")
+        {
+            if (!File.Exists(path))
+            {
+                return;
+            }
+            WriteLineIfDebug("Loading build from " + path);
+            string[] lines = File.ReadAllLines(path);
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split('=');
+                if (parts.Length != 2)
+                    continue;
+                string key = parts[0];
+                string value = parts[1];
+                if (key == "weapon")
+                {
+                    if (CommonVars.weaponStats.ContainsKey(value))
+                    {
+                        loadWeapon(CommonVars.weaponStats[value]);
+                    } else
+                    {
+                        return;
+                    }
+                }
+                else if (key == "arcane")
+                {
+                    if (value != "" && CommonVars.arcaneStats.ContainsKey(value))
+                    {
+                        int index = validArcaneIDs.IndexOf(value) + 1;
+                        comboBoxWeaponArcane.SelectedIndex = index;
+                    }
+                }
+                else if (key == "mods")
+                {
+                    string[] modIDs = value.Split(':', StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < modIDs.Length && i < modBoxes.Count; i++)
+                    {
+                        string modID = modIDs[i];
+                        if (CommonVars.modStats.ContainsKey(modID))
+                        {
+                            int index = validModIDs.IndexOf(modID) + 1;
+                            modBoxes[i].SelectedIndex = index;
+                        }
+                    }
+                }
+                else if (key == "misc")
+                {
+                    string[] miscIDs = value.Split(':', StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < miscIDs.Length && i < miscBoxes.Count; i++)
+                    {
+                        string miscID = miscIDs[i];
+                        if (CommonVars.miscStats.ContainsKey(miscID))
+                        {
+                            int index = validMiscIDs.IndexOf(miscID) + 1;
+                            miscBoxes[i].SelectedIndex = index;
+                        }
+                    }
+                }
+            }
+        }
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Text = Settings.Default.ToolName + " " + Settings.Default.Version;
@@ -356,6 +460,8 @@ namespace Buildframe
             miscBoxes.Add(comboBoxMiscEffect7);
             miscBoxes.Add(comboBoxMiscEffect8);
 
+            pauseHandler = true;
+
             foreach (ComboBox box in modBoxes)
             {
                 box.Items.Add("None");
@@ -369,6 +475,8 @@ namespace Buildframe
 
             comboBoxWeaponArcane.Items.Add("None");
             comboBoxWeaponArcane.SelectedIndex = 0;
+
+            pauseHandler = false;
 
             primaryValueLabels.Add(labelDamageValue);
             primaryValueLabels.Add(labelFireRateValue);
@@ -404,6 +512,8 @@ namespace Buildframe
                 lbl.Text = "N/A";
             }
 
+            WriteLineIfDebug("Loading last session from file");
+            loadSelectedFromFile();
         }
 
         private void loadWeaponToolStripMenuItem_Click(object sender, EventArgs e)
@@ -439,6 +549,7 @@ namespace Buildframe
             Settings.Default.SavedPosition = this.Location;
             Settings.Default.SavedSize = this.Size;
             Settings.Default.Save();
+            saveSelectedToFile();
         }
 
         private void comboBoxMod_SelectedIndexChanged(object sender, EventArgs e)
