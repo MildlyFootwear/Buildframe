@@ -617,9 +617,9 @@
             labelDamage.AutoSize = true;
             labelDamage.Location = new Point(4, 211);
             labelDamage.Name = "labelDamage";
-            labelDamage.Size = new Size(51, 15);
+            labelDamage.Size = new Size(138, 15);
             labelDamage.TabIndex = 24;
-            labelDamage.Text = "Damage";
+            labelDamage.Text = "Average Damage Per Tap";
             // 
             // labelDamageValue
             // 

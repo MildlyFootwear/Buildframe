@@ -97,7 +97,7 @@ namespace Buildframe
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(primaryWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(primaryWithAppliedStats), 2).ToString() + "x";
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(primaryWithAppliedStats), 2).ToString() + "%";
-                labelDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats), 2).ToString();
+                labelDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats), 2).ToString();
                 labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(primaryWithAppliedStats), 2).ToString();
                 labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(primaryWithAppliedStats)).ToString();
                 labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(primaryWithAppliedStats), 2).ToString() + "s";
@@ -282,6 +282,15 @@ namespace Buildframe
                 {
                     int idIndex = box.SelectedIndex - 1;
                     string statID = validModIDs[idIndex];
+                    boxSelectedIDs.Add(box, statID);
+                }
+            }
+            foreach (ComboBox box in miscBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    int idIndex = box.SelectedIndex - 1;
+                    string statID = validMiscIDs[idIndex];
                     boxSelectedIDs.Add(box, statID);
                 }
             }
