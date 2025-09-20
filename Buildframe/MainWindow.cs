@@ -68,8 +68,6 @@ namespace Buildframe
                 }
             }
 
-            // to do: misc effects
-
             foreach (ComboBox box in miscBoxes)
             {
                 if (box.SelectedIndex > 0)
