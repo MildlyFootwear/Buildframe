@@ -293,7 +293,7 @@
             basePage.Location = new Point(4, 27);
             basePage.Name = "basePage";
             basePage.Padding = new Padding(3);
-            basePage.Size = new Size(414, 296);
+            basePage.Size = new Size(414, 302);
             basePage.TabIndex = 0;
             basePage.Text = "Base Stats";
             basePage.UseVisualStyleBackColor = true;
@@ -1135,7 +1135,7 @@
             modPage.Location = new Point(4, 27);
             modPage.Name = "modPage";
             modPage.Padding = new Padding(3);
-            modPage.Size = new Size(414, 296);
+            modPage.Size = new Size(414, 302);
             modPage.TabIndex = 1;
             modPage.Text = "Mod Stats";
             modPage.UseVisualStyleBackColor = true;
@@ -1840,7 +1840,7 @@
             finalPage.Controls.Add(tableLayoutPanel4);
             finalPage.Location = new Point(4, 27);
             finalPage.Name = "finalPage";
-            finalPage.Size = new Size(414, 296);
+            finalPage.Size = new Size(414, 302);
             finalPage.TabIndex = 3;
             finalPage.Text = "Final Stats";
             finalPage.UseVisualStyleBackColor = true;
@@ -2521,7 +2521,7 @@
             comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Warframe Arcane/Buff", "Weapon Fire Mode" });
+            comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Arcane/Buff", "Weapon Fire Mode" });
             comboBox1.Location = new Point(262, 342);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(163, 23);

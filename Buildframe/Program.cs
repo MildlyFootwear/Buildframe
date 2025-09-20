@@ -40,11 +40,15 @@ namespace Buildframe
 
             updateMethods.CheckForUpdate();
 
+            WriteLineIfDebug("\n\n\n");
+
             LoadAndSave.loadFireModeFiles();
             LoadAndSave.loadModFiles();
             LoadAndSave.loadArcaneFiles();
             LoadAndSave.loadMiscFiles();
             LoadAndSave.loadWeaponFiles();
+
+            WriteLineIfDebug("\n\n\n");
 
             Application.Run(new MainWindow());
 

@@ -24,14 +24,18 @@ namespace Buildframe
         public List<string> validArcaneIDs = new();
         public List<string> validMiscIDs = new();
         public List<ComboBox> modBoxes = new();
+        public List<ComboBox> miscBoxes = new();
         public List<Label> primaryValueLabels = new();
         public List<Label> radialValueLabels = new();
         public Dictionary<ComboBox, string> boxSelectedIDs = new();
         public string[] tags = { "Any" };
+        public bool pauseHandler = false;
 
         public void loadWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
+            if (weapon.id == "")
+                return;
             tags = weapon.tags.Split(' ');
             comboBoxFireMode.Items.Clear();
             foreach (Stats fm in weapon.fireModes)
@@ -39,17 +43,18 @@ namespace Buildframe
                 comboBoxFireMode.Items.Add(fm.name);
             }
             labelWeaponName.Text = weapon.name;
-
+            pauseHandler = true;
             loadValidIDs();
             loadArcanesToSelectionBox();
             loadModsToSelectionBox();
+            loadMiscsToSelectionBox();
+            pauseHandler = false;
             comboBoxFireMode.SelectedIndex = 0;
-
-            updateWeaponStats();
         }
 
         public void updateWeaponStats()
         {
+            WriteLineIfDebug("\nUpdating weapon stats\n");
             selectedStats.Clear();
             foreach (ComboBox box in modBoxes)
             {
@@ -62,6 +67,20 @@ namespace Buildframe
                     WriteLineIfDebug("    Selected stats added mod: " + modStats[statID].name);
                 }
             }
+
+            // to do: misc effects
+
+            foreach (ComboBox box in miscBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    int idIndex = box.SelectedIndex - 1;
+                    string statID = validMiscIDs[idIndex];
+                    selectedStats.Add(miscStats[statID]);
+                    WriteLineIfDebug("    Selected stats added misc: " + miscStats[statID].name);
+                }
+            }
+
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
                 int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
@@ -132,6 +151,7 @@ namespace Buildframe
 
         public void loadValidIDs()
         {
+            WriteLineIfDebug("Loading valid IDs for weapon with tags: " + string.Join(", ", tags));
             validModIDs.Clear();
             validArcaneIDs.Clear();
             validMiscIDs.Clear();
@@ -154,6 +174,7 @@ namespace Buildframe
 
         public void loadArcanesToSelectionBox()
         {
+            WriteLineIfDebug("\nLoading valid arcanes\n");
             string statID = "";
             if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane))
             {
@@ -165,53 +186,37 @@ namespace Buildframe
             {
                 comboBoxWeaponArcane.Items.Add(arcaneStats[id].name);
             }
-            if (validArcaneIDs.Contains(statID))
+            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane))
             {
                 int index = validArcaneIDs.IndexOf(statID) + 1;
                 comboBoxWeaponArcane.SelectedIndex = index;
             }
             else
             {
+                WriteLineIfDebug("    No previous arcane selected, defaulting to None");
                 comboBoxWeaponArcane.SelectedIndex = 0;
             }
         }
 
         public void loadModsToSelectionBox()
         {
-            comboBoxMod1.Items.Clear();
-            comboBoxMod2.Items.Clear();
-            comboBoxMod3.Items.Clear();
-            comboBoxMod4.Items.Clear();
-            comboBoxMod5.Items.Clear();
-            comboBoxMod6.Items.Clear();
-            comboBoxMod7.Items.Clear();
-            comboBoxMod8.Items.Clear();
-
-            comboBoxMod1.Items.Add("None");
-            comboBoxMod2.Items.Add("None");
-            comboBoxMod3.Items.Add("None");
-            comboBoxMod4.Items.Add("None");
-            comboBoxMod5.Items.Add("None");
-            comboBoxMod6.Items.Add("None");
-            comboBoxMod7.Items.Add("None");
-            comboBoxMod8.Items.Add("None");
+            WriteLineIfDebug("\nLoading valid mods\n");
+            foreach (ComboBox box in modBoxes)
+            {
+                box.Items.Clear();
+                box.Items.Add("None");
+            }
 
             foreach (string id in validModIDs)
             {
-                comboBoxMod1.Items.Add(modStats[id].name);
-                comboBoxMod2.Items.Add(modStats[id].name);
-                comboBoxMod3.Items.Add(modStats[id].name);
-                comboBoxMod4.Items.Add(modStats[id].name);
-                comboBoxMod5.Items.Add(modStats[id].name);
-                comboBoxMod6.Items.Add(modStats[id].name);
-                comboBoxMod7.Items.Add(modStats[id].name);
-                comboBoxMod8.Items.Add(modStats[id].name);
+                foreach (ComboBox box in modBoxes)
+                {
+                    box.Items.Add(modStats[id]);
+
+                }
             }
 
-            foreach (ComboBox box in modBoxes)
-            {
-                box.SelectedIndexChanged -= comboBoxMod_SelectedIndexChanged;
-            }
+            pauseHandler = true;
 
             foreach (ComboBox box in modBoxes)
             {
@@ -228,12 +233,44 @@ namespace Buildframe
                 }
             }
 
-            foreach (ComboBox box in modBoxes)
+            pauseHandler = false;
+        }
+
+        public void loadMiscsToSelectionBox()
+        {
+            WriteLineIfDebug("\nLoading valid misc effects\n");
+            foreach (ComboBox box in miscBoxes)
             {
-                box.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+                box.Items.Clear();
+                box.Items.Add("None");
             }
 
-            updateWeaponStats();
+            foreach (string id in validMiscIDs)
+            {
+                foreach (ComboBox box in miscBoxes)
+                {
+                    box.Items.Add(miscStats[id]);
+                }
+            }
+
+            pauseHandler = true;
+
+            foreach (ComboBox box in miscBoxes)
+            {
+                if (!boxSelectedIDs.ContainsKey(box))
+                {
+                    box.SelectedIndex = 0;
+                    continue;
+                }
+                string statID = boxSelectedIDs[box];
+                if (validMiscIDs.Contains(statID))
+                {
+                    int index = validMiscIDs.IndexOf(statID) + 1;
+                    box.SelectedIndex = index;
+                }
+            }
+
+            pauseHandler = false;
         }
 
         public void stashBoxIDs()
@@ -293,6 +330,7 @@ namespace Buildframe
                 this.Location = Settings.Default.SavedPosition; WriteLineIfDebug("    Set position to " + this.Location);
             if (Settings.Default.SavedSize != new Size(1, 1))
                 this.Size = Settings.Default.SavedSize; WriteLineIfDebug("    Set size to " + this.Size);
+
             modBoxes.Add(comboBoxMod1);
             modBoxes.Add(comboBoxMod2);
             modBoxes.Add(comboBoxMod3);
@@ -301,6 +339,29 @@ namespace Buildframe
             modBoxes.Add(comboBoxMod6);
             modBoxes.Add(comboBoxMod7);
             modBoxes.Add(comboBoxMod8);
+
+            miscBoxes.Add(comboBoxMiscEffect1);
+            miscBoxes.Add(comboBoxMiscEffect2);
+            miscBoxes.Add(comboBoxMiscEffect3);
+            miscBoxes.Add(comboBoxMiscEffect4);
+            miscBoxes.Add(comboBoxMiscEffect5);
+            miscBoxes.Add(comboBoxMiscEffect6);
+            miscBoxes.Add(comboBoxMiscEffect7);
+            miscBoxes.Add(comboBoxMiscEffect8);
+
+            foreach (ComboBox box in modBoxes)
+            {
+                box.Items.Add("None");
+                box.SelectedIndex = 0;
+            }
+            foreach (ComboBox box in miscBoxes)
+            {
+                box.Items.Add("None");
+                box.SelectedIndex = 0;
+            }
+
+            comboBoxWeaponArcane.Items.Add("None");
+            comboBoxWeaponArcane.SelectedIndex = 0;
 
             primaryValueLabels.Add(labelDamageValue);
             primaryValueLabels.Add(labelFireRateValue);
@@ -336,7 +397,6 @@ namespace Buildframe
                 lbl.Text = "N/A";
             }
 
-            loadWeapon(weaponStats.Values.ToList()[0]);
         }
 
         private void loadWeaponToolStripMenuItem_Click(object sender, EventArgs e)
@@ -364,6 +424,7 @@ namespace Buildframe
             loadValidIDs();
             loadArcanesToSelectionBox();
             loadModsToSelectionBox();
+            loadMiscsToSelectionBox();
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -375,11 +436,21 @@ namespace Buildframe
 
         private void comboBoxMod_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (pauseHandler)
+                return;
+            updateWeaponStats();
+        }
+        private void comboBoxMisc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (pauseHandler)
+                return;
             updateWeaponStats();
         }
 
         private void comboBoxWeaponArcane_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (pauseHandler)
+                return;
             updateWeaponStats();
         }
 
@@ -393,6 +464,7 @@ namespace Buildframe
         private void comboBoxFireMode_SelectedIndexChanged(object sender, EventArgs e)
         {
             primary = currentWeapon.fireModes[comboBoxFireMode.SelectedIndex];
+            WriteLineIfDebug("Selected fire mode: " + primary.id + " : " +primary.name);
             if (currentWeapon.fireModesRadials.ContainsKey(primary.id))
             {
                 radial = currentWeapon.fireModesRadials[primary.id];

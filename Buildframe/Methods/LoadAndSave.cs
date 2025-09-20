@@ -20,7 +20,7 @@ namespace Buildframe.Methods
                 if (split[0] == "name")
                     stats.name = split[1];
                 if (split[0] == "description")
-                    stats.description = split[1];
+                    stats.description = split[1].Replace("[NEW LINE]", "\n");
                 if (split[0] == "id")
                     stats.id = split[1];
                 if (split[0] == "tags")
@@ -224,7 +224,7 @@ namespace Buildframe.Methods
             string s = "";
 
             s += "name=" + stats.name;
-            s += "\ndescription=" + stats.description;
+            s += "\ndescription=" + stats.description.Replace("\n","[NEW LINE]");
             s += "\nid=" + stats.id;
             s += "\nincarnon=" + Convert.ToString(stats.incarnon);
             s += "\ntags=" + stats.tags;
@@ -347,7 +347,7 @@ namespace Buildframe.Methods
         {
             string s = "";
             s += "name=" + weapon.name;
-            s += "\ndescription=" + weapon.description;
+            s += "\ndescription=" + weapon.description.Replace("\n", "[NEW LINE]");
             s += "\nid=" + weapon.id;
             s += "\ntags=" + weapon.tags;
             s += "\nfireModes=";
@@ -373,7 +373,7 @@ namespace Buildframe.Methods
                 if (split[0] == "name")
                     weapon.name = split[1];
                 if (split[0] == "description")
-                    weapon.description = split[1];
+                    weapon.description = split[1].Replace("[NEW LINE]", "\n");
                 if (split[0] == "id")
                     weapon.id = split[1];
                 if (split[0] == "tags")
@@ -410,7 +410,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading arcane file: " + file);
+                WriteLineIfDebug("Loading arcane file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
                 arcaneStats.Add(stats.id, stats);
             }
@@ -424,7 +424,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading mod file: " + file);
+                WriteLineIfDebug("Loading mod file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
                 modStats.Add(stats.id, stats);
             }
@@ -438,7 +438,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading misc file: " + file);
+                WriteLineIfDebug("Loading misc file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
                 miscStats.Add(stats.id, stats);
             }
@@ -452,7 +452,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading fire mode file: " + file);
+                WriteLineIfDebug("Loading fire mode file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
                 fireModeStats.Add(stats.id, stats);
             }
@@ -466,7 +466,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading fire mode file: " + file);
+                WriteLineIfDebug("Loading weapon file: " + file.Replace(envAPPLOC, ""));
                 Weapon wpn = loadWeaponFromFile(file);
                 weaponStats.Add(wpn.id, wpn);
             }

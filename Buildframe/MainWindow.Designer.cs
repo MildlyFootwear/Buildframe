@@ -82,6 +82,15 @@
             labelWeaponName = new Label();
             comboBoxFireMode = new ComboBox();
             tableLayoutPanel2 = new TableLayoutPanel();
+            comboBoxMiscEffect8 = new ComboBox();
+            comboBoxMiscEffect7 = new ComboBox();
+            comboBoxMiscEffect6 = new ComboBox();
+            comboBoxMiscEffect5 = new ComboBox();
+            comboBoxMiscEffect4 = new ComboBox();
+            comboBoxMiscEffect3 = new ComboBox();
+            comboBoxMiscEffect2 = new ComboBox();
+            comboBoxMiscEffect1 = new ComboBox();
+            label3 = new Label();
             comboBoxMod8 = new ComboBox();
             comboBoxMod7 = new ComboBox();
             comboBoxMod6 = new ComboBox();
@@ -228,7 +237,6 @@
             // labelSummedDPSSustainedValue
             // 
             labelSummedDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelSummedDPSSustainedValue.AutoSize = true;
             labelSummedDPSSustainedValue.CausesValidation = false;
             labelSummedDPSSustainedValue.Location = new Point(171, 442);
             labelSummedDPSSustainedValue.Name = "labelSummedDPSSustainedValue";
@@ -238,7 +246,6 @@
             // labelSummedDPSBurstValue
             // 
             labelSummedDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelSummedDPSBurstValue.AutoSize = true;
             labelSummedDPSBurstValue.CausesValidation = false;
             labelSummedDPSBurstValue.Location = new Point(171, 421);
             labelSummedDPSBurstValue.Name = "labelSummedDPSBurstValue";
@@ -248,7 +255,6 @@
             // labelRadialDPSSustainedValue
             // 
             labelRadialDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialDPSSustainedValue.AutoSize = true;
             labelRadialDPSSustainedValue.CausesValidation = false;
             labelRadialDPSSustainedValue.Location = new Point(171, 400);
             labelRadialDPSSustainedValue.Name = "labelRadialDPSSustainedValue";
@@ -258,7 +264,6 @@
             // labelRadialDPSBurstValue
             // 
             labelRadialDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialDPSBurstValue.AutoSize = true;
             labelRadialDPSBurstValue.CausesValidation = false;
             labelRadialDPSBurstValue.Location = new Point(171, 379);
             labelRadialDPSBurstValue.Name = "labelRadialDPSBurstValue";
@@ -268,7 +273,6 @@
             // labelRadialStatusMultishotValue
             // 
             labelRadialStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialStatusMultishotValue.AutoSize = true;
             labelRadialStatusMultishotValue.CausesValidation = false;
             labelRadialStatusMultishotValue.Location = new Point(171, 358);
             labelRadialStatusMultishotValue.Name = "labelRadialStatusMultishotValue";
@@ -278,7 +282,6 @@
             // labelRadialStatusValue
             // 
             labelRadialStatusValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialStatusValue.AutoSize = true;
             labelRadialStatusValue.CausesValidation = false;
             labelRadialStatusValue.Location = new Point(171, 337);
             labelRadialStatusValue.Name = "labelRadialStatusValue";
@@ -288,7 +291,6 @@
             // labelRadialAverageCritMultValue
             // 
             labelRadialAverageCritMultValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialAverageCritMultValue.AutoSize = true;
             labelRadialAverageCritMultValue.CausesValidation = false;
             labelRadialAverageCritMultValue.Location = new Point(171, 316);
             labelRadialAverageCritMultValue.Name = "labelRadialAverageCritMultValue";
@@ -298,7 +300,6 @@
             // labelRadialCriticalMultiplierValue
             // 
             labelRadialCriticalMultiplierValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialCriticalMultiplierValue.AutoSize = true;
             labelRadialCriticalMultiplierValue.CausesValidation = false;
             labelRadialCriticalMultiplierValue.Location = new Point(171, 295);
             labelRadialCriticalMultiplierValue.Name = "labelRadialCriticalMultiplierValue";
@@ -308,7 +309,6 @@
             // labelRadialCriticalChanceValue
             // 
             labelRadialCriticalChanceValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialCriticalChanceValue.AutoSize = true;
             labelRadialCriticalChanceValue.CausesValidation = false;
             labelRadialCriticalChanceValue.Location = new Point(171, 274);
             labelRadialCriticalChanceValue.Name = "labelRadialCriticalChanceValue";
@@ -318,7 +318,6 @@
             // labelDPSSustainedValue
             // 
             labelDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelDPSSustainedValue.AutoSize = true;
             labelDPSSustainedValue.CausesValidation = false;
             labelDPSSustainedValue.Location = new Point(171, 253);
             labelDPSSustainedValue.Name = "labelDPSSustainedValue";
@@ -328,7 +327,6 @@
             // labelDPSBurstValue
             // 
             labelDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelDPSBurstValue.AutoSize = true;
             labelDPSBurstValue.CausesValidation = false;
             labelDPSBurstValue.Location = new Point(171, 232);
             labelDPSBurstValue.Name = "labelDPSBurstValue";
@@ -338,7 +336,6 @@
             // labelAverageCriticalValue
             // 
             labelAverageCriticalValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelAverageCriticalValue.AutoSize = true;
             labelAverageCriticalValue.CausesValidation = false;
             labelAverageCriticalValue.Location = new Point(171, 190);
             labelAverageCriticalValue.Name = "labelAverageCriticalValue";
@@ -348,7 +345,6 @@
             // labelCriticalDamageValue
             // 
             labelCriticalDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelCriticalDamageValue.AutoSize = true;
             labelCriticalDamageValue.CausesValidation = false;
             labelCriticalDamageValue.Location = new Point(171, 169);
             labelCriticalDamageValue.Name = "labelCriticalDamageValue";
@@ -358,7 +354,6 @@
             // labelCriticalChanceValue
             // 
             labelCriticalChanceValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelCriticalChanceValue.AutoSize = true;
             labelCriticalChanceValue.CausesValidation = false;
             labelCriticalChanceValue.Location = new Point(171, 148);
             labelCriticalChanceValue.Name = "labelCriticalChanceValue";
@@ -368,7 +363,6 @@
             // labelReloadValue
             // 
             labelReloadValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelReloadValue.AutoSize = true;
             labelReloadValue.CausesValidation = false;
             labelReloadValue.Location = new Point(171, 85);
             labelReloadValue.Name = "labelReloadValue";
@@ -378,7 +372,6 @@
             // labelMagazineValue
             // 
             labelMagazineValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelMagazineValue.AutoSize = true;
             labelMagazineValue.CausesValidation = false;
             labelMagazineValue.Location = new Point(171, 43);
             labelMagazineValue.Name = "labelMagazineValue";
@@ -388,7 +381,6 @@
             // labelMultishotValue
             // 
             labelMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelMultishotValue.AutoSize = true;
             labelMultishotValue.CausesValidation = false;
             labelMultishotValue.Location = new Point(171, 22);
             labelMultishotValue.Name = "labelMultishotValue";
@@ -398,7 +390,6 @@
             // labelFireRateValue
             // 
             labelFireRateValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelFireRateValue.AutoSize = true;
             labelFireRateValue.CausesValidation = false;
             labelFireRateValue.Location = new Point(171, 1);
             labelFireRateValue.Name = "labelFireRateValue";
@@ -579,7 +570,6 @@
             // labelAmmoEfficiencyValue
             // 
             labelAmmoEfficiencyValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelAmmoEfficiencyValue.AutoSize = true;
             labelAmmoEfficiencyValue.CausesValidation = false;
             labelAmmoEfficiencyValue.Location = new Point(171, 64);
             labelAmmoEfficiencyValue.Name = "labelAmmoEfficiencyValue";
@@ -607,7 +597,6 @@
             // labelStatusProjectileValue
             // 
             labelStatusProjectileValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelStatusProjectileValue.AutoSize = true;
             labelStatusProjectileValue.CausesValidation = false;
             labelStatusProjectileValue.Location = new Point(171, 106);
             labelStatusProjectileValue.Name = "labelStatusProjectileValue";
@@ -617,7 +606,6 @@
             // labelStatusMultishotValue
             // 
             labelStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelStatusMultishotValue.AutoSize = true;
             labelStatusMultishotValue.CausesValidation = false;
             labelStatusMultishotValue.Location = new Point(171, 127);
             labelStatusMultishotValue.Name = "labelStatusMultishotValue";
@@ -636,7 +624,6 @@
             // labelDamageValue
             // 
             labelDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelDamageValue.AutoSize = true;
             labelDamageValue.CausesValidation = false;
             labelDamageValue.Location = new Point(171, 211);
             labelDamageValue.Name = "labelDamageValue";
@@ -668,6 +655,15 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect8, 1, 11);
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect7, 0, 11);
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect6, 1, 10);
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect5, 0, 10);
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect4, 1, 9);
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect3, 0, 9);
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect2, 1, 8);
+            tableLayoutPanel2.Controls.Add(comboBoxMiscEffect1, 0, 8);
+            tableLayoutPanel2.Controls.Add(label3, 0, 7);
             tableLayoutPanel2.Controls.Add(comboBoxMod8, 1, 6);
             tableLayoutPanel2.Controls.Add(comboBoxMod7, 0, 6);
             tableLayoutPanel2.Controls.Add(comboBoxMod6, 1, 5);
@@ -681,7 +677,7 @@
             tableLayoutPanel2.Controls.Add(comboBoxMod1, 0, 3);
             tableLayoutPanel2.Location = new Point(320, 81);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 7;
+            tableLayoutPanel2.RowCount = 12;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
@@ -689,8 +685,121 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(343, 188);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(343, 330);
             tableLayoutPanel2.TabIndex = 3;
+            // 
+            // comboBoxMiscEffect8
+            // 
+            comboBoxMiscEffect8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect8.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect8.FormattingEnabled = true;
+            comboBoxMiscEffect8.Location = new Point(172, 292);
+            comboBoxMiscEffect8.Margin = new Padding(1);
+            comboBoxMiscEffect8.Name = "comboBoxMiscEffect8";
+            comboBoxMiscEffect8.Size = new Size(170, 23);
+            comboBoxMiscEffect8.TabIndex = 19;
+            comboBoxMiscEffect8.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // comboBoxMiscEffect7
+            // 
+            comboBoxMiscEffect7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect7.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect7.FormattingEnabled = true;
+            comboBoxMiscEffect7.Location = new Point(1, 292);
+            comboBoxMiscEffect7.Margin = new Padding(1);
+            comboBoxMiscEffect7.Name = "comboBoxMiscEffect7";
+            comboBoxMiscEffect7.Size = new Size(169, 23);
+            comboBoxMiscEffect7.TabIndex = 18;
+            comboBoxMiscEffect7.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // comboBoxMiscEffect6
+            // 
+            comboBoxMiscEffect6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect6.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect6.FormattingEnabled = true;
+            comboBoxMiscEffect6.Location = new Point(172, 267);
+            comboBoxMiscEffect6.Margin = new Padding(1);
+            comboBoxMiscEffect6.Name = "comboBoxMiscEffect6";
+            comboBoxMiscEffect6.Size = new Size(170, 23);
+            comboBoxMiscEffect6.TabIndex = 17;
+            comboBoxMiscEffect6.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // comboBoxMiscEffect5
+            // 
+            comboBoxMiscEffect5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect5.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect5.FormattingEnabled = true;
+            comboBoxMiscEffect5.Location = new Point(1, 267);
+            comboBoxMiscEffect5.Margin = new Padding(1);
+            comboBoxMiscEffect5.Name = "comboBoxMiscEffect5";
+            comboBoxMiscEffect5.Size = new Size(169, 23);
+            comboBoxMiscEffect5.TabIndex = 16;
+            comboBoxMiscEffect5.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // comboBoxMiscEffect4
+            // 
+            comboBoxMiscEffect4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect4.FormattingEnabled = true;
+            comboBoxMiscEffect4.Location = new Point(172, 242);
+            comboBoxMiscEffect4.Margin = new Padding(1);
+            comboBoxMiscEffect4.Name = "comboBoxMiscEffect4";
+            comboBoxMiscEffect4.Size = new Size(170, 23);
+            comboBoxMiscEffect4.TabIndex = 15;
+            comboBoxMiscEffect4.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // comboBoxMiscEffect3
+            // 
+            comboBoxMiscEffect3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect3.FormattingEnabled = true;
+            comboBoxMiscEffect3.Location = new Point(1, 242);
+            comboBoxMiscEffect3.Margin = new Padding(1);
+            comboBoxMiscEffect3.Name = "comboBoxMiscEffect3";
+            comboBoxMiscEffect3.Size = new Size(169, 23);
+            comboBoxMiscEffect3.TabIndex = 14;
+            comboBoxMiscEffect3.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // comboBoxMiscEffect2
+            // 
+            comboBoxMiscEffect2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect2.FormattingEnabled = true;
+            comboBoxMiscEffect2.Location = new Point(172, 217);
+            comboBoxMiscEffect2.Margin = new Padding(1);
+            comboBoxMiscEffect2.Name = "comboBoxMiscEffect2";
+            comboBoxMiscEffect2.Size = new Size(170, 23);
+            comboBoxMiscEffect2.TabIndex = 13;
+            comboBoxMiscEffect2.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // comboBoxMiscEffect1
+            // 
+            comboBoxMiscEffect1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxMiscEffect1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMiscEffect1.FormattingEnabled = true;
+            comboBoxMiscEffect1.Location = new Point(1, 217);
+            comboBoxMiscEffect1.Margin = new Padding(1);
+            comboBoxMiscEffect1.Name = "comboBoxMiscEffect1";
+            comboBoxMiscEffect1.Size = new Size(169, 23);
+            comboBoxMiscEffect1.TabIndex = 12;
+            comboBoxMiscEffect1.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            tableLayoutPanel2.SetColumnSpan(label3, 2);
+            label3.Location = new Point(3, 187);
+            label3.Name = "label3";
+            label3.Size = new Size(337, 29);
+            label3.TabIndex = 11;
+            label3.Text = "Warframe Arcane/Buffs/Misc Effects";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // comboBoxMod8
             // 
@@ -794,7 +903,6 @@
             tableLayoutPanel2.SetColumnSpan(comboBoxWeaponArcane, 2);
             comboBoxWeaponArcane.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxWeaponArcane.FormattingEnabled = true;
-            comboBoxWeaponArcane.Items.AddRange(new object[] { "None" });
             comboBoxWeaponArcane.Location = new Point(3, 32);
             comboBoxWeaponArcane.Name = "comboBoxWeaponArcane";
             comboBoxWeaponArcane.Size = new Size(337, 23);
@@ -918,5 +1026,14 @@
         private ComboBox comboBoxMod3;
         private ComboBox comboBoxMod2;
         private ComboBox comboBoxMod1;
+        private Label label3;
+        private ComboBox comboBoxMiscEffect1;
+        private ComboBox comboBoxMiscEffect8;
+        private ComboBox comboBoxMiscEffect7;
+        private ComboBox comboBoxMiscEffect6;
+        private ComboBox comboBoxMiscEffect5;
+        private ComboBox comboBoxMiscEffect4;
+        private ComboBox comboBoxMiscEffect3;
+        private ComboBox comboBoxMiscEffect2;
     }
 }
