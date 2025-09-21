@@ -13,9 +13,9 @@ namespace Buildframe
         }
 
         public Weapon currentWeapon = new();
-        public Stats primary = new Stats();
-        public Stats radial = new Stats();
-        public List<Stats> selectedStats = new List<Stats>();
+        public Stats primary = new();
+        public Stats radial = new();
+        public List<Stats> selectedStats = new();
         public List<Stats> fireModesWithAppliedStats = new();
         public Stats mergedStats = new();
         public Stats primaryWithAppliedStats = new();
@@ -43,12 +43,12 @@ namespace Buildframe
                 comboBoxFireMode.Items.Add(fm.name);
             }
             labelWeaponName.Text = weapon.name;
-            pauseHandler = true;
+            setHandlerPause(true);
             loadValidIDs();
             loadArcanesToSelectionBox();
             loadModsToSelectionBox();
             loadMiscsToSelectionBox();
-            pauseHandler = false;
+            setHandlerPause(false);
             comboBoxFireMode.SelectedIndex = 0;
         }
 
@@ -214,7 +214,7 @@ namespace Buildframe
                 }
             }
 
-            pauseHandler = true;
+            setHandlerPause(true);
 
             foreach (ComboBox box in modBoxes)
             {
@@ -231,7 +231,7 @@ namespace Buildframe
                 }
             }
 
-            pauseHandler = false;
+            setHandlerPause(false);
         }
 
         public void loadMiscsToSelectionBox()
@@ -251,7 +251,7 @@ namespace Buildframe
                 }
             }
 
-            pauseHandler = true;
+            setHandlerPause(true);
 
             foreach (ComboBox box in miscBoxes)
             {
@@ -268,7 +268,7 @@ namespace Buildframe
                 }
             }
 
-            pauseHandler = false;
+            setHandlerPause(false);
         }
 
         public void stashBoxIDs()
@@ -393,8 +393,11 @@ namespace Buildframe
                     if (CommonVars.weaponStats.ContainsKey(value))
                     {
                         loadWeapon(CommonVars.weaponStats[value]);
-                    } else
+                        setHandlerPause(true);
+                    }
+                    else
                     {
+                        WriteLineIfDebug("Weapon ID in save file not found: " + value);
                         return;
                     }
                 }
@@ -402,6 +405,7 @@ namespace Buildframe
                 {
                     if (value != "" && CommonVars.arcaneStats.ContainsKey(value))
                     {
+                        WriteLineIfDebug("Setting arcane to " + value);
                         int index = validArcaneIDs.IndexOf(value) + 1;
                         comboBoxWeaponArcane.SelectedIndex = index;
                     }
@@ -414,6 +418,7 @@ namespace Buildframe
                         string modID = modIDs[i];
                         if (CommonVars.modStats.ContainsKey(modID))
                         {
+                            WriteLineIfDebug("Setting mod box " + (i + 1) + " to " + modID);
                             int index = validModIDs.IndexOf(modID) + 1;
                             modBoxes[i].SelectedIndex = index;
                         }
@@ -427,11 +432,28 @@ namespace Buildframe
                         string miscID = miscIDs[i];
                         if (CommonVars.miscStats.ContainsKey(miscID))
                         {
+                            WriteLineIfDebug("Setting misc box " + (i + 1) + " to " + miscID);
                             int index = validMiscIDs.IndexOf(miscID) + 1;
                             miscBoxes[i].SelectedIndex = index;
                         }
                     }
                 }
+            }
+            setHandlerPause(false);
+            updateWeaponStats();
+            WriteLineIfDebug("Loaded build from " + path);
+        }
+
+        public void setHandlerPause(bool pause)
+        {
+            if (!pause && pauseHandler)
+            {
+                WriteLineIfDebug("Resumed weapon updates.");
+            }
+            pauseHandler = pause;
+            if (pauseHandler)
+            {
+                WriteLineIfDebug("Paused weapon updates.");
             }
         }
         private void MainWindow_Load(object sender, EventArgs e)
@@ -460,7 +482,7 @@ namespace Buildframe
             miscBoxes.Add(comboBoxMiscEffect7);
             miscBoxes.Add(comboBoxMiscEffect8);
 
-            pauseHandler = true;
+            setHandlerPause(true);
 
             foreach (ComboBox box in modBoxes)
             {
@@ -476,7 +498,7 @@ namespace Buildframe
             comboBoxWeaponArcane.Items.Add("None");
             comboBoxWeaponArcane.SelectedIndex = 0;
 
-            pauseHandler = false;
+            setHandlerPause(false);
 
             primaryValueLabels.Add(labelDamageValue);
             primaryValueLabels.Add(labelFireRateValue);
@@ -512,11 +534,15 @@ namespace Buildframe
                 lbl.Text = "N/A";
             }
 
-            WriteLineIfDebug("Loading last session from file");
-            loadSelectedFromFile();
+            if (File.Exists("lastbuild.cfg"))
+            {
+                WriteLineIfDebug("Loading last session from file");
+                loadSelectedFromFile();
+            }
+
         }
 
-        private void loadWeaponToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemSelectWeapon_Click(object sender, EventArgs e)
         {
             stashBoxIDs();
 
@@ -556,12 +582,14 @@ namespace Buildframe
         {
             if (pauseHandler)
                 return;
+
             updateWeaponStats();
         }
         private void comboBoxMisc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (pauseHandler)
                 return;
+
             updateWeaponStats();
         }
 
@@ -569,6 +597,7 @@ namespace Buildframe
         {
             if (pauseHandler)
                 return;
+
             updateWeaponStats();
         }
 
@@ -591,6 +620,8 @@ namespace Buildframe
             {
                 radial = new Stats();
             }
+            if (pauseHandler)
+                return;
             updateWeaponStats();
         }
     }

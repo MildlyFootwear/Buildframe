@@ -32,18 +32,9 @@
             toolStrip1 = new ToolStrip();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
             addWeaponToolStripMenuItem = new ToolStripMenuItem();
-            loadWeaponToolStripMenuItem = new ToolStripMenuItem();
+            ToolStripMenuItemSelectWeapon = new ToolStripMenuItem();
             toolstripButtonEffectWizard = new ToolStripButton();
             tableLayoutPanel1 = new TableLayoutPanel();
-            labelSummedDPSSustainedValue = new Label();
-            labelSummedDPSBurstValue = new Label();
-            labelRadialDPSSustainedValue = new Label();
-            labelRadialDPSBurstValue = new Label();
-            labelRadialStatusMultishotValue = new Label();
-            labelRadialStatusValue = new Label();
-            labelRadialAverageCritMultValue = new Label();
-            labelRadialCriticalMultiplierValue = new Label();
-            labelRadialCriticalChanceValue = new Label();
             labelDPSSustainedValue = new Label();
             labelDPSBurstValue = new Label();
             labelAverageCriticalValue = new Label();
@@ -53,15 +44,6 @@
             labelMagazineValue = new Label();
             labelMultishotValue = new Label();
             labelFireRateValue = new Label();
-            label21 = new Label();
-            label20 = new Label();
-            label19 = new Label();
-            label18 = new Label();
-            label17 = new Label();
-            label16 = new Label();
-            label15 = new Label();
-            label14 = new Label();
-            label13 = new Label();
             labelAverageCritical = new Label();
             labelCriticalDamage = new Label();
             labelCriticalChance = new Label();
@@ -79,6 +61,26 @@
             labelStatusMultishotValue = new Label();
             labelDamage = new Label();
             labelDamageValue = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            labelRadialDPSSustainedValue = new Label();
+            labelRadialDPSBurstValue = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label4 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            labelRadialCriticalChanceValue = new Label();
+            labelRadialStatusValue = new Label();
+            labelRadialStatusMultishotValue = new Label();
+            labelRadialDamage = new Label();
+            labelRadialCriticalMultiplierValue = new Label();
+            labelRadialAverageCritMultValue = new Label();
+            label21 = new Label();
+            labelSummedDPSSustainedValue = new Label();
+            label20 = new Label();
+            labelSummedDPSBurstValue = new Label();
             labelWeaponName = new Label();
             comboBoxFireMode = new ComboBox();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -120,7 +122,7 @@
             // 
             toolStripDropDownButton1.AutoToolTip = false;
             toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { addWeaponToolStripMenuItem, loadWeaponToolStripMenuItem });
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { addWeaponToolStripMenuItem, ToolStripMenuItemSelectWeapon });
             toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -131,16 +133,16 @@
             // addWeaponToolStripMenuItem
             // 
             addWeaponToolStripMenuItem.Name = "addWeaponToolStripMenuItem";
-            addWeaponToolStripMenuItem.Size = new Size(147, 22);
+            addWeaponToolStripMenuItem.Size = new Size(152, 22);
             addWeaponToolStripMenuItem.Text = "Add Weapon";
             addWeaponToolStripMenuItem.Click += addWeaponToolStripMenuItem_Click;
             // 
-            // loadWeaponToolStripMenuItem
+            // ToolStripMenuItemSelectWeapon
             // 
-            loadWeaponToolStripMenuItem.Name = "loadWeaponToolStripMenuItem";
-            loadWeaponToolStripMenuItem.Size = new Size(147, 22);
-            loadWeaponToolStripMenuItem.Text = "Load Weapon";
-            loadWeaponToolStripMenuItem.Click += loadWeaponToolStripMenuItem_Click;
+            ToolStripMenuItemSelectWeapon.Name = "ToolStripMenuItemSelectWeapon";
+            ToolStripMenuItemSelectWeapon.Size = new Size(152, 22);
+            ToolStripMenuItemSelectWeapon.Text = "Select Weapon";
+            ToolStripMenuItemSelectWeapon.Click += ToolStripMenuItemSelectWeapon_Click;
             // 
             // toolstripButtonEffectWizard
             // 
@@ -154,19 +156,12 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 58.13149F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 41.86851F));
-            tableLayoutPanel1.Controls.Add(labelSummedDPSSustainedValue, 1, 21);
-            tableLayoutPanel1.Controls.Add(labelSummedDPSBurstValue, 1, 20);
-            tableLayoutPanel1.Controls.Add(labelRadialDPSSustainedValue, 1, 19);
-            tableLayoutPanel1.Controls.Add(labelRadialDPSBurstValue, 1, 18);
-            tableLayoutPanel1.Controls.Add(labelRadialStatusMultishotValue, 1, 17);
-            tableLayoutPanel1.Controls.Add(labelRadialStatusValue, 1, 16);
-            tableLayoutPanel1.Controls.Add(labelRadialAverageCritMultValue, 1, 15);
-            tableLayoutPanel1.Controls.Add(labelRadialCriticalMultiplierValue, 1, 14);
-            tableLayoutPanel1.Controls.Add(labelRadialCriticalChanceValue, 1, 13);
             tableLayoutPanel1.Controls.Add(labelDPSSustainedValue, 1, 12);
             tableLayoutPanel1.Controls.Add(labelDPSBurstValue, 1, 11);
             tableLayoutPanel1.Controls.Add(labelAverageCriticalValue, 1, 9);
@@ -176,15 +171,6 @@
             tableLayoutPanel1.Controls.Add(labelMagazineValue, 1, 2);
             tableLayoutPanel1.Controls.Add(labelMultishotValue, 1, 1);
             tableLayoutPanel1.Controls.Add(labelFireRateValue, 1, 0);
-            tableLayoutPanel1.Controls.Add(label21, 0, 21);
-            tableLayoutPanel1.Controls.Add(label20, 0, 20);
-            tableLayoutPanel1.Controls.Add(label19, 0, 19);
-            tableLayoutPanel1.Controls.Add(label18, 0, 18);
-            tableLayoutPanel1.Controls.Add(label17, 0, 17);
-            tableLayoutPanel1.Controls.Add(label16, 0, 16);
-            tableLayoutPanel1.Controls.Add(label15, 0, 15);
-            tableLayoutPanel1.Controls.Add(label14, 0, 14);
-            tableLayoutPanel1.Controls.Add(label13, 0, 13);
             tableLayoutPanel1.Controls.Add(labelAverageCritical, 0, 9);
             tableLayoutPanel1.Controls.Add(labelCriticalDamage, 0, 8);
             tableLayoutPanel1.Controls.Add(labelCriticalChance, 0, 7);
@@ -202,9 +188,29 @@
             tableLayoutPanel1.Controls.Add(labelStatusMultishotValue, 1, 6);
             tableLayoutPanel1.Controls.Add(labelDamage, 0, 10);
             tableLayoutPanel1.Controls.Add(labelDamageValue, 1, 10);
+            tableLayoutPanel1.Controls.Add(label19, 0, 20);
+            tableLayoutPanel1.Controls.Add(label18, 0, 19);
+            tableLayoutPanel1.Controls.Add(labelRadialDPSSustainedValue, 1, 20);
+            tableLayoutPanel1.Controls.Add(labelRadialDPSBurstValue, 1, 19);
+            tableLayoutPanel1.Controls.Add(label16, 0, 13);
+            tableLayoutPanel1.Controls.Add(label17, 0, 14);
+            tableLayoutPanel1.Controls.Add(label4, 0, 18);
+            tableLayoutPanel1.Controls.Add(label13, 0, 15);
+            tableLayoutPanel1.Controls.Add(label14, 0, 16);
+            tableLayoutPanel1.Controls.Add(label15, 0, 17);
+            tableLayoutPanel1.Controls.Add(labelRadialCriticalChanceValue, 1, 15);
+            tableLayoutPanel1.Controls.Add(labelRadialStatusValue, 1, 13);
+            tableLayoutPanel1.Controls.Add(labelRadialStatusMultishotValue, 1, 14);
+            tableLayoutPanel1.Controls.Add(labelRadialDamage, 1, 18);
+            tableLayoutPanel1.Controls.Add(labelRadialCriticalMultiplierValue, 1, 16);
+            tableLayoutPanel1.Controls.Add(labelRadialAverageCritMultValue, 1, 17);
+            tableLayoutPanel1.Controls.Add(label21, 0, 23);
+            tableLayoutPanel1.Controls.Add(labelSummedDPSSustainedValue, 1, 23);
+            tableLayoutPanel1.Controls.Add(label20, 0, 22);
+            tableLayoutPanel1.Controls.Add(labelSummedDPSBurstValue, 1, 22);
             tableLayoutPanel1.Location = new Point(12, 80);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 24;
+            tableLayoutPanel1.RowCount = 25;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
@@ -230,96 +236,14 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(290, 528);
+            tableLayoutPanel1.Size = new Size(292, 526);
             tableLayoutPanel1.TabIndex = 1;
-            // 
-            // labelSummedDPSSustainedValue
-            // 
-            labelSummedDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelSummedDPSSustainedValue.CausesValidation = false;
-            labelSummedDPSSustainedValue.Location = new Point(171, 442);
-            labelSummedDPSSustainedValue.Name = "labelSummedDPSSustainedValue";
-            labelSummedDPSSustainedValue.Size = new Size(115, 20);
-            labelSummedDPSSustainedValue.TabIndex = 45;
-            // 
-            // labelSummedDPSBurstValue
-            // 
-            labelSummedDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelSummedDPSBurstValue.CausesValidation = false;
-            labelSummedDPSBurstValue.Location = new Point(171, 421);
-            labelSummedDPSBurstValue.Name = "labelSummedDPSBurstValue";
-            labelSummedDPSBurstValue.Size = new Size(115, 20);
-            labelSummedDPSBurstValue.TabIndex = 44;
-            // 
-            // labelRadialDPSSustainedValue
-            // 
-            labelRadialDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialDPSSustainedValue.CausesValidation = false;
-            labelRadialDPSSustainedValue.Location = new Point(171, 400);
-            labelRadialDPSSustainedValue.Name = "labelRadialDPSSustainedValue";
-            labelRadialDPSSustainedValue.Size = new Size(115, 20);
-            labelRadialDPSSustainedValue.TabIndex = 43;
-            // 
-            // labelRadialDPSBurstValue
-            // 
-            labelRadialDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialDPSBurstValue.CausesValidation = false;
-            labelRadialDPSBurstValue.Location = new Point(171, 379);
-            labelRadialDPSBurstValue.Name = "labelRadialDPSBurstValue";
-            labelRadialDPSBurstValue.Size = new Size(115, 20);
-            labelRadialDPSBurstValue.TabIndex = 42;
-            // 
-            // labelRadialStatusMultishotValue
-            // 
-            labelRadialStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialStatusMultishotValue.CausesValidation = false;
-            labelRadialStatusMultishotValue.Location = new Point(171, 358);
-            labelRadialStatusMultishotValue.Name = "labelRadialStatusMultishotValue";
-            labelRadialStatusMultishotValue.Size = new Size(115, 20);
-            labelRadialStatusMultishotValue.TabIndex = 41;
-            // 
-            // labelRadialStatusValue
-            // 
-            labelRadialStatusValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialStatusValue.CausesValidation = false;
-            labelRadialStatusValue.Location = new Point(171, 337);
-            labelRadialStatusValue.Name = "labelRadialStatusValue";
-            labelRadialStatusValue.Size = new Size(115, 20);
-            labelRadialStatusValue.TabIndex = 40;
-            // 
-            // labelRadialAverageCritMultValue
-            // 
-            labelRadialAverageCritMultValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialAverageCritMultValue.CausesValidation = false;
-            labelRadialAverageCritMultValue.Location = new Point(171, 316);
-            labelRadialAverageCritMultValue.Name = "labelRadialAverageCritMultValue";
-            labelRadialAverageCritMultValue.Size = new Size(115, 20);
-            labelRadialAverageCritMultValue.TabIndex = 39;
-            // 
-            // labelRadialCriticalMultiplierValue
-            // 
-            labelRadialCriticalMultiplierValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialCriticalMultiplierValue.CausesValidation = false;
-            labelRadialCriticalMultiplierValue.Location = new Point(171, 295);
-            labelRadialCriticalMultiplierValue.Name = "labelRadialCriticalMultiplierValue";
-            labelRadialCriticalMultiplierValue.Size = new Size(115, 20);
-            labelRadialCriticalMultiplierValue.TabIndex = 38;
-            // 
-            // labelRadialCriticalChanceValue
-            // 
-            labelRadialCriticalChanceValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialCriticalChanceValue.CausesValidation = false;
-            labelRadialCriticalChanceValue.Location = new Point(171, 274);
-            labelRadialCriticalChanceValue.Name = "labelRadialCriticalChanceValue";
-            labelRadialCriticalChanceValue.Size = new Size(115, 20);
-            labelRadialCriticalChanceValue.TabIndex = 37;
             // 
             // labelDPSSustainedValue
             // 
             labelDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDPSSustainedValue.CausesValidation = false;
-            labelDPSSustainedValue.Location = new Point(171, 253);
+            labelDPSSustainedValue.Location = new Point(173, 253);
             labelDPSSustainedValue.Name = "labelDPSSustainedValue";
             labelDPSSustainedValue.Size = new Size(115, 20);
             labelDPSSustainedValue.TabIndex = 35;
@@ -328,7 +252,7 @@
             // 
             labelDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDPSBurstValue.CausesValidation = false;
-            labelDPSBurstValue.Location = new Point(171, 232);
+            labelDPSBurstValue.Location = new Point(173, 232);
             labelDPSBurstValue.Name = "labelDPSBurstValue";
             labelDPSBurstValue.Size = new Size(115, 20);
             labelDPSBurstValue.TabIndex = 34;
@@ -337,7 +261,7 @@
             // 
             labelAverageCriticalValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelAverageCriticalValue.CausesValidation = false;
-            labelAverageCriticalValue.Location = new Point(171, 190);
+            labelAverageCriticalValue.Location = new Point(173, 190);
             labelAverageCriticalValue.Name = "labelAverageCriticalValue";
             labelAverageCriticalValue.Size = new Size(115, 20);
             labelAverageCriticalValue.TabIndex = 31;
@@ -346,7 +270,7 @@
             // 
             labelCriticalDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelCriticalDamageValue.CausesValidation = false;
-            labelCriticalDamageValue.Location = new Point(171, 169);
+            labelCriticalDamageValue.Location = new Point(173, 169);
             labelCriticalDamageValue.Name = "labelCriticalDamageValue";
             labelCriticalDamageValue.Size = new Size(115, 20);
             labelCriticalDamageValue.TabIndex = 30;
@@ -355,7 +279,7 @@
             // 
             labelCriticalChanceValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelCriticalChanceValue.CausesValidation = false;
-            labelCriticalChanceValue.Location = new Point(171, 148);
+            labelCriticalChanceValue.Location = new Point(173, 148);
             labelCriticalChanceValue.Name = "labelCriticalChanceValue";
             labelCriticalChanceValue.Size = new Size(115, 20);
             labelCriticalChanceValue.TabIndex = 29;
@@ -364,7 +288,7 @@
             // 
             labelReloadValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelReloadValue.CausesValidation = false;
-            labelReloadValue.Location = new Point(171, 85);
+            labelReloadValue.Location = new Point(173, 85);
             labelReloadValue.Name = "labelReloadValue";
             labelReloadValue.Size = new Size(115, 20);
             labelReloadValue.TabIndex = 28;
@@ -373,7 +297,7 @@
             // 
             labelMagazineValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMagazineValue.CausesValidation = false;
-            labelMagazineValue.Location = new Point(171, 43);
+            labelMagazineValue.Location = new Point(173, 43);
             labelMagazineValue.Name = "labelMagazineValue";
             labelMagazineValue.Size = new Size(115, 20);
             labelMagazineValue.TabIndex = 27;
@@ -382,7 +306,7 @@
             // 
             labelMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMultishotValue.CausesValidation = false;
-            labelMultishotValue.Location = new Point(171, 22);
+            labelMultishotValue.Location = new Point(173, 22);
             labelMultishotValue.Name = "labelMultishotValue";
             labelMultishotValue.Size = new Size(115, 20);
             labelMultishotValue.TabIndex = 26;
@@ -391,91 +315,10 @@
             // 
             labelFireRateValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelFireRateValue.CausesValidation = false;
-            labelFireRateValue.Location = new Point(171, 1);
+            labelFireRateValue.Location = new Point(173, 1);
             labelFireRateValue.Name = "labelFireRateValue";
             labelFireRateValue.Size = new Size(115, 20);
             labelFireRateValue.TabIndex = 25;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(4, 442);
-            label21.Name = "label21";
-            label21.Size = new Size(144, 15);
-            label21.TabIndex = 22;
-            label21.Text = "DPS (Summed, Sustained)";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(4, 421);
-            label20.Name = "label20";
-            label20.Size = new Size(120, 15);
-            label20.TabIndex = 21;
-            label20.Text = "DPS (Summed, Burst)";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(4, 400);
-            label19.Name = "label19";
-            label19.Size = new Size(128, 15);
-            label19.TabIndex = 20;
-            label19.Text = "DPS (Radial, Sustained)";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(4, 379);
-            label18.Name = "label18";
-            label18.Size = new Size(104, 15);
-            label18.TabIndex = 19;
-            label18.Text = "DPS (Radial, Burst)";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(4, 358);
-            label17.Name = "label17";
-            label17.Size = new Size(139, 15);
-            label17.TabIndex = 18;
-            label17.Text = "Status (Radial, Multishot)";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(4, 337);
-            label16.Name = "label16";
-            label16.Size = new Size(82, 15);
-            label16.TabIndex = 17;
-            label16.Text = "Status (Radial)";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(4, 316);
-            label15.Name = "label15";
-            label15.Size = new Size(143, 15);
-            label15.TabIndex = 16;
-            label15.Text = "Average Crit Mult (Radial)";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(4, 295);
-            label14.Name = "label14";
-            label14.Size = new Size(134, 15);
-            label14.TabIndex = 15;
-            label14.Text = "Critical Damage (Radial)";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(4, 274);
-            label13.Name = "label13";
-            label13.Size = new Size(130, 15);
-            label13.TabIndex = 14;
-            label13.Text = "Critical Chance (Radial)";
             // 
             // labelAverageCritical
             // 
@@ -571,7 +414,7 @@
             // 
             labelAmmoEfficiencyValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelAmmoEfficiencyValue.CausesValidation = false;
-            labelAmmoEfficiencyValue.Location = new Point(171, 64);
+            labelAmmoEfficiencyValue.Location = new Point(173, 64);
             labelAmmoEfficiencyValue.Name = "labelAmmoEfficiencyValue";
             labelAmmoEfficiencyValue.Size = new Size(115, 20);
             labelAmmoEfficiencyValue.TabIndex = 36;
@@ -598,7 +441,7 @@
             // 
             labelStatusProjectileValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelStatusProjectileValue.CausesValidation = false;
-            labelStatusProjectileValue.Location = new Point(171, 106);
+            labelStatusProjectileValue.Location = new Point(173, 106);
             labelStatusProjectileValue.Name = "labelStatusProjectileValue";
             labelStatusProjectileValue.Size = new Size(115, 20);
             labelStatusProjectileValue.TabIndex = 32;
@@ -607,7 +450,7 @@
             // 
             labelStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelStatusMultishotValue.CausesValidation = false;
-            labelStatusMultishotValue.Location = new Point(171, 127);
+            labelStatusMultishotValue.Location = new Point(173, 127);
             labelStatusMultishotValue.Name = "labelStatusMultishotValue";
             labelStatusMultishotValue.Size = new Size(115, 20);
             labelStatusMultishotValue.TabIndex = 33;
@@ -625,10 +468,190 @@
             // 
             labelDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDamageValue.CausesValidation = false;
-            labelDamageValue.Location = new Point(171, 211);
+            labelDamageValue.Location = new Point(173, 211);
             labelDamageValue.Name = "labelDamageValue";
             labelDamageValue.Size = new Size(115, 20);
             labelDamageValue.TabIndex = 48;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(4, 421);
+            label19.Name = "label19";
+            label19.Size = new Size(128, 15);
+            label19.TabIndex = 20;
+            label19.Text = "DPS (Radial, Sustained)";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(4, 400);
+            label18.Name = "label18";
+            label18.Size = new Size(104, 15);
+            label18.TabIndex = 19;
+            label18.Text = "DPS (Radial, Burst)";
+            // 
+            // labelRadialDPSSustainedValue
+            // 
+            labelRadialDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialDPSSustainedValue.CausesValidation = false;
+            labelRadialDPSSustainedValue.Location = new Point(173, 421);
+            labelRadialDPSSustainedValue.Name = "labelRadialDPSSustainedValue";
+            labelRadialDPSSustainedValue.Size = new Size(115, 20);
+            labelRadialDPSSustainedValue.TabIndex = 43;
+            // 
+            // labelRadialDPSBurstValue
+            // 
+            labelRadialDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialDPSBurstValue.CausesValidation = false;
+            labelRadialDPSBurstValue.Location = new Point(173, 400);
+            labelRadialDPSBurstValue.Name = "labelRadialDPSBurstValue";
+            labelRadialDPSBurstValue.Size = new Size(115, 20);
+            labelRadialDPSBurstValue.TabIndex = 42;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(4, 274);
+            label16.Name = "label16";
+            label16.Size = new Size(82, 15);
+            label16.TabIndex = 17;
+            label16.Text = "Status (Radial)";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(4, 295);
+            label17.Name = "label17";
+            label17.Size = new Size(139, 15);
+            label17.TabIndex = 18;
+            label17.Text = "Status (Radial, Multishot)";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(4, 379);
+            label4.Name = "label4";
+            label4.Size = new Size(140, 15);
+            label4.TabIndex = 49;
+            label4.Text = "Average Damage (Radial)";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(4, 316);
+            label13.Name = "label13";
+            label13.Size = new Size(130, 15);
+            label13.TabIndex = 14;
+            label13.Text = "Critical Chance (Radial)";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(4, 337);
+            label14.Name = "label14";
+            label14.Size = new Size(134, 15);
+            label14.TabIndex = 15;
+            label14.Text = "Critical Damage (Radial)";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(4, 358);
+            label15.Name = "label15";
+            label15.Size = new Size(143, 15);
+            label15.TabIndex = 16;
+            label15.Text = "Average Crit Mult (Radial)";
+            // 
+            // labelRadialCriticalChanceValue
+            // 
+            labelRadialCriticalChanceValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialCriticalChanceValue.CausesValidation = false;
+            labelRadialCriticalChanceValue.Location = new Point(173, 316);
+            labelRadialCriticalChanceValue.Name = "labelRadialCriticalChanceValue";
+            labelRadialCriticalChanceValue.Size = new Size(115, 20);
+            labelRadialCriticalChanceValue.TabIndex = 37;
+            // 
+            // labelRadialStatusValue
+            // 
+            labelRadialStatusValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialStatusValue.CausesValidation = false;
+            labelRadialStatusValue.Location = new Point(173, 274);
+            labelRadialStatusValue.Name = "labelRadialStatusValue";
+            labelRadialStatusValue.Size = new Size(115, 20);
+            labelRadialStatusValue.TabIndex = 40;
+            // 
+            // labelRadialStatusMultishotValue
+            // 
+            labelRadialStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialStatusMultishotValue.CausesValidation = false;
+            labelRadialStatusMultishotValue.Location = new Point(173, 295);
+            labelRadialStatusMultishotValue.Name = "labelRadialStatusMultishotValue";
+            labelRadialStatusMultishotValue.Size = new Size(115, 20);
+            labelRadialStatusMultishotValue.TabIndex = 41;
+            // 
+            // labelRadialDamage
+            // 
+            labelRadialDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialDamage.CausesValidation = false;
+            labelRadialDamage.Location = new Point(173, 379);
+            labelRadialDamage.Name = "labelRadialDamage";
+            labelRadialDamage.Size = new Size(115, 20);
+            labelRadialDamage.TabIndex = 50;
+            // 
+            // labelRadialCriticalMultiplierValue
+            // 
+            labelRadialCriticalMultiplierValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialCriticalMultiplierValue.CausesValidation = false;
+            labelRadialCriticalMultiplierValue.Location = new Point(173, 337);
+            labelRadialCriticalMultiplierValue.Name = "labelRadialCriticalMultiplierValue";
+            labelRadialCriticalMultiplierValue.Size = new Size(115, 20);
+            labelRadialCriticalMultiplierValue.TabIndex = 38;
+            // 
+            // labelRadialAverageCritMultValue
+            // 
+            labelRadialAverageCritMultValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialAverageCritMultValue.CausesValidation = false;
+            labelRadialAverageCritMultValue.Location = new Point(173, 358);
+            labelRadialAverageCritMultValue.Name = "labelRadialAverageCritMultValue";
+            labelRadialAverageCritMultValue.Size = new Size(115, 20);
+            labelRadialAverageCritMultValue.TabIndex = 39;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(4, 484);
+            label21.Name = "label21";
+            label21.Size = new Size(144, 15);
+            label21.TabIndex = 22;
+            label21.Text = "DPS (Summed, Sustained)";
+            // 
+            // labelSummedDPSSustainedValue
+            // 
+            labelSummedDPSSustainedValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelSummedDPSSustainedValue.CausesValidation = false;
+            labelSummedDPSSustainedValue.Location = new Point(173, 484);
+            labelSummedDPSSustainedValue.Name = "labelSummedDPSSustainedValue";
+            labelSummedDPSSustainedValue.Size = new Size(115, 20);
+            labelSummedDPSSustainedValue.TabIndex = 45;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(4, 463);
+            label20.Name = "label20";
+            label20.Size = new Size(120, 15);
+            label20.TabIndex = 21;
+            label20.Text = "DPS (Summed, Burst)";
+            // 
+            // labelSummedDPSBurstValue
+            // 
+            labelSummedDPSBurstValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelSummedDPSBurstValue.CausesValidation = false;
+            labelSummedDPSBurstValue.Location = new Point(173, 463);
+            labelSummedDPSBurstValue.Name = "labelSummedDPSBurstValue";
+            labelSummedDPSBurstValue.Size = new Size(115, 20);
+            labelSummedDPSBurstValue.TabIndex = 44;
             // 
             // labelWeaponName
             // 
@@ -965,7 +988,7 @@
         private ToolStrip toolStrip1;
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem addWeaponToolStripMenuItem;
-        private ToolStripMenuItem loadWeaponToolStripMenuItem;
+        private ToolStripMenuItem ToolStripMenuItemSelectWeapon;
         private ToolStripButton toolstripButtonEffectWizard;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelWeaponName;
@@ -1035,5 +1058,7 @@
         private ComboBox comboBoxMiscEffect4;
         private ComboBox comboBoxMiscEffect3;
         private ComboBox comboBoxMiscEffect2;
+        private Label labelRadialDamage;
+        private Label label4;
     }
 }

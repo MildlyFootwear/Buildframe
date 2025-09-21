@@ -149,6 +149,28 @@ namespace Buildframe.Methods.Calculation
 
             }
 
+            if (stats.baseDamage > 0)
+            {
+                double dmgTotal = stats.baseImpact + stats.basePuncture + stats.baseSlash + stats.baseFire + stats.baseCold + stats.baseElectric + stats.baseToxin + stats.baseBlast + stats.baseRadiation + stats.baseViral + stats.baseCorrosive + stats.baseMagnetic + stats.baseGas;
+                if (dmgTotal > 0)
+                {
+                    stats.baseImpact += stats.baseImpact / dmgTotal * stats.baseDamage;
+                    stats.basePuncture += stats.basePuncture / dmgTotal * stats.baseDamage;
+                    stats.baseSlash += stats.baseSlash / dmgTotal * stats.baseDamage;
+                    stats.baseFire += stats.baseFire / dmgTotal * stats.baseDamage;
+                    stats.baseCold += stats.baseCold / dmgTotal * stats.baseDamage;
+                    stats.baseElectric += stats.baseElectric / dmgTotal * stats.baseDamage;
+                    stats.baseToxin += stats.baseToxin / dmgTotal * stats.baseDamage;
+                    stats.baseBlast += stats.baseBlast / dmgTotal * stats.baseDamage;
+                    stats.baseRadiation += stats.baseRadiation / dmgTotal * stats.baseDamage;
+                    stats.baseViral += stats.baseViral / dmgTotal * stats.baseDamage;
+                    stats.baseCorrosive += stats.baseCorrosive / dmgTotal * stats.baseDamage;
+                    stats.baseMagnetic += stats.baseMagnetic / dmgTotal * stats.baseDamage;
+                    stats.baseGas += stats.baseGas / dmgTotal * stats.baseDamage;
+                    stats.baseDamage = 0;
+                }
+            }
+
             return stats;
         }
 

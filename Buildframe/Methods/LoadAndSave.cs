@@ -412,6 +412,11 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("Loading arcane file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
+                if (arcaneStats.ContainsKey(stats.id))
+                {
+                    MessageBox.Show("Duplicate arcane ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    continue;
+                }
                 arcaneStats.Add(stats.id, stats);
             }
             arcaneStats = arcaneStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
@@ -426,6 +431,11 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("Loading mod file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
+                if (modStats.ContainsKey(stats.id))
+                {
+                    MessageBox.Show("Duplicate mod ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    continue;
+                }
                 modStats.Add(stats.id, stats);
             }
             modStats = modStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
@@ -440,6 +450,11 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("Loading misc file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
+                if (miscStats.ContainsKey(stats.id))
+                {
+                    MessageBox.Show("Duplicate misc ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    continue;
+                }
                 miscStats.Add(stats.id, stats);
             }
             miscStats = miscStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
@@ -454,6 +469,11 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("Loading fire mode file: " + file.Replace(envAPPLOC, ""));
                 Stats stats = loadStatFromFile(file);
+                if (fireModeStats.ContainsKey(stats.id))
+                {
+                    MessageBox.Show("Duplicate fire mode ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    continue;
+                }
                 fireModeStats.Add(stats.id, stats);
             }
             fireModeStats = fireModeStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
@@ -468,6 +488,11 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("Loading weapon file: " + file.Replace(envAPPLOC, ""));
                 Weapon wpn = loadWeaponFromFile(file);
+                if (weaponStats.ContainsKey(wpn.id))
+                {
+                    MessageBox.Show("Duplicate weapon ID found: " + wpn.id + " in file " + file.Replace(envAPPLOC, ""));
+                    continue;
+                }
                 weaponStats.Add(wpn.id, wpn);
             }
             weaponStats = weaponStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);

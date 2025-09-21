@@ -40,7 +40,7 @@ namespace Buildframe
 
             updateMethods.CheckForUpdate();
 
-            WriteLineIfDebug("\n\n\n");
+            WriteLineIfDebug("\n\n");
 
             LoadAndSave.loadFireModeFiles();
             LoadAndSave.loadModFiles();
@@ -48,7 +48,7 @@ namespace Buildframe
             LoadAndSave.loadMiscFiles();
             LoadAndSave.loadWeaponFiles();
 
-            WriteLineIfDebug("\n\n\n");
+            WriteLineIfDebug("\n\n");
 
             Application.Run(new MainWindow());
 
