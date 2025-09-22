@@ -88,21 +88,28 @@ namespace Buildframe
                 WriteLineIfDebug("    Selected stats added arcane: " + arcaneStats[statID].name);
             }
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
+
+            double summedDPSBurst = 0;
+            double summedDPSSustained = 0;
+            double summedDamage = 0;
             if (primary.id != "")
             {
+                summedDamage = Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats);
+                summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats);
+                summedDPSSustained = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats, true);
                 primaryWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { primary, mergedStats });
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(primaryWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(primaryWithAppliedStats), 2).ToString() + "x";
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(primaryWithAppliedStats), 2).ToString() + "%";
-                labelDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats), 2).ToString();
                 labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(primaryWithAppliedStats), 2).ToString();
                 labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(primaryWithAppliedStats)).ToString();
                 labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(primaryWithAppliedStats), 2).ToString() + "s";
                 labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(primaryWithAppliedStats), 2).ToString() + "%";
                 labelMultishotValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats), 2).ToString();
-                labelDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats), 2).ToString();
-                labelDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats, true), 2).ToString();
+                labelDamageValue.Text = Math.Round(summedDamage, 2).ToString();
+                labelDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString();
+                labelDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString();
             }
             else
             {
@@ -118,8 +125,15 @@ namespace Buildframe
                 labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(radialWithAppliedStats), 2).ToString() + "%";
                 labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(radialWithAppliedStats), 2).ToString() + "x";
                 labelRadialStatusValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(radialWithAppliedStats), 2).ToString() + "%";
+                labelRadialDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCrit(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats), 2).ToString();
                 labelRadialDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats), 2).ToString();
                 labelRadialDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true), 2).ToString();
+                summedDamage += Methods.Calculation.Weapon.calculateModDamagePreCrit(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);
+                summedDPSBurst += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats);
+                summedDPSSustained += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true);
+                labelSummedDamageValue.Text = Math.Round(summedDamage, 2).ToString();
+                labelSummedDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString();
+                labelSummedDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString();
 
             }
             else
