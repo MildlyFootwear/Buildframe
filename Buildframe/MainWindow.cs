@@ -54,7 +54,7 @@ namespace Buildframe
 
         public void updateWeaponStats()
         {
-            WriteLineIfDebug("\nUpdating weapon stats\n");
+            WriteLineIfDebug("\nUpdating weapon stats for firemode " + primary.name +"\n");
             selectedStats.Clear();
             foreach (ComboBox box in modBoxes)
             {
@@ -94,10 +94,11 @@ namespace Buildframe
             double summedDamage = 0;
             if (primary.id != "")
             {
+                primaryWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { primary, mergedStats });
+
                 summedDamage = Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats);
                 summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats);
                 summedDPSSustained = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats, true);
-                primaryWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { primary, mergedStats });
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(primaryWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(primaryWithAppliedStats), 2).ToString() + "x";
@@ -143,6 +144,7 @@ namespace Buildframe
                     lbl.Text = "N/A";
                 }
             }
+            WriteLineIfDebug("Finished updating weapon stats\n");
         }
 
         public bool hasTag(Stats stat)
