@@ -481,6 +481,10 @@ namespace Buildframe
             miscBoxes.Add(comboBoxMiscEffect6);
             miscBoxes.Add(comboBoxMiscEffect7);
             miscBoxes.Add(comboBoxMiscEffect8);
+            miscBoxes.Add(comboBoxMiscEffect9);
+            miscBoxes.Add(comboBoxMiscEffect10);
+            miscBoxes.Add(comboBoxMiscEffect11);
+            miscBoxes.Add(comboBoxMiscEffect12);
 
             setHandlerPause(true);
 
@@ -521,6 +525,8 @@ namespace Buildframe
             radialValueLabels.Add(labelRadialDPSSustainedValue);
             radialValueLabels.Add(labelRadialStatusMultishotValue);
             radialValueLabels.Add(labelRadialStatusValue);
+            radialValueLabels.Add(labelRadialDamageValue);
+            radialValueLabels.Add(labelSummedDamageValue);
             radialValueLabels.Add(labelSummedDPSBurstValue);
             radialValueLabels.Add(labelSummedDPSSustainedValue);
 
