@@ -1107,14 +1107,14 @@
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.Size = new Size(289, 173);
-            textBoxDescription.TabIndex = 20;
+            textBoxDescription.TabIndex = 21;
             // 
             // textBoxTags
             // 
             textBoxTags.Location = new Point(78, 115);
             textBoxTags.Name = "textBoxTags";
             textBoxTags.Size = new Size(289, 23);
-            textBoxTags.TabIndex = 21;
+            textBoxTags.TabIndex = 20;
             textBoxTags.Text = "Any";
             // 
             // label82

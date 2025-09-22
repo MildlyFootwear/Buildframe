@@ -188,7 +188,7 @@
             tableLayoutPanel1.Controls.Add(comboBoxPrimaryRadial, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
             tableLayoutPanel1.Controls.Add(comboBoxSecondaryRadial, 1, 3);
-            tableLayoutPanel1.Location = new Point(3, 177);
+            tableLayoutPanel1.Location = new Point(3, 183);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
@@ -196,7 +196,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(371, 121);
+            tableLayoutPanel1.Size = new Size(380, 121);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // label1
@@ -217,7 +217,7 @@
             comboBoxPrimary.FormattingEnabled = true;
             comboBoxPrimary.Location = new Point(73, 4);
             comboBoxPrimary.Name = "comboBoxPrimary";
-            comboBoxPrimary.Size = new Size(294, 23);
+            comboBoxPrimary.Size = new Size(303, 23);
             comboBoxPrimary.TabIndex = 4;
             // 
             // label2
@@ -238,7 +238,7 @@
             comboBoxSecondary.FormattingEnabled = true;
             comboBoxSecondary.Location = new Point(73, 64);
             comboBoxSecondary.Name = "comboBoxSecondary";
-            comboBoxSecondary.Size = new Size(294, 23);
+            comboBoxSecondary.Size = new Size(303, 23);
             comboBoxSecondary.TabIndex = 6;
             // 
             // label3
@@ -259,7 +259,7 @@
             comboBoxPrimaryRadial.FormattingEnabled = true;
             comboBoxPrimaryRadial.Location = new Point(73, 34);
             comboBoxPrimaryRadial.Name = "comboBoxPrimaryRadial";
-            comboBoxPrimaryRadial.Size = new Size(294, 23);
+            comboBoxPrimaryRadial.Size = new Size(303, 23);
             comboBoxPrimaryRadial.TabIndex = 5;
             // 
             // label4
@@ -280,12 +280,12 @@
             comboBoxSecondaryRadial.FormattingEnabled = true;
             comboBoxSecondaryRadial.Location = new Point(73, 94);
             comboBoxSecondaryRadial.Name = "comboBoxSecondaryRadial";
-            comboBoxSecondaryRadial.Size = new Size(294, 23);
+            comboBoxSecondaryRadial.Size = new Size(303, 23);
             comboBoxSecondaryRadial.TabIndex = 7;
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(3, 289);
+            buttonCreate.Location = new Point(3, 298);
             buttonCreate.Name = "buttonCreate";
             buttonCreate.Size = new Size(75, 23);
             buttonCreate.TabIndex = 0;
