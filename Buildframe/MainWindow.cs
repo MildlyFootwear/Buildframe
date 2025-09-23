@@ -1,6 +1,7 @@
 using Buildframe.Forms;
 using Buildframe.GameData;
 using Buildframe.Methods;
+using System.Globalization;
 using static System.Windows.Forms.AxHost;
 
 namespace Buildframe
@@ -50,11 +51,12 @@ namespace Buildframe
             loadMiscsToSelectionBox();
             setHandlerPause(false);
             comboBoxFireMode.SelectedIndex = 0;
+
         }
 
         public void updateWeaponStats()
         {
-            WriteLineIfDebug("\nUpdating weapon stats for firemode " + primary.name +"\n");
+            WriteLineIfDebug("\nUpdating weapon stats for firemode " + primary.name + "\n");
             selectedStats.Clear();
             foreach (ComboBox box in modBoxes)
             {
@@ -99,6 +101,7 @@ namespace Buildframe
                 summedDamage = Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats);
                 summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats);
                 summedDPSSustained = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats, true);
+
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(primaryWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(primaryWithAppliedStats), 2).ToString() + "x";
@@ -108,9 +111,9 @@ namespace Buildframe
                 labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(primaryWithAppliedStats), 2).ToString() + "s";
                 labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(primaryWithAppliedStats), 2).ToString() + "%";
                 labelMultishotValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats), 2).ToString();
-                labelDamageValue.Text = Math.Round(summedDamage, 2).ToString();
-                labelDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString();
-                labelDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString();
+                labelDamageValue.Text = Math.Round(summedDamage, 2).ToString("#,##0");
+                labelDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString("#,##0");
+                labelDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString("#,##0");
             }
             else
             {
@@ -126,15 +129,15 @@ namespace Buildframe
                 labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(radialWithAppliedStats), 2).ToString() + "%";
                 labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(radialWithAppliedStats), 2).ToString() + "x";
                 labelRadialStatusValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(radialWithAppliedStats), 2).ToString() + "%";
-                labelRadialDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCrit(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats), 2).ToString();
-                labelRadialDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats), 2).ToString();
-                labelRadialDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true), 2).ToString();
+                labelRadialDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCrit(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats), 2).ToString("#,##0");
+                labelRadialDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats), 2).ToString("#,##0");
+                labelRadialDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true), 2).ToString("#,##0");
                 summedDamage += Methods.Calculation.Weapon.calculateModDamagePreCrit(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);
                 summedDPSBurst += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats);
                 summedDPSSustained += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true);
-                labelSummedDamageValue.Text = Math.Round(summedDamage, 2).ToString();
-                labelSummedDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString();
-                labelSummedDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString();
+                labelSummedDamageValue.Text = Math.Round(summedDamage, 2).ToString("#,##0");
+                labelSummedDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString("#,##0");
+                labelSummedDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString("#,##0");
 
             }
             else
@@ -149,7 +152,7 @@ namespace Buildframe
 
         public bool hasTag(Stats stat)
         {
-            if (stat.tags.Contains("Any") || tags.Contains("Any"))
+            if (stat.tags.Contains("Any") || tags.Contains("Any") || stat.tags.Contains(currentWeapon.name))
             {
                 return true;
             }
@@ -200,7 +203,7 @@ namespace Buildframe
             {
                 comboBoxWeaponArcane.Items.Add(arcaneStats[id].name);
             }
-            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane))
+            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane) && validArcaneIDs.Contains(statID))
             {
                 int index = validArcaneIDs.IndexOf(statID) + 1;
                 comboBoxWeaponArcane.SelectedIndex = index;
@@ -234,19 +237,22 @@ namespace Buildframe
 
             foreach (ComboBox box in modBoxes)
             {
-                if (!boxSelectedIDs.ContainsKey(box))
+                string statID = "";
+
+                if (boxSelectedIDs.ContainsKey(box))
                 {
-                    box.SelectedIndex = 0;
-                    continue;
+                    statID = boxSelectedIDs[box];
                 }
-                string statID = boxSelectedIDs[box];
                 if (validModIDs.Contains(statID))
                 {
                     int index = validModIDs.IndexOf(statID) + 1;
                     box.SelectedIndex = index;
                 }
+                else
+                {
+                    box.SelectedIndex = 0;
+                }
             }
-
             setHandlerPause(false);
         }
 
@@ -271,19 +277,23 @@ namespace Buildframe
 
             foreach (ComboBox box in miscBoxes)
             {
-                if (!boxSelectedIDs.ContainsKey(box))
+                string statID = "";
+
+                if (boxSelectedIDs.ContainsKey(box))
                 {
-                    box.SelectedIndex = 0;
-                    continue;
+                    statID = boxSelectedIDs[box];
                 }
-                string statID = boxSelectedIDs[box];
+
                 if (validMiscIDs.Contains(statID))
                 {
                     int index = validMiscIDs.IndexOf(statID) + 1;
                     box.SelectedIndex = index;
                 }
+                else
+                {
+                    box.SelectedIndex = 0;
+                }
             }
-
             setHandlerPause(false);
         }
 
@@ -633,7 +643,7 @@ namespace Buildframe
         private void comboBoxFireMode_SelectedIndexChanged(object sender, EventArgs e)
         {
             primary = currentWeapon.fireModes[comboBoxFireMode.SelectedIndex];
-            WriteLineIfDebug("Selected fire mode: " + primary.id + " : " +primary.name);
+            WriteLineIfDebug("Selected fire mode: " + primary.id + " : " + primary.name);
             if (currentWeapon.fireModesRadials.ContainsKey(primary.id))
             {
                 radial = currentWeapon.fireModesRadials[primary.id];
@@ -645,6 +655,30 @@ namespace Buildframe
             if (pauseHandler)
                 return;
             updateWeaponStats();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.FileName = currentWeapon.name + " build.cfg";
+            Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Builds"));
+            saveFileDialog1.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Builds");
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "")
+            {
+                saveSelectedToFile(saveFileDialog1.FileName);
+            }
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.FileName = "";
+            Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Builds"));
+            openFileDialog1.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Builds");
+            openFileDialog1.ShowDialog();
+            if (openFileDialog1.FileName != "")
+            {
+                loadSelectedFromFile(openFileDialog1.FileName);
+            }
         }
     }
 }

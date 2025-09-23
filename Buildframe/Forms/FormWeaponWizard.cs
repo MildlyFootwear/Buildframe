@@ -65,6 +65,7 @@ namespace Buildframe.Forms
 
             wpn.id = textBoxID.Text;
             wpn.name = textBoxName.Text;
+            wpn.description = textBoxDescription.Text;
             wpn.tags = textBoxTags.Text;
             if (comboBoxPrimary.SelectedIndex > 0)
             {

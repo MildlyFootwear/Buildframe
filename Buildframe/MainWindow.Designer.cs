@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             toolStrip1 = new ToolStrip();
+            toolStripDropDownButtonSaveLoad = new ToolStripDropDownButton();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            loadToolStripMenuItem = new ToolStripMenuItem();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
             addWeaponToolStripMenuItem = new ToolStripMenuItem();
             ToolStripMenuItemSelectWeapon = new ToolStripMenuItem();
@@ -110,6 +113,8 @@
             comboBoxWeaponArcane = new ComboBox();
             label1 = new Label();
             comboBoxMod1 = new ComboBox();
+            saveFileDialog1 = new SaveFileDialog();
+            openFileDialog1 = new OpenFileDialog();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -117,12 +122,36 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolstripButtonEffectWizard });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButtonSaveLoad, toolStripDropDownButton1, toolstripButtonEffectWizard });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1045, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripDropDownButtonSaveLoad
+            // 
+            toolStripDropDownButtonSaveLoad.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButtonSaveLoad.DropDownItems.AddRange(new ToolStripItem[] { saveToolStripMenuItem, loadToolStripMenuItem });
+            toolStripDropDownButtonSaveLoad.Image = (Image)resources.GetObject("toolStripDropDownButtonSaveLoad.Image");
+            toolStripDropDownButtonSaveLoad.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButtonSaveLoad.Name = "toolStripDropDownButtonSaveLoad";
+            toolStripDropDownButtonSaveLoad.Size = new Size(105, 22);
+            toolStripDropDownButtonSaveLoad.Text = "Save/Load Build";
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(100, 22);
+            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
+            // 
+            // loadToolStripMenuItem
+            // 
+            loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            loadToolStripMenuItem.Size = new Size(100, 22);
+            loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
             // toolStripDropDownButton1
             // 
@@ -139,14 +168,14 @@
             // addWeaponToolStripMenuItem
             // 
             addWeaponToolStripMenuItem.Name = "addWeaponToolStripMenuItem";
-            addWeaponToolStripMenuItem.Size = new Size(152, 22);
+            addWeaponToolStripMenuItem.Size = new Size(180, 22);
             addWeaponToolStripMenuItem.Text = "Add Weapon";
             addWeaponToolStripMenuItem.Click += addWeaponToolStripMenuItem_Click;
             // 
             // ToolStripMenuItemSelectWeapon
             // 
             ToolStripMenuItemSelectWeapon.Name = "ToolStripMenuItemSelectWeapon";
-            ToolStripMenuItemSelectWeapon.Size = new Size(152, 22);
+            ToolStripMenuItemSelectWeapon.Size = new Size(180, 22);
             ToolStripMenuItemSelectWeapon.Text = "Select Weapon";
             ToolStripMenuItemSelectWeapon.Click += ToolStripMenuItemSelectWeapon_Click;
             // 
@@ -1036,6 +1065,18 @@
             comboBoxMod1.TabIndex = 3;
             comboBoxMod1.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.DefaultExt = "cfg";
+            saveFileDialog1.Filter = "cfg|*.cfg";
+            saveFileDialog1.Title = "Buildframe - Save Build To File";
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Filter = "cfg|*.cfg";
+            openFileDialog1.Title = "Buildframe - Load Build From File";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1146,5 +1187,10 @@
         private ComboBox comboBoxMiscEffect11;
         private ComboBox comboBoxMiscEffect10;
         private ComboBox comboBoxMiscEffect9;
+        private ToolStripDropDownButton toolStripDropDownButtonSaveLoad;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem loadToolStripMenuItem;
+        private SaveFileDialog saveFileDialog1;
+        private OpenFileDialog openFileDialog1;
     }
 }
