@@ -295,6 +295,7 @@
             // 
             // FormWeaponWizard
             // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
@@ -307,6 +308,8 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Weapon Creation Wizard";
             Load += FormWeaponWizard_Load;
+            DragDrop += FormWeaponWizard_DragDrop;
+            DragEnter += FormWeaponWizard_DragEnter;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

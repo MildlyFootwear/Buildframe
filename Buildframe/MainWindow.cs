@@ -81,7 +81,7 @@ namespace Buildframe
                 }
             }
 
-            if (comboBoxWeaponArcane.SelectedIndex > 0)
+            if (comboBoxWeaponArcane.SelectedIndex > 0 && comboBoxWeaponArcane.SelectedItem.ToString() != "Secondary Enervate")
             {
                 int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
                 string statID = validArcaneIDs[idIndex];
@@ -89,6 +89,7 @@ namespace Buildframe
 
                 WriteLineIfDebug("    Selected stats added arcane: " + arcaneStats[statID].name);
             }
+
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
 
             double summedDPSBurst = 0;
@@ -97,6 +98,12 @@ namespace Buildframe
             if (primary.id != "")
             {
                 primaryWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { primary, mergedStats });
+
+                if (comboBoxWeaponArcane.SelectedItem.ToString() == "Secondary Enervate")
+                {
+                    WriteLineIfDebug("    Selected stats using hardcoded arcane: Secondary Enervate");
+                    primaryWithAppliedStats = Methods.Calculation.Weapon.setEnervate(primaryWithAppliedStats);
+                }
 
                 summedDamage = Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats);
                 summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats);
@@ -125,6 +132,12 @@ namespace Buildframe
             if (radial.id != "")
             {
                 radialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { radial, mergedStats });
+
+                if (comboBoxWeaponArcane.SelectedItem.ToString() == "Secondary Enervate")
+                {
+                    radialWithAppliedStats = Methods.Calculation.Weapon.setEnervate(radialWithAppliedStats);
+                }
+
                 labelRadialAverageCritMultValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats), 2).ToString() + "x";
                 labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(radialWithAppliedStats), 2).ToString() + "%";
                 labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(radialWithAppliedStats), 2).ToString() + "x";
@@ -201,7 +214,7 @@ namespace Buildframe
             comboBoxWeaponArcane.Items.Add("None");
             foreach (string id in validArcaneIDs)
             {
-                comboBoxWeaponArcane.Items.Add(arcaneStats[id].name);
+                comboBoxWeaponArcane.Items.Add(arcaneStats[id]);
             }
             if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane) && validArcaneIDs.Contains(statID))
             {
@@ -584,24 +597,6 @@ namespace Buildframe
             loadWeapon(currentWeapon);
         }
 
-        private void toolstripButtonEffectWizard_Click(object sender, EventArgs e)
-        {
-            stashBoxIDs();
-
-            FormStatWizard form = new FormStatWizard();
-            form.ShowDialog();
-
-            LoadAndSave.loadFireModeFiles();
-            LoadAndSave.loadModFiles();
-            LoadAndSave.loadArcaneFiles();
-            LoadAndSave.loadMiscFiles();
-            LoadAndSave.loadWeaponFiles();
-            loadValidIDs();
-            loadArcanesToSelectionBox();
-            loadModsToSelectionBox();
-            loadMiscsToSelectionBox();
-        }
-
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             Settings.Default.SavedPosition = this.Location;
@@ -631,13 +626,6 @@ namespace Buildframe
                 return;
 
             updateWeaponStats();
-        }
-
-        private void addWeaponToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormWeaponWizard form = new FormWeaponWizard();
-            form.ShowDialog();
-            LoadAndSave.loadWeaponFiles();
         }
 
         private void comboBoxFireMode_SelectedIndexChanged(object sender, EventArgs e)
@@ -679,6 +667,31 @@ namespace Buildframe
             {
                 loadSelectedFromFile(openFileDialog1.FileName);
             }
+        }
+
+        private void createFireModeOrBuffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stashBoxIDs();
+
+            FormStatWizard form = new FormStatWizard();
+            form.ShowDialog();
+
+            LoadAndSave.loadFireModeFiles();
+            LoadAndSave.loadModFiles();
+            LoadAndSave.loadArcaneFiles();
+            LoadAndSave.loadMiscFiles();
+            LoadAndSave.loadWeaponFiles();
+            loadValidIDs();
+            loadArcanesToSelectionBox();
+            loadModsToSelectionBox();
+            loadMiscsToSelectionBox();
+        }
+
+        private void createWeaponToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormWeaponWizard form = new FormWeaponWizard();
+            form.ShowDialog();
+            LoadAndSave.loadWeaponFiles();
         }
     }
 }

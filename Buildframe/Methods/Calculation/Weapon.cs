@@ -62,7 +62,7 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModMultishot(Stats stats)
         {
-            return stats.baseMultishot * (1 + stats.modMultishot / 100) + stats.finalMultishot;
+            return Math.Max(stats.baseMultishot * (1 + stats.modMultishot / 100) + stats.finalMultishot, 1);
         }
         public static double calculateModMagazine(Stats stats)
         {
@@ -125,6 +125,35 @@ namespace Buildframe.Methods.Calculation
             }
 
             return dps;
+        }
+
+        public static Stats setEnervate(Stats stats)
+        {
+            WriteLineIfDebug("Rolling enervate");
+
+            double critChance = calculateModCritChance(stats);
+            int steps = 0;
+            Random rnd = new Random();
+            int degreeOfAccuracy = 100;
+            for (int i = 0; i <= degreeOfAccuracy; i++)
+            {
+                int bigCrits = 0;
+                double cycleCritChance = critChance;
+                while (bigCrits < 6)
+                {
+                    steps++;
+                    cycleCritChance += 10;
+                    int roll = rnd.Next(100, 200);
+                    if (roll < cycleCritChance)
+                    {
+                        bigCrits++;
+                    }
+                }
+            }
+
+            WriteLineIfDebug("Average of " + steps / degreeOfAccuracy);
+            stats.finalCriticalChance += steps / degreeOfAccuracy * 10 / 2;
+            return stats;
         }
     }
 }

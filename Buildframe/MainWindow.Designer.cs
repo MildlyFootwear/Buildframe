@@ -34,9 +34,10 @@
             saveToolStripMenuItem = new ToolStripMenuItem();
             loadToolStripMenuItem = new ToolStripMenuItem();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
-            addWeaponToolStripMenuItem = new ToolStripMenuItem();
             ToolStripMenuItemSelectWeapon = new ToolStripMenuItem();
-            toolstripButtonEffectWizard = new ToolStripButton();
+            toolStripDropDownButtonCreationWizards = new ToolStripDropDownButton();
+            createFireModeOrBuffToolStripMenuItem = new ToolStripMenuItem();
+            createWeaponToolStripMenuItem = new ToolStripMenuItem();
             tableLayoutPanel1 = new TableLayoutPanel();
             labelSummedDamageValue = new Label();
             label5 = new Label();
@@ -122,7 +123,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButtonSaveLoad, toolStripDropDownButton1, toolstripButtonEffectWizard });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButtonSaveLoad, toolStripDropDownButton1, toolStripDropDownButtonCreationWizards });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1045, 25);
@@ -138,26 +139,27 @@
             toolStripDropDownButtonSaveLoad.Name = "toolStripDropDownButtonSaveLoad";
             toolStripDropDownButtonSaveLoad.Size = new Size(105, 22);
             toolStripDropDownButtonSaveLoad.Text = "Save/Load Build";
+            toolStripDropDownButtonSaveLoad.ToolTipText = "Save and load builds to and from files.";
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(100, 22);
-            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Size = new Size(130, 22);
+            saveToolStripMenuItem.Text = "Save Build";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // loadToolStripMenuItem
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            loadToolStripMenuItem.Size = new Size(100, 22);
-            loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.Size = new Size(130, 22);
+            loadToolStripMenuItem.Text = "Load Build";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
             // toolStripDropDownButton1
             // 
             toolStripDropDownButton1.AutoToolTip = false;
             toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { addWeaponToolStripMenuItem, ToolStripMenuItemSelectWeapon });
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemSelectWeapon });
             toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -165,29 +167,36 @@
             toolStripDropDownButton1.Text = "Weapon";
             toolStripDropDownButton1.TextDirection = ToolStripTextDirection.Horizontal;
             // 
-            // addWeaponToolStripMenuItem
-            // 
-            addWeaponToolStripMenuItem.Name = "addWeaponToolStripMenuItem";
-            addWeaponToolStripMenuItem.Size = new Size(180, 22);
-            addWeaponToolStripMenuItem.Text = "Add Weapon";
-            addWeaponToolStripMenuItem.Click += addWeaponToolStripMenuItem_Click;
-            // 
             // ToolStripMenuItemSelectWeapon
             // 
             ToolStripMenuItemSelectWeapon.Name = "ToolStripMenuItemSelectWeapon";
-            ToolStripMenuItemSelectWeapon.Size = new Size(180, 22);
+            ToolStripMenuItemSelectWeapon.Size = new Size(152, 22);
             ToolStripMenuItemSelectWeapon.Text = "Select Weapon";
             ToolStripMenuItemSelectWeapon.Click += ToolStripMenuItemSelectWeapon_Click;
             // 
-            // toolstripButtonEffectWizard
+            // toolStripDropDownButtonCreationWizards
             // 
-            toolstripButtonEffectWizard.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolstripButtonEffectWizard.Image = (Image)resources.GetObject("toolstripButtonEffectWizard.Image");
-            toolstripButtonEffectWizard.ImageTransparentColor = Color.Magenta;
-            toolstripButtonEffectWizard.Name = "toolstripButtonEffectWizard";
-            toolstripButtonEffectWizard.Size = new Size(78, 22);
-            toolstripButtonEffectWizard.Text = "Create Effect";
-            toolstripButtonEffectWizard.Click += toolstripButtonEffectWizard_Click;
+            toolStripDropDownButtonCreationWizards.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButtonCreationWizards.DropDownItems.AddRange(new ToolStripItem[] { createFireModeOrBuffToolStripMenuItem, createWeaponToolStripMenuItem });
+            toolStripDropDownButtonCreationWizards.Image = (Image)resources.GetObject("toolStripDropDownButtonCreationWizards.Image");
+            toolStripDropDownButtonCreationWizards.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButtonCreationWizards.Name = "toolStripDropDownButtonCreationWizards";
+            toolStripDropDownButtonCreationWizards.Size = new Size(150, 22);
+            toolStripDropDownButtonCreationWizards.Text = "Create Effect Or Weapon";
+            // 
+            // createFireModeOrBuffToolStripMenuItem
+            // 
+            createFireModeOrBuffToolStripMenuItem.Name = "createFireModeOrBuffToolStripMenuItem";
+            createFireModeOrBuffToolStripMenuItem.Size = new Size(203, 22);
+            createFireModeOrBuffToolStripMenuItem.Text = "Create Fire Mode or Buff";
+            createFireModeOrBuffToolStripMenuItem.Click += createFireModeOrBuffToolStripMenuItem_Click;
+            // 
+            // createWeaponToolStripMenuItem
+            // 
+            createWeaponToolStripMenuItem.Name = "createWeaponToolStripMenuItem";
+            createWeaponToolStripMenuItem.Size = new Size(203, 22);
+            createWeaponToolStripMenuItem.Text = "Create Weapon";
+            createWeaponToolStripMenuItem.Click += createWeaponToolStripMenuItem_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -1108,9 +1117,7 @@
 
         private ToolStrip toolStrip1;
         private ToolStripDropDownButton toolStripDropDownButton1;
-        private ToolStripMenuItem addWeaponToolStripMenuItem;
         private ToolStripMenuItem ToolStripMenuItemSelectWeapon;
-        private ToolStripButton toolstripButtonEffectWizard;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelWeaponName;
         private Label labelFireRate;
@@ -1192,5 +1199,8 @@
         private ToolStripMenuItem loadToolStripMenuItem;
         private SaveFileDialog saveFileDialog1;
         private OpenFileDialog openFileDialog1;
+        private ToolStripDropDownButton toolStripDropDownButtonCreationWizards;
+        private ToolStripMenuItem createFireModeOrBuffToolStripMenuItem;
+        private ToolStripMenuItem createWeaponToolStripMenuItem;
     }
 }

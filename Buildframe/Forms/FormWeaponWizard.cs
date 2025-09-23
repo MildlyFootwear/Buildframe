@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Buildframe.Forms
 {
@@ -69,7 +70,7 @@ namespace Buildframe.Forms
             wpn.tags = textBoxTags.Text;
             if (comboBoxPrimary.SelectedIndex > 0)
             {
-                wpn.fireModes.Add(fireModeStats.Values.ToList()[comboBoxPrimary.SelectedIndex-1]);
+                wpn.fireModes.Add(fireModeStats.Values.ToList()[comboBoxPrimary.SelectedIndex - 1]);
             }
             if (comboBoxPrimaryRadial.SelectedIndex > 0 && comboBoxPrimary.SelectedIndex > 0)
             {
@@ -97,6 +98,70 @@ namespace Buildframe.Forms
             string filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Weapons", fileName);
             LoadAndSave.saveWeaponToFile(filePath, wpn);
             Close();
+        }
+
+        private void FormWeaponWizard_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void FormWeaponWizard_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (files.Length > 0)
+                {
+                    string filePath = files[0];
+                    Weapon wpn = LoadAndSave.loadWeaponFromFile(filePath);
+                    if (wpn.id != "")
+                    {
+                        textBoxDescription.Text = wpn.description;
+                        textBoxID.Text = wpn.id;
+                        textBoxName.Text = wpn.name;
+                        textBoxTags.Text = wpn.tags;
+                        if (wpn.fireModes.Count > 0)
+                        {
+                            comboBoxPrimary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[0]) + 1;
+                            if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[0].id))
+                            {
+                                comboBoxPrimaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[0].id]) + 1;
+                            }
+                            else
+                            {
+                                comboBoxPrimaryRadial.SelectedIndex = 0;
+                            }
+
+                        }
+                        else
+                        {
+                            comboBoxPrimary.SelectedIndex = 0;
+                            comboBoxPrimaryRadial.SelectedIndex = 0;
+                        }
+                        if (wpn.fireModes.Count > 1)
+                        {
+                            comboBoxSecondary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[1]) + 1;
+                            if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[1].id))
+                            {
+                                comboBoxSecondaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[1].id]) + 1;
+                            }
+                            else
+                            {
+                                comboBoxSecondaryRadial.SelectedIndex = 0;
+                            }
+                        }
+                        else
+                        {
+                            comboBoxSecondary.SelectedIndex = 0;
+                            comboBoxSecondaryRadial.SelectedIndex = 0;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to load stats from the dropped file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
