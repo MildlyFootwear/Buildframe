@@ -38,7 +38,7 @@ namespace Buildframe.Methods.Calculation
 
             double moddedDamage = (baseDamage + modElemental + modPhysical) * (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100);
 
-            return moddedDamage;
+            return moddedDamage * stats.damageMultiplier;
         }
         public static double calculateModStatusChance(Stats stats)
         {
@@ -127,7 +127,7 @@ namespace Buildframe.Methods.Calculation
             return dps;
         }
 
-        public static Stats setEnervate(Stats stats)
+        public static Stats setEnervate(Stats stats, int bigCritsCap = 6)
         {
             WriteLineIfDebug("Rolling enervate");
 
@@ -139,7 +139,7 @@ namespace Buildframe.Methods.Calculation
             {
                 int bigCrits = 0;
                 double cycleCritChance = critChance;
-                while (bigCrits < 6)
+                while (bigCrits < bigCritsCap)
                 {
                     steps++;
                     cycleCritChance += 10;

@@ -1,8 +1,6 @@
 using Buildframe.Forms;
 using Buildframe.GameData;
 using Buildframe.Methods;
-using System.Globalization;
-using static System.Windows.Forms.AxHost;
 
 namespace Buildframe
 {
@@ -13,24 +11,27 @@ namespace Buildframe
             InitializeComponent();
         }
 
-        public Weapon currentWeapon = new();
-        public Stats primary = new();
-        public Stats radial = new();
-        public List<Stats> selectedStats = new();
-        public List<Stats> fireModesWithAppliedStats = new();
-        public Stats mergedStats = new();
-        public Stats primaryWithAppliedStats = new();
-        public Stats radialWithAppliedStats = new();
-        public List<string> validModIDs = new();
-        public List<string> validArcaneIDs = new();
-        public List<string> validMiscIDs = new();
         public List<ComboBox> modBoxes = new();
         public List<ComboBox> miscBoxes = new();
         public List<Label> primaryValueLabels = new();
         public List<Label> radialValueLabels = new();
-        public Dictionary<ComboBox, string> boxSelectedIDs = new();
-        public string[] tags = { "Any" };
         public bool pauseHandler = false;
+
+        public List<string> validModIDs = new();
+        public List<string> validArcaneIDs = new();
+        public List<string> validMiscIDs = new();
+
+        public List<Stats> selectedStats = new();
+        public Stats mergedStats = new();
+
+        public Weapon currentWeapon = new();
+        public string[] tags = { "Any" };
+        public Stats selectedFiremode = new();
+        public Stats radial = new();
+        public Stats selectedFiremodeWithAppliedStats = new();
+        public Stats radialWithAppliedStats = new();
+
+        public Dictionary<ComboBox, string> boxSelectedIDs = new();
 
         public void loadWeapon(Weapon weapon)
         {
@@ -56,7 +57,7 @@ namespace Buildframe
 
         public void updateWeaponStats()
         {
-            WriteLineIfDebug("\nUpdating weapon stats for firemode " + primary.name + "\n");
+            WriteLineIfDebug("\nUpdating weapon stats for firemode " + selectedFiremode.name + "\n");
             selectedStats.Clear();
             foreach (ComboBox box in modBoxes)
             {
@@ -95,29 +96,29 @@ namespace Buildframe
             double summedDPSBurst = 0;
             double summedDPSSustained = 0;
             double summedDamage = 0;
-            if (primary.id != "")
+            if (selectedFiremode.id != "")
             {
-                primaryWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { primary, mergedStats });
+                selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { selectedFiremode, mergedStats });
 
                 if (comboBoxWeaponArcane.SelectedItem.ToString() == "Secondary Enervate")
                 {
                     WriteLineIfDebug("    Selected stats using hardcoded arcane: Secondary Enervate");
-                    primaryWithAppliedStats = Methods.Calculation.Weapon.setEnervate(primaryWithAppliedStats);
+                    selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats);
                 }
 
-                summedDamage = Methods.Calculation.Weapon.calculateModDamagePreCrit(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats);
-                summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats);
-                summedDPSSustained = Methods.Calculation.Weapon.calculateModDPS(primaryWithAppliedStats, true);
+                summedDamage = Methods.Calculation.Weapon.calculateModDamagePreCrit(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
+                summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
+                summedDPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats, true);
 
-                labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(primaryWithAppliedStats), 2).ToString() + "x";
-                labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(primaryWithAppliedStats), 2).ToString() + "%";
-                labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(primaryWithAppliedStats), 2).ToString() + "x";
-                labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(primaryWithAppliedStats), 2).ToString() + "%";
-                labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(primaryWithAppliedStats), 2).ToString();
-                labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(primaryWithAppliedStats)).ToString();
-                labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(primaryWithAppliedStats), 2).ToString() + "s";
-                labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(primaryWithAppliedStats), 2).ToString() + "%";
-                labelMultishotValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMultishot(primaryWithAppliedStats), 2).ToString();
+                labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
+                labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
+                labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
+                labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
+                labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats), 2).ToString();
+                labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats)).ToString();
+                labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(selectedFiremodeWithAppliedStats), 2).ToString() + "s";
+                labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
+                labelMultishotValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats), 2).ToString();
                 labelDamageValue.Text = Math.Round(summedDamage, 2).ToString("#,##0");
                 labelDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString("#,##0");
                 labelDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString("#,##0");
@@ -630,11 +631,11 @@ namespace Buildframe
 
         private void comboBoxFireMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            primary = currentWeapon.fireModes[comboBoxFireMode.SelectedIndex];
-            WriteLineIfDebug("Selected fire mode: " + primary.id + " : " + primary.name);
-            if (currentWeapon.fireModesRadials.ContainsKey(primary.id))
+            selectedFiremode = currentWeapon.fireModes[comboBoxFireMode.SelectedIndex];
+            WriteLineIfDebug("Selected fire mode: " + selectedFiremode.id + " : " + selectedFiremode.name);
+            if (currentWeapon.fireModesRadials.ContainsKey(selectedFiremode.id))
             {
-                radial = currentWeapon.fireModesRadials[primary.id];
+                radial = currentWeapon.fireModesRadials[selectedFiremode.id];
             }
             else
             {

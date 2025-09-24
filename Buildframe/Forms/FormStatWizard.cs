@@ -77,7 +77,7 @@ namespace Buildframe.Forms
             numericUpDownModStatusChance.Value = (decimal)stats.modStatusChance;
             numericUpDownModStatusDamage.Value = (decimal)stats.modStatusDamage;
 
-            numericUpDownFinalDamage.Value = (decimal)stats.finalDamage;
+            numericUpDownFinalDamageMult.Value = (decimal)stats.finalDamagePercentage + 100;
             numericUpDownFinalAttackSpeed.Value = (decimal)stats.finalAttackSpeed;
             numericUpDownFinalReloadTime.Value = (decimal)stats.finalReloadTime;
             numericUpDownFinalMagazine.Value = (decimal)stats.finalMagazine;
@@ -163,7 +163,7 @@ namespace Buildframe.Forms
             stats.modStatusChance = (double)numericUpDownModStatusChance.Value;
             stats.modStatusDamage = (double)numericUpDownModStatusDamage.Value;
 
-            stats.finalDamage = (double)numericUpDownFinalDamage.Value;
+            stats.finalDamagePercentage = (double)numericUpDownFinalDamageMult.Value - 100;
             stats.finalAttackSpeed = (double)numericUpDownFinalAttackSpeed.Value;
             stats.finalReloadTime = (double)numericUpDownFinalReloadTime.Value;
             stats.finalMagazine = (double)numericUpDownFinalMagazine.Value;

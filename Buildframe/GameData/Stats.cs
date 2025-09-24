@@ -129,6 +129,10 @@ namespace Buildframe.GameData
         public double finalStatusChance = 0;
         public double finalStatusDamage = 0;
 
+        // Transient stats, not saved to file
+
+        public double damageMultiplier = 1;
+
         public override string ToString()
         {
             return name;

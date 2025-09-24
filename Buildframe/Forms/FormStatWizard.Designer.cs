@@ -194,7 +194,7 @@
             label74 = new Label();
             label75 = new Label();
             label76 = new Label();
-            numericUpDownFinalDamage = new NumericUpDown();
+            numericUpDownFinalDamageMult = new NumericUpDown();
             numericUpDownFinalMagnetic = new NumericUpDown();
             numericUpDownFinalGas = new NumericUpDown();
             label81 = new Label();
@@ -281,7 +281,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalAmmoEfficiency).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalReloadTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalAttackSpeed).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalDamage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalDamageMult).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalMagnetic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).BeginInit();
             tableLayoutPanel5.SuspendLayout();
@@ -293,7 +293,7 @@
             basePage.Location = new Point(4, 27);
             basePage.Name = "basePage";
             basePage.Padding = new Padding(3);
-            basePage.Size = new Size(414, 335);
+            basePage.Size = new Size(393, 335);
             basePage.TabIndex = 0;
             basePage.Text = "Base Stats";
             basePage.UseVisualStyleBackColor = true;
@@ -1015,7 +1015,7 @@
             tabControl1.Location = new Point(3, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(422, 366);
+            tabControl1.Size = new Size(401, 366);
             tabControl1.TabIndex = 1;
             tabControl1.DragDrop += tabControl1_DragDrop;
             tabControl1.DragEnter += tabControl1_DragEnter;
@@ -1025,7 +1025,7 @@
             identifiersPage.Controls.Add(tableLayoutPanel2);
             identifiersPage.Location = new Point(4, 27);
             identifiersPage.Name = "identifiersPage";
-            identifiersPage.Size = new Size(414, 335);
+            identifiersPage.Size = new Size(393, 335);
             identifiersPage.TabIndex = 2;
             identifiersPage.Text = "Identifiers";
             identifiersPage.UseVisualStyleBackColor = true;
@@ -1151,7 +1151,7 @@
             modPage.Location = new Point(4, 27);
             modPage.Name = "modPage";
             modPage.Padding = new Padding(3);
-            modPage.Size = new Size(414, 335);
+            modPage.Size = new Size(393, 335);
             modPage.TabIndex = 1;
             modPage.Text = "Mod Stats";
             modPage.UseVisualStyleBackColor = true;
@@ -1853,7 +1853,7 @@
             finalPage.Controls.Add(tableLayoutPanel4);
             finalPage.Location = new Point(4, 27);
             finalPage.Name = "finalPage";
-            finalPage.Size = new Size(414, 335);
+            finalPage.Size = new Size(393, 335);
             finalPage.TabIndex = 3;
             finalPage.Text = "Final Stats";
             finalPage.UseVisualStyleBackColor = true;
@@ -1913,7 +1913,7 @@
             tableLayoutPanel4.Controls.Add(label74, 0, 6);
             tableLayoutPanel4.Controls.Add(label75, 0, 5);
             tableLayoutPanel4.Controls.Add(label76, 0, 4);
-            tableLayoutPanel4.Controls.Add(numericUpDownFinalDamage, 1, 1);
+            tableLayoutPanel4.Controls.Add(numericUpDownFinalDamageMult, 1, 1);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalMagnetic, 3, 12);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalGas, 3, 13);
             tableLayoutPanel4.Controls.Add(label81, 0, 0);
@@ -2265,9 +2265,9 @@
             label58.AutoSize = true;
             label58.Location = new Point(4, 52);
             label58.Name = "label58";
-            label58.Size = new Size(74, 23);
+            label58.Size = new Size(92, 23);
             label58.TabIndex = 15;
-            label58.Text = "finalDamage";
+            label58.Text = "Total Damage %";
             label58.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label59
@@ -2468,18 +2468,18 @@
             label76.Text = "finalAmmoEfficiency";
             label76.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // numericUpDownFinalDamage
+            // numericUpDownFinalDamageMult
             // 
-            numericUpDownFinalDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownFinalDamage.DecimalPlaces = 2;
-            numericUpDownFinalDamage.Location = new Point(127, 52);
-            numericUpDownFinalDamage.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownFinalDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownFinalDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownFinalDamage.Name = "numericUpDownFinalDamage";
-            numericUpDownFinalDamage.Size = new Size(75, 23);
-            numericUpDownFinalDamage.TabIndex = 54;
-            numericUpDownFinalDamage.TextAlign = HorizontalAlignment.Center;
+            numericUpDownFinalDamageMult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownFinalDamageMult.Location = new Point(127, 52);
+            numericUpDownFinalDamageMult.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownFinalDamageMult.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownFinalDamageMult.Name = "numericUpDownFinalDamageMult";
+            numericUpDownFinalDamageMult.Size = new Size(75, 23);
+            numericUpDownFinalDamageMult.TabIndex = 54;
+            numericUpDownFinalDamageMult.Tag = "";
+            numericUpDownFinalDamageMult.TextAlign = HorizontalAlignment.Center;
+            numericUpDownFinalDamageMult.Value = new decimal(new int[] { 100, 0, 0, 0 });
             // 
             // numericUpDownFinalMagnetic
             // 
@@ -2535,7 +2535,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Arcane/Buff", "Weapon Fire Mode" });
-            comboBox1.Location = new Point(262, 375);
+            comboBox1.Location = new Point(241, 375);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(163, 23);
             comboBox1.TabIndex = 3;
@@ -2555,7 +2555,7 @@
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 372F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(428, 401);
+            tableLayoutPanel5.Size = new Size(407, 401);
             tableLayoutPanel5.TabIndex = 4;
             // 
             // FormStatWizard
@@ -2659,7 +2659,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalAmmoEfficiency).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalReloadTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalAttackSpeed).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalDamage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalDamageMult).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalMagnetic).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
@@ -2825,7 +2825,7 @@
         private Label label74;
         private Label label75;
         private Label label76;
-        private NumericUpDown numericUpDownFinalDamage;
+        private NumericUpDown numericUpDownFinalDamageMult;
         private NumericUpDown numericUpDownFinalMagnetic;
         private NumericUpDown numericUpDownFinalGas;
         private NumericUpDown numericUpDownAbilityWeaponDamage;

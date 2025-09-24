@@ -110,7 +110,7 @@ namespace Buildframe.Methods.Calculation
 
 
                 stats.finalDamage += s.finalDamage;
-                stats.finalDamagePercentage += s.finalDamagePercentage;
+                stats.damageMultiplier *= 1 + (s.finalDamagePercentage / 100);
 
                 stats.finalAttackSpeed += s.finalAttackSpeed;
 

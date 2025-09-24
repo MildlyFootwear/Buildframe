@@ -121,8 +121,9 @@
     <value>False</value>
   </metadata>
   <data name="label81.Text" xml:space="preserve">
-    <value>This is for stats added after all other calculations have been done.
-Arcanes such as Secondary Enervate or Arcane Crepuscular go here.
-This tab may also be used to simulate debuffs on enemies like Viral.</value>
+    <value>This is for stats added after most other calculations have been done.
+Arcane Crepuscular/Avenger, Tenacious Bond, are appropriate here.
+As well as certain weapon effects such as Reconifex's perfect reload.
+</value>
   </data>
 </root>
