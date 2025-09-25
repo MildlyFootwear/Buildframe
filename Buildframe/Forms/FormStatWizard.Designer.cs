@@ -611,6 +611,7 @@
             numericUpDownBaseMultishot.Size = new Size(75, 23);
             numericUpDownBaseMultishot.TabIndex = 60;
             numericUpDownBaseMultishot.TextAlign = HorizontalAlignment.Center;
+            numericUpDownBaseMultishot.ValueChanged += numericUpDownBaseMultishot_ValueChanged;
             // 
             // numericUpDownBaseChargeTime
             // 
@@ -2539,6 +2540,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(163, 23);
             comboBox1.TabIndex = 3;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // tableLayoutPanel5
             // 

@@ -18,6 +18,8 @@ namespace Buildframe.Forms
             InitializeComponent();
         }
 
+        bool multishotBaseEdited = false;
+
         private void loadStatsToForm(GameData.Stats stats)
         {
             textBoxName.Text = stats.name;
@@ -293,6 +295,32 @@ namespace Buildframe.Forms
                 id = id.Replace(s, "");
             }
             textBoxID.Text = id;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 3)
+            {
+                if (numericUpDownBaseMultishot.Value == 0 && !multishotBaseEdited)
+                {
+                    numericUpDownBaseMultishot.Value = 1;
+                }
+            }
+            else if (!multishotBaseEdited)
+            {
+                if (numericUpDownBaseMultishot.Value == 1)
+                {
+                    numericUpDownBaseMultishot.Value = 0;
+                }
+            }
+        }
+
+        private void numericUpDownBaseMultishot_ValueChanged(object sender, EventArgs e)
+        {
+            if (numericUpDownBaseMultishot.Value != 1 && numericUpDownBaseMultishot.Value != 0)
+            {
+                multishotBaseEdited = true;
+            }
         }
     }
 }
