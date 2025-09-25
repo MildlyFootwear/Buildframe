@@ -10,6 +10,8 @@ namespace Buildframe.Methods.Calculation
 {
     public class StatMethods
     {
+        public static int summedCnt = 0;
+
         public static Stats sumStats(List<Stats> statsList)
         {
             if (statsList.Count == 0)
@@ -17,8 +19,11 @@ namespace Buildframe.Methods.Calculation
                 return new Stats();
             }
             Stats stats = new Stats();
-
+            summedCnt++;
             stats.name = statsList[0].name;
+            stats.id = "summedTransient" + summedCnt;
+
+            WriteLineIfDebug("Starting stats sum for " + statsList.Count + " stats");
 
             foreach (Stats s in statsList) {
                 if (s.incarnon)
@@ -30,7 +35,7 @@ namespace Buildframe.Methods.Calculation
 
             foreach (Stats s in statsList)
             {
-
+                WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.");
                 stats.baseDamage += s.baseDamage;
                 stats.baseDamagePercentage += s.baseDamagePercentage;
 
@@ -110,8 +115,10 @@ namespace Buildframe.Methods.Calculation
 
 
                 stats.finalDamage += s.finalDamage;
-                stats.damageMultiplier *= 1 + (s.finalDamagePercentage / 100);
 
+                stats.damageMultiplier *= s.damageMultiplier;
+
+                stats.damageMultiplier *= 1 + (s.finalDamagePercentage / 100);
                 stats.finalAttackSpeed += s.finalAttackSpeed;
 
                 stats.finalReloadTime += s.finalReloadTime;
@@ -148,6 +155,7 @@ namespace Buildframe.Methods.Calculation
                 stats.finalStatusDamage += s.finalStatusDamage;
 
             }
+
 
             if (stats.baseDamage > 0)
             {

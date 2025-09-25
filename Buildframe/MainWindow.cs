@@ -590,12 +590,7 @@ namespace Buildframe
 
         private void ToolStripMenuItemSelectWeapon_Click(object sender, EventArgs e)
         {
-            stashBoxIDs();
 
-            FormWeaponSelection form = new FormWeaponSelection();
-            form.mainWindow = this;
-            form.ShowDialog();
-            loadWeapon(currentWeapon);
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -693,6 +688,22 @@ namespace Buildframe
             FormWeaponWizard form = new FormWeaponWizard();
             form.ShowDialog();
             LoadAndSave.loadWeaponFiles();
+        }
+
+        private void toolStripButtonSelectWeapon_Click(object sender, EventArgs e)
+        {
+            stashBoxIDs();
+
+            FormWeaponSelection form = new FormWeaponSelection();
+            form.mainWindow = this;
+            form.ShowDialog();
+            loadWeapon(currentWeapon);
+        }
+
+        private void toolStripButtonInfo_Click(object sender, EventArgs e)
+        {
+            Info form = new Info();
+            form.ShowDialog();
         }
     }
 }

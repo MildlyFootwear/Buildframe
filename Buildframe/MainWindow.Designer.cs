@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             toolStrip1 = new ToolStrip();
+            toolStripButtonSelectWeapon = new ToolStripButton();
             toolStripDropDownButtonSaveLoad = new ToolStripDropDownButton();
             saveToolStripMenuItem = new ToolStripMenuItem();
             loadToolStripMenuItem = new ToolStripMenuItem();
-            toolStripDropDownButton1 = new ToolStripDropDownButton();
-            ToolStripMenuItemSelectWeapon = new ToolStripMenuItem();
             toolStripDropDownButtonCreationWizards = new ToolStripDropDownButton();
             createFireModeOrBuffToolStripMenuItem = new ToolStripMenuItem();
             createWeaponToolStripMenuItem = new ToolStripMenuItem();
+            toolStripButtonInfo = new ToolStripButton();
             tableLayoutPanel1 = new TableLayoutPanel();
             labelSummedDamageValue = new Label();
             label5 = new Label();
@@ -123,12 +123,22 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButtonSaveLoad, toolStripDropDownButton1, toolStripDropDownButtonCreationWizards });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButtonSelectWeapon, toolStripDropDownButtonSaveLoad, toolStripDropDownButtonCreationWizards, toolStripButtonInfo });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1045, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonSelectWeapon
+            // 
+            toolStripButtonSelectWeapon.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButtonSelectWeapon.Image = (Image)resources.GetObject("toolStripButtonSelectWeapon.Image");
+            toolStripButtonSelectWeapon.ImageTransparentColor = Color.Magenta;
+            toolStripButtonSelectWeapon.Name = "toolStripButtonSelectWeapon";
+            toolStripButtonSelectWeapon.Size = new Size(89, 22);
+            toolStripButtonSelectWeapon.Text = "Select Weapon";
+            toolStripButtonSelectWeapon.Click += toolStripButtonSelectWeapon_Click;
             // 
             // toolStripDropDownButtonSaveLoad
             // 
@@ -155,25 +165,6 @@
             loadToolStripMenuItem.Text = "Load Build";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
-            // toolStripDropDownButton1
-            // 
-            toolStripDropDownButton1.AutoToolTip = false;
-            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { ToolStripMenuItemSelectWeapon });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
-            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(64, 22);
-            toolStripDropDownButton1.Text = "Weapon";
-            toolStripDropDownButton1.TextDirection = ToolStripTextDirection.Horizontal;
-            // 
-            // ToolStripMenuItemSelectWeapon
-            // 
-            ToolStripMenuItemSelectWeapon.Name = "ToolStripMenuItemSelectWeapon";
-            ToolStripMenuItemSelectWeapon.Size = new Size(152, 22);
-            ToolStripMenuItemSelectWeapon.Text = "Select Weapon";
-            ToolStripMenuItemSelectWeapon.Click += ToolStripMenuItemSelectWeapon_Click;
-            // 
             // toolStripDropDownButtonCreationWizards
             // 
             toolStripDropDownButtonCreationWizards.DisplayStyle = ToolStripItemDisplayStyle.Text;
@@ -197,6 +188,16 @@
             createWeaponToolStripMenuItem.Size = new Size(203, 22);
             createWeaponToolStripMenuItem.Text = "Create Weapon";
             createWeaponToolStripMenuItem.Click += createWeaponToolStripMenuItem_Click;
+            // 
+            // toolStripButtonInfo
+            // 
+            toolStripButtonInfo.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButtonInfo.Image = (Image)resources.GetObject("toolStripButtonInfo.Image");
+            toolStripButtonInfo.ImageTransparentColor = Color.Magenta;
+            toolStripButtonInfo.Name = "toolStripButtonInfo";
+            toolStripButtonInfo.Size = new Size(32, 22);
+            toolStripButtonInfo.Text = "Info";
+            toolStripButtonInfo.Click += toolStripButtonInfo_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -1116,8 +1117,6 @@
         #endregion
 
         private ToolStrip toolStrip1;
-        private ToolStripDropDownButton toolStripDropDownButton1;
-        private ToolStripMenuItem ToolStripMenuItemSelectWeapon;
         private TableLayoutPanel tableLayoutPanel1;
         private Label labelWeaponName;
         private Label labelFireRate;
@@ -1202,5 +1201,7 @@
         private ToolStripDropDownButton toolStripDropDownButtonCreationWizards;
         private ToolStripMenuItem createFireModeOrBuffToolStripMenuItem;
         private ToolStripMenuItem createWeaponToolStripMenuItem;
+        private ToolStripButton toolStripButtonSelectWeapon;
+        private ToolStripButton toolStripButtonInfo;
     }
 }
