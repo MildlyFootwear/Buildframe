@@ -303,24 +303,26 @@ namespace Buildframe.Forms
             {
                 if (numericUpDownBaseMultishot.Value == 0 && !multishotBaseEdited)
                 {
+                    numericUpDownBaseMultishot.ValueChanged -= numericUpDownBaseMultishot_ValueChanged;
                     numericUpDownBaseMultishot.Value = 1;
+                    numericUpDownBaseMultishot.ValueChanged += numericUpDownBaseMultishot_ValueChanged;
+
                 }
             }
             else if (!multishotBaseEdited)
             {
                 if (numericUpDownBaseMultishot.Value == 1)
                 {
+                    numericUpDownBaseMultishot.ValueChanged -= numericUpDownBaseMultishot_ValueChanged;
                     numericUpDownBaseMultishot.Value = 0;
+                    numericUpDownBaseMultishot.ValueChanged += numericUpDownBaseMultishot_ValueChanged;
                 }
             }
         }
 
         private void numericUpDownBaseMultishot_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDownBaseMultishot.Value != 1 && numericUpDownBaseMultishot.Value != 0)
-            {
-                multishotBaseEdited = true;
-            }
+            multishotBaseEdited = true;
         }
     }
 }
