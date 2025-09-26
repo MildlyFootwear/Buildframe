@@ -32,6 +32,7 @@ namespace Buildframe.Methods
                 {
                     throw new Exception("Version is null.");
                 }
+                LatestVer = LatestVer.Trim();
             }
             catch (Exception ex)
             {
