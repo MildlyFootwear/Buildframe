@@ -31,14 +31,17 @@ namespace Buildframe
         public Stats selectedFiremodeWithAppliedStats = new();
         public Stats radialWithAppliedStats = new();
 
-        public Dictionary<ComboBox, string> boxSelectedIDs = new();
+        public Dictionary<ComboBox, string> boxSelectedEffects = new();
 
         public void loadWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
+
             if (weapon.id == "")
                 return;
+
             tags = weapon.tags.Split(' ');
+
             comboBoxFireMode.Items.Clear();
             foreach (Stats fm in weapon.fireModes)
             {
@@ -50,6 +53,15 @@ namespace Buildframe
             loadArcanesToSelectionBox();
             loadModsToSelectionBox();
             loadMiscsToSelectionBox();
+            if (tags.Contains("Archgun"))
+            {
+                comboBoxArchgunArcane.Visible = true;
+            }
+            else
+            {
+                comboBoxArchgunArcane.Visible = false;
+                comboBoxArchgunArcane.SelectedIndex = 0;
+            }
             setHandlerPause(false);
             comboBoxFireMode.SelectedIndex = 0;
 
@@ -91,6 +103,11 @@ namespace Buildframe
                 WriteLineIfDebug("    Selected stats added arcane: " + arcaneStats[statID].name);
             }
 
+            if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
+            {
+                selectedStats.Add((Stats) comboBoxArchgunArcane.SelectedItem);
+            }
+
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
 
             double summedDPSBurst = 0;
@@ -100,7 +117,7 @@ namespace Buildframe
             {
                 selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { selectedFiremode, mergedStats });
 
-                if (comboBoxWeaponArcane.SelectedItem.ToString() == "Secondary Enervate")
+                if (comboBoxWeaponArcane.SelectedIndex > 0 && comboBoxWeaponArcane.SelectedItem.ToString() == "Secondary Enervate")
                 {
                     WriteLineIfDebug("    Selected stats using hardcoded arcane: Secondary Enervate");
                     selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats);
@@ -205,19 +222,32 @@ namespace Buildframe
 
         public void loadArcanesToSelectionBox()
         {
-            WriteLineIfDebug("\nLoading valid arcanes\n");
-            string statID = "";
-            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane))
+            if (tags.Contains("Archgun"))
             {
-                statID = boxSelectedIDs[comboBoxWeaponArcane];
+                loadArchgunArcanesToBoxes();
+                return;
+            }
+            WriteLineIfDebug("\nLoading valid arcanes\n");
+
+
+            string statID = "";
+            if (boxSelectedEffects.ContainsKey(comboBoxWeaponArcane))
+            {
+                statID = boxSelectedEffects[comboBoxWeaponArcane];
             }
             comboBoxWeaponArcane.Items.Clear();
             comboBoxWeaponArcane.Items.Add("None");
+            comboBoxArchgunArcane.Items.Clear();
+            comboBoxArchgunArcane.Items.Add("None");
+
+            comboBoxArchgunArcane.Visible = false;
+            comboBoxArchgunArcane.SelectedIndex = 0;
+
             foreach (string id in validArcaneIDs)
             {
                 comboBoxWeaponArcane.Items.Add(arcaneStats[id]);
             }
-            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane) && validArcaneIDs.Contains(statID))
+            if (boxSelectedEffects.ContainsKey(comboBoxWeaponArcane) && validArcaneIDs.Contains(statID))
             {
                 int index = validArcaneIDs.IndexOf(statID) + 1;
                 comboBoxWeaponArcane.SelectedIndex = index;
@@ -226,6 +256,50 @@ namespace Buildframe
             {
                 WriteLineIfDebug("    No previous arcane selected, defaulting to None");
                 comboBoxWeaponArcane.SelectedIndex = 0;
+            }
+        }
+
+        public void loadArchgunArcanesToBoxes()
+        {
+            WriteLineIfDebug("\nLoading archgun arcanes\n");
+            List<ComboBox> arcaneBoxes = new();
+            arcaneBoxes.Add(comboBoxWeaponArcane);
+            arcaneBoxes.Add(comboBoxArchgunArcane);
+            comboBoxArchgunArcane.Visible = true;
+
+            comboBoxWeaponArcane.Items.Clear();
+            comboBoxWeaponArcane.Items.Add("None");
+            comboBoxArchgunArcane.Items.Clear();
+            comboBoxArchgunArcane.Items.Add("None");
+
+            foreach (Stats stat in CommonVars.arcaneStats.Values)
+            {
+                if (stat.tags.Contains("Any"))
+                {
+                    comboBoxArchgunArcane.Items.Add(stat);
+                    comboBoxWeaponArcane.Items.Add(stat);
+                }
+                if (stat.tags.Contains("Rifle") || stat.tags.Contains("Primary"))
+                {
+                    comboBoxArchgunArcane.Items.Add(stat);
+                }
+                if (stat.tags.Contains("Pistol") || stat.tags.Contains("Secondary"))
+                {
+                    comboBoxWeaponArcane.Items.Add(stat);
+                }
+            }
+
+            foreach (ComboBox box in arcaneBoxes)
+            {
+
+                if (boxSelectedEffects.ContainsKey(box) && box.Items.Contains(arcaneStats[boxSelectedEffects[box]]))
+                {
+                    box.SelectedItem = arcaneStats[boxSelectedEffects[box]];
+                }
+                else
+                {
+                    box.SelectedIndex = 0;
+                }
             }
         }
 
@@ -251,16 +325,9 @@ namespace Buildframe
 
             foreach (ComboBox box in modBoxes)
             {
-                string statID = "";
-
-                if (boxSelectedIDs.ContainsKey(box))
+                if (boxSelectedEffects.ContainsKey(box) && box.Items.Contains(modStats[boxSelectedEffects[box]]))
                 {
-                    statID = boxSelectedIDs[box];
-                }
-                if (validModIDs.Contains(statID))
-                {
-                    int index = validModIDs.IndexOf(statID) + 1;
-                    box.SelectedIndex = index;
+                    box.SelectedItem = modStats[boxSelectedEffects[box]];
                 }
                 else
                 {
@@ -291,17 +358,9 @@ namespace Buildframe
 
             foreach (ComboBox box in miscBoxes)
             {
-                string statID = "";
-
-                if (boxSelectedIDs.ContainsKey(box))
+                if (boxSelectedEffects.ContainsKey(box) && box.Items.Contains(miscStats[boxSelectedEffects[box]]))
                 {
-                    statID = boxSelectedIDs[box];
-                }
-
-                if (validMiscIDs.Contains(statID))
-                {
-                    int index = validMiscIDs.IndexOf(statID) + 1;
-                    box.SelectedIndex = index;
+                    box.SelectedItem = miscStats[boxSelectedEffects[box]];
                 }
                 else
                 {
@@ -311,32 +370,30 @@ namespace Buildframe
             setHandlerPause(false);
         }
 
-        public void stashBoxIDs()
+        public void stashBoxEffects()
         {
-            boxSelectedIDs.Clear();
+            boxSelectedEffects.Clear();
             foreach (ComboBox box in modBoxes)
             {
                 if (box.SelectedIndex > 0)
                 {
-                    int idIndex = box.SelectedIndex - 1;
-                    string statID = validModIDs[idIndex];
-                    boxSelectedIDs.Add(box, statID);
+                    boxSelectedEffects.Add(box, ((Stats) box.SelectedItem).id);
                 }
             }
             foreach (ComboBox box in miscBoxes)
             {
                 if (box.SelectedIndex > 0)
                 {
-                    int idIndex = box.SelectedIndex - 1;
-                    string statID = validMiscIDs[idIndex];
-                    boxSelectedIDs.Add(box, statID);
+                    boxSelectedEffects.Add(box, ((Stats)box.SelectedItem).id);
                 }
             }
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
-                int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
-                string statID = validArcaneIDs[idIndex];
-                boxSelectedIDs.Add(comboBoxWeaponArcane, statID);
+                boxSelectedEffects.Add(comboBoxWeaponArcane, ((Stats)comboBoxWeaponArcane.SelectedItem).id);
+            }
+            if (comboBoxArchgunArcane.SelectedIndex > 0)
+            {
+                boxSelectedEffects.Add(comboBoxArchgunArcane, ((Stats)comboBoxArchgunArcane.SelectedItem).id);
             }
         }
 
@@ -344,25 +401,23 @@ namespace Buildframe
         {
             foreach (ComboBox box in modBoxes)
             {
-                if (!boxSelectedIDs.ContainsKey(box))
+                if (!boxSelectedEffects.ContainsKey(box))
                 {
                     box.SelectedIndex = 0;
                     continue;
                 }
-                string statID = boxSelectedIDs[box];
-                if (validModIDs.Contains(statID))
+                Stats stat = modStats[boxSelectedEffects[box]];
+                if (validModIDs.Contains(stat.id))
                 {
-                    int index = validModIDs.IndexOf(statID) + 1;
-                    box.SelectedIndex = index;
+                    box.SelectedItem = stat;
                 }
             }
-            if (boxSelectedIDs.ContainsKey(comboBoxWeaponArcane))
+            if (boxSelectedEffects.ContainsKey(comboBoxWeaponArcane))
             {
-                string statID = boxSelectedIDs[comboBoxWeaponArcane];
-                if (validArcaneIDs.Contains(statID))
+                Stats stat = arcaneStats[boxSelectedEffects[comboBoxWeaponArcane]];
+                if (validArcaneIDs.Contains(stat.id))
                 {
-                    int index = validArcaneIDs.IndexOf(statID) + 1;
-                    comboBoxWeaponArcane.SelectedIndex = index;
+                    comboBoxWeaponArcane.SelectedItem = stat;
                 }
             }
             else
@@ -381,14 +436,27 @@ namespace Buildframe
             s += "weapon=" + currentWeapon.id + "\n";
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
-                int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
-                string statID = validArcaneIDs[idIndex];
+                string statID = ((Stats)comboBoxWeaponArcane.SelectedItem).id;
                 s += "arcane=" + statID + "\n";
             }
             else
             {
                 s += "arcane=\n";
             }
+
+            if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
+            {
+                Stats stat = (Stats)comboBoxArchgunArcane.SelectedItem;
+
+                string statID = stat.id;
+
+                s += "archgunarcane=" + statID + "\n";
+            }
+            else if (tags.Contains("Archgun"))
+            {
+                s += "archgunarcane=\n";
+            }
+
             s += "mods=";
             foreach (ComboBox box in modBoxes)
             {
@@ -443,11 +511,19 @@ namespace Buildframe
                 }
                 else if (key == "arcane")
                 {
-                    if (value != "" && CommonVars.arcaneStats.ContainsKey(value))
+                    if (value != "" && CommonVars.arcaneStats.ContainsKey(value) && comboBoxWeaponArcane.Items.Contains(arcaneStats[value]))
                     {
                         WriteLineIfDebug("Setting arcane to " + value);
-                        int index = validArcaneIDs.IndexOf(value) + 1;
-                        comboBoxWeaponArcane.SelectedIndex = index;
+                        Stats stat = CommonVars.arcaneStats[value];
+                        comboBoxWeaponArcane.SelectedItem = stat;
+                    }
+                } else if (key == "archgunarcane")
+                {
+                    if (value != "" && CommonVars.arcaneStats.ContainsKey(value) && tags.Contains("Archgun"))
+                    {
+                        WriteLineIfDebug("Setting archgun arcane to " + value);
+                        Stats stat = CommonVars.arcaneStats[value]; 
+                        comboBoxArchgunArcane.SelectedItem = stat;
                     }
                 }
                 else if (key == "mods")
@@ -667,7 +743,7 @@ namespace Buildframe
 
         private void createFireModeOrBuffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            stashBoxIDs();
+            stashBoxEffects();
 
             FormStatWizard form = new FormStatWizard();
             form.ShowDialog();
@@ -692,7 +768,7 @@ namespace Buildframe
 
         private void toolStripButtonSelectWeapon_Click(object sender, EventArgs e)
         {
-            stashBoxIDs();
+            stashBoxEffects();
 
             FormWeaponSelection form = new FormWeaponSelection();
             form.mainWindow = this;
