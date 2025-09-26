@@ -127,6 +127,10 @@ namespace Buildframe
                 summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
                 summedDPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats, true);
 
+                double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
+                double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats);
+                double speed = Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats);
+
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
@@ -135,7 +139,10 @@ namespace Buildframe
                 labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats)).ToString();
                 labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(selectedFiremodeWithAppliedStats), 2).ToString() + "s";
                 labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
-                labelMultishotValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats), 2).ToString();
+
+                labelMultishotValue.Text = Math.Round(multishot, 2).ToString();
+                labelStatusPerSecondValue.Text = Math.Round(multishot * statusChance / 100 * speed, 2).ToString();
+
                 labelDamageValue.Text = Math.Round(summedDamage, 2).ToString("#,##0");
                 labelDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString("#,##0");
                 labelDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString("#,##0");
@@ -630,7 +637,7 @@ namespace Buildframe
             primaryValueLabels.Add(labelCriticalChanceValue);
             primaryValueLabels.Add(labelCriticalDamageValue);
             primaryValueLabels.Add(labelStatusProjectileValue);
-            primaryValueLabels.Add(labelStatusMultishotValue);
+            primaryValueLabels.Add(labelStatusPerSecondValue);
             primaryValueLabels.Add(labelDPSBurstValue);
             primaryValueLabels.Add(labelDPSSustainedValue);
 
@@ -753,10 +760,10 @@ namespace Buildframe
             LoadAndSave.loadArcaneFiles();
             LoadAndSave.loadMiscFiles();
             LoadAndSave.loadWeaponFiles();
-            loadValidIDs();
-            loadArcanesToSelectionBox();
-            loadModsToSelectionBox();
-            loadMiscsToSelectionBox();
+            if (currentWeapon.id != "")
+            {
+                loadWeapon(weaponStats[currentWeapon.id]);
+            }
         }
 
         private void createWeaponToolStripMenuItem_Click(object sender, EventArgs e)

@@ -64,7 +64,7 @@
             labelStatusProjectile = new Label();
             labelStatus = new Label();
             labelStatusProjectileValue = new Label();
-            labelStatusMultishotValue = new Label();
+            labelStatusPerSecondValue = new Label();
             labelDamage = new Label();
             labelDamageValue = new Label();
             label19 = new Label();
@@ -233,7 +233,7 @@
             tableLayoutPanel1.Controls.Add(labelStatusProjectile, 0, 5);
             tableLayoutPanel1.Controls.Add(labelStatus, 0, 6);
             tableLayoutPanel1.Controls.Add(labelStatusProjectileValue, 1, 5);
-            tableLayoutPanel1.Controls.Add(labelStatusMultishotValue, 1, 6);
+            tableLayoutPanel1.Controls.Add(labelStatusPerSecondValue, 1, 6);
             tableLayoutPanel1.Controls.Add(labelDamage, 0, 10);
             tableLayoutPanel1.Controls.Add(labelDamageValue, 1, 10);
             tableLayoutPanel1.Controls.Add(label19, 0, 20);
@@ -490,18 +490,18 @@
             labelStatusProjectile.AutoSize = true;
             labelStatusProjectile.Location = new Point(4, 106);
             labelStatusProjectile.Name = "labelStatusProjectile";
-            labelStatusProjectile.Size = new Size(39, 15);
+            labelStatusProjectile.Size = new Size(111, 15);
             labelStatusProjectile.TabIndex = 12;
-            labelStatusProjectile.Text = "Status";
+            labelStatusProjectile.Text = "Status Per Projectile";
+            labelStatusProjectile.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // labelStatus
             // 
-            labelStatus.AutoSize = true;
             labelStatus.Location = new Point(4, 127);
             labelStatus.Name = "labelStatus";
-            labelStatus.Size = new Size(101, 15);
+            labelStatus.Size = new Size(128, 20);
             labelStatus.TabIndex = 9;
-            labelStatus.Text = "Status (Multishot)";
+            labelStatus.Text = "Status Per Second";
             // 
             // labelStatusProjectileValue
             // 
@@ -512,14 +512,14 @@
             labelStatusProjectileValue.Size = new Size(115, 20);
             labelStatusProjectileValue.TabIndex = 32;
             // 
-            // labelStatusMultishotValue
+            // labelStatusPerSecondValue
             // 
-            labelStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelStatusMultishotValue.CausesValidation = false;
-            labelStatusMultishotValue.Location = new Point(173, 127);
-            labelStatusMultishotValue.Name = "labelStatusMultishotValue";
-            labelStatusMultishotValue.Size = new Size(115, 20);
-            labelStatusMultishotValue.TabIndex = 33;
+            labelStatusPerSecondValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelStatusPerSecondValue.CausesValidation = false;
+            labelStatusPerSecondValue.Location = new Point(173, 127);
+            labelStatusPerSecondValue.Name = "labelStatusPerSecondValue";
+            labelStatusPerSecondValue.Size = new Size(115, 20);
+            labelStatusPerSecondValue.TabIndex = 33;
             // 
             // labelDamage
             // 
@@ -1168,7 +1168,7 @@
         private Label labelRadialCriticalChanceValue;
         private Label labelAmmoEfficiencyValue;
         private Label labelDPSBurstValue;
-        private Label labelStatusMultishotValue;
+        private Label labelStatusPerSecondValue;
         private Label labelStatusProjectileValue;
         private Label labelAverageCriticalValue;
         private Label labelCriticalDamageValue;
