@@ -770,6 +770,7 @@ namespace Buildframe
 
             FormWeaponWizard form = new FormWeaponWizard();
             form.ShowDialog();
+            LoadAndSave.loadWeaponFiles();
             if (currentWeapon.id != "")
             {
                 loadWeapon(weaponStats[currentWeapon.id]);
