@@ -2569,6 +2569,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1027, 808);
             Controls.Add(tableLayoutPanel5);
+            MaximizeBox = false;
             Name = "FormStatWizard";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Stat Creation Wizard";

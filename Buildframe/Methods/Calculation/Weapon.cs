@@ -82,15 +82,21 @@ namespace Buildframe.Methods.Calculation
 
             return efficiency;
         }
-        public static double calculateModReloadMult(Stats stats)
+        public static double calculateModFireTime(Stats stats)
         {
             double ammoEfficiency = calculateModAmmoEfficiency(stats);
-            if (ammoEfficiency >= 100)
-            {
-                return 1;
-            }
             double magazine = calculateModMagazine(stats);
-            if (magazine == 0)
+
+            if (ammoEfficiency >= 100 || magazine == 0)
+            {
+                return double.PositiveInfinity;
+            }
+            return magazine / (1 - ammoEfficiency / 100) / calculateModSpeed(stats);
+        }
+        public static double calculateModReloadMult(Stats stats)
+        {
+            double fireTime = calculateModFireTime(stats);
+            if (fireTime == double.PositiveInfinity)
             {
                 return 1;
             }
@@ -99,7 +105,8 @@ namespace Buildframe.Methods.Calculation
             {
                 return 1;
             }
-            return 1 - (reloadTime / ((magazine / (1 - ammoEfficiency / 100) / calculateModSpeed(stats)) + reloadTime));
+            double reloadMult = 1 - (reloadTime / (fireTime + reloadTime));
+            return reloadMult;
         }
         public static double calculateModDPS(Stats stats, bool reload = false)
         {

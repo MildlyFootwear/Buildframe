@@ -71,6 +71,7 @@
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(comboBoxWeaponSelect);
+            MaximizeBox = false;
             Name = "FormWeaponSelection";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Weapon Select";

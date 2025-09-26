@@ -75,11 +75,9 @@ namespace Buildframe
             {
                 if (box.SelectedIndex > 0)
                 {
-                    int idIndex = box.SelectedIndex - 1;
-                    string statID = validModIDs[idIndex];
-                    selectedStats.Add(modStats[statID]);
-
-                    WriteLineIfDebug("    Selected stats added mod: " + modStats[statID].name);
+                    Stats stats = (Stats)box.SelectedItem;
+                    selectedStats.Add(stats);
+                    WriteLineIfDebug("    Selected stats added mod: " + stats.name);
                 }
             }
 
@@ -87,25 +85,24 @@ namespace Buildframe
             {
                 if (box.SelectedIndex > 0)
                 {
-                    int idIndex = box.SelectedIndex - 1;
-                    string statID = validMiscIDs[idIndex];
-                    selectedStats.Add(miscStats[statID]);
-                    WriteLineIfDebug("    Selected stats added misc: " + miscStats[statID].name);
+                    Stats stats = (Stats)box.SelectedItem;
+                    selectedStats.Add(stats);
+                    WriteLineIfDebug("    Selected stats added misc: " + stats.name);
                 }
             }
 
             if (comboBoxWeaponArcane.SelectedIndex > 0 && comboBoxWeaponArcane.SelectedItem.ToString() != "Secondary Enervate")
             {
-                int idIndex = comboBoxWeaponArcane.SelectedIndex - 1;
-                string statID = validArcaneIDs[idIndex];
-                selectedStats.Add(arcaneStats[statID]);
-
-                WriteLineIfDebug("    Selected stats added arcane: " + arcaneStats[statID].name);
+                Stats stats = (Stats)comboBoxWeaponArcane.SelectedItem;
+                selectedStats.Add(stats);
+                WriteLineIfDebug("    Selected stats added arcane: " + stats.name);
             }
 
             if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
             {
-                selectedStats.Add((Stats) comboBoxArchgunArcane.SelectedItem);
+                Stats stats = (Stats)comboBoxArchgunArcane.SelectedItem;
+                selectedStats.Add(stats);
+                WriteLineIfDebug("    Selected stats added arcane: " + stats.name);
             }
 
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
@@ -137,6 +134,7 @@ namespace Buildframe
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
                 labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats), 2).ToString();
                 labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats)).ToString();
+                labelFireTimeValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModFireTime(selectedFiremodeWithAppliedStats), 2).ToString() + "s";
                 labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(selectedFiremodeWithAppliedStats), 2).ToString() + "s";
                 labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
 
@@ -768,9 +766,14 @@ namespace Buildframe
 
         private void createWeaponToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            stashBoxEffects();
+
             FormWeaponWizard form = new FormWeaponWizard();
             form.ShowDialog();
-            LoadAndSave.loadWeaponFiles();
+            if (currentWeapon.id != "")
+            {
+                loadWeapon(weaponStats[currentWeapon.id]);
+            }
         }
 
         private void toolStripButtonSelectWeapon_Click(object sender, EventArgs e)

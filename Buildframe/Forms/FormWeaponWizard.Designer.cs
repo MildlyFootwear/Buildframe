@@ -304,6 +304,7 @@
             Controls.Add(buttonCreate);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(tableLayoutPanel2);
+            MaximizeBox = false;
             Name = "FormWeaponWizard";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Weapon Creation Wizard";
