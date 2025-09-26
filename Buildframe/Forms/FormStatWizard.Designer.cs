@@ -293,13 +293,14 @@
             basePage.Location = new Point(4, 27);
             basePage.Name = "basePage";
             basePage.Padding = new Padding(3);
-            basePage.Size = new Size(393, 335);
+            basePage.Size = new Size(412, 335);
             basePage.TabIndex = 0;
             basePage.Text = "Base Stats";
             basePage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -1016,7 +1017,7 @@
             tabControl1.Location = new Point(3, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(401, 366);
+            tabControl1.Size = new Size(420, 366);
             tabControl1.TabIndex = 1;
             tabControl1.DragDrop += tabControl1_DragDrop;
             tabControl1.DragEnter += tabControl1_DragEnter;
@@ -1159,6 +1160,7 @@
             // 
             // tableLayoutPanel3
             // 
+            tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel3.AutoSize = true;
             tableLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -1861,6 +1863,7 @@
             // 
             // tableLayoutPanel4
             // 
+            tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel4.AutoSize = true;
             tableLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -2536,7 +2539,7 @@
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Arcane/Buff", "Weapon Fire Mode" });
-            comboBox1.Location = new Point(241, 375);
+            comboBox1.Location = new Point(260, 375);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(163, 23);
             comboBox1.TabIndex = 3;
@@ -2557,7 +2560,7 @@
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 372F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(407, 401);
+            tableLayoutPanel5.Size = new Size(426, 401);
             tableLayoutPanel5.TabIndex = 4;
             // 
             // FormStatWizard
