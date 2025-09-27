@@ -273,6 +273,13 @@ namespace Buildframe.Forms
             listBaseValues.Add(numericUpDownBaseStatusDamage);
             listBaseValues.Add(numericUpDownBaseToxin);
             listBaseValues.Add(numericUpDownBaseViral);
+
+            tableLayoutPanel3.Width = tableLayoutPanel1.Width;
+            tableLayoutPanel4.Width = tableLayoutPanel1.Width;
+
+            tableLayoutPanel3.Height = tableLayoutPanel1.Height;
+            tableLayoutPanel4.Height = tableLayoutPanel1.Height;
+
         }
 
         private void FormStatWizard_DragDrop(object sender, DragEventArgs e)

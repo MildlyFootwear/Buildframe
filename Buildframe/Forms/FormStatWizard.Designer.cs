@@ -1034,7 +1034,6 @@
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel2.ColumnCount = 2;
@@ -1057,7 +1056,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(372, 322);
+            tableLayoutPanel2.Size = new Size(396, 302);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // label78
@@ -1082,9 +1081,10 @@
             // 
             // textBoxName
             // 
+            textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxName.Location = new Point(78, 85);
             textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(289, 23);
+            textBoxName.Size = new Size(314, 23);
             textBoxName.TabIndex = 18;
             // 
             // label26
@@ -1111,26 +1111,29 @@
             // 
             // textBoxID
             // 
+            textBoxID.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxID.Location = new Point(78, 55);
             textBoxID.Name = "textBoxID";
-            textBoxID.Size = new Size(289, 23);
+            textBoxID.Size = new Size(314, 23);
             textBoxID.TabIndex = 0;
             textBoxID.TextChanged += textBoxID_TextChanged;
             textBoxID.Leave += textBoxID_Leave;
             // 
             // textBoxDescription
             // 
+            textBoxDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxDescription.Location = new Point(78, 145);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
-            textBoxDescription.Size = new Size(289, 173);
+            textBoxDescription.Size = new Size(314, 153);
             textBoxDescription.TabIndex = 21;
             // 
             // textBoxTags
             // 
+            textBoxTags.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBoxTags.Location = new Point(78, 115);
             textBoxTags.Name = "textBoxTags";
-            textBoxTags.Size = new Size(289, 23);
+            textBoxTags.Size = new Size(314, 23);
             textBoxTags.TabIndex = 20;
             textBoxTags.Text = "Any";
             // 
@@ -1142,7 +1145,7 @@
             label82.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label82.Location = new Point(4, 1);
             label82.Name = "label82";
-            label82.Size = new Size(364, 50);
+            label82.Size = new Size(388, 50);
             label82.TabIndex = 23;
             label82.Text = "This is for information and behavior within this application.\r\nSeperate tags with spaces, they will be used for sorting within the UI.";
             // 
@@ -1159,8 +1162,6 @@
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel3.AutoSize = true;
             tableLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel3.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel3.ColumnCount = 4;
@@ -1848,7 +1849,7 @@
             label80.Name = "label80";
             label80.Size = new Size(372, 50);
             label80.TabIndex = 82;
-            label80.Text = "This is typically for weapon mods and a few abilities.\r\nEnter values as percentages unless instructed otherwise.";
+            label80.Text = "This is for 90% of weapon mods, arcanes, and abilities.\r\nEnter values as percentages unless instructed otherwise.";
             // 
             // finalPage
             // 
@@ -1862,8 +1863,6 @@
             // 
             // tableLayoutPanel4
             // 
-            tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel4.AutoSize = true;
             tableLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel4.ColumnCount = 4;
@@ -2607,11 +2606,9 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseGas).EndInit();
             tabControl1.ResumeLayout(false);
             identifiersPage.ResumeLayout(false);
-            identifiersPage.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             modPage.ResumeLayout(false);
-            modPage.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).EndInit();
@@ -2640,7 +2637,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).EndInit();
             finalPage.ResumeLayout(false);
-            finalPage.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCorrosive).EndInit();
