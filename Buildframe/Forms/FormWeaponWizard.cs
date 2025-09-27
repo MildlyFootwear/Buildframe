@@ -62,6 +62,13 @@ namespace Buildframe.Forms
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+
+            if (textBoxTags.Text.Split(' ').Contains("None"))
+            {
+                MessageBox.Show("The tag 'None' is reserved and will result in all selection boxes being empty if used.", "Buildframe - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Weapon wpn = new Weapon();
 
             wpn.id = textBoxID.Text;

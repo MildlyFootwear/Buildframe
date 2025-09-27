@@ -25,7 +25,7 @@ namespace Buildframe
         public Stats mergedStats = new();
 
         public Weapon currentWeapon = new();
-        public string[] tags = { "Any" };
+        public string[] tags = { "None" };
         public Stats selectedFiremode = new();
         public Stats radial = new();
         public Stats selectedFiremodeWithAppliedStats = new();
@@ -38,7 +38,32 @@ namespace Buildframe
             currentWeapon = weapon;
 
             if (weapon.id == "")
+            {
+                foreach (Label lbl in primaryValueLabels)
+                {
+                    lbl.Text = "N/A";
+                }
+                foreach (Label lbl in radialValueLabels)
+                {
+                    lbl.Text = "N/A";
+                }
+                tags = "None".Split('.');
+                setHandlerPause(true);
+                loadValidIDs();
+                loadArcanesToSelectionBox();
+                loadModsToSelectionBox();
+                loadMiscsToSelectionBox();
+
+                comboBoxArchgunArcane.Visible = false;
+                comboBoxArchgunArcane.SelectedIndex = 0;
+                comboBoxFireMode.Items.Clear();
+                labelWeaponName.Text = "[Weapon Name]";
+                selectedFiremode = new Stats();
+                radial = new Stats();
+                setHandlerPause(false);
                 return;
+
+            }
 
             tags = weapon.tags.Split(' ');
 
@@ -188,6 +213,10 @@ namespace Buildframe
 
         public bool hasTag(Stats stat)
         {
+            if (tags.Contains("None"))
+            {
+                return false;
+            }
             if (stat.tags.Contains("Any") || tags.Contains("Any") || stat.tags.Contains(currentWeapon.name))
             {
                 return true;
@@ -638,6 +667,7 @@ namespace Buildframe
             primaryValueLabels.Add(labelStatusPerSecondValue);
             primaryValueLabels.Add(labelDPSBurstValue);
             primaryValueLabels.Add(labelDPSSustainedValue);
+            primaryValueLabels.Add(labelFireTimeValue);
 
             radialValueLabels.Add(labelRadialAverageCritMultValue);
             radialValueLabels.Add(labelRadialCriticalChanceValue);

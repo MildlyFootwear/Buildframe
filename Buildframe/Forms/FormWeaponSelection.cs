@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Buildframe.Forms
+﻿namespace Buildframe.Forms
 {
     public partial class FormWeaponSelection : Form
     {
@@ -26,7 +16,14 @@ namespace Buildframe.Forms
             {
                 comboBoxWeaponSelect.Items.Add(w.Value);
             }
-            comboBoxWeaponSelect.SelectedIndex = 0;
+            if (comboBoxWeaponSelect.Items.Contains(mainWindow.currentWeapon))
+            {
+                comboBoxWeaponSelect.SelectedItem = mainWindow.currentWeapon;
+            }
+            else
+            {
+                comboBoxWeaponSelect.SelectedIndex = 0;
+            }
             Button cancel = new Button();
             cancel.Click += (s, ev) => { this.Close(); };
             this.CancelButton = cancel;
@@ -57,5 +54,6 @@ namespace Buildframe.Forms
             }
             label1.Text = weaponStats.Values.ToList()[comboBoxWeaponSelect.SelectedIndex - 1].description;
         }
+
     }
 }
