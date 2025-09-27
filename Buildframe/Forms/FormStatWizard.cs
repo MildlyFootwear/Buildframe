@@ -19,6 +19,9 @@ namespace Buildframe.Forms
         }
 
         bool multishotBaseEdited = false;
+        List<NumericUpDown> listBaseValues = new();
+        List<NumericUpDown> listModValues = new();
+        List<NumericUpDown> listFinalValues = new();
 
         private void loadStatsToForm(GameData.Stats stats)
         {
@@ -106,6 +109,25 @@ namespace Buildframe.Forms
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                bool isABaseChanged = false;
+                foreach (NumericUpDown nud in listBaseValues)
+                {
+                    if (nud.Value != 0)
+                    {
+                        isABaseChanged = true;
+                        break;
+                    }
+                }
+                if (isABaseChanged)
+                {
+                    if (MessageBox.Show("A base value has been changed for a mod effect.\nThis is typically only done in error.\nContinue?","Buildframe",MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+            }
             GameData.Stats stats = new GameData.Stats();
 
             stats.name = textBoxName.Text;
@@ -228,6 +250,29 @@ namespace Buildframe.Forms
         {
             textBoxID.Text = Guid.NewGuid().ToString().Substring(0, 18);
             comboBox1.SelectedIndex = 0;
+            listBaseValues.Add(numericUpDownBaseAttackSpeed);
+            listBaseValues.Add(numericUpDownBaseBlast);
+            listBaseValues.Add(numericUpDownBaseChargeTime);
+            listBaseValues.Add(numericUpDownBaseCold);
+            listBaseValues.Add(numericUpDownBaseCorrosive);
+            listBaseValues.Add(numericUpDownBaseCriticalChance);
+            listBaseValues.Add(numericUpDownBaseCriticalDamage);
+            listBaseValues.Add(numericUpDownBaseDamage);
+            listBaseValues.Add(numericUpDownBaseElectric);
+            listBaseValues.Add(numericUpDownBaseFire);
+            listBaseValues.Add(numericUpDownBaseGas);
+            listBaseValues.Add(numericUpDownBaseImpact);
+            listBaseValues.Add(numericUpDownBaseMagazine);
+            listBaseValues.Add(numericUpDownBaseMagnetic);
+            listBaseValues.Add(numericUpDownBaseMultishot);
+            listBaseValues.Add(numericUpDownBasePuncture);
+            listBaseValues.Add(numericUpDownBaseRadiation);
+            listBaseValues.Add(numericUpDownBaseReloadTime);
+            listBaseValues.Add(numericUpDownBaseSlash);
+            listBaseValues.Add(numericUpDownBaseStatusChance);
+            listBaseValues.Add(numericUpDownBaseStatusDamage);
+            listBaseValues.Add(numericUpDownBaseToxin);
+            listBaseValues.Add(numericUpDownBaseViral);
         }
 
         private void FormStatWizard_DragDrop(object sender, DragEventArgs e)
