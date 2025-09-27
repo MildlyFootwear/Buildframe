@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             toolStrip1 = new ToolStrip();
             toolStripButtonSelectWeapon = new ToolStripButton();
@@ -119,6 +120,7 @@
             comboBoxMod1 = new ComboBox();
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
+            toolTipMods = new ToolTip(components);
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -824,7 +826,9 @@
             comboBoxArchgunArcane.Size = new Size(449, 23);
             comboBoxArchgunArcane.TabIndex = 24;
             comboBoxArchgunArcane.Visible = false;
+            comboBoxArchgunArcane.DropDown += comboBoxTooltipShow_Event;
             comboBoxArchgunArcane.SelectedIndexChanged += comboBoxWeaponArcane_SelectedIndexChanged;
+            comboBoxArchgunArcane.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect12
             // 
@@ -836,7 +840,9 @@
             comboBoxMiscEffect12.Name = "comboBoxMiscEffect12";
             comboBoxMiscEffect12.Size = new Size(226, 23);
             comboBoxMiscEffect12.TabIndex = 23;
+            comboBoxMiscEffect12.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect12.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect12.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect11
             // 
@@ -848,7 +854,9 @@
             comboBoxMiscEffect11.Name = "comboBoxMiscEffect11";
             comboBoxMiscEffect11.Size = new Size(225, 23);
             comboBoxMiscEffect11.TabIndex = 22;
+            comboBoxMiscEffect11.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect11.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect11.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect10
             // 
@@ -860,7 +868,9 @@
             comboBoxMiscEffect10.Name = "comboBoxMiscEffect10";
             comboBoxMiscEffect10.Size = new Size(226, 23);
             comboBoxMiscEffect10.TabIndex = 21;
+            comboBoxMiscEffect10.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect10.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect10.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect9
             // 
@@ -872,7 +882,9 @@
             comboBoxMiscEffect9.Name = "comboBoxMiscEffect9";
             comboBoxMiscEffect9.Size = new Size(225, 23);
             comboBoxMiscEffect9.TabIndex = 20;
+            comboBoxMiscEffect9.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect9.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect9.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect8
             // 
@@ -884,7 +896,9 @@
             comboBoxMiscEffect8.Name = "comboBoxMiscEffect8";
             comboBoxMiscEffect8.Size = new Size(226, 23);
             comboBoxMiscEffect8.TabIndex = 19;
+            comboBoxMiscEffect8.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect8.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect8.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect7
             // 
@@ -896,7 +910,9 @@
             comboBoxMiscEffect7.Name = "comboBoxMiscEffect7";
             comboBoxMiscEffect7.Size = new Size(225, 23);
             comboBoxMiscEffect7.TabIndex = 18;
+            comboBoxMiscEffect7.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect7.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect7.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect6
             // 
@@ -908,7 +924,9 @@
             comboBoxMiscEffect6.Name = "comboBoxMiscEffect6";
             comboBoxMiscEffect6.Size = new Size(226, 23);
             comboBoxMiscEffect6.TabIndex = 17;
+            comboBoxMiscEffect6.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect6.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect6.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect5
             // 
@@ -920,7 +938,9 @@
             comboBoxMiscEffect5.Name = "comboBoxMiscEffect5";
             comboBoxMiscEffect5.Size = new Size(225, 23);
             comboBoxMiscEffect5.TabIndex = 16;
+            comboBoxMiscEffect5.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect5.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect5.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect4
             // 
@@ -932,7 +952,9 @@
             comboBoxMiscEffect4.Name = "comboBoxMiscEffect4";
             comboBoxMiscEffect4.Size = new Size(226, 23);
             comboBoxMiscEffect4.TabIndex = 15;
+            comboBoxMiscEffect4.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect4.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect4.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect3
             // 
@@ -944,7 +966,9 @@
             comboBoxMiscEffect3.Name = "comboBoxMiscEffect3";
             comboBoxMiscEffect3.Size = new Size(225, 23);
             comboBoxMiscEffect3.TabIndex = 14;
+            comboBoxMiscEffect3.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect3.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect3.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect2
             // 
@@ -956,7 +980,9 @@
             comboBoxMiscEffect2.Name = "comboBoxMiscEffect2";
             comboBoxMiscEffect2.Size = new Size(226, 23);
             comboBoxMiscEffect2.TabIndex = 13;
+            comboBoxMiscEffect2.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect2.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect2.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMiscEffect1
             // 
@@ -968,7 +994,9 @@
             comboBoxMiscEffect1.Name = "comboBoxMiscEffect1";
             comboBoxMiscEffect1.Size = new Size(225, 23);
             comboBoxMiscEffect1.TabIndex = 12;
+            comboBoxMiscEffect1.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect1.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
+            comboBoxMiscEffect1.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // label3
             // 
@@ -992,7 +1020,9 @@
             comboBoxMod8.Name = "comboBoxMod8";
             comboBoxMod8.Size = new Size(226, 23);
             comboBoxMod8.TabIndex = 10;
+            comboBoxMod8.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod8.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod8.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMod7
             // 
@@ -1004,7 +1034,9 @@
             comboBoxMod7.Name = "comboBoxMod7";
             comboBoxMod7.Size = new Size(225, 23);
             comboBoxMod7.TabIndex = 9;
+            comboBoxMod7.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod7.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod7.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMod6
             // 
@@ -1016,7 +1048,9 @@
             comboBoxMod6.Name = "comboBoxMod6";
             comboBoxMod6.Size = new Size(226, 23);
             comboBoxMod6.TabIndex = 8;
+            comboBoxMod6.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod6.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod6.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMod5
             // 
@@ -1028,7 +1062,9 @@
             comboBoxMod5.Name = "comboBoxMod5";
             comboBoxMod5.Size = new Size(225, 23);
             comboBoxMod5.TabIndex = 7;
+            comboBoxMod5.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod5.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod5.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMod4
             // 
@@ -1040,7 +1076,9 @@
             comboBoxMod4.Name = "comboBoxMod4";
             comboBoxMod4.Size = new Size(226, 23);
             comboBoxMod4.TabIndex = 6;
+            comboBoxMod4.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod4.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod4.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMod3
             // 
@@ -1052,7 +1090,9 @@
             comboBoxMod3.Name = "comboBoxMod3";
             comboBoxMod3.Size = new Size(225, 23);
             comboBoxMod3.TabIndex = 5;
+            comboBoxMod3.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod3.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod3.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // comboBoxMod2
             // 
@@ -1064,7 +1104,9 @@
             comboBoxMod2.Name = "comboBoxMod2";
             comboBoxMod2.Size = new Size(226, 23);
             comboBoxMod2.TabIndex = 4;
+            comboBoxMod2.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod2.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod2.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // label2
             // 
@@ -1088,7 +1130,9 @@
             comboBoxWeaponArcane.Name = "comboBoxWeaponArcane";
             comboBoxWeaponArcane.Size = new Size(449, 23);
             comboBoxWeaponArcane.TabIndex = 1;
+            comboBoxWeaponArcane.DropDown += comboBoxTooltipShow_Event;
             comboBoxWeaponArcane.SelectedIndexChanged += comboBoxWeaponArcane_SelectedIndexChanged;
+            comboBoxWeaponArcane.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // label1
             // 
@@ -1112,7 +1156,9 @@
             comboBoxMod1.Name = "comboBoxMod1";
             comboBoxMod1.Size = new Size(225, 23);
             comboBoxMod1.TabIndex = 3;
+            comboBoxMod1.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod1.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
+            comboBoxMod1.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // saveFileDialog1
             // 
@@ -1125,6 +1171,11 @@
             openFileDialog1.FileName = "openFileDialog1";
             openFileDialog1.Filter = "cfg|*.cfg";
             openFileDialog1.Title = "Buildframe - Load Build From File";
+            // 
+            // toolTipMods
+            // 
+            toolTipMods.UseAnimation = false;
+            toolTipMods.UseFading = false;
             // 
             // MainWindow
             // 
@@ -1246,5 +1297,6 @@
         private ComboBox comboBoxArchgunArcane;
         private Label labelFireTimeValue;
         private Label labelFireTime;
+        private ToolTip toolTipMods;
     }
 }

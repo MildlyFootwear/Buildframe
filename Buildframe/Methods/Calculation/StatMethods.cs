@@ -25,7 +25,8 @@ namespace Buildframe.Methods.Calculation
 
             WriteLineIfDebug("Starting stats sum for " + statsList.Count + " stats");
 
-            foreach (Stats s in statsList) {
+            foreach (Stats s in statsList)
+            {
                 if (s.incarnon)
                 {
                     stats.incarnon = true;
@@ -181,7 +182,6 @@ namespace Buildframe.Methods.Calculation
 
             return stats;
         }
-
 
     }
 

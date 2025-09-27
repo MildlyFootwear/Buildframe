@@ -411,7 +411,7 @@ namespace Buildframe
             {
                 if (box.SelectedIndex > 0)
                 {
-                    boxSelectedEffects.Add(box, ((Stats) box.SelectedItem).id);
+                    boxSelectedEffects.Add(box, ((Stats)box.SelectedItem).id);
                 }
             }
             foreach (ComboBox box in miscBoxes)
@@ -551,12 +551,13 @@ namespace Buildframe
                         Stats stat = CommonVars.arcaneStats[value];
                         comboBoxWeaponArcane.SelectedItem = stat;
                     }
-                } else if (key == "archgunarcane")
+                }
+                else if (key == "archgunarcane")
                 {
                     if (value != "" && CommonVars.arcaneStats.ContainsKey(value) && tags.Contains("Archgun"))
                     {
                         WriteLineIfDebug("Setting archgun arcane to " + value);
-                        Stats stat = CommonVars.arcaneStats[value]; 
+                        Stats stat = CommonVars.arcaneStats[value];
                         comboBoxArchgunArcane.SelectedItem = stat;
                     }
                 }
@@ -716,14 +717,20 @@ namespace Buildframe
         {
             if (pauseHandler)
                 return;
-
+            if ((ComboBox)sender != null && ((ComboBox)sender).DroppedDown)
+            {
+                comboBoxTooltipShow_Event(sender, e);
+            }
             updateWeaponStats();
         }
         private void comboBoxMisc_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (pauseHandler)
                 return;
-
+            if ((ComboBox)sender != null && ((ComboBox)sender).DroppedDown)
+            {
+                comboBoxTooltipShow_Event(sender, e);
+            }
             updateWeaponStats();
         }
 
@@ -731,7 +738,10 @@ namespace Buildframe
         {
             if (pauseHandler)
                 return;
-
+            if ((ComboBox)sender != null && ((ComboBox)sender).DroppedDown)
+            {
+                comboBoxTooltipShow_Event(sender, e);
+            }
             updateWeaponStats();
         }
 
@@ -814,13 +824,37 @@ namespace Buildframe
             FormWeaponSelection form = new FormWeaponSelection();
             form.mainWindow = this;
             form.ShowDialog();
-             loadWeapon(currentWeapon);
+            loadWeapon(currentWeapon);
         }
 
         private void toolStripButtonInfo_Click(object sender, EventArgs e)
         {
             Info form = new Info();
             form.ShowDialog();
+        }
+
+        private void comboBoxTooltipShow_Event(object sender, EventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            Point p = box.Location;
+            p.X += box.Width;
+            p.X += 10 * this.DeviceDpi / 100;
+            p.Y += box.Height / 2;
+            p.X += tableLayoutPanel2.Location.X;
+            p.Y += tableLayoutPanel2.Location.Y;
+            p.Y += toolStrip1.Height;
+            if (box.SelectedIndex < 1)
+            {
+                toolTipMods.Hide(this);
+            }
+            else {
+                toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem), this, p);
+            }
+        }
+
+        private void comboBoxTooltipHide_Event(object sender, EventArgs e)
+        {
+            toolTipMods.Hide(this);
         }
     }
 }
