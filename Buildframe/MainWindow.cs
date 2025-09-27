@@ -814,7 +814,7 @@ namespace Buildframe
             FormWeaponSelection form = new FormWeaponSelection();
             form.mainWindow = this;
             form.ShowDialog();
-            loadWeapon(currentWeapon);
+             loadWeapon(currentWeapon);
         }
 
         private void toolStripButtonInfo_Click(object sender, EventArgs e)
