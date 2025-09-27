@@ -414,21 +414,36 @@ namespace Buildframe
                 {
                     boxSelectedEffects.Add(box, ((Stats)box.SelectedItem).id);
                 }
+                else
+                {
+                    boxSelectedEffects.Remove(box);
+                }
             }
             foreach (ComboBox box in miscBoxes)
             {
                 if (box.SelectedIndex > 0)
                 {
                     boxSelectedEffects.Add(box, ((Stats)box.SelectedItem).id);
+                } else
+                {
+                    boxSelectedEffects.Remove(box);
                 }
             }
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
                 boxSelectedEffects.Add(comboBoxWeaponArcane, ((Stats)comboBoxWeaponArcane.SelectedItem).id);
             }
+            else
+            {
+                boxSelectedEffects.Remove(comboBoxWeaponArcane);
+            }
             if (comboBoxArchgunArcane.SelectedIndex > 0)
             {
                 boxSelectedEffects.Add(comboBoxArchgunArcane, ((Stats)comboBoxArchgunArcane.SelectedItem).id);
+            }
+            else
+            {
+                boxSelectedEffects.Remove(comboBoxArchgunArcane);
             }
         }
 
