@@ -1027,7 +1027,7 @@
             identifiersPage.Controls.Add(tableLayoutPanel2);
             identifiersPage.Location = new Point(4, 27);
             identifiersPage.Name = "identifiersPage";
-            identifiersPage.Size = new Size(393, 335);
+            identifiersPage.Size = new Size(412, 335);
             identifiersPage.TabIndex = 2;
             identifiersPage.Text = "Identifiers";
             identifiersPage.UseVisualStyleBackColor = true;
@@ -1153,7 +1153,7 @@
             modPage.Location = new Point(4, 27);
             modPage.Name = "modPage";
             modPage.Padding = new Padding(3);
-            modPage.Size = new Size(393, 335);
+            modPage.Size = new Size(412, 335);
             modPage.TabIndex = 1;
             modPage.Text = "Mod Stats";
             modPage.UseVisualStyleBackColor = true;
@@ -1856,7 +1856,7 @@
             finalPage.Controls.Add(tableLayoutPanel4);
             finalPage.Location = new Point(4, 27);
             finalPage.Name = "finalPage";
-            finalPage.Size = new Size(393, 335);
+            finalPage.Size = new Size(412, 335);
             finalPage.TabIndex = 3;
             finalPage.Text = "Final Stats";
             finalPage.UseVisualStyleBackColor = true;
