@@ -120,10 +120,4 @@
   <metadata name="basePage.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <data name="label81.Text" xml:space="preserve">
-    <value>This is for stats added after most other calculations have been done.
-Arcane Crepuscular/Avenger, Tenacious Bond, are appropriate here.
-As well as certain weapon effects such as Reconifex's extra hit..
-</value>
-  </data>
 </root>

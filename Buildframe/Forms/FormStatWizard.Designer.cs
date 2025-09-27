@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             TabPage basePage;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatWizard));
             tableLayoutPanel1 = new TableLayoutPanel();
             checkBoxIncarnon = new CheckBox();
             numericUpDownBaseCorrosive = new NumericUpDown();
@@ -2521,7 +2520,7 @@
             label81.Name = "label81";
             label81.Size = new Size(361, 50);
             label81.TabIndex = 78;
-            label81.Text = resources.GetString("label81.Text");
+            label81.Text = "This is for stats after most other calculations have been done.\r\nArcane Crepuscular/Avenger, Tenacious Bond, are appropriate here.\r\nCertain weapon effects such as Reconifex's extra hit are too.\r\n";
             // 
             // buttonConfirm
             // 

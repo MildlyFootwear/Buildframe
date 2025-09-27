@@ -1,6 +1,7 @@
 using Buildframe.Forms;
 using Buildframe.GameData;
 using Buildframe.Methods;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Buildframe
 {
@@ -847,7 +848,8 @@ namespace Buildframe
             {
                 toolTipMods.Hide(this);
             }
-            else {
+            else
+            {
                 toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem), this, p);
             }
         }
