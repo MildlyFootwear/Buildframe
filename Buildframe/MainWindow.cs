@@ -552,6 +552,19 @@ namespace Buildframe
                     {
                         loadWeapon(CommonVars.weaponStats[value]);
                         setHandlerPause(true);
+                        if (tags.Contains("Archgun"))
+                        {
+                            comboBoxArchgunArcane.SelectedIndex = 0;
+                        }
+                        comboBoxWeaponArcane.SelectedIndex = 0;
+                        foreach (ComboBox box in modBoxes)
+                        {
+                            box.SelectedIndex = 0;
+                        }
+                        foreach (ComboBox box in miscBoxes)
+                        {
+                            box.SelectedIndex = 0;
+                        }
                     }
                     else
                     {

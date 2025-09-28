@@ -139,7 +139,7 @@ namespace Buildframe.Methods.Calculation
             WriteLineIfDebug("Rolling enervate");
 
             double critChance = calculateModCritChance(stats);
-            int steps = 0;
+            double steps = 0;
             Random rnd = new Random();
             int degreeOfAccuracy = 100;
             for (int i = 0; i <= degreeOfAccuracy; i++)
