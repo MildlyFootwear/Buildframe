@@ -2536,10 +2536,10 @@
             comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Arcane/Buff", "Weapon Fire Mode" });
-            comboBox1.Location = new Point(260, 375);
+            comboBox1.Items.AddRange(new object[] { "Weapon Mod", "Weapon Arcane", "Warframe Arcane/Buff/Misc", "Weapon Fire Mode" });
+            comboBox1.Location = new Point(222, 375);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(163, 23);
+            comboBox1.Size = new Size(201, 23);
             comboBox1.TabIndex = 3;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 

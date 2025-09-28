@@ -88,23 +88,23 @@ namespace Buildframe.Methods
             {
                 s += "Base Attack Speed: " + stats.baseAttackSpeed + "\n";
             }
-
-            if (stats.baseReloadTime != 0)
+            if (stats.baseChargeTime != 0)
             {
-                s += "Base Reload Time: " + stats.baseReloadTime + "s\n";
-            }
-            if (stats.baseAmmoEfficiency != 0)
-            {
-                s += "Base Ammo Efficiency: " + stats.baseAmmoEfficiency + "%\n";
+                s += "Base Charge Time: " + stats.baseChargeTime + "s\n";
             }
             if (stats.baseMagazine != 0)
             {
                 s += "Base Magazine: " + stats.baseMagazine + "\n";
             }
-            if (stats.baseChargeTime != 0)
+            if (stats.baseAmmoEfficiency != 0)
             {
-                s += "Base Charge Time: " + stats.baseChargeTime + "s\n";
+                s += "Base Ammo Efficiency: " + stats.baseAmmoEfficiency + "%\n";
             }
+            if (stats.baseReloadTime != 0)
+            {
+                s += "Base Reload Time: " + stats.baseReloadTime + "s\n";
+            }
+
 
             if (stats.baseMultishot != 0)
             {
@@ -143,27 +143,7 @@ namespace Buildframe.Methods
                 s += "Mod Damage Faction: " + stats.modDamageFaction + "%\n";
             }
 
-            if (stats.modAttackSpeed != 0)
-            {
-                s += "Mod Attack Speed: " + stats.modAttackSpeed + "%\n";
-            }
 
-            if (stats.modReloadTime != 0)
-            {
-                s += "Mod Reload Time: " + stats.modReloadTime + "%\n";
-            }
-            if (stats.modMagazine != 0)
-            {
-                s += "Mod Magazine: " + stats.modMagazine + "%\n";
-            }
-            if (stats.modAmmoEfficiency != 0)
-            {
-                s += "Mod Ammo Efficiency: " + stats.modAmmoEfficiency + "%\n";
-            }
-            if (stats.modChargeTime != 0)
-            {
-                s += "Mod Charge Time: " + stats.modChargeTime + "%\n";
-            }
 
             if (stats.modSlash != 0)
             {
@@ -223,6 +203,28 @@ namespace Buildframe.Methods
             if (stats.modMultishot != 0)
             {
                 s += "Mod Multishot: " + stats.modMultishot + "%\n";
+            }
+
+            if (stats.modAttackSpeed != 0)
+            {
+                s += "Mod Attack Speed: " + stats.modAttackSpeed + "%\n";
+            }
+
+            if (stats.modMagazine != 0)
+            {
+                s += "Mod Magazine: " + stats.modMagazine + "%\n";
+            }
+            if (stats.modReloadTime != 0)
+            {
+                s += "Mod Reload Time: " + stats.modReloadTime + "%\n";
+            }
+            if (stats.modAmmoEfficiency != 0)
+            {
+                s += "Mod Ammo Efficiency: " + stats.modAmmoEfficiency + "%\n";
+            }
+            if (stats.modChargeTime != 0)
+            {
+                s += "Mod Charge Time: " + stats.modChargeTime + "%\n";
             }
 
             if (stats.modCriticalChance != 0)
