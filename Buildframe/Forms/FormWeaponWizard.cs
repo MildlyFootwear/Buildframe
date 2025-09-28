@@ -38,6 +38,7 @@ namespace Buildframe.Forms
                 comboBoxSecondary.Items.Add(wm.Value);
                 comboBoxSecondaryRadial.Items.Add(wm.Value);
             }
+            tableLayoutPanel2.Width = tableLayoutPanel1.Width;
         }
 
         private void textBoxID_TextChanged(object sender, EventArgs e)

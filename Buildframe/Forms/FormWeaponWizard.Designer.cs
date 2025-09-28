@@ -54,8 +54,6 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
@@ -77,7 +75,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel2.Size = new Size(372, 193);
+            tableLayoutPanel2.Size = new Size(372, 187);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // textBoxDescription
@@ -188,7 +186,7 @@
             tableLayoutPanel1.Controls.Add(comboBoxPrimaryRadial, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
             tableLayoutPanel1.Controls.Add(comboBoxSecondaryRadial, 1, 3);
-            tableLayoutPanel1.Location = new Point(3, 183);
+            tableLayoutPanel1.Location = new Point(3, 188);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
