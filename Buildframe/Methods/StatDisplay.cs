@@ -20,38 +20,6 @@ namespace Buildframe.Methods
                 s += stats.description + "\n\n";
             }
 
-
-            if (stats.baseDamage != 0)
-            {
-                s += "Base Damage: " + stats.baseDamage + "\n";
-            }
-            if (stats.baseDamagePercentage != 0)
-            {
-                s += "Base Damage Percentage: " + stats.baseDamagePercentage + "%\n";
-            }
-
-            if (stats.baseAttackSpeed != 0)
-            {
-                s += "Base Attack Speed: " + stats.baseAttackSpeed + "\n";
-            }
-
-            if (stats.baseReloadTime != 0)
-            {
-                s += "Base Reload Time: " + stats.baseReloadTime + "s\n";
-            }
-            if (stats.baseAmmoEfficiency != 0)
-            {
-                s += "Base Ammo Efficiency: " + stats.baseAmmoEfficiency + "%\n";
-            }
-            if (stats.baseMagazine != 0)
-            {
-                s += "Base Magazine: " + stats.baseMagazine + "\n";
-            }
-            if (stats.baseChargeTime != 0)
-            {
-                s += "Base Charge Time: " + stats.baseChargeTime + "s\n";
-            }
-
             if (stats.baseImpact != 0)
             {
                 s += "Base Impact: " + stats.baseImpact + "\n";
@@ -105,6 +73,37 @@ namespace Buildframe.Methods
             if (stats.baseGas != 0)
             {
                 s += "Base Gas: " + stats.baseGas + "\n";
+            }
+
+            if (stats.baseDamage != 0)
+            {
+                s += "Base Damage Increase: " + stats.baseDamage + "\n";
+            }
+            if (stats.baseDamagePercentage != 0)
+            {
+                s += "Base Damage Percentage: " + stats.baseDamagePercentage + "%\n";
+            }
+
+            if (stats.baseAttackSpeed != 0)
+            {
+                s += "Base Attack Speed: " + stats.baseAttackSpeed + "\n";
+            }
+
+            if (stats.baseReloadTime != 0)
+            {
+                s += "Base Reload Time: " + stats.baseReloadTime + "s\n";
+            }
+            if (stats.baseAmmoEfficiency != 0)
+            {
+                s += "Base Ammo Efficiency: " + stats.baseAmmoEfficiency + "%\n";
+            }
+            if (stats.baseMagazine != 0)
+            {
+                s += "Base Magazine: " + stats.baseMagazine + "\n";
+            }
+            if (stats.baseChargeTime != 0)
+            {
+                s += "Base Charge Time: " + stats.baseChargeTime + "s\n";
             }
 
             if (stats.baseMultishot != 0)

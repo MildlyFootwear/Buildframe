@@ -71,7 +71,7 @@ namespace Buildframe
             comboBoxFireMode.Items.Clear();
             foreach (Stats fm in weapon.fireModes)
             {
-                comboBoxFireMode.Items.Add(fm.name);
+                comboBoxFireMode.Items.Add(fm);
             }
             labelWeaponName.Text = weapon.name;
             setHandlerPause(true);
@@ -644,6 +644,8 @@ namespace Buildframe
             if (Settings.Default.SavedSize != new Size(1, 1))
                 this.Size = Settings.Default.SavedSize; WriteLineIfDebug("    Set size to " + this.Size);
 
+            comboBoxFireMode.Width = tableLayoutPanel1.Width;
+
             modBoxes.Add(comboBoxMod1);
             modBoxes.Add(comboBoxMod2);
             modBoxes.Add(comboBoxMod3);
@@ -786,6 +788,11 @@ namespace Buildframe
             {
                 radial = new Stats();
             }
+            if (comboBoxFireMode.DroppedDown)
+            {
+                comboBoxFireModeTooltipShow_Event(sender, e);
+            }
+
             if (pauseHandler)
                 return;
             updateWeaponStats();
@@ -872,13 +879,32 @@ namespace Buildframe
             p.X += tableLayoutPanel2.Location.X;
             p.Y += tableLayoutPanel2.Location.Y;
             p.Y += toolStrip1.Height;
-            if (box.SelectedIndex < 1)
+            if (box.SelectedItem is Stats)
             {
-                toolTipMods.Hide(this);
+                toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem), this, p);
             }
             else
             {
+                toolTipMods.Hide(this);
+            }
+        }
+
+        private void comboBoxFireModeTooltipShow_Event(object sender, EventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            Point p = box.Location;
+            p.X += box.Width;
+            p.X += 10 * this.DeviceDpi / 100;
+            p.Y += box.Height / 2;
+            p.Y += toolStrip1.Height;
+
+            if (box.SelectedItem is Stats)
+            {
                 toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem), this, p);
+            }
+            else
+            {
+                toolTipMods.Hide(this);
             }
         }
 

@@ -762,7 +762,9 @@
             comboBoxFireMode.Name = "comboBoxFireMode";
             comboBoxFireMode.Size = new Size(292, 23);
             comboBoxFireMode.TabIndex = 2;
+            comboBoxFireMode.DropDown += comboBoxFireModeTooltipShow_Event;
             comboBoxFireMode.SelectedIndexChanged += comboBoxFireMode_SelectedIndexChanged;
+            comboBoxFireMode.DropDownClosed += comboBoxTooltipHide_Event;
             // 
             // tableLayoutPanel2
             // 
