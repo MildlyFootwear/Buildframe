@@ -168,7 +168,7 @@
             label82.Name = "label82";
             label82.Size = new Size(364, 50);
             label82.TabIndex = 23;
-            label82.Text = "This is for information and behavior within this application.\r\nSeperate tags with spaces, they will be used for sorting within the UI.\r\nIf Radial is not applicable, leave it set to None.";
+            label82.Text = "Use this after creating firemodes in the effect creation wizard.\r\nSeperate tags with spaces, they will be used for sorting within the UI.\r\nIf Radial is not applicable, leave it set to None.";
             // 
             // tableLayoutPanel1
             // 
@@ -186,7 +186,7 @@
             tableLayoutPanel1.Controls.Add(comboBoxPrimaryRadial, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
             tableLayoutPanel1.Controls.Add(comboBoxSecondaryRadial, 1, 3);
-            tableLayoutPanel1.Location = new Point(3, 188);
+            tableLayoutPanel1.Location = new Point(3, 187);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
@@ -194,7 +194,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(380, 121);
+            tableLayoutPanel1.Size = new Size(381, 121);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // label1
@@ -215,7 +215,7 @@
             comboBoxPrimary.FormattingEnabled = true;
             comboBoxPrimary.Location = new Point(73, 4);
             comboBoxPrimary.Name = "comboBoxPrimary";
-            comboBoxPrimary.Size = new Size(303, 23);
+            comboBoxPrimary.Size = new Size(304, 23);
             comboBoxPrimary.TabIndex = 4;
             // 
             // label2
@@ -236,7 +236,7 @@
             comboBoxSecondary.FormattingEnabled = true;
             comboBoxSecondary.Location = new Point(73, 64);
             comboBoxSecondary.Name = "comboBoxSecondary";
-            comboBoxSecondary.Size = new Size(303, 23);
+            comboBoxSecondary.Size = new Size(304, 23);
             comboBoxSecondary.TabIndex = 6;
             // 
             // label3
@@ -257,7 +257,7 @@
             comboBoxPrimaryRadial.FormattingEnabled = true;
             comboBoxPrimaryRadial.Location = new Point(73, 34);
             comboBoxPrimaryRadial.Name = "comboBoxPrimaryRadial";
-            comboBoxPrimaryRadial.Size = new Size(303, 23);
+            comboBoxPrimaryRadial.Size = new Size(304, 23);
             comboBoxPrimaryRadial.TabIndex = 5;
             // 
             // label4
@@ -278,12 +278,12 @@
             comboBoxSecondaryRadial.FormattingEnabled = true;
             comboBoxSecondaryRadial.Location = new Point(73, 94);
             comboBoxSecondaryRadial.Name = "comboBoxSecondaryRadial";
-            comboBoxSecondaryRadial.Size = new Size(303, 23);
+            comboBoxSecondaryRadial.Size = new Size(304, 23);
             comboBoxSecondaryRadial.TabIndex = 7;
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(3, 298);
+            buttonCreate.Location = new Point(3, 301);
             buttonCreate.Name = "buttonCreate";
             buttonCreate.Size = new Size(75, 23);
             buttonCreate.TabIndex = 0;

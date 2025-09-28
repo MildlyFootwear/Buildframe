@@ -183,14 +183,14 @@
             // createFireModeOrBuffToolStripMenuItem
             // 
             createFireModeOrBuffToolStripMenuItem.Name = "createFireModeOrBuffToolStripMenuItem";
-            createFireModeOrBuffToolStripMenuItem.Size = new Size(203, 22);
-            createFireModeOrBuffToolStripMenuItem.Text = "Create Fire Mode or Buff";
+            createFireModeOrBuffToolStripMenuItem.Size = new Size(211, 22);
+            createFireModeOrBuffToolStripMenuItem.Text = "Create Effect or Fire Mode";
             createFireModeOrBuffToolStripMenuItem.Click += createFireModeOrBuffToolStripMenuItem_Click;
             // 
             // createWeaponToolStripMenuItem
             // 
             createWeaponToolStripMenuItem.Name = "createWeaponToolStripMenuItem";
-            createWeaponToolStripMenuItem.Size = new Size(203, 22);
+            createWeaponToolStripMenuItem.Size = new Size(211, 22);
             createWeaponToolStripMenuItem.Text = "Create Weapon";
             createWeaponToolStripMenuItem.Click += createWeaponToolStripMenuItem_Click;
             // 
