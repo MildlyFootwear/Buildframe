@@ -137,6 +137,7 @@
             // 
             // toolStripButtonSelectWeapon
             // 
+            toolStripButtonSelectWeapon.AutoToolTip = false;
             toolStripButtonSelectWeapon.DisplayStyle = ToolStripItemDisplayStyle.Text;
             toolStripButtonSelectWeapon.Image = (Image)resources.GetObject("toolStripButtonSelectWeapon.Image");
             toolStripButtonSelectWeapon.ImageTransparentColor = Color.Magenta;
@@ -172,6 +173,7 @@
             // 
             // toolStripDropDownButtonCreationWizards
             // 
+            toolStripDropDownButtonCreationWizards.AutoToolTip = false;
             toolStripDropDownButtonCreationWizards.DisplayStyle = ToolStripItemDisplayStyle.Text;
             toolStripDropDownButtonCreationWizards.DropDownItems.AddRange(new ToolStripItem[] { createFireModeOrBuffToolStripMenuItem, createWeaponToolStripMenuItem });
             toolStripDropDownButtonCreationWizards.Image = (Image)resources.GetObject("toolStripDropDownButtonCreationWizards.Image");
@@ -196,6 +198,7 @@
             // 
             // toolStripButtonInfo
             // 
+            toolStripButtonInfo.AutoToolTip = false;
             toolStripButtonInfo.DisplayStyle = ToolStripItemDisplayStyle.Text;
             toolStripButtonInfo.Image = (Image)resources.GetObject("toolStripButtonInfo.Image");
             toolStripButtonInfo.ImageTransparentColor = Color.Magenta;
