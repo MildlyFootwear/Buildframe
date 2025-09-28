@@ -248,7 +248,11 @@ namespace Buildframe.Methods
             {
                 s += "Final Damage: " + stats.finalDamage + "\n";
             }
-            if (stats.finalDamagePercentage != 0)
+            if (stats.finalDamagePercentage > 0)
+            {
+                s += "Damage Multiplier: +" + stats.finalDamagePercentage + "%\n";
+            }
+            else if (stats.finalDamagePercentage < 0)
             {
                 s += "Damage Multiplier: " + stats.finalDamagePercentage + "%\n";
             }

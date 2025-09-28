@@ -900,7 +900,14 @@ namespace Buildframe
 
             if (box.SelectedItem is Stats)
             {
-                toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem), this, p);
+                string tooltip = Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem);
+                if (radial.id != "")
+                {
+                    tooltip += "\nRadial:\n";
+                    tooltip += Methods.StatDisplay.generateStatsDescription(radial);
+                }
+
+                toolTipMods.Show(tooltip, this, p);
             }
             else
             {
