@@ -587,6 +587,10 @@ namespace Buildframe
                         Stats stat = CommonVars.arcaneStats[value];
                         comboBoxWeaponArcane.SelectedItem = stat;
                     }
+                    else
+                    {
+                        WriteLineIfDebug("Arcane ID in file not found or not valid for weapon: " + value);
+                    }
                 }
                 else if (key == "archgunarcane")
                 {
@@ -595,6 +599,10 @@ namespace Buildframe
                         WriteLineIfDebug("Setting archgun arcane to " + value);
                         Stats stat = CommonVars.arcaneStats[value];
                         comboBoxArchgunArcane.SelectedItem = stat;
+                    }
+                    else if (value != "" && tags.Contains("Archgun"))
+                    {
+                        WriteLineIfDebug("Archgun Arcane ID in file not found or not valid for weapon: " + value);
                     }
                 }
                 else if (key == "mods")
@@ -609,6 +617,10 @@ namespace Buildframe
                             int index = validModIDs.IndexOf(modID) + 1;
                             modBoxes[i].SelectedIndex = index;
                         }
+                        else if (modID.Length > 2)
+                        {
+                            WriteLineIfDebug("Mod ID " + modID + " for slot " + (i + 1) + " not found.");
+                        }
                     }
                 }
                 else if (key == "misc")
@@ -622,6 +634,10 @@ namespace Buildframe
                             WriteLineIfDebug("Setting misc box " + (i + 1) + " to " + miscID);
                             int index = validMiscIDs.IndexOf(miscID) + 1;
                             miscBoxes[i].SelectedIndex = index;
+                        }
+                        else if (miscID.Length > 2)
+                        {
+                            WriteLineIfDebug("miscID " + miscID + " for slot " + (i + 1) + " not found.");
                         }
                     }
                 }
