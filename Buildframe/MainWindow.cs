@@ -515,6 +515,9 @@ namespace Buildframe
                     int idIndex = box.SelectedIndex - 1;
                     string statID = validModIDs[idIndex];
                     s += statID + ":";
+                } else
+                {
+                    s += ":";
                 }
             }
             s += "\n";
@@ -526,6 +529,10 @@ namespace Buildframe
                     int idIndex = box.SelectedIndex - 1;
                     string statID = validMiscIDs[idIndex];
                     s += statID + ":";
+                }
+                else
+                {
+                    s += ":";
                 }
             }
             File.WriteAllText(path, s);
@@ -592,7 +599,7 @@ namespace Buildframe
                 }
                 else if (key == "mods")
                 {
-                    string[] modIDs = value.Split(':', StringSplitOptions.RemoveEmptyEntries);
+                    string[] modIDs = value.Split(':');
                     for (int i = 0; i < modIDs.Length && i < modBoxes.Count; i++)
                     {
                         string modID = modIDs[i];
@@ -606,7 +613,7 @@ namespace Buildframe
                 }
                 else if (key == "misc")
                 {
-                    string[] miscIDs = value.Split(':', StringSplitOptions.RemoveEmptyEntries);
+                    string[] miscIDs = value.Split(':');
                     for (int i = 0; i < miscIDs.Length && i < miscBoxes.Count; i++)
                     {
                         string miscID = miscIDs[i];

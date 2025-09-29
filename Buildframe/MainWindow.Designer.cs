@@ -617,9 +617,9 @@
             label17.AutoSize = true;
             label17.Location = new Point(4, 316);
             label17.Name = "label17";
-            label17.Size = new Size(139, 15);
+            label17.Size = new Size(144, 15);
             label17.TabIndex = 18;
-            label17.Text = "Status (Radial, Multishot)";
+            label17.Text = "Status Per Second (Radial)";
             // 
             // label
             // 
