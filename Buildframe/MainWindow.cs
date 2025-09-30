@@ -187,6 +187,11 @@ namespace Buildframe
                     radialWithAppliedStats = Methods.Calculation.Weapon.setEnervate(radialWithAppliedStats);
                 }
 
+                double multishot = Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);
+                double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(radialWithAppliedStats);
+                double speed = Methods.Calculation.Weapon.calculateModSpeed(radialWithAppliedStats);
+
+                labelRadialStatusPerSecondValue.Text = Math.Round(multishot * statusChance / 100 * speed, 2).ToString();
                 labelRadialAverageCritMultValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats), 2).ToString() + "x";
                 labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(radialWithAppliedStats), 2).ToString() + "%";
                 labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(radialWithAppliedStats), 2).ToString() + "x";
@@ -424,7 +429,8 @@ namespace Buildframe
                 if (box.SelectedIndex > 0)
                 {
                     boxSelectedEffects.Add(box, ((Stats)box.SelectedItem).id);
-                } else
+                }
+                else
                 {
                     boxSelectedEffects.Remove(box);
                 }
@@ -515,7 +521,8 @@ namespace Buildframe
                     int idIndex = box.SelectedIndex - 1;
                     string statID = validModIDs[idIndex];
                     s += statID + ":";
-                } else
+                }
+                else
                 {
                     s += ":";
                 }
@@ -729,7 +736,7 @@ namespace Buildframe
             radialValueLabels.Add(labelRadialCriticalMultiplierValue);
             radialValueLabels.Add(labelRadialDPSBurstValue);
             radialValueLabels.Add(labelRadialDPSSustainedValue);
-            radialValueLabels.Add(labelRadialStatusMultishotValue);
+            radialValueLabels.Add(labelRadialStatusPerSecondValue);
             radialValueLabels.Add(labelRadialStatusValue);
             radialValueLabels.Add(labelRadialDamageValue);
             radialValueLabels.Add(labelSummedDamageValue);

@@ -82,7 +82,7 @@
             label15 = new Label();
             labelRadialCriticalChanceValue = new Label();
             labelRadialStatusValue = new Label();
-            labelRadialStatusMultishotValue = new Label();
+            labelRadialStatusPerSecondValue = new Label();
             labelRadialDamageValue = new Label();
             labelRadialCriticalMultiplierValue = new Label();
             labelRadialAverageCritMultValue = new Label();
@@ -160,14 +160,14 @@
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Size = new Size(130, 22);
             saveToolStripMenuItem.Text = "Save Build";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // loadToolStripMenuItem
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            loadToolStripMenuItem.Size = new Size(180, 22);
+            loadToolStripMenuItem.Size = new Size(130, 22);
             loadToolStripMenuItem.Text = "Load Build";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
@@ -257,7 +257,7 @@
             tableLayoutPanel1.Controls.Add(label15, 0, 18);
             tableLayoutPanel1.Controls.Add(labelRadialCriticalChanceValue, 1, 16);
             tableLayoutPanel1.Controls.Add(labelRadialStatusValue, 1, 14);
-            tableLayoutPanel1.Controls.Add(labelRadialStatusMultishotValue, 1, 15);
+            tableLayoutPanel1.Controls.Add(labelRadialStatusPerSecondValue, 1, 15);
             tableLayoutPanel1.Controls.Add(labelRadialDamageValue, 1, 19);
             tableLayoutPanel1.Controls.Add(labelRadialCriticalMultiplierValue, 1, 17);
             tableLayoutPanel1.Controls.Add(labelRadialAverageCritMultValue, 1, 18);
@@ -293,8 +293,8 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(292, 547);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(292, 527);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // labelFireTimeValue
@@ -675,14 +675,14 @@
             labelRadialStatusValue.Size = new Size(115, 20);
             labelRadialStatusValue.TabIndex = 40;
             // 
-            // labelRadialStatusMultishotValue
+            // labelRadialStatusPerSecondValue
             // 
-            labelRadialStatusMultishotValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelRadialStatusMultishotValue.CausesValidation = false;
-            labelRadialStatusMultishotValue.Location = new Point(173, 316);
-            labelRadialStatusMultishotValue.Name = "labelRadialStatusMultishotValue";
-            labelRadialStatusMultishotValue.Size = new Size(115, 20);
-            labelRadialStatusMultishotValue.TabIndex = 41;
+            labelRadialStatusPerSecondValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialStatusPerSecondValue.CausesValidation = false;
+            labelRadialStatusPerSecondValue.Location = new Point(173, 316);
+            labelRadialStatusPerSecondValue.Name = "labelRadialStatusPerSecondValue";
+            labelRadialStatusPerSecondValue.Size = new Size(115, 20);
+            labelRadialStatusPerSecondValue.TabIndex = 41;
             // 
             // labelRadialDamageValue
             // 
@@ -1241,7 +1241,7 @@
         private Label labelSummedDPSBurstValue;
         private Label labelRadialDPSSustainedValue;
         private Label labelRadialDPSBurstValue;
-        private Label labelRadialStatusMultishotValue;
+        private Label labelRadialStatusPerSecondValue;
         private Label labelRadialStatusValue;
         private Label labelRadialAverageCritMultValue;
         private Label labelRadialCriticalMultiplierValue;
