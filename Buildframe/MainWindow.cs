@@ -826,8 +826,7 @@ namespace Buildframe
             saveFileDialog1.FileName = currentWeapon.name + " build.cfg";
             Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Builds"));
             saveFileDialog1.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Builds");
-            saveFileDialog1.ShowDialog();
-            if (saveFileDialog1.FileName != "")
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 saveSelectedToFile(saveFileDialog1.FileName);
             }

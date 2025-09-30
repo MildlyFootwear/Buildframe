@@ -160,14 +160,14 @@
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(130, 22);
+            saveToolStripMenuItem.Size = new Size(180, 22);
             saveToolStripMenuItem.Text = "Save Build";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // loadToolStripMenuItem
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            loadToolStripMenuItem.Size = new Size(130, 22);
+            loadToolStripMenuItem.Size = new Size(180, 22);
             loadToolStripMenuItem.Text = "Load Build";
             loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
