@@ -339,6 +339,11 @@ namespace Buildframe.Methods
 
             Directory.CreateDirectory(Path.GetDirectoryName(path));
 
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
             File.WriteAllText(path, s);
 
         }
@@ -360,6 +365,12 @@ namespace Buildframe.Methods
             {
                 s += pair.Key + ":" + pair.Value.id + ",";
             }
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
             File.WriteAllText(path, s);
         }
 
