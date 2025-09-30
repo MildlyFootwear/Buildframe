@@ -11,7 +11,7 @@ namespace Buildframe.Methods.Calculation
     {
         public static double calculateBaseDamage(Stats stats)
         {
-            return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseFire + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
+            return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
         public static double calculateModDamagePreCrit(Stats stats)
         {
@@ -21,7 +21,7 @@ namespace Buildframe.Methods.Calculation
             double modPuncture = Physical.getModPuncture(stats);
             double modSlash = Physical.getModSlash(stats);
 
-            double modFire = Elemental.getModFire(stats);
+            double modHeat = Elemental.getModHeat(stats);
             double modElectric = Elemental.getModElectric(stats);
             double modCold = Elemental.getModCold(stats);
             double modToxin = Elemental.getModToxin(stats);
@@ -33,7 +33,7 @@ namespace Buildframe.Methods.Calculation
             double modMagnetic = Elemental.getModMagnetic(stats);
             double modGas = Elemental.getModGas(stats);
 
-            double modElemental = modFire + modElectric + modCold + modToxin + modCorrosive + modViral + modRadiation + modBlast + modMagnetic + modGas;
+            double modElemental = modHeat + modElectric + modCold + modToxin + modCorrosive + modViral + modRadiation + modBlast + modMagnetic + modGas;
             double modPhysical = modSlash + modImpact + modPuncture;
 
             double moddedDamage = (baseDamage + modElemental + modPhysical) * (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100);

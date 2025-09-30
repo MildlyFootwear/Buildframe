@@ -54,7 +54,7 @@ namespace Buildframe.Methods.Calculation
                 stats.baseImpact += s.baseImpact;
                 stats.basePuncture += s.basePuncture;
 
-                stats.baseFire += s.baseFire;
+                stats.baseHeat += s.baseHeat;
                 stats.baseCold += s.baseCold;
                 stats.baseElectric += s.baseElectric;
                 stats.baseToxin += s.baseToxin;
@@ -94,7 +94,7 @@ namespace Buildframe.Methods.Calculation
                 stats.modImpact += s.modImpact;
                 stats.modPuncture += s.modPuncture;
 
-                stats.modFire += s.modFire;
+                stats.modHeat += s.modHeat;
                 stats.modCold += s.modCold;
                 stats.modElectric += s.modElectric;
                 stats.modToxin += s.modToxin;
@@ -135,7 +135,7 @@ namespace Buildframe.Methods.Calculation
                 stats.finalImpact += s.finalImpact;
                 stats.finalPuncture += s.finalPuncture;
 
-                stats.finalFire += s.finalFire;
+                stats.finalHeat += s.finalHeat;
                 stats.finalCold += s.finalCold;
                 stats.finalElectric += s.finalElectric;
                 stats.finalToxin += s.finalToxin;
@@ -160,13 +160,13 @@ namespace Buildframe.Methods.Calculation
 
             if (stats.baseDamage > 0)
             {
-                double dmgTotal = stats.baseImpact + stats.basePuncture + stats.baseSlash + stats.baseFire + stats.baseCold + stats.baseElectric + stats.baseToxin + stats.baseBlast + stats.baseRadiation + stats.baseViral + stats.baseCorrosive + stats.baseMagnetic + stats.baseGas;
+                double dmgTotal = stats.baseImpact + stats.basePuncture + stats.baseSlash + stats.baseHeat + stats.baseCold + stats.baseElectric + stats.baseToxin + stats.baseBlast + stats.baseRadiation + stats.baseViral + stats.baseCorrosive + stats.baseMagnetic + stats.baseGas;
                 if (dmgTotal > 0)
                 {
                     stats.baseImpact += stats.baseImpact / dmgTotal * stats.baseDamage;
                     stats.basePuncture += stats.basePuncture / dmgTotal * stats.baseDamage;
                     stats.baseSlash += stats.baseSlash / dmgTotal * stats.baseDamage;
-                    stats.baseFire += stats.baseFire / dmgTotal * stats.baseDamage;
+                    stats.baseHeat += stats.baseHeat / dmgTotal * stats.baseDamage;
                     stats.baseCold += stats.baseCold / dmgTotal * stats.baseDamage;
                     stats.baseElectric += stats.baseElectric / dmgTotal * stats.baseDamage;
                     stats.baseToxin += stats.baseToxin / dmgTotal * stats.baseDamage;

@@ -33,9 +33,9 @@ namespace Buildframe.Methods
                 s += "Base Slash: " + stats.baseSlash + "\n";
             }
 
-            if (stats.baseFire != 0)
+            if (stats.baseHeat != 0)
             {
-                s += "Base Fire: " + stats.baseFire + "\n";
+                s += "Base Heat: " + stats.baseHeat + "\n";
             }
             if (stats.baseCold != 0)
             {
@@ -158,9 +158,9 @@ namespace Buildframe.Methods
                 s += "Mod Puncture: " + stats.modPuncture + "%\n";
             }
 
-            if (stats.modFire != 0)
+            if (stats.modHeat != 0)
             {
-                s += "Mod Fire: " + stats.modFire + "%\n";
+                s += "Mod Heat: " + stats.modHeat + "%\n";
             }
             if (stats.modCold != 0)
             {
@@ -294,9 +294,9 @@ namespace Buildframe.Methods
                 s += "Final Puncture: " + stats.finalPuncture + "\n";
             }
 
-            if (stats.finalFire != 0)
+            if (stats.finalHeat != 0)
             {
-                s += "Final Fire: " + stats.finalFire + "\n";
+                s += "Final Heat: " + stats.finalHeat + "\n";
             }
             if (stats.finalCold != 0)
             {

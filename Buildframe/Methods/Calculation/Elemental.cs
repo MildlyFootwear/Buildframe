@@ -9,9 +9,9 @@ namespace Buildframe.Methods.Calculation
 {
     internal class Elemental
     {
-        public static double getModFire(Stats stats)
+        public static double getModHeat(Stats stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modFire / 100);
+            return Weapon.calculateBaseDamage(stats) * (stats.modHeat / 100);
         }
         public static double getModCold(Stats stats)
         {

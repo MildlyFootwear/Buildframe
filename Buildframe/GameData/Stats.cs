@@ -32,7 +32,7 @@ namespace Buildframe.GameData
         public double basePuncture = 0;
         public double baseSlash = 0;
 
-        public double baseFire = 0;
+        public double baseHeat = 0;
         public double baseCold = 0;
         public double baseElectric = 0;
         public double baseToxin = 0;
@@ -71,7 +71,7 @@ namespace Buildframe.GameData
         public double modImpact = 0;
         public double modPuncture = 0;
 
-        public double modFire = 0;
+        public double modHeat = 0;
         public double modCold = 0;
         public double modElectric = 0;
         public double modToxin = 0;
@@ -109,7 +109,7 @@ namespace Buildframe.GameData
         public double finalImpact = 0;
         public double finalPuncture = 0;
 
-        public double finalFire = 0;
+        public double finalHeat = 0;
         public double finalCold = 0;
         public double finalElectric = 0;
         public double finalToxin = 0;

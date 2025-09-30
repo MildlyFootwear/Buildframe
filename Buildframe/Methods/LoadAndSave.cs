@@ -13,6 +13,8 @@ namespace Buildframe.Methods
         {
             Stats stats = new Stats();
 
+            bool resaveToConvert = false; // this will be set to true if there is an indicator of it needing to be updated to the current format for stat files
+
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] split = s.Split('=');
@@ -52,8 +54,15 @@ namespace Buildframe.Methods
                 if (split[0] == "basePuncture")
                     stats.basePuncture = Convert.ToDouble(split[1]);
 
+
                 if (split[0] == "baseFire")
-                    stats.baseFire = Convert.ToDouble(split[1]);
+                {
+                    stats.baseHeat = Convert.ToDouble(split[1]);
+                    resaveToConvert = true;
+                }
+                if (split[0] == "baseHeat")
+                    stats.baseHeat = Convert.ToDouble(split[1]);
+
                 if (split[0] == "baseCold")
                     stats.baseCold = Convert.ToDouble(split[1]);
                 if (split[0] == "baseElectric")
@@ -115,8 +124,14 @@ namespace Buildframe.Methods
                 if (split[0] == "modPuncture")
                     stats.modPuncture = Convert.ToDouble(split[1]);
 
+
                 if (split[0] == "modFire")
-                    stats.modFire = Convert.ToDouble(split[1]);
+                {
+                    stats.modHeat = Convert.ToDouble(split[1]);
+                    resaveToConvert = true;
+                }
+                if (split[0] == "modHeat")
+                    stats.modHeat = Convert.ToDouble(split[1]);
                 if (split[0] == "modCold")
                     stats.modCold = Convert.ToDouble(split[1]);
                 if (split[0] == "modElectric")
@@ -178,8 +193,14 @@ namespace Buildframe.Methods
                 if (split[0] == "finalPuncture")
                     stats.finalPuncture = Convert.ToDouble(split[1]);
 
+
                 if (split[0] == "finalFire")
-                    stats.finalFire = Convert.ToDouble(split[1]);
+                {
+                    stats.finalHeat = Convert.ToDouble(split[1]);
+                    resaveToConvert = true;
+                }
+                if (split[0] == "finalHeat")
+                    stats.finalHeat = Convert.ToDouble(split[1]);
                 if (split[0] == "finalCold")
                     stats.finalCold = Convert.ToDouble(split[1]);
                 if (split[0] == "finalElectric")
@@ -214,6 +235,12 @@ namespace Buildframe.Methods
                     stats.finalStatusDamage = Convert.ToDouble(split[1]);
             }
 
+            if (resaveToConvert)
+            {
+                WriteLineIfDebug(path + " needed to be updated and is being resaved");
+                saveStatToFile(path, stats);
+            }
+
             return stats;
         }
 
@@ -243,7 +270,7 @@ namespace Buildframe.Methods
             s += "\nbaseImpact=" + Convert.ToString(stats.baseImpact);
             s += "\nbasePuncture=" + Convert.ToString(stats.basePuncture);
 
-            s += "\nbaseFire=" + Convert.ToString(stats.baseFire);
+            s += "\nbaseHeat=" + Convert.ToString(stats.baseHeat);
             s += "\nbaseCold=" + Convert.ToString(stats.baseCold);
             s += "\nbaseElectric=" + Convert.ToString(stats.baseElectric);
             s += "\nbaseToxin=" + Convert.ToString(stats.baseToxin);
@@ -281,7 +308,7 @@ namespace Buildframe.Methods
             s += "\nmodImpact=" + Convert.ToString(stats.modImpact);
             s += "\nmodPuncture=" + Convert.ToString(stats.modPuncture);
 
-            s += "\nmodFire=" + Convert.ToString(stats.modFire);
+            s += "\nmodHeat=" + Convert.ToString(stats.modHeat);
             s += "\nmodCold=" + Convert.ToString(stats.modCold);
             s += "\nmodElectric=" + Convert.ToString(stats.modElectric);
             s += "\nmodToxin=" + Convert.ToString(stats.modToxin);
@@ -317,7 +344,7 @@ namespace Buildframe.Methods
             s += "\nfinalImpact=" + Convert.ToString(stats.finalImpact);
             s += "\nfinalPuncture=" + Convert.ToString(stats.finalPuncture);
 
-            s += "\nfinalFire=" + Convert.ToString(stats.finalFire);
+            s += "\nfinalHeat=" + Convert.ToString(stats.finalHeat);
             s += "\nfinalCold=" + Convert.ToString(stats.finalCold);
             s += "\nfinalElectric=" + Convert.ToString(stats.finalElectric);
             s += "\nfinalToxin=" + Convert.ToString(stats.finalToxin);

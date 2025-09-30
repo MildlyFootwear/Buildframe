@@ -40,7 +40,7 @@ namespace Buildframe.Forms
             numericUpDownBaseImpact.Value = (decimal)stats.baseImpact;
             numericUpDownBasePuncture.Value = (decimal)stats.basePuncture;
             numericUpDownBaseSlash.Value = (decimal)stats.baseSlash;
-            numericUpDownBaseFire.Value = (decimal)stats.baseFire;
+            numericUpDownBaseHeat.Value = (decimal)stats.baseHeat;
             numericUpDownBaseCold.Value = (decimal)stats.baseCold;
             numericUpDownBaseElectric.Value = (decimal)stats.baseElectric;
             numericUpDownBaseToxin.Value = (decimal)stats.baseToxin;
@@ -66,7 +66,7 @@ namespace Buildframe.Forms
             numericUpDownModImpact.Value = (decimal)stats.modImpact;
             numericUpDownModPuncture.Value = (decimal)stats.modPuncture;
             numericUpDownModSlash.Value = (decimal)stats.modSlash;
-            numericUpDownModFire.Value = (decimal)stats.modFire;
+            numericUpDownModHeat.Value = (decimal)stats.modHeat;
             numericUpDownModCold.Value = (decimal)stats.modCold;
             numericUpDownModElectric.Value = (decimal)stats.modElectric;
             numericUpDownModToxin.Value = (decimal)stats.modToxin;
@@ -90,7 +90,7 @@ namespace Buildframe.Forms
             numericUpDownFinalImpact.Value = (decimal)stats.finalImpact;
             numericUpDownFinalPuncture.Value = (decimal)stats.finalPuncture;
             numericUpDownFinalSlash.Value = (decimal)stats.finalSlash;
-            numericUpDownFinalFire.Value = (decimal)stats.finalFire;
+            numericUpDownFinalHeat.Value = (decimal)stats.finalHeat;
             numericUpDownFinalCold.Value = (decimal)stats.finalCold;
             numericUpDownFinalElectric.Value = (decimal)stats.finalElectric;
             numericUpDownFinalToxin.Value = (decimal)stats.finalToxin;
@@ -145,7 +145,7 @@ namespace Buildframe.Forms
             stats.baseImpact = (double)numericUpDownBaseImpact.Value;
             stats.basePuncture = (double)numericUpDownBasePuncture.Value;
             stats.baseSlash = (double)numericUpDownBaseSlash.Value;
-            stats.baseFire = (double)numericUpDownBaseFire.Value;
+            stats.baseHeat = (double)numericUpDownBaseHeat.Value;
             stats.baseCold = (double)numericUpDownBaseCold.Value;
             stats.baseElectric = (double)numericUpDownBaseElectric.Value;
             stats.baseToxin = (double)numericUpDownBaseToxin.Value;
@@ -171,7 +171,7 @@ namespace Buildframe.Forms
             stats.modImpact = (double)numericUpDownModImpact.Value;
             stats.modPuncture = (double)numericUpDownModPuncture.Value;
             stats.modSlash = (double)numericUpDownModSlash.Value;
-            stats.modFire = (double)numericUpDownModFire.Value;
+            stats.modHeat = (double)numericUpDownModHeat.Value;
             stats.modCold = (double)numericUpDownModCold.Value;
             stats.modElectric = (double)numericUpDownModElectric.Value;
             stats.modToxin = (double)numericUpDownModToxin.Value;
@@ -195,7 +195,7 @@ namespace Buildframe.Forms
             stats.finalImpact = (double)numericUpDownFinalImpact.Value;
             stats.finalPuncture = (double)numericUpDownFinalPuncture.Value;
             stats.finalSlash = (double)numericUpDownFinalSlash.Value;
-            stats.finalFire = (double)numericUpDownFinalFire.Value;
+            stats.finalHeat = (double)numericUpDownFinalHeat.Value;
             stats.finalCold = (double)numericUpDownFinalCold.Value;
             stats.finalElectric = (double)numericUpDownFinalElectric.Value;
             stats.finalToxin = (double)numericUpDownFinalToxin.Value;
@@ -259,7 +259,7 @@ namespace Buildframe.Forms
             listBaseValues.Add(numericUpDownBaseCriticalDamage);
             listBaseValues.Add(numericUpDownBaseDamage);
             listBaseValues.Add(numericUpDownBaseElectric);
-            listBaseValues.Add(numericUpDownBaseFire);
+            listBaseValues.Add(numericUpDownBaseHeat);
             listBaseValues.Add(numericUpDownBaseGas);
             listBaseValues.Add(numericUpDownBaseImpact);
             listBaseValues.Add(numericUpDownBaseMagazine);

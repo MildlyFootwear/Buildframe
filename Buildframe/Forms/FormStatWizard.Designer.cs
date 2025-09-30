@@ -38,7 +38,7 @@
             numericUpDownBaseToxin = new NumericUpDown();
             numericUpDownBaseElectric = new NumericUpDown();
             numericUpDownBaseCold = new NumericUpDown();
-            numericUpDownBaseFire = new NumericUpDown();
+            numericUpDownBaseHeat = new NumericUpDown();
             numericUpDownBaseSlash = new NumericUpDown();
             numericUpDownBasePuncture = new NumericUpDown();
             numericUpDownBaseImpact = new NumericUpDown();
@@ -104,7 +104,7 @@
             numericUpDownModToxin = new NumericUpDown();
             numericUpDownModElectric = new NumericUpDown();
             numericUpDownModCold = new NumericUpDown();
-            numericUpDownModFire = new NumericUpDown();
+            numericUpDownModHeat = new NumericUpDown();
             numericUpDownModSlash = new NumericUpDown();
             numericUpDownModPuncture = new NumericUpDown();
             numericUpDownModImpact = new NumericUpDown();
@@ -155,7 +155,7 @@
             numericUpDownFinalToxin = new NumericUpDown();
             numericUpDownFinalElectric = new NumericUpDown();
             numericUpDownFinalCold = new NumericUpDown();
-            numericUpDownFinalFire = new NumericUpDown();
+            numericUpDownFinalHeat = new NumericUpDown();
             numericUpDownFinalSlash = new NumericUpDown();
             numericUpDownFinalPuncture = new NumericUpDown();
             numericUpDownFinalImpact = new NumericUpDown();
@@ -210,7 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseToxin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseElectric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseCold).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseFire).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseHeat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseSlash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBasePuncture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseImpact).BeginInit();
@@ -240,7 +240,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModToxin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModElectric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCold).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModFire).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModHeat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModSlash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModPuncture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModImpact).BeginInit();
@@ -266,7 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalToxin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalElectric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCold).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalFire).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalHeat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalSlash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalPuncture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalImpact).BeginInit();
@@ -316,7 +316,7 @@
             tableLayoutPanel1.Controls.Add(numericUpDownBaseToxin, 3, 7);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseElectric, 3, 6);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseCold, 3, 5);
-            tableLayoutPanel1.Controls.Add(numericUpDownBaseFire, 3, 4);
+            tableLayoutPanel1.Controls.Add(numericUpDownBaseHeat, 3, 4);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseSlash, 3, 3);
             tableLayoutPanel1.Controls.Add(numericUpDownBasePuncture, 3, 2);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseImpact, 3, 1);
@@ -490,19 +490,19 @@
             numericUpDownBaseCold.TabIndex = 69;
             numericUpDownBaseCold.TextAlign = HorizontalAlignment.Center;
             // 
-            // numericUpDownBaseFire
+            // numericUpDownBaseHeat
             // 
-            numericUpDownBaseFire.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            numericUpDownBaseFire.DecimalPlaces = 2;
-            numericUpDownBaseFire.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseFire.Location = new Point(294, 124);
-            numericUpDownBaseFire.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownBaseFire.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownBaseFire.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownBaseFire.Name = "numericUpDownBaseFire";
-            numericUpDownBaseFire.Size = new Size(95, 23);
-            numericUpDownBaseFire.TabIndex = 68;
-            numericUpDownBaseFire.TextAlign = HorizontalAlignment.Center;
+            numericUpDownBaseHeat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            numericUpDownBaseHeat.DecimalPlaces = 2;
+            numericUpDownBaseHeat.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            numericUpDownBaseHeat.Location = new Point(294, 124);
+            numericUpDownBaseHeat.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownBaseHeat.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownBaseHeat.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownBaseHeat.Name = "numericUpDownBaseHeat";
+            numericUpDownBaseHeat.Size = new Size(95, 23);
+            numericUpDownBaseHeat.TabIndex = 68;
+            numericUpDownBaseHeat.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDownBaseSlash
             // 
@@ -747,9 +747,9 @@
             label9.AutoSize = true;
             label9.Location = new Point(208, 124);
             label9.Name = "label9";
-            label9.Size = new Size(50, 23);
+            label9.Size = new Size(56, 23);
             label9.TabIndex = 52;
-            label9.Text = "baseFire";
+            label9.Text = "baseHeat";
             label9.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -1178,7 +1178,7 @@
             tableLayoutPanel3.Controls.Add(numericUpDownModToxin, 3, 7);
             tableLayoutPanel3.Controls.Add(numericUpDownModElectric, 3, 6);
             tableLayoutPanel3.Controls.Add(numericUpDownModCold, 3, 5);
-            tableLayoutPanel3.Controls.Add(numericUpDownModFire, 3, 4);
+            tableLayoutPanel3.Controls.Add(numericUpDownModHeat, 3, 4);
             tableLayoutPanel3.Controls.Add(numericUpDownModSlash, 3, 3);
             tableLayoutPanel3.Controls.Add(numericUpDownModPuncture, 3, 2);
             tableLayoutPanel3.Controls.Add(numericUpDownModImpact, 3, 1);
@@ -1355,18 +1355,18 @@
             numericUpDownModCold.TabIndex = 69;
             numericUpDownModCold.TextAlign = HorizontalAlignment.Center;
             // 
-            // numericUpDownModFire
+            // numericUpDownModHeat
             // 
-            numericUpDownModFire.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            numericUpDownModFire.DecimalPlaces = 2;
-            numericUpDownModFire.Location = new Point(303, 124);
-            numericUpDownModFire.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownModFire.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownModFire.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownModFire.Name = "numericUpDownModFire";
-            numericUpDownModFire.Size = new Size(75, 23);
-            numericUpDownModFire.TabIndex = 68;
-            numericUpDownModFire.TextAlign = HorizontalAlignment.Center;
+            numericUpDownModHeat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            numericUpDownModHeat.DecimalPlaces = 2;
+            numericUpDownModHeat.Location = new Point(303, 124);
+            numericUpDownModHeat.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModHeat.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownModHeat.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModHeat.Name = "numericUpDownModHeat";
+            numericUpDownModHeat.Size = new Size(75, 23);
+            numericUpDownModHeat.TabIndex = 68;
+            numericUpDownModHeat.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDownModSlash
             // 
@@ -1457,9 +1457,9 @@
             label35.AutoSize = true;
             label35.Location = new Point(216, 124);
             label35.Name = "label35";
-            label35.Size = new Size(51, 23);
+            label35.Size = new Size(57, 23);
             label35.TabIndex = 52;
-            label35.Text = "modFire";
+            label35.Text = "modHeat";
             label35.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label36
@@ -1877,7 +1877,7 @@
             tableLayoutPanel4.Controls.Add(numericUpDownFinalToxin, 3, 7);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalElectric, 3, 6);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalCold, 3, 5);
-            tableLayoutPanel4.Controls.Add(numericUpDownFinalFire, 3, 4);
+            tableLayoutPanel4.Controls.Add(numericUpDownFinalHeat, 3, 4);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalSlash, 3, 3);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalPuncture, 3, 2);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalImpact, 3, 1);
@@ -2030,18 +2030,18 @@
             numericUpDownFinalCold.TabIndex = 69;
             numericUpDownFinalCold.TextAlign = HorizontalAlignment.Center;
             // 
-            // numericUpDownFinalFire
+            // numericUpDownFinalHeat
             // 
-            numericUpDownFinalFire.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            numericUpDownFinalFire.DecimalPlaces = 2;
-            numericUpDownFinalFire.Location = new Point(292, 124);
-            numericUpDownFinalFire.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownFinalFire.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownFinalFire.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownFinalFire.Name = "numericUpDownFinalFire";
-            numericUpDownFinalFire.Size = new Size(75, 23);
-            numericUpDownFinalFire.TabIndex = 68;
-            numericUpDownFinalFire.TextAlign = HorizontalAlignment.Center;
+            numericUpDownFinalHeat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            numericUpDownFinalHeat.DecimalPlaces = 2;
+            numericUpDownFinalHeat.Location = new Point(292, 124);
+            numericUpDownFinalHeat.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownFinalHeat.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownFinalHeat.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownFinalHeat.Name = "numericUpDownFinalHeat";
+            numericUpDownFinalHeat.Size = new Size(75, 23);
+            numericUpDownFinalHeat.TabIndex = 68;
+            numericUpDownFinalHeat.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDownFinalSlash
             // 
@@ -2278,9 +2278,9 @@
             label59.AutoSize = true;
             label59.Location = new Point(207, 124);
             label59.Name = "label59";
-            label59.Size = new Size(49, 23);
+            label59.Size = new Size(55, 23);
             label59.TabIndex = 52;
-            label59.Text = "finalFire";
+            label59.Text = "finalHeat";
             label59.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label60
@@ -2587,7 +2587,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseToxin).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseElectric).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseCold).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseFire).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseHeat).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseSlash).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBasePuncture).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseImpact).EndInit();
@@ -2619,7 +2619,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModToxin).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModElectric).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCold).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModFire).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModHeat).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModSlash).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModPuncture).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModImpact).EndInit();
@@ -2646,7 +2646,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalToxin).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalElectric).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCold).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalFire).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFinalHeat).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalSlash).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalPuncture).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalImpact).EndInit();
@@ -2704,7 +2704,7 @@
         private NumericUpDown numericUpDownBaseToxin;
         private NumericUpDown numericUpDownBaseElectric;
         private NumericUpDown numericUpDownBaseCold;
-        private NumericUpDown numericUpDownBaseFire;
+        private NumericUpDown numericUpDownBaseHeat;
         private NumericUpDown numericUpDownBaseSlash;
         private NumericUpDown numericUpDownBasePuncture;
         private NumericUpDown numericUpDownBaseImpact;
@@ -2742,7 +2742,7 @@
         private NumericUpDown numericUpDownModToxin;
         private NumericUpDown numericUpDownModElectric;
         private NumericUpDown numericUpDownModCold;
-        private NumericUpDown numericUpDownModFire;
+        private NumericUpDown numericUpDownModHeat;
         private NumericUpDown numericUpDownModSlash;
         private NumericUpDown numericUpDownModPuncture;
         private NumericUpDown numericUpDownModImpact;
@@ -2788,7 +2788,7 @@
         private NumericUpDown numericUpDownFinalToxin;
         private NumericUpDown numericUpDownFinalElectric;
         private NumericUpDown numericUpDownFinalCold;
-        private NumericUpDown numericUpDownFinalFire;
+        private NumericUpDown numericUpDownFinalHeat;
         private NumericUpDown numericUpDownFinalSlash;
         private NumericUpDown numericUpDownFinalPuncture;
         private NumericUpDown numericUpDownFinalImpact;
