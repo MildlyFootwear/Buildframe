@@ -160,7 +160,17 @@ namespace Buildframe
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
                 labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats), 2).ToString();
                 labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats)).ToString();
-                labelFireTimeValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModFireTime(selectedFiremodeWithAppliedStats), 2).ToString() + "s";
+
+                double fireTime = Methods.Calculation.Weapon.calculateModFireTime(selectedFiremodeWithAppliedStats);
+                if (fireTime != double.PositiveInfinity)
+                {
+                    labelFireTimeValue.Text = Math.Round(fireTime, 2).ToString() + "s";
+                }
+                else
+                {
+                    labelFireTimeValue.Text = fireTime.ToString();
+                }
+
                 labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(selectedFiremodeWithAppliedStats), 2).ToString() + "s";
                 labelAmmoEfficiencyValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAmmoEfficiency(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
 
