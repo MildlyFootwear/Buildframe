@@ -74,6 +74,13 @@ namespace Buildframe.Forms
                 return;
             }
 
+
+            if (textBoxName.Text.Trim() == "" || textBoxName.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("A name is required.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Weapon wpn = new Weapon();
 
             wpn.id = textBoxID.Text;

@@ -128,6 +128,13 @@ namespace Buildframe.Forms
                     }
                 }
             }
+
+            if (textBoxName.Text.Trim() == "" || textBoxName.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("A name is required.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             GameData.Stats stats = new GameData.Stats();
 
             stats.name = textBoxName.Text;
@@ -250,29 +257,15 @@ namespace Buildframe.Forms
         {
             textBoxID.Text = Guid.NewGuid().ToString().Substring(0, 18);
             comboBox1.SelectedIndex = 0;
-            listBaseValues.Add(numericUpDownBaseAttackSpeed);
-            listBaseValues.Add(numericUpDownBaseBlast);
-            listBaseValues.Add(numericUpDownBaseChargeTime);
-            listBaseValues.Add(numericUpDownBaseCold);
-            listBaseValues.Add(numericUpDownBaseCorrosive);
-            listBaseValues.Add(numericUpDownBaseCriticalChance);
-            listBaseValues.Add(numericUpDownBaseCriticalDamage);
-            listBaseValues.Add(numericUpDownBaseDamage);
-            listBaseValues.Add(numericUpDownBaseElectric);
-            listBaseValues.Add(numericUpDownBaseHeat);
-            listBaseValues.Add(numericUpDownBaseGas);
-            listBaseValues.Add(numericUpDownBaseImpact);
-            listBaseValues.Add(numericUpDownBaseMagazine);
-            listBaseValues.Add(numericUpDownBaseMagnetic);
-            listBaseValues.Add(numericUpDownBaseMultishot);
-            listBaseValues.Add(numericUpDownBasePuncture);
-            listBaseValues.Add(numericUpDownBaseRadiation);
-            listBaseValues.Add(numericUpDownBaseReloadTime);
-            listBaseValues.Add(numericUpDownBaseSlash);
-            listBaseValues.Add(numericUpDownBaseStatusChance);
-            listBaseValues.Add(numericUpDownBaseStatusDamage);
-            listBaseValues.Add(numericUpDownBaseToxin);
-            listBaseValues.Add(numericUpDownBaseViral);
+
+            foreach (Control c in tableLayoutPanel1.Controls)
+            {
+                if (c is NumericUpDown nud)
+                {
+                    WriteLineIfDebug("Adding to base list: " + nud.Name);
+                    listBaseValues.Add(nud);
+                }
+            }
 
             tableLayoutPanel3.Width = tableLayoutPanel1.Width;
             tableLayoutPanel4.Width = tableLayoutPanel1.Width;
@@ -341,6 +334,7 @@ namespace Buildframe.Forms
                 string s = c.ToString();
                 id = id.Replace(s, "");
             }
+
             if (id.Trim() == "" || id.Trim() == string.Empty)
             {
                 id = Guid.NewGuid().ToString().Substring(0, 18);
