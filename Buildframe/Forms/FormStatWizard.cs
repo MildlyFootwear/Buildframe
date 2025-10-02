@@ -329,11 +329,6 @@ namespace Buildframe.Forms
             e.Effect = DragDropEffects.Copy;
         }
 
-        private void textBoxID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBoxID_Leave(object sender, EventArgs e)
         {
             string id = textBoxID.Text;
@@ -345,6 +340,10 @@ namespace Buildframe.Forms
             {
                 string s = c.ToString();
                 id = id.Replace(s, "");
+            }
+            if (id.Trim() == "" || id.Trim() == string.Empty)
+            {
+                id = Guid.NewGuid().ToString().Substring(0, 18);
             }
             textBoxID.Text = id;
         }

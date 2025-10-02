@@ -58,6 +58,10 @@ namespace Buildframe.Forms
                 string s = c.ToString();
                 id = id.Replace(s, "");
             }
+            if (id.Trim() == "" || id.Trim() == string.Empty)
+            {
+                id = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
+            }
             textBoxID.Text = id;
         }
 

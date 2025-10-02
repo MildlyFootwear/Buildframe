@@ -1116,7 +1116,6 @@
             textBoxID.Name = "textBoxID";
             textBoxID.Size = new Size(314, 23);
             textBoxID.TabIndex = 0;
-            textBoxID.TextChanged += textBoxID_TextChanged;
             textBoxID.Leave += textBoxID_Leave;
             // 
             // textBoxDescription
