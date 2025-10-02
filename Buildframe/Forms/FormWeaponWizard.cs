@@ -70,7 +70,7 @@ namespace Buildframe.Forms
 
             if (textBoxTags.Text.Split(' ').Contains("None"))
             {
-                MessageBox.Show("The tag 'None' is reserved and will result in all selection boxes being empty if used.", "Buildframe - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The tag 'None' is reserved and will result in all selection boxes being empty if used.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
