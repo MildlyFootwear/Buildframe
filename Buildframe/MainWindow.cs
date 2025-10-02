@@ -133,9 +133,10 @@ namespace Buildframe
 
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
 
+            double summedDamage = 0;
             double summedDPSBurst = 0;
             double summedDPSSustained = 0;
-            double summedDamage = 0;
+
             if (selectedFiremode.id != "")
             {
                 selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { selectedFiremode, mergedStats });
@@ -146,9 +147,9 @@ namespace Buildframe
                     selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats);
                 }
 
-                summedDamage = Methods.Calculation.Weapon.calculateModDamagePreCrit(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
-                summedDPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
-                summedDPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats, true);
+                double Damage = Methods.Calculation.Weapon.calculateModDamagePreCrit(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats); ;
+                double DPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
+                double DPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats, true);
 
                 double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
                 double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats);
@@ -177,9 +178,13 @@ namespace Buildframe
                 labelMultishotValue.Text = Math.Round(multishot, 2).ToString();
                 labelStatusPerSecondValue.Text = Math.Round(multishot * statusChance / 100 * speed, 2).ToString();
 
-                labelDamageValue.Text = Math.Round(summedDamage, 2).ToString("#,##0");
-                labelDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString("#,##0");
-                labelDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString("#,##0");
+                labelDamageValue.Text = Damage.ToString("#,##0");
+                labelDPSBurstValue.Text = DPSBurst.ToString("#,##0");
+                labelDPSSustainedValue.Text = DPSSustained.ToString("#,##0");
+
+                summedDamage = Damage;
+                summedDPSBurst = DPSBurst;
+                summedDPSSustained = DPSSustained;
             }
             else
             {
@@ -212,9 +217,9 @@ namespace Buildframe
                 summedDamage += Methods.Calculation.Weapon.calculateModDamagePreCrit(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);
                 summedDPSBurst += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats);
                 summedDPSSustained += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true);
-                labelSummedDamageValue.Text = Math.Round(summedDamage, 2).ToString("#,##0");
-                labelSummedDPSBurstValue.Text = Math.Round(summedDPSBurst, 2).ToString("#,##0");
-                labelSummedDPSSustainedValue.Text = Math.Round(summedDPSSustained, 2).ToString("#,##0");
+                labelSummedDamageValue.Text = summedDamage.ToString("#,##0");
+                labelSummedDPSBurstValue.Text = summedDPSBurst.ToString("#,##0");
+                labelSummedDPSSustainedValue.Text = summedDPSSustained.ToString("#,##0");
 
             }
             else
