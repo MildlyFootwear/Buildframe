@@ -826,9 +826,10 @@
             tableLayoutPanel2.SetColumnSpan(comboBoxArchgunArcane, 2);
             comboBoxArchgunArcane.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxArchgunArcane.FormattingEnabled = true;
-            comboBoxArchgunArcane.Location = new Point(3, 3);
+            comboBoxArchgunArcane.Location = new Point(0, 3);
+            comboBoxArchgunArcane.Margin = new Padding(0, 3, 0, 3);
             comboBoxArchgunArcane.Name = "comboBoxArchgunArcane";
-            comboBoxArchgunArcane.Size = new Size(449, 23);
+            comboBoxArchgunArcane.Size = new Size(455, 23);
             comboBoxArchgunArcane.TabIndex = 24;
             comboBoxArchgunArcane.Visible = false;
             comboBoxArchgunArcane.DropDown += comboBoxTooltipShow_Event;
@@ -1131,9 +1132,10 @@
             tableLayoutPanel2.SetColumnSpan(comboBoxWeaponArcane, 2);
             comboBoxWeaponArcane.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxWeaponArcane.FormattingEnabled = true;
-            comboBoxWeaponArcane.Location = new Point(3, 61);
+            comboBoxWeaponArcane.Location = new Point(0, 61);
+            comboBoxWeaponArcane.Margin = new Padding(0, 3, 0, 3);
             comboBoxWeaponArcane.Name = "comboBoxWeaponArcane";
-            comboBoxWeaponArcane.Size = new Size(449, 23);
+            comboBoxWeaponArcane.Size = new Size(455, 23);
             comboBoxWeaponArcane.TabIndex = 1;
             comboBoxWeaponArcane.DropDown += comboBoxTooltipShow_Event;
             comboBoxWeaponArcane.SelectedIndexChanged += comboBoxWeaponArcane_SelectedIndexChanged;

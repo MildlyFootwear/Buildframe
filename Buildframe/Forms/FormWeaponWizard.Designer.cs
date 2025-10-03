@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWeaponWizard));
             tableLayoutPanel2 = new TableLayoutPanel();
             textBoxDescription = new TextBox();
             label5 = new Label();
@@ -74,7 +75,7 @@
             tableLayoutPanel2.Location = new Point(3, 1);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 5;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
@@ -85,7 +86,7 @@
             // textBoxDescription
             // 
             textBoxDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxDescription.Location = new Point(50, 145);
+            textBoxDescription.Location = new Point(50, 150);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.Size = new Size(318, 44);
@@ -95,7 +96,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
-            label5.Location = new Point(4, 142);
+            label5.Location = new Point(4, 147);
             label5.Name = "label5";
             label5.Size = new Size(32, 50);
             label5.TabIndex = 24;
@@ -106,7 +107,7 @@
             // 
             label78.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label78.AutoSize = true;
-            label78.Location = new Point(4, 112);
+            label78.Location = new Point(4, 117);
             label78.Name = "label78";
             label78.Size = new Size(30, 29);
             label78.TabIndex = 22;
@@ -116,7 +117,7 @@
             // textBoxName
             // 
             textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxName.Location = new Point(50, 85);
+            textBoxName.Location = new Point(50, 90);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(318, 23);
             textBoxName.TabIndex = 18;
@@ -125,7 +126,7 @@
             // 
             label26.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label26.AutoSize = true;
-            label26.Location = new Point(4, 82);
+            label26.Location = new Point(4, 87);
             label26.Name = "label26";
             label26.Size = new Size(39, 29);
             label26.TabIndex = 17;
@@ -136,7 +137,7 @@
             // 
             label25.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label25.AutoSize = true;
-            label25.Location = new Point(4, 52);
+            label25.Location = new Point(4, 57);
             label25.Name = "label25";
             label25.Size = new Size(18, 29);
             label25.TabIndex = 16;
@@ -146,7 +147,7 @@
             // textBoxID
             // 
             textBoxID.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxID.Location = new Point(50, 55);
+            textBoxID.Location = new Point(50, 60);
             textBoxID.Name = "textBoxID";
             textBoxID.Size = new Size(318, 23);
             textBoxID.TabIndex = 0;
@@ -156,7 +157,7 @@
             // textBoxTags
             // 
             textBoxTags.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTags.Location = new Point(50, 115);
+            textBoxTags.Location = new Point(50, 120);
             textBoxTags.Name = "textBoxTags";
             textBoxTags.Size = new Size(318, 23);
             textBoxTags.TabIndex = 21;
@@ -170,9 +171,9 @@
             label82.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label82.Location = new Point(4, 1);
             label82.Name = "label82";
-            label82.Size = new Size(364, 50);
+            label82.Size = new Size(364, 55);
             label82.TabIndex = 23;
-            label82.Text = "Use this after creating firemodes in the effect creation wizard.\r\nSeperate tags with spaces, they will be used for sorting within the UI.\r\nIf Radial is not applicable, leave it set to None.";
+            label82.Text = resources.GetString("label82.Text");
             // 
             // tableLayoutPanel1
             // 
@@ -194,7 +195,7 @@
             tableLayoutPanel1.Controls.Add(comboBoxPrimaryRadial, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
             tableLayoutPanel1.Controls.Add(comboBoxSecondaryRadial, 1, 3);
-            tableLayoutPanel1.Location = new Point(3, 187);
+            tableLayoutPanel1.Location = new Point(3, 188);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
@@ -334,7 +335,7 @@
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(3, 352);
+            buttonCreate.Location = new Point(3, 353);
             buttonCreate.Name = "buttonCreate";
             buttonCreate.Size = new Size(75, 23);
             buttonCreate.TabIndex = 0;
