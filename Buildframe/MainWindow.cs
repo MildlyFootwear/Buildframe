@@ -137,14 +137,48 @@ namespace Buildframe
             double summedDPSBurst = 0;
             double summedDPSSustained = 0;
 
+            int enervateCeiling = 0;
+            string arcaneName = "";
+            if (comboBoxWeaponArcane.SelectedIndex > 0)
+            {
+                arcaneName = comboBoxWeaponArcane.SelectedItem.ToString();
+            }
+            if (comboBoxWeaponArcane.SelectedIndex > 0 && arcaneName.Contains("Secondary Enervate"))
+            {
+                if (arcaneName.Contains("0"))
+                {
+                    enervateCeiling = 1;
+                }
+                else if (arcaneName.Contains("1"))
+                {
+                    enervateCeiling = 2;
+                }
+                else if (arcaneName.Contains("2"))
+                {
+                    enervateCeiling = 3;
+                }
+                else if (arcaneName.Contains("3"))
+                {
+                    enervateCeiling = 4;
+                }
+                else if (arcaneName.Contains("4"))
+                {
+                    enervateCeiling = 5;
+                }
+                else if (arcaneName.Contains("5"))
+                {
+                    enervateCeiling = 6;
+                }
+            }
+
             if (selectedFiremode.id != "")
             {
                 selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { selectedFiremode, mergedStats });
 
-                if (comboBoxWeaponArcane.SelectedIndex > 0 && comboBoxWeaponArcane.SelectedItem.ToString() == "Secondary Enervate")
+                if (enervateCeiling > 0)
                 {
                     WriteLineIfDebug("    Selected stats using hardcoded arcane: Secondary Enervate");
-                    selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats);
+                    selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats, enervateCeiling);
                 }
 
                 double Damage = Methods.Calculation.Weapon.calculateModDamagePreCrit(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats); ;
@@ -197,9 +231,9 @@ namespace Buildframe
             {
                 radialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { radial, mergedStats });
 
-                if (comboBoxWeaponArcane.SelectedItem.ToString() == "Secondary Enervate")
+                if (enervateCeiling > 0)
                 {
-                    radialWithAppliedStats = Methods.Calculation.Weapon.setEnervate(radialWithAppliedStats);
+                    radialWithAppliedStats = Methods.Calculation.Weapon.setEnervate(radialWithAppliedStats, enervateCeiling);
                 }
 
                 double multishot = Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);

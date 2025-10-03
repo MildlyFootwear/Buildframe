@@ -136,12 +136,12 @@ namespace Buildframe.Methods.Calculation
 
         public static Stats setEnervate(Stats stats, int bigCritsCap = 6)
         {
-            WriteLineIfDebug("Rolling enervate");
+            WriteLineIfDebug("Rolling enervate for "+bigCritsCap);
 
             double critChance = calculateModCritChance(stats);
             double steps = 0;
             Random rnd = new Random();
-            int degreeOfAccuracy = 100;
+            int degreeOfAccuracy = 1000;
             for (int i = 0; i <= degreeOfAccuracy; i++)
             {
                 int bigCrits = 0;
