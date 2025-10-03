@@ -27,16 +27,22 @@ namespace Buildframe.Forms
             comboBoxPrimaryRadial.Items.Add("None");
             comboBoxSecondary.Items.Add("None");
             comboBoxSecondaryRadial.Items.Add("None");
+            comboBoxTertiary.Items.Add("None");
+            comboBoxTertiaryRadial.Items.Add("None");
             comboBoxPrimary.SelectedIndex = 0;
             comboBoxPrimaryRadial.SelectedIndex = 0;
             comboBoxSecondary.SelectedIndex = 0;
             comboBoxSecondaryRadial.SelectedIndex = 0;
+            comboBoxTertiary.SelectedIndex = 0;
+            comboBoxTertiaryRadial.SelectedIndex = 0;
             foreach (var wm in CommonVars.fireModeStats)
             {
                 comboBoxPrimary.Items.Add(wm.Value);
                 comboBoxPrimaryRadial.Items.Add(wm.Value);
                 comboBoxSecondary.Items.Add(wm.Value);
                 comboBoxSecondaryRadial.Items.Add(wm.Value);
+                comboBoxTertiary.Items.Add(wm.Value);
+                comboBoxTertiaryRadial.Items.Add(wm.Value);
             }
             tableLayoutPanel2.Width = tableLayoutPanel1.Width;
         }
@@ -102,6 +108,14 @@ namespace Buildframe.Forms
             if (comboBoxSecondaryRadial.SelectedIndex > 0 && comboBoxSecondary.SelectedIndex > 0)
             {
                 wpn.fireModesRadials.Add(fireModeStats.Values.ToList()[comboBoxSecondary.SelectedIndex - 1].id, fireModeStats.Values.ToList()[comboBoxSecondaryRadial.SelectedIndex - 1]);
+            }
+            if (comboBoxTertiary.SelectedIndex > 0)
+            {
+                wpn.fireModes.Add(fireModeStats.Values.ToList()[comboBoxTertiary.SelectedIndex - 1]);
+            }
+            if (comboBoxTertiaryRadial.SelectedIndex > 0 && comboBoxTertiary.SelectedIndex > 0)
+            {
+                wpn.fireModesRadials.Add(fireModeStats.Values.ToList()[comboBoxTertiary.SelectedIndex - 1].id, fireModeStats.Values.ToList()[comboBoxTertiaryRadial.SelectedIndex - 1]);
             }
 
             string fileName = wpn.id + " " + wpn.name + ".cfg";
@@ -173,6 +187,23 @@ namespace Buildframe.Forms
                         {
                             comboBoxSecondary.SelectedIndex = 0;
                             comboBoxSecondaryRadial.SelectedIndex = 0;
+                        }
+                        if (wpn.fireModes.Count > 2)
+                        {
+                            comboBoxTertiary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[2]) + 1;
+                            if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[2].id))
+                            {
+                                comboBoxTertiaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[2].id]) + 1;
+                            }
+                            else
+                            {
+                                comboBoxTertiaryRadial.SelectedIndex = 0;
+                            }
+                        }
+                        else
+                        {
+                            comboBoxTertiary.SelectedIndex = 0;
+                            comboBoxTertiaryRadial.SelectedIndex = 0;
                         }
                     }
                     else

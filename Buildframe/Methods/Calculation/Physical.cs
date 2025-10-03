@@ -11,15 +11,15 @@ namespace Buildframe.Methods.Calculation
     {
         public static double getModImpact(Stats stats)
         {
-            return stats.baseImpact * (stats.modImpact / 100);
+            return Math.Max(0, stats.baseImpact * (stats.modImpact / 100));
         }
         public static double getModPuncture(Stats stats)
         {
-            return stats.basePuncture * (stats.modPuncture / 100);
+            return Math.Max(0, stats.basePuncture * (stats.modPuncture / 100));
         }
         public static double getModSlash(Stats stats)
         {
-            return stats.baseSlash * (stats.modSlash / 100);
+            return Math.Max(0, stats.baseSlash * (stats.modSlash / 100));
         }
     }
 }

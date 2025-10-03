@@ -39,6 +39,10 @@
             textBoxTags = new TextBox();
             label82 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            comboBoxTertiaryRadial = new ComboBox();
+            label7 = new Label();
+            comboBoxTertiary = new ComboBox();
+            label6 = new Label();
             label1 = new Label();
             comboBoxPrimary = new ComboBox();
             label2 = new Label();
@@ -178,6 +182,10 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.Controls.Add(comboBoxTertiaryRadial, 1, 5);
+            tableLayoutPanel1.Controls.Add(label7, 0, 5);
+            tableLayoutPanel1.Controls.Add(comboBoxTertiary, 1, 4);
+            tableLayoutPanel1.Controls.Add(label6, 0, 4);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(comboBoxPrimary, 1, 0);
             tableLayoutPanel1.Controls.Add(label2, 0, 2);
@@ -188,14 +196,57 @@
             tableLayoutPanel1.Controls.Add(comboBoxSecondaryRadial, 1, 3);
             tableLayoutPanel1.Location = new Point(3, 187);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(381, 121);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(381, 181);
             tableLayoutPanel1.TabIndex = 2;
+            // 
+            // comboBoxTertiaryRadial
+            // 
+            comboBoxTertiaryRadial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxTertiaryRadial.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTertiaryRadial.FormattingEnabled = true;
+            comboBoxTertiaryRadial.Location = new Point(73, 154);
+            comboBoxTertiaryRadial.Name = "comboBoxTertiaryRadial";
+            comboBoxTertiaryRadial.Size = new Size(304, 23);
+            comboBoxTertiaryRadial.TabIndex = 11;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Location = new Point(4, 151);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 29);
+            label7.TabIndex = 10;
+            label7.Text = "Radial";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // comboBoxTertiary
+            // 
+            comboBoxTertiary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxTertiary.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTertiary.FormattingEnabled = true;
+            comboBoxTertiary.Location = new Point(73, 124);
+            comboBoxTertiary.Name = "comboBoxTertiary";
+            comboBoxTertiary.Size = new Size(304, 23);
+            comboBoxTertiary.TabIndex = 9;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(4, 121);
+            label6.Name = "label6";
+            label6.Size = new Size(62, 29);
+            label6.TabIndex = 8;
+            label6.Text = "Tertiary";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -283,7 +334,7 @@
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(3, 301);
+            buttonCreate.Location = new Point(3, 352);
             buttonCreate.Name = "buttonCreate";
             buttonCreate.Size = new Size(75, 23);
             buttonCreate.TabIndex = 0;
@@ -340,5 +391,9 @@
         private Button buttonCreate;
         private TextBox textBoxDescription;
         private Label label5;
+        private ComboBox comboBoxTertiaryRadial;
+        private Label label7;
+        private ComboBox comboBoxTertiary;
+        private Label label6;
     }
 }
