@@ -106,6 +106,27 @@ namespace Buildframe.Forms
             numericUpDownFinalStatusChance.Value = (decimal)stats.finalStatusChance;
             numericUpDownFinalStatusDamage.Value = (decimal)stats.finalStatusDamage;
         }
+        private void FormStatWizard_Load(object sender, EventArgs e)
+        {
+            textBoxID.Text = Guid.NewGuid().ToString().Substring(0, 18);
+            comboBox1.SelectedIndex = 0;
+
+            foreach (Control c in tableLayoutPanel1.Controls)
+            {
+                if (c is NumericUpDown nud)
+                {
+                    WriteLineIfDebug("Adding to base list: " + nud.Name);
+                    listBaseValues.Add(nud);
+                }
+            }
+
+            tableLayoutPanel3.Width = tableLayoutPanel1.Width;
+            tableLayoutPanel4.Width = tableLayoutPanel1.Width;
+
+            tableLayoutPanel3.Height = tableLayoutPanel1.Height;
+            tableLayoutPanel4.Height = tableLayoutPanel1.Height;
+
+        }
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
@@ -251,28 +272,6 @@ namespace Buildframe.Forms
             LoadAndSave.saveStatToFile(filePath, stats);
 
             Close();
-        }
-
-        private void FormStatWizard_Load(object sender, EventArgs e)
-        {
-            textBoxID.Text = Guid.NewGuid().ToString().Substring(0, 18);
-            comboBox1.SelectedIndex = 0;
-
-            foreach (Control c in tableLayoutPanel1.Controls)
-            {
-                if (c is NumericUpDown nud)
-                {
-                    WriteLineIfDebug("Adding to base list: " + nud.Name);
-                    listBaseValues.Add(nud);
-                }
-            }
-
-            tableLayoutPanel3.Width = tableLayoutPanel1.Width;
-            tableLayoutPanel4.Width = tableLayoutPanel1.Width;
-
-            tableLayoutPanel3.Height = tableLayoutPanel1.Height;
-            tableLayoutPanel4.Height = tableLayoutPanel1.Height;
-
         }
 
         private void FormStatWizard_DragDrop(object sender, DragEventArgs e)
