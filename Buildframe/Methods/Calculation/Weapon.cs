@@ -46,11 +46,11 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModCritChance(Stats stats)
         {
-            return stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance;
+            return Math.Max(0, stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance);
         }
         public static double calculateModCritDamage(Stats stats)
         {
-            return stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage;
+            return Math.Max(1, stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage);
         }
         public static double calculateModAverageCritMultiplier(Stats stats)
         {
