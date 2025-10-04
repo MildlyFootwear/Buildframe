@@ -136,39 +136,12 @@ namespace Buildframe
             double summedDamage = 0;
             double summedDPSBurst = 0;
             double summedDPSSustained = 0;
-
             int enervateCeiling = 0;
             string arcaneName = "";
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
                 arcaneName = comboBoxWeaponArcane.SelectedItem.ToString();
-            }
-            if (comboBoxWeaponArcane.SelectedIndex > 0 && arcaneName.Contains("Secondary Enervate"))
-            {
-                if (arcaneName.Contains("0"))
-                {
-                    enervateCeiling = 1;
-                }
-                else if (arcaneName.Contains("1"))
-                {
-                    enervateCeiling = 2;
-                }
-                else if (arcaneName.Contains("2"))
-                {
-                    enervateCeiling = 3;
-                }
-                else if (arcaneName.Contains("3"))
-                {
-                    enervateCeiling = 4;
-                }
-                else if (arcaneName.Contains("4"))
-                {
-                    enervateCeiling = 5;
-                }
-                else if (arcaneName.Contains("5"))
-                {
-                    enervateCeiling = 6;
-                }
+                enervateCeiling = Methods.Calculation.StatMethods.identifyEnervate((Stats)comboBoxWeaponArcane.SelectedItem);
             }
 
             if (selectedFiremode.id != "")
@@ -959,6 +932,12 @@ namespace Buildframe
             p.Y += toolStrip1.Height;
             if (box.SelectedItem is Stats)
             {
+                int enervate = Methods.Calculation.StatMethods.identifyEnervate((Stats)box.SelectedItem);
+                if (box == comboBoxWeaponArcane && enervate > 0)
+                {
+                    toolTipMods.Show(StatDisplay.generateStatsDescription((Stats)box.SelectedItem, (Methods.Calculation.StatMethods.sumStats(new List<Stats> { selectedFiremode, mergedStats }))), this, p);
+                    return;
+                }
                 toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem), this, p);
             }
             else

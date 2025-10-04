@@ -183,6 +183,42 @@ namespace Buildframe.Methods.Calculation
             return stats;
         }
 
+        public static int identifyEnervate(Stats stats)
+        {
+            string arcaneName = stats.name;
+            int returnValue = 0;
+            if (!arcaneName.Contains("Enervate"))
+            {
+                return 0;
+            }
+            if (arcaneName.Contains("0"))
+            {
+                returnValue = 1;
+            }
+            else if (arcaneName.Contains("1"))
+            {
+                returnValue = 2;
+            }
+            else if (arcaneName.Contains("2"))
+            {
+                returnValue = 3;
+            }
+            else if (arcaneName.Contains("3"))
+            {
+                returnValue = 4;
+            }
+            else if (arcaneName.Contains("4"))
+            {
+                returnValue = 5;
+            }
+            else if (arcaneName.Contains("5"))
+            {
+                returnValue = 6;
+            }
+            WriteLineIfDebug("Identified Enervate level " + returnValue + " from arcane " + arcaneName+" - "+stats.id);
+            return returnValue;
+        }
+
     }
 
 }

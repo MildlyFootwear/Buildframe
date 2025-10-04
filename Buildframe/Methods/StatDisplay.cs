@@ -1,4 +1,5 @@
 ﻿using Buildframe.GameData;
+using Buildframe.Methods.Calculation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Buildframe.Methods
     {
 
 
-        public static string generateStatsDescription(Stats stats)
+        public static string generateStatsDescription(Stats stats, Stats? fullSheet = null)
         {
             string s = stats.name + "\n\n";
 
@@ -20,6 +21,16 @@ namespace Buildframe.Methods
                 s += stats.description + "\n\n";
             }
 
+            int enervate = StatMethods.identifyEnervate(stats);
+            if (enervate != 0)
+            {
+                s += "Enervate Rank: " + (enervate - 1) + "\n";
+                if (fullSheet != null)
+                {
+                    double crit = Calculation.Weapon.calculateEnervateIncrease(fullSheet, enervate);
+                    s += "Enervate Critical Chance Increase: " + Math.Round(crit, 2) + "%\n\n";
+                }
+            }
             if (stats.baseImpact != 0)
             {
                 s += "Base Impact: " + stats.baseImpact + "\n";
@@ -361,6 +372,5 @@ namespace Buildframe.Methods
 
             return s;
         }
-
     }
 }

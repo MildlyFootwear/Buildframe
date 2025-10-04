@@ -134,9 +134,9 @@ namespace Buildframe.Methods.Calculation
             return dps;
         }
 
-        public static Stats setEnervate(Stats stats, int bigCritsCap = 6)
+        public static double calculateEnervateIncrease(Stats stats, int bigCritsCap = 6)
         {
-            WriteLineIfDebug("Rolling enervate for "+bigCritsCap);
+            WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap);
 
             double critChance = calculateModCritChance(stats);
             double steps = 0;
@@ -158,8 +158,17 @@ namespace Buildframe.Methods.Calculation
                 }
             }
 
-            WriteLineIfDebug("Average of " + steps / degreeOfAccuracy);
-            stats.finalCriticalChance += steps / degreeOfAccuracy * 10 / 2;
+            WriteLineIfDebug("Average of steps " + steps / degreeOfAccuracy);
+
+            double enervateCritChanceIncrease = steps / degreeOfAccuracy * 10 / 2;
+            WriteLineIfDebug("Enervate crit chance increase: " + enervateCritChanceIncrease);
+            return enervateCritChanceIncrease;
+        }
+
+        public static Stats setEnervate(Stats stats, int bigCritsCap = 6)
+        {
+            double critInc = calculateEnervateIncrease(stats, bigCritsCap);
+            stats.finalCriticalChance += critInc;
             return stats;
         }
     }
