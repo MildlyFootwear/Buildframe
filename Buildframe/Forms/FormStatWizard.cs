@@ -239,7 +239,7 @@ namespace Buildframe.Forms
             stats.finalStatusChance = (double)numericUpDownFinalStatusChance.Value;
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
 
-            string fileName = stats.id + " " + stats.name + ".cfg";
+            string fileName = stats.name + " - " + stats.id + ".cfg";
             foreach (string s in CommonVars.ProhibPathChars)
             {
                 fileName = fileName.Replace(s, "");

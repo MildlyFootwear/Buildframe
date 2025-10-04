@@ -241,6 +241,13 @@ namespace Buildframe.Methods
                 saveStatToFile(path, stats);
             }
 
+            if (Path.GetFileName(path).StartsWith(stats.id))
+            {
+                WriteLineIfDebug("Filename starts with ID, converting");
+                File.Delete(path);
+                saveStatToFile(path.Replace(Path.GetFileName(path), stats.name + " - " + stats.id + ".cfg"), stats);
+            }
+
             return stats;
         }
 
@@ -438,6 +445,14 @@ namespace Buildframe.Methods
                     }
                 }
             }
+
+            if (Path.GetFileName(path).StartsWith(weapon.id))
+            {
+                WriteLineIfDebug("Filename starts with ID, converting");
+                File.Delete(path);
+                saveWeaponToFile(path.Replace(Path.GetFileName(path), weapon.name + " - " + weapon.id + ".cfg"), weapon);
+            }
+
             return weapon;
         }
 

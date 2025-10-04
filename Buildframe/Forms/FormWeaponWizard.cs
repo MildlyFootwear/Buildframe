@@ -118,7 +118,7 @@ namespace Buildframe.Forms
                 wpn.fireModesRadials.Add(fireModeStats.Values.ToList()[comboBoxTertiary.SelectedIndex - 1].id, fireModeStats.Values.ToList()[comboBoxTertiaryRadial.SelectedIndex - 1]);
             }
 
-            string fileName = wpn.id + " " + wpn.name + ".cfg";
+            string fileName = wpn.name + " - " + wpn.id + ".cfg";
             foreach (string s in CommonVars.ProhibPathChars)
             {
                 fileName = fileName.Replace(s, "");
