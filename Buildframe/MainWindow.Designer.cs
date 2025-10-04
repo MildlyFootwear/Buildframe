@@ -817,7 +817,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(455, 398);
+            tableLayoutPanel2.Size = new Size(564, 398);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // comboBoxArchgunArcane
@@ -829,7 +829,7 @@
             comboBoxArchgunArcane.Location = new Point(0, 3);
             comboBoxArchgunArcane.Margin = new Padding(0, 3, 0, 3);
             comboBoxArchgunArcane.Name = "comboBoxArchgunArcane";
-            comboBoxArchgunArcane.Size = new Size(455, 23);
+            comboBoxArchgunArcane.Size = new Size(564, 23);
             comboBoxArchgunArcane.TabIndex = 24;
             comboBoxArchgunArcane.Visible = false;
             comboBoxArchgunArcane.DropDown += comboBoxTooltipShow_Event;
@@ -841,10 +841,10 @@
             comboBoxMiscEffect12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMiscEffect12.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMiscEffect12.FormattingEnabled = true;
-            comboBoxMiscEffect12.Location = new Point(228, 371);
+            comboBoxMiscEffect12.Location = new Point(283, 371);
             comboBoxMiscEffect12.Margin = new Padding(1);
             comboBoxMiscEffect12.Name = "comboBoxMiscEffect12";
-            comboBoxMiscEffect12.Size = new Size(226, 23);
+            comboBoxMiscEffect12.Size = new Size(280, 23);
             comboBoxMiscEffect12.TabIndex = 23;
             comboBoxMiscEffect12.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect12.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -858,7 +858,7 @@
             comboBoxMiscEffect11.Location = new Point(1, 371);
             comboBoxMiscEffect11.Margin = new Padding(1);
             comboBoxMiscEffect11.Name = "comboBoxMiscEffect11";
-            comboBoxMiscEffect11.Size = new Size(225, 23);
+            comboBoxMiscEffect11.Size = new Size(280, 23);
             comboBoxMiscEffect11.TabIndex = 22;
             comboBoxMiscEffect11.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect11.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -869,10 +869,10 @@
             comboBoxMiscEffect10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMiscEffect10.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMiscEffect10.FormattingEnabled = true;
-            comboBoxMiscEffect10.Location = new Point(228, 346);
+            comboBoxMiscEffect10.Location = new Point(283, 346);
             comboBoxMiscEffect10.Margin = new Padding(1);
             comboBoxMiscEffect10.Name = "comboBoxMiscEffect10";
-            comboBoxMiscEffect10.Size = new Size(226, 23);
+            comboBoxMiscEffect10.Size = new Size(280, 23);
             comboBoxMiscEffect10.TabIndex = 21;
             comboBoxMiscEffect10.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect10.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -886,7 +886,7 @@
             comboBoxMiscEffect9.Location = new Point(1, 346);
             comboBoxMiscEffect9.Margin = new Padding(1);
             comboBoxMiscEffect9.Name = "comboBoxMiscEffect9";
-            comboBoxMiscEffect9.Size = new Size(225, 23);
+            comboBoxMiscEffect9.Size = new Size(280, 23);
             comboBoxMiscEffect9.TabIndex = 20;
             comboBoxMiscEffect9.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect9.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -897,10 +897,10 @@
             comboBoxMiscEffect8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMiscEffect8.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMiscEffect8.FormattingEnabled = true;
-            comboBoxMiscEffect8.Location = new Point(228, 321);
+            comboBoxMiscEffect8.Location = new Point(283, 321);
             comboBoxMiscEffect8.Margin = new Padding(1);
             comboBoxMiscEffect8.Name = "comboBoxMiscEffect8";
-            comboBoxMiscEffect8.Size = new Size(226, 23);
+            comboBoxMiscEffect8.Size = new Size(280, 23);
             comboBoxMiscEffect8.TabIndex = 19;
             comboBoxMiscEffect8.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect8.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -914,7 +914,7 @@
             comboBoxMiscEffect7.Location = new Point(1, 321);
             comboBoxMiscEffect7.Margin = new Padding(1);
             comboBoxMiscEffect7.Name = "comboBoxMiscEffect7";
-            comboBoxMiscEffect7.Size = new Size(225, 23);
+            comboBoxMiscEffect7.Size = new Size(280, 23);
             comboBoxMiscEffect7.TabIndex = 18;
             comboBoxMiscEffect7.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect7.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -925,10 +925,10 @@
             comboBoxMiscEffect6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMiscEffect6.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMiscEffect6.FormattingEnabled = true;
-            comboBoxMiscEffect6.Location = new Point(228, 296);
+            comboBoxMiscEffect6.Location = new Point(283, 296);
             comboBoxMiscEffect6.Margin = new Padding(1);
             comboBoxMiscEffect6.Name = "comboBoxMiscEffect6";
-            comboBoxMiscEffect6.Size = new Size(226, 23);
+            comboBoxMiscEffect6.Size = new Size(280, 23);
             comboBoxMiscEffect6.TabIndex = 17;
             comboBoxMiscEffect6.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect6.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -942,7 +942,7 @@
             comboBoxMiscEffect5.Location = new Point(1, 296);
             comboBoxMiscEffect5.Margin = new Padding(1);
             comboBoxMiscEffect5.Name = "comboBoxMiscEffect5";
-            comboBoxMiscEffect5.Size = new Size(225, 23);
+            comboBoxMiscEffect5.Size = new Size(280, 23);
             comboBoxMiscEffect5.TabIndex = 16;
             comboBoxMiscEffect5.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect5.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -953,10 +953,10 @@
             comboBoxMiscEffect4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMiscEffect4.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMiscEffect4.FormattingEnabled = true;
-            comboBoxMiscEffect4.Location = new Point(228, 271);
+            comboBoxMiscEffect4.Location = new Point(283, 271);
             comboBoxMiscEffect4.Margin = new Padding(1);
             comboBoxMiscEffect4.Name = "comboBoxMiscEffect4";
-            comboBoxMiscEffect4.Size = new Size(226, 23);
+            comboBoxMiscEffect4.Size = new Size(280, 23);
             comboBoxMiscEffect4.TabIndex = 15;
             comboBoxMiscEffect4.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect4.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -970,7 +970,7 @@
             comboBoxMiscEffect3.Location = new Point(1, 271);
             comboBoxMiscEffect3.Margin = new Padding(1);
             comboBoxMiscEffect3.Name = "comboBoxMiscEffect3";
-            comboBoxMiscEffect3.Size = new Size(225, 23);
+            comboBoxMiscEffect3.Size = new Size(280, 23);
             comboBoxMiscEffect3.TabIndex = 14;
             comboBoxMiscEffect3.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect3.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -981,10 +981,10 @@
             comboBoxMiscEffect2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMiscEffect2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMiscEffect2.FormattingEnabled = true;
-            comboBoxMiscEffect2.Location = new Point(228, 246);
+            comboBoxMiscEffect2.Location = new Point(283, 246);
             comboBoxMiscEffect2.Margin = new Padding(1);
             comboBoxMiscEffect2.Name = "comboBoxMiscEffect2";
-            comboBoxMiscEffect2.Size = new Size(226, 23);
+            comboBoxMiscEffect2.Size = new Size(280, 23);
             comboBoxMiscEffect2.TabIndex = 13;
             comboBoxMiscEffect2.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect2.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -998,7 +998,7 @@
             comboBoxMiscEffect1.Location = new Point(1, 246);
             comboBoxMiscEffect1.Margin = new Padding(1);
             comboBoxMiscEffect1.Name = "comboBoxMiscEffect1";
-            comboBoxMiscEffect1.Size = new Size(225, 23);
+            comboBoxMiscEffect1.Size = new Size(280, 23);
             comboBoxMiscEffect1.TabIndex = 12;
             comboBoxMiscEffect1.DropDown += comboBoxTooltipShow_Event;
             comboBoxMiscEffect1.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
@@ -1011,7 +1011,7 @@
             tableLayoutPanel2.SetColumnSpan(label3, 2);
             label3.Location = new Point(3, 216);
             label3.Name = "label3";
-            label3.Size = new Size(449, 29);
+            label3.Size = new Size(558, 29);
             label3.TabIndex = 11;
             label3.Text = "Warframe Arcane/Buffs/Misc Effects";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -1021,10 +1021,10 @@
             comboBoxMod8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMod8.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMod8.FormattingEnabled = true;
-            comboBoxMod8.Location = new Point(228, 192);
+            comboBoxMod8.Location = new Point(283, 192);
             comboBoxMod8.Margin = new Padding(1);
             comboBoxMod8.Name = "comboBoxMod8";
-            comboBoxMod8.Size = new Size(226, 23);
+            comboBoxMod8.Size = new Size(280, 23);
             comboBoxMod8.TabIndex = 10;
             comboBoxMod8.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod8.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
@@ -1038,7 +1038,7 @@
             comboBoxMod7.Location = new Point(1, 192);
             comboBoxMod7.Margin = new Padding(1);
             comboBoxMod7.Name = "comboBoxMod7";
-            comboBoxMod7.Size = new Size(225, 23);
+            comboBoxMod7.Size = new Size(280, 23);
             comboBoxMod7.TabIndex = 9;
             comboBoxMod7.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod7.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
@@ -1049,10 +1049,10 @@
             comboBoxMod6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMod6.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMod6.FormattingEnabled = true;
-            comboBoxMod6.Location = new Point(228, 167);
+            comboBoxMod6.Location = new Point(283, 167);
             comboBoxMod6.Margin = new Padding(1);
             comboBoxMod6.Name = "comboBoxMod6";
-            comboBoxMod6.Size = new Size(226, 23);
+            comboBoxMod6.Size = new Size(280, 23);
             comboBoxMod6.TabIndex = 8;
             comboBoxMod6.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod6.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
@@ -1066,7 +1066,7 @@
             comboBoxMod5.Location = new Point(1, 167);
             comboBoxMod5.Margin = new Padding(1);
             comboBoxMod5.Name = "comboBoxMod5";
-            comboBoxMod5.Size = new Size(225, 23);
+            comboBoxMod5.Size = new Size(280, 23);
             comboBoxMod5.TabIndex = 7;
             comboBoxMod5.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod5.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
@@ -1077,10 +1077,10 @@
             comboBoxMod4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMod4.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMod4.FormattingEnabled = true;
-            comboBoxMod4.Location = new Point(228, 142);
+            comboBoxMod4.Location = new Point(283, 142);
             comboBoxMod4.Margin = new Padding(1);
             comboBoxMod4.Name = "comboBoxMod4";
-            comboBoxMod4.Size = new Size(226, 23);
+            comboBoxMod4.Size = new Size(280, 23);
             comboBoxMod4.TabIndex = 6;
             comboBoxMod4.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod4.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
@@ -1094,7 +1094,7 @@
             comboBoxMod3.Location = new Point(1, 142);
             comboBoxMod3.Margin = new Padding(1);
             comboBoxMod3.Name = "comboBoxMod3";
-            comboBoxMod3.Size = new Size(225, 23);
+            comboBoxMod3.Size = new Size(280, 23);
             comboBoxMod3.TabIndex = 5;
             comboBoxMod3.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod3.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
@@ -1105,10 +1105,10 @@
             comboBoxMod2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxMod2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMod2.FormattingEnabled = true;
-            comboBoxMod2.Location = new Point(228, 117);
+            comboBoxMod2.Location = new Point(283, 117);
             comboBoxMod2.Margin = new Padding(1);
             comboBoxMod2.Name = "comboBoxMod2";
-            comboBoxMod2.Size = new Size(226, 23);
+            comboBoxMod2.Size = new Size(280, 23);
             comboBoxMod2.TabIndex = 4;
             comboBoxMod2.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod2.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
@@ -1121,7 +1121,7 @@
             tableLayoutPanel2.SetColumnSpan(label2, 2);
             label2.Location = new Point(3, 87);
             label2.Name = "label2";
-            label2.Size = new Size(449, 29);
+            label2.Size = new Size(558, 29);
             label2.TabIndex = 2;
             label2.Text = "Weapon Mods";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -1135,7 +1135,7 @@
             comboBoxWeaponArcane.Location = new Point(0, 61);
             comboBoxWeaponArcane.Margin = new Padding(0, 3, 0, 3);
             comboBoxWeaponArcane.Name = "comboBoxWeaponArcane";
-            comboBoxWeaponArcane.Size = new Size(455, 23);
+            comboBoxWeaponArcane.Size = new Size(564, 23);
             comboBoxWeaponArcane.TabIndex = 1;
             comboBoxWeaponArcane.DropDown += comboBoxTooltipShow_Event;
             comboBoxWeaponArcane.SelectedIndexChanged += comboBoxWeaponArcane_SelectedIndexChanged;
@@ -1148,7 +1148,7 @@
             tableLayoutPanel2.SetColumnSpan(label1, 2);
             label1.Location = new Point(3, 29);
             label1.Name = "label1";
-            label1.Size = new Size(449, 29);
+            label1.Size = new Size(558, 29);
             label1.TabIndex = 0;
             label1.Text = "Weapon Arcane";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -1161,7 +1161,7 @@
             comboBoxMod1.Location = new Point(1, 117);
             comboBoxMod1.Margin = new Padding(1);
             comboBoxMod1.Name = "comboBoxMod1";
-            comboBoxMod1.Size = new Size(225, 23);
+            comboBoxMod1.Size = new Size(280, 23);
             comboBoxMod1.TabIndex = 3;
             comboBoxMod1.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod1.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;

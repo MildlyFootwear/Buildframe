@@ -141,7 +141,7 @@ namespace Buildframe.Methods.Calculation
             double critChance = calculateModCritChance(stats);
             double steps = 0;
             Random rnd = new Random();
-            int degreeOfAccuracy = 1000;
+            int degreeOfAccuracy = 100000;
             for (int i = 0; i <= degreeOfAccuracy; i++)
             {
                 int bigCrits = 0;
