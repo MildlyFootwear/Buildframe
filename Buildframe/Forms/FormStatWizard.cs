@@ -239,16 +239,7 @@ namespace Buildframe.Forms
             stats.finalStatusChance = (double)numericUpDownFinalStatusChance.Value;
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
 
-            string fileName = stats.name + " - " + stats.id + ".cfg";
-            foreach (string s in CommonVars.ProhibPathChars)
-            {
-                fileName = fileName.Replace(s, "");
-            }
-            foreach (char c in Path.GetInvalidFileNameChars())
-            {
-                string s = c.ToString();
-                fileName = fileName.Replace(s, "");
-            }
+            string fileName = LoadAndSave.cleanFileName(stats.name + " - " + stats.id + ".cfg");
 
             string filePath = envAPPLOC;
 

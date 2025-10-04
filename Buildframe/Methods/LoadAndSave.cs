@@ -9,6 +9,24 @@ namespace Buildframe.Methods
 {
     public class LoadAndSave
     {
+
+        public static string cleanFileName(string name)
+        {
+            string cleanName = name;
+
+            foreach (string s in CommonVars.ProhibPathChars)
+            {
+                cleanName = cleanName.Replace(s, "");
+            }
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                string s = c.ToString();
+                cleanName = cleanName.Replace(s, "");
+            }
+
+            return cleanName;
+        }
+
         public static Stats loadStatFromFile(string path)
         {
             Stats stats = new Stats();
@@ -245,7 +263,7 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("Filename starts with ID, converting");
                 File.Delete(path);
-                saveStatToFile(path.Replace(Path.GetFileName(path), stats.name + " - " + stats.id + ".cfg"), stats);
+                saveStatToFile(path.Replace(Path.GetFileName(path), cleanFileName(stats.name + " - " + stats.id + ".cfg")), stats);
             }
 
             return stats;
@@ -450,7 +468,7 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("Filename starts with ID, converting");
                 File.Delete(path);
-                saveWeaponToFile(path.Replace(Path.GetFileName(path), weapon.name + " - " + weapon.id + ".cfg"), weapon);
+                saveWeaponToFile(path.Replace(Path.GetFileName(path), cleanFileName(weapon.name + " - " + weapon.id + ".cfg")), weapon);
             }
 
             return weapon;

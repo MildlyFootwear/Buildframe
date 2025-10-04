@@ -118,16 +118,8 @@ namespace Buildframe.Forms
                 wpn.fireModesRadials.Add(fireModeStats.Values.ToList()[comboBoxTertiary.SelectedIndex - 1].id, fireModeStats.Values.ToList()[comboBoxTertiaryRadial.SelectedIndex - 1]);
             }
 
-            string fileName = wpn.name + " - " + wpn.id + ".cfg";
-            foreach (string s in CommonVars.ProhibPathChars)
-            {
-                fileName = fileName.Replace(s, "");
-            }
-            foreach (char c in Path.GetInvalidFileNameChars())
-            {
-                string s = c.ToString();
-                fileName = fileName.Replace(s, "");
-            }
+            string fileName = LoadAndSave.cleanFileName(wpn.name + " - " + wpn.id + ".cfg");
+            
             string filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Weapons", fileName);
             LoadAndSave.saveWeaponToFile(filePath, wpn);
             Close();
