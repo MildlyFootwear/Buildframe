@@ -53,8 +53,12 @@
             label4 = new Label();
             comboBoxSecondaryRadial = new ComboBox();
             buttonCreate = new Button();
+            toolStrip1 = new ToolStrip();
+            toolStripButtonLoad = new ToolStripButton();
+            openFileDialog1 = new OpenFileDialog();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -72,7 +76,7 @@
             tableLayoutPanel2.Controls.Add(textBoxID, 1, 1);
             tableLayoutPanel2.Controls.Add(textBoxTags, 1, 3);
             tableLayoutPanel2.Controls.Add(label82, 0, 0);
-            tableLayoutPanel2.Location = new Point(3, 1);
+            tableLayoutPanel2.Location = new Point(3, 22);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 5;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
@@ -195,7 +199,7 @@
             tableLayoutPanel1.Controls.Add(comboBoxPrimaryRadial, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
             tableLayoutPanel1.Controls.Add(comboBoxSecondaryRadial, 1, 3);
-            tableLayoutPanel1.Location = new Point(3, 188);
+            tableLayoutPanel1.Location = new Point(3, 208);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
@@ -335,13 +339,36 @@
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(3, 353);
+            buttonCreate.Location = new Point(3, 373);
             buttonCreate.Name = "buttonCreate";
             buttonCreate.Size = new Size(75, 23);
             buttonCreate.TabIndex = 0;
             buttonCreate.Text = "Create";
             buttonCreate.UseVisualStyleBackColor = true;
             buttonCreate.Click += buttonCreate_Click;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButtonLoad });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(800, 25);
+            toolStrip1.TabIndex = 6;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonLoad
+            // 
+            toolStripButtonLoad.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButtonLoad.Image = (Image)resources.GetObject("toolStripButtonLoad.Image");
+            toolStripButtonLoad.ImageTransparentColor = Color.Magenta;
+            toolStripButtonLoad.Name = "toolStripButtonLoad";
+            toolStripButtonLoad.Size = new Size(84, 22);
+            toolStripButtonLoad.Text = "Load Weapon";
+            toolStripButtonLoad.Click += toolStripButtonLoad_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormWeaponWizard
             // 
@@ -351,6 +378,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(800, 450);
+            Controls.Add(toolStrip1);
             Controls.Add(buttonCreate);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(tableLayoutPanel2);
@@ -365,6 +393,8 @@
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -396,5 +426,8 @@
         private Label label7;
         private ComboBox comboBoxTertiary;
         private Label label6;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButtonLoad;
+        private OpenFileDialog openFileDialog1;
     }
 }

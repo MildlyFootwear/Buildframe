@@ -22,6 +22,40 @@ namespace Buildframe.Forms
         List<NumericUpDown> listBaseValues = new();
         List<NumericUpDown> listModValues = new();
         List<NumericUpDown> listFinalValues = new();
+        string loadedFilePath = "";
+        string loadedID = "";
+
+        public void loadFile(string filePath)
+        {
+            WriteLineIfDebug("Loading stats from file: " + filePath);
+            GameData.Stats stats = LoadAndSave.loadStatFromFile(filePath);
+            if (stats.id != "")
+            {
+                loadStatsToForm(stats);
+                loadedFilePath = filePath;
+                loadedID = stats.id;
+                if (filePath.Contains("Mods"))
+                {
+                    comboBox1.SelectedIndex = 0;
+                }
+                else if (filePath.Contains("Arcanes"))
+                {
+                    comboBox1.SelectedIndex = 1;
+                }
+                else if (filePath.Contains("Misc"))
+                {
+                    comboBox1.SelectedIndex = 2;
+                }
+                else if (filePath.Contains("FireModes"))
+                {
+                    comboBox1.SelectedIndex = 3;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to load stats from the dropped file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void loadStatsToForm(GameData.Stats stats)
         {
@@ -143,7 +177,7 @@ namespace Buildframe.Forms
                 }
                 if (isABaseChanged)
                 {
-                    if (MessageBox.Show("A base value has been changed for a mod effect.\nThis is typically only done in error.\nContinue?","Buildframe",MessageBoxButtons.YesNo) == DialogResult.No)
+                    if (MessageBox.Show("A base value has been changed for a mod effect.\nThis is typically only done in error.\nContinue?", "Buildframe", MessageBoxButtons.YesNo) == DialogResult.No)
                     {
                         return;
                     }
@@ -154,6 +188,22 @@ namespace Buildframe.Forms
             {
                 MessageBox.Show("A name is required.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            if (textBoxID.Text == loadedID)
+            {
+                if (File.Exists(loadedFilePath))
+                {
+                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", "Buildframe", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        WriteLineIfDebug("Deleting loaded file: " + loadedFilePath);
+                        File.Delete(loadedFilePath);
+                    }
+                }
             }
 
             GameData.Stats stats = new GameData.Stats();
@@ -278,31 +328,7 @@ namespace Buildframe.Forms
                 if (files.Length > 0)
                 {
                     string filePath = files[0];
-                    GameData.Stats stats = LoadAndSave.loadStatFromFile(filePath);
-                    if (stats.id != "")
-                    {
-                        loadStatsToForm(stats);
-                        if (filePath.Contains("Mods"))
-                        {
-                            comboBox1.SelectedIndex = 0;
-                        }
-                        else if (filePath.Contains("Arcanes"))
-                        {
-                            comboBox1.SelectedIndex = 1;
-                        }
-                        else if (filePath.Contains("Misc"))
-                        {
-                            comboBox1.SelectedIndex = 2;
-                        }
-                        else if (filePath.Contains("FireModes"))
-                        {
-                            comboBox1.SelectedIndex = 3;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to load stats from the dropped file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    loadFile(filePath);
                 }
             }
         }
@@ -358,6 +384,18 @@ namespace Buildframe.Forms
         private void numericUpDownBaseMultishot_ValueChanged(object sender, EventArgs e)
         {
             multishotBaseEdited = true;
+        }
+
+        private void toolStripButtonLoad_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Select a stat file to load";
+            openFileDialog1.Filter = "Config Files|*.cfg";
+            openFileDialog1.FileName = "";
+            openFileDialog1.InitialDirectory = System.IO.Path.Combine(envAPPLOC, "Data");
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                loadFile(openFileDialog1.FileName);
+            }
         }
     }
 }

@@ -33,6 +33,14 @@ namespace Buildframe.Methods
 
             bool resaveToConvert = false; // this will be set to true if there is an indicator of it needing to be updated to the current format for stat files
 
+            string directory = Path.GetDirectoryName(path.Replace(envAPPLOC, ""));
+
+            if (!directory.Contains("Arcanes") && !directory.Contains("FireModes") && !directory.Contains("Misc") && !directory.Contains("Mods"))
+            {
+                WriteLineIfDebug("\nFile load error: not in stat directory:\n"+path + "\n\n");
+                return stats;
+            }
+
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] split = s.Split('=');
@@ -429,10 +437,15 @@ namespace Buildframe.Methods
         public static Weapon loadWeaponFromFile(string path)
         {
             Weapon weapon = new Weapon();
+            if (!Path.GetDirectoryName(path.Replace(envAPPLOC, "")).Contains("Weapon"))
+            {
+                WriteLineIfDebug("\nFile load error: not in weapon directory:\n" + path + "\n\n");
+                return weapon;
+            }
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] split = s.Split('=');
-
+                
                 if (split[0] == "name")
                     weapon.name = split[1];
                 if (split[0] == "description")
@@ -485,7 +498,7 @@ namespace Buildframe.Methods
                 Stats stats = loadStatFromFile(file);
                 if (arcaneStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate arcane ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 arcaneStats.Add(stats.id, stats);
@@ -504,7 +517,7 @@ namespace Buildframe.Methods
                 Stats stats = loadStatFromFile(file);
                 if (modStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate mod ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 modStats.Add(stats.id, stats);
@@ -523,7 +536,7 @@ namespace Buildframe.Methods
                 Stats stats = loadStatFromFile(file);
                 if (miscStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate misc ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 miscStats.Add(stats.id, stats);
@@ -542,7 +555,7 @@ namespace Buildframe.Methods
                 Stats stats = loadStatFromFile(file);
                 if (fireModeStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate fire mode ID found: " + stats.id + " in file " + file.Replace(envAPPLOC, ""));
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 fireModeStats.Add(stats.id, stats);
@@ -561,7 +574,7 @@ namespace Buildframe.Methods
                 Weapon wpn = loadWeaponFromFile(file);
                 if (weaponStats.ContainsKey(wpn.id))
                 {
-                    MessageBox.Show("Duplicate weapon ID found: " + wpn.id + " in file " + file.Replace(envAPPLOC, ""));
+                    MessageBox.Show("Duplicate ID found: " + wpn.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 weaponStats.Add(wpn.id, wpn);

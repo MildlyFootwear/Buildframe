@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             TabPage basePage;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatWizard));
             tableLayoutPanel1 = new TableLayoutPanel();
             checkBoxIncarnon = new CheckBox();
             numericUpDownBaseCorrosive = new NumericUpDown();
@@ -200,6 +201,9 @@
             buttonConfirm = new Button();
             comboBox1 = new ComboBox();
             tableLayoutPanel5 = new TableLayoutPanel();
+            toolStrip1 = new ToolStrip();
+            toolStripButtonLoad = new ToolStripButton();
+            openFileDialog1 = new OpenFileDialog();
             basePage = new TabPage();
             basePage.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -284,6 +288,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalMagnetic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).BeginInit();
             tableLayoutPanel5.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // basePage
@@ -2552,13 +2557,36 @@
             tableLayoutPanel5.Controls.Add(tabControl1, 0, 0);
             tableLayoutPanel5.Controls.Add(comboBox1, 1, 1);
             tableLayoutPanel5.Controls.Add(buttonConfirm, 0, 1);
-            tableLayoutPanel5.Location = new Point(1, 1);
+            tableLayoutPanel5.Location = new Point(1, 20);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 372F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.Size = new Size(426, 401);
             tableLayoutPanel5.TabIndex = 4;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButtonLoad });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1027, 25);
+            toolStrip1.TabIndex = 5;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonLoad
+            // 
+            toolStripButtonLoad.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButtonLoad.Image = (Image)resources.GetObject("toolStripButtonLoad.Image");
+            toolStripButtonLoad.ImageTransparentColor = Color.Magenta;
+            toolStripButtonLoad.Name = "toolStripButtonLoad";
+            toolStripButtonLoad.Size = new Size(70, 22);
+            toolStripButtonLoad.Text = "Load Effect";
+            toolStripButtonLoad.Click += toolStripButtonLoad_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormStatWizard
             // 
@@ -2568,6 +2596,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1027, 808);
+            Controls.Add(toolStrip1);
             Controls.Add(tableLayoutPanel5);
             MaximizeBox = false;
             Name = "FormStatWizard";
@@ -2663,6 +2692,8 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalMagnetic).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2841,5 +2872,8 @@
         private Label label80;
         private Label label81;
         private Label label82;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButtonLoad;
+        private OpenFileDialog openFileDialog1;
     }
 }

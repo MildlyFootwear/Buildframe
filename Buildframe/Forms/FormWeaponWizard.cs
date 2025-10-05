@@ -20,6 +20,81 @@ namespace Buildframe.Forms
             InitializeComponent();
         }
 
+        string loadedFilePath = "";
+        string loadedID = "";
+
+        public void loadFile(string filePath)
+        {
+            WriteLineIfDebug("Loading weapon from file: " + filePath);
+            Weapon wpn = LoadAndSave.loadWeaponFromFile(filePath);
+            if (wpn.id != "")
+            {
+                loadedFilePath = filePath;
+                loadedID = wpn.id;
+
+                textBoxDescription.Text = wpn.description;
+                textBoxID.Text = wpn.id;
+                textBoxName.Text = wpn.name;
+                textBoxTags.Text = wpn.tags;
+                if (wpn.fireModes.Count > 0)
+                {
+                    comboBoxPrimary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[0]) + 1;
+                    if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[0].id))
+                    {
+                        comboBoxPrimaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[0].id]) + 1;
+                    }
+                    else
+                    {
+                        comboBoxPrimaryRadial.SelectedIndex = 0;
+                    }
+
+                }
+                else
+                {
+                    comboBoxPrimary.SelectedIndex = 0;
+                    comboBoxPrimaryRadial.SelectedIndex = 0;
+                }
+                if (wpn.fireModes.Count > 1)
+                {
+                    comboBoxSecondary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[1]) + 1;
+                    if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[1].id))
+                    {
+                        comboBoxSecondaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[1].id]) + 1;
+                    }
+                    else
+                    {
+                        comboBoxSecondaryRadial.SelectedIndex = 0;
+                    }
+                }
+                else
+                {
+                    comboBoxSecondary.SelectedIndex = 0;
+                    comboBoxSecondaryRadial.SelectedIndex = 0;
+                }
+                if (wpn.fireModes.Count > 2)
+                {
+                    comboBoxTertiary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[2]) + 1;
+                    if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[2].id))
+                    {
+                        comboBoxTertiaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[2].id]) + 1;
+                    }
+                    else
+                    {
+                        comboBoxTertiaryRadial.SelectedIndex = 0;
+                    }
+                }
+                else
+                {
+                    comboBoxTertiary.SelectedIndex = 0;
+                    comboBoxTertiaryRadial.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to load stats from file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void FormWeaponWizard_Load(object sender, EventArgs e)
         {
             textBoxID.Text = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
@@ -87,6 +162,23 @@ namespace Buildframe.Forms
                 return;
             }
 
+
+            if (textBoxID.Text == loadedID)
+            {
+                if (File.Exists(loadedFilePath))
+                {
+                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", "Buildframe", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        WriteLineIfDebug("Deleting loaded file: " + loadedFilePath);
+                        File.Delete(loadedFilePath);
+                    }
+                }
+            }
+
             Weapon wpn = new Weapon();
 
             wpn.id = textBoxID.Text;
@@ -119,7 +211,7 @@ namespace Buildframe.Forms
             }
 
             string fileName = LoadAndSave.cleanFileName(wpn.name + " - " + wpn.id + ".cfg");
-            
+
             string filePath = System.IO.Path.Combine(envAPPLOC, "Data", "Weapons", fileName);
             LoadAndSave.saveWeaponToFile(filePath, wpn);
             Close();
@@ -138,71 +230,20 @@ namespace Buildframe.Forms
                 if (files.Length > 0)
                 {
                     string filePath = files[0];
-                    Weapon wpn = LoadAndSave.loadWeaponFromFile(filePath);
-                    if (wpn.id != "")
-                    {
-                        textBoxDescription.Text = wpn.description;
-                        textBoxID.Text = wpn.id;
-                        textBoxName.Text = wpn.name;
-                        textBoxTags.Text = wpn.tags;
-                        if (wpn.fireModes.Count > 0)
-                        {
-                            comboBoxPrimary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[0]) + 1;
-                            if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[0].id))
-                            {
-                                comboBoxPrimaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[0].id]) + 1;
-                            }
-                            else
-                            {
-                                comboBoxPrimaryRadial.SelectedIndex = 0;
-                            }
-
-                        }
-                        else
-                        {
-                            comboBoxPrimary.SelectedIndex = 0;
-                            comboBoxPrimaryRadial.SelectedIndex = 0;
-                        }
-                        if (wpn.fireModes.Count > 1)
-                        {
-                            comboBoxSecondary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[1]) + 1;
-                            if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[1].id))
-                            {
-                                comboBoxSecondaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[1].id]) + 1;
-                            }
-                            else
-                            {
-                                comboBoxSecondaryRadial.SelectedIndex = 0;
-                            }
-                        }
-                        else
-                        {
-                            comboBoxSecondary.SelectedIndex = 0;
-                            comboBoxSecondaryRadial.SelectedIndex = 0;
-                        }
-                        if (wpn.fireModes.Count > 2)
-                        {
-                            comboBoxTertiary.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModes[2]) + 1;
-                            if (wpn.fireModesRadials.ContainsKey(wpn.fireModes[2].id))
-                            {
-                                comboBoxTertiaryRadial.SelectedIndex = fireModeStats.Values.ToList().IndexOf(wpn.fireModesRadials[wpn.fireModes[2].id]) + 1;
-                            }
-                            else
-                            {
-                                comboBoxTertiaryRadial.SelectedIndex = 0;
-                            }
-                        }
-                        else
-                        {
-                            comboBoxTertiary.SelectedIndex = 0;
-                            comboBoxTertiaryRadial.SelectedIndex = 0;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to load stats from the dropped file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    loadFile(filePath);
                 }
+            }
+        }
+
+        private void toolStripButtonLoad_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Select a weapon file to load";
+            openFileDialog1.Filter = "Config Files|*.cfg";
+            openFileDialog1.FileName = "";
+            openFileDialog1.InitialDirectory = System.IO.Path.Combine(envAPPLOC, "Data", "Weapons");
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                loadFile(openFileDialog1.FileName);
             }
         }
     }
