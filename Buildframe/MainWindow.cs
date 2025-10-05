@@ -781,6 +781,9 @@ namespace Buildframe
                 loadSelectedFromFile();
             }
 
+            Padding newMargin = tableLayoutPanel1.Margin;
+            newMargin.Bottom = tableLayoutPanel1.Location.X;
+            tableLayoutPanel1.Margin = newMargin;
         }
 
         private void ToolStripMenuItemSelectWeapon_Click(object sender, EventArgs e)
