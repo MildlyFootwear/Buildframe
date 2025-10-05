@@ -14,8 +14,12 @@ namespace Buildframe.Methods
 
         public static string generateStatsDescription(Stats stats, Stats? fullSheet = null)
         {
-            string s = stats.name + "\n\n";
-
+            string s = stats.name;
+            if (ToolDebug)
+            {
+                s += "\nID: " + stats.id;
+            }
+            s += "\n\n";
             if (stats.description != "")
             {
                 s += stats.description + "\n\n";
