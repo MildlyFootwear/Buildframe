@@ -56,9 +56,11 @@
             toolStrip1 = new ToolStrip();
             toolStripButtonLoad = new ToolStripButton();
             openFileDialog1 = new OpenFileDialog();
+            tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             toolStrip1.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -76,33 +78,34 @@
             tableLayoutPanel2.Controls.Add(textBoxID, 1, 1);
             tableLayoutPanel2.Controls.Add(textBoxTags, 1, 3);
             tableLayoutPanel2.Controls.Add(label82, 0, 0);
-            tableLayoutPanel2.Location = new Point(3, 22);
+            tableLayoutPanel2.Location = new Point(3, 0);
+            tableLayoutPanel2.Margin = new Padding(3, 0, 3, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 5;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel2.Size = new Size(372, 187);
+            tableLayoutPanel2.Size = new Size(372, 208);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // textBoxDescription
             // 
             textBoxDescription.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxDescription.Location = new Point(50, 150);
+            textBoxDescription.Location = new Point(50, 149);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
-            textBoxDescription.Size = new Size(318, 44);
+            textBoxDescription.Size = new Size(318, 55);
             textBoxDescription.TabIndex = 25;
             // 
             // label5
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
-            label5.Location = new Point(4, 147);
+            label5.Location = new Point(4, 146);
             label5.Name = "label5";
-            label5.Size = new Size(32, 50);
+            label5.Size = new Size(32, 61);
             label5.TabIndex = 24;
             label5.Text = "Desc";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -111,7 +114,7 @@
             // 
             label78.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label78.AutoSize = true;
-            label78.Location = new Point(4, 117);
+            label78.Location = new Point(4, 116);
             label78.Name = "label78";
             label78.Size = new Size(30, 29);
             label78.TabIndex = 22;
@@ -121,7 +124,7 @@
             // textBoxName
             // 
             textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxName.Location = new Point(50, 90);
+            textBoxName.Location = new Point(50, 89);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(318, 23);
             textBoxName.TabIndex = 18;
@@ -130,7 +133,7 @@
             // 
             label26.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label26.AutoSize = true;
-            label26.Location = new Point(4, 87);
+            label26.Location = new Point(4, 86);
             label26.Name = "label26";
             label26.Size = new Size(39, 29);
             label26.TabIndex = 17;
@@ -141,7 +144,7 @@
             // 
             label25.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label25.AutoSize = true;
-            label25.Location = new Point(4, 57);
+            label25.Location = new Point(4, 56);
             label25.Name = "label25";
             label25.Size = new Size(18, 29);
             label25.TabIndex = 16;
@@ -151,7 +154,7 @@
             // textBoxID
             // 
             textBoxID.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxID.Location = new Point(50, 60);
+            textBoxID.Location = new Point(50, 59);
             textBoxID.Name = "textBoxID";
             textBoxID.Size = new Size(318, 23);
             textBoxID.TabIndex = 0;
@@ -161,7 +164,7 @@
             // textBoxTags
             // 
             textBoxTags.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxTags.Location = new Point(50, 120);
+            textBoxTags.Location = new Point(50, 119);
             textBoxTags.Name = "textBoxTags";
             textBoxTags.Size = new Size(318, 23);
             textBoxTags.TabIndex = 21;
@@ -174,8 +177,9 @@
             tableLayoutPanel2.SetColumnSpan(label82, 2);
             label82.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label82.Location = new Point(4, 1);
+            label82.Margin = new Padding(3, 0, 3, 2);
             label82.Name = "label82";
-            label82.Size = new Size(364, 55);
+            label82.Size = new Size(364, 52);
             label82.TabIndex = 23;
             label82.Text = resources.GetString("label82.Text");
             // 
@@ -200,6 +204,7 @@
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
             tableLayoutPanel1.Controls.Add(comboBoxSecondaryRadial, 1, 3);
             tableLayoutPanel1.Location = new Point(3, 208);
+            tableLayoutPanel1.Margin = new Padding(3, 0, 3, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
@@ -339,7 +344,7 @@
             // 
             // buttonCreate
             // 
-            buttonCreate.Location = new Point(3, 373);
+            buttonCreate.Location = new Point(3, 392);
             buttonCreate.Name = "buttonCreate";
             buttonCreate.Size = new Size(75, 23);
             buttonCreate.TabIndex = 0;
@@ -370,6 +375,24 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.AutoSize = true;
+            tableLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(tableLayoutPanel2, 0, 0);
+            tableLayoutPanel3.Controls.Add(buttonCreate, 0, 2);
+            tableLayoutPanel3.Controls.Add(tableLayoutPanel1, 0, 1);
+            tableLayoutPanel3.Location = new Point(3, 25);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 3;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel3.Size = new Size(387, 418);
+            tableLayoutPanel3.TabIndex = 7;
+            // 
             // FormWeaponWizard
             // 
             AllowDrop = true;
@@ -378,10 +401,8 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(800, 450);
+            Controls.Add(tableLayoutPanel3);
             Controls.Add(toolStrip1);
-            Controls.Add(buttonCreate);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(tableLayoutPanel2);
             MaximizeBox = false;
             Name = "FormWeaponWizard";
             StartPosition = FormStartPosition.CenterParent;
@@ -395,6 +416,8 @@
             tableLayoutPanel1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -429,5 +452,6 @@
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButtonLoad;
         private OpenFileDialog openFileDialog1;
+        private TableLayoutPanel tableLayoutPanel3;
     }
 }
