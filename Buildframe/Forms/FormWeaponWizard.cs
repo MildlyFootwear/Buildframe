@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Buildframe.Forms
 {
@@ -120,6 +119,10 @@ namespace Buildframe.Forms
                 comboBoxTertiaryRadial.Items.Add(wm.Value);
             }
             tableLayoutPanel2.Width = tableLayoutPanel1.Width;
+
+            Button close = new Button();
+            close.Click += (s, ev) => { Close(); };
+            this.CancelButton = close;
         }
 
         private void textBoxID_TextChanged(object sender, EventArgs e)

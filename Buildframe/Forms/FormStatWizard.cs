@@ -160,6 +160,9 @@ namespace Buildframe.Forms
             tableLayoutPanel3.Height = tableLayoutPanel1.Height;
             tableLayoutPanel4.Height = tableLayoutPanel1.Height;
 
+            Button close = new Button();
+            close.Click += (s, ev) => { Close(); };
+            this.CancelButton = close;
         }
 
         private void buttonConfirm_Click(object sender, EventArgs e)
@@ -209,7 +212,11 @@ namespace Buildframe.Forms
             GameData.Stats stats = new GameData.Stats();
 
             stats.name = textBoxName.Text;
-            stats.description = textBoxDescription.Text;
+
+            string desc = textBoxDescription.Text;
+            stats.description = desc;
+
+
             stats.id = textBoxID.Text;
             stats.tags = textBoxTags.Text;
             stats.incarnon = checkBoxIncarnon.Checked;

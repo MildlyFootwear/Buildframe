@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Buildframe.Methods
@@ -48,7 +49,7 @@ namespace Buildframe.Methods
                 if (split[0] == "name")
                     stats.name = split[1];
                 if (split[0] == "description")
-                    stats.description = split[1].Replace("[NEW LINE]", "\n");
+                    stats.description = split[1].Replace("[NEW LINE]", "\r\n");
                 if (split[0] == "id")
                     stats.id = split[1];
                 if (split[0] == "tags")
@@ -284,7 +285,7 @@ namespace Buildframe.Methods
             string s = "";
 
             s += "name=" + stats.name;
-            s += "\ndescription=" + stats.description.Replace("\n","[NEW LINE]");
+            s += "\ndescription=" + stats.description.Replace("\r\n", "[NEW LINE]");
             s += "\nid=" + stats.id;
             s += "\nincarnon=" + Convert.ToString(stats.incarnon);
             s += "\ntags=" + stats.tags;
@@ -415,7 +416,7 @@ namespace Buildframe.Methods
         {
             string s = "";
             s += "name=" + weapon.name;
-            s += "\ndescription=" + weapon.description.Replace("\n", "[NEW LINE]");
+            s += "\ndescription=" + weapon.description.Replace("\r\n", "[NEW LINE]");
             s += "\nid=" + weapon.id;
             s += "\ntags=" + weapon.tags;
             s += "\nfireModes=";
@@ -452,7 +453,7 @@ namespace Buildframe.Methods
                 if (split[0] == "name")
                     weapon.name = split[1];
                 if (split[0] == "description")
-                    weapon.description = split[1].Replace("[NEW LINE]", "\n");
+                    weapon.description = split[1].Replace("[NEW LINE]", "\r\n");
                 if (split[0] == "id")
                     weapon.id = split[1];
                 if (split[0] == "tags")
