@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Buildframe.GameData
 {
-    public class Weapon
+    public class WeaponData
     {
 
-        public List<Stats> fireModes = new List<Stats>();
-        public Dictionary<string, Stats> fireModesRadials = new();
+        public List<StatsData> fireModes = new List<StatsData>();
+        public Dictionary<string, StatsData> fireModesRadials = new();
 
         public string id = "";
         public string name = "";

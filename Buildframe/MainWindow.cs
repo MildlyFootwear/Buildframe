@@ -22,19 +22,19 @@ namespace Buildframe
         public List<string> validArcaneIDs = new();
         public List<string> validMiscIDs = new();
 
-        public List<Stats> selectedStats = new();
-        public Stats mergedStats = new();
+        public List<StatsData> selectedStats = new();
+        public StatsData mergedStats = new();
 
-        public Weapon currentWeapon = new();
+        public WeaponData currentWeapon = new();
         public string[] tags = { "None" };
-        public Stats selectedFiremode = new();
-        public Stats radial = new();
-        public Stats selectedFiremodeWithAppliedStats = new();
-        public Stats radialWithAppliedStats = new();
+        public StatsData selectedFiremode = new();
+        public StatsData radial = new();
+        public StatsData selectedFiremodeWithAppliedStats = new();
+        public StatsData radialWithAppliedStats = new();
 
         public Dictionary<ComboBox, string> boxSelectedEffects = new();
 
-        public void loadWeapon(Weapon weapon)
+        public void loadWeapon(WeaponData weapon)
         {
             currentWeapon = weapon;
 
@@ -59,8 +59,8 @@ namespace Buildframe
                 comboBoxArchgunArcane.SelectedIndex = 0;
                 comboBoxFireMode.Items.Clear();
                 labelWeaponName.Text = "[Weapon Name]";
-                selectedFiremode = new Stats();
-                radial = new Stats();
+                selectedFiremode = new StatsData();
+                radial = new StatsData();
                 setHandlerPause(false);
                 return;
 
@@ -69,7 +69,7 @@ namespace Buildframe
             tags = weapon.tags.Split(' ');
 
             comboBoxFireMode.Items.Clear();
-            foreach (Stats fm in weapon.fireModes)
+            foreach (StatsData fm in weapon.fireModes)
             {
                 comboBoxFireMode.Items.Add(fm);
             }
@@ -101,7 +101,7 @@ namespace Buildframe
             {
                 if (box.SelectedIndex > 0)
                 {
-                    Stats stats = (Stats)box.SelectedItem;
+                    StatsData stats = (StatsData)box.SelectedItem;
                     selectedStats.Add(stats);
                     WriteLineIfDebug("    Selected stats added mod: " + stats.name);
                 }
@@ -111,7 +111,7 @@ namespace Buildframe
             {
                 if (box.SelectedIndex > 0)
                 {
-                    Stats stats = (Stats)box.SelectedItem;
+                    StatsData stats = (StatsData)box.SelectedItem;
                     selectedStats.Add(stats);
                     WriteLineIfDebug("    Selected stats added misc: " + stats.name);
                 }
@@ -119,14 +119,14 @@ namespace Buildframe
 
             if (comboBoxWeaponArcane.SelectedIndex > 0 && comboBoxWeaponArcane.SelectedItem.ToString() != "Secondary Enervate")
             {
-                Stats stats = (Stats)comboBoxWeaponArcane.SelectedItem;
+                StatsData stats = (StatsData)comboBoxWeaponArcane.SelectedItem;
                 selectedStats.Add(stats);
                 WriteLineIfDebug("    Selected stats added arcane: " + stats.name);
             }
 
             if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
             {
-                Stats stats = (Stats)comboBoxArchgunArcane.SelectedItem;
+                StatsData stats = (StatsData)comboBoxArchgunArcane.SelectedItem;
                 selectedStats.Add(stats);
                 WriteLineIfDebug("    Selected stats added arcane: " + stats.name);
             }
@@ -141,12 +141,21 @@ namespace Buildframe
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
                 arcaneName = comboBoxWeaponArcane.SelectedItem.ToString();
-                enervateCeiling = Methods.Calculation.StatMethods.identifyEnervate((Stats)comboBoxWeaponArcane.SelectedItem);
+                enervateCeiling = Methods.Calculation.StatMethods.identifyEnervate((StatsData)comboBoxWeaponArcane.SelectedItem);
             }
 
             if (selectedFiremode.id != "")
             {
-                selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { selectedFiremode, mergedStats });
+                selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats });
+
+                if (selectedFiremodeWithAppliedStats.tags.Contains("Devouring_Attrition"))
+                {
+                    labelAverageCritical.Text = "Average DA/Crit Multiplier";
+                }
+                else
+                {
+                    labelAverageCritical.Text = "Average Critical Multiplier";
+                }
 
                 if (enervateCeiling > 0)
                 {
@@ -199,10 +208,11 @@ namespace Buildframe
                 {
                     lbl.Text = "N/A";
                 }
+                labelAverageCritical.Text = "Average Critical Multiplier";
             }
             if (radial.id != "")
             {
-                radialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<Stats> { radial, mergedStats });
+                radialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<StatsData> { radial, mergedStats });
 
                 if (enervateCeiling > 0)
                 {
@@ -239,7 +249,7 @@ namespace Buildframe
             WriteLineIfDebug("Finished updating weapon stats\n");
         }
 
-        public bool hasTag(Stats stat)
+        public bool hasTag(StatsData stat)
         {
             if (tags.Contains("None"))
             {
@@ -265,17 +275,17 @@ namespace Buildframe
             validModIDs.Clear();
             validArcaneIDs.Clear();
             validMiscIDs.Clear();
-            foreach (Stats stat in CommonVars.modStats.Values)
+            foreach (StatsData stat in CommonVars.modStats.Values)
             {
                 if (hasTag(stat))
                     validModIDs.Add(stat.id);
             }
-            foreach (Stats stat in CommonVars.arcaneStats.Values)
+            foreach (StatsData stat in CommonVars.arcaneStats.Values)
             {
                 if (hasTag(stat))
                     validArcaneIDs.Add(stat.id);
             }
-            foreach (Stats stat in CommonVars.miscStats.Values)
+            foreach (StatsData stat in CommonVars.miscStats.Values)
             {
                 if (hasTag(stat))
                     validMiscIDs.Add(stat.id);
@@ -334,7 +344,7 @@ namespace Buildframe
             comboBoxArchgunArcane.Items.Clear();
             comboBoxArchgunArcane.Items.Add("None");
 
-            foreach (Stats stat in CommonVars.arcaneStats.Values)
+            foreach (StatsData stat in CommonVars.arcaneStats.Values)
             {
                 if (stat.tags.Contains("Any"))
                 {
@@ -439,7 +449,7 @@ namespace Buildframe
             {
                 if (box.SelectedIndex > 0)
                 {
-                    boxSelectedEffects.Add(box, ((Stats)box.SelectedItem).id);
+                    boxSelectedEffects.Add(box, ((StatsData)box.SelectedItem).id);
                 }
                 else
                 {
@@ -450,7 +460,7 @@ namespace Buildframe
             {
                 if (box.SelectedIndex > 0)
                 {
-                    boxSelectedEffects.Add(box, ((Stats)box.SelectedItem).id);
+                    boxSelectedEffects.Add(box, ((StatsData)box.SelectedItem).id);
                 }
                 else
                 {
@@ -459,7 +469,7 @@ namespace Buildframe
             }
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
-                boxSelectedEffects.Add(comboBoxWeaponArcane, ((Stats)comboBoxWeaponArcane.SelectedItem).id);
+                boxSelectedEffects.Add(comboBoxWeaponArcane, ((StatsData)comboBoxWeaponArcane.SelectedItem).id);
             }
             else
             {
@@ -467,7 +477,7 @@ namespace Buildframe
             }
             if (comboBoxArchgunArcane.SelectedIndex > 0)
             {
-                boxSelectedEffects.Add(comboBoxArchgunArcane, ((Stats)comboBoxArchgunArcane.SelectedItem).id);
+                boxSelectedEffects.Add(comboBoxArchgunArcane, ((StatsData)comboBoxArchgunArcane.SelectedItem).id);
             }
             else
             {
@@ -484,7 +494,7 @@ namespace Buildframe
                     box.SelectedIndex = 0;
                     continue;
                 }
-                Stats stat = modStats[boxSelectedEffects[box]];
+                StatsData stat = modStats[boxSelectedEffects[box]];
                 if (validModIDs.Contains(stat.id))
                 {
                     box.SelectedItem = stat;
@@ -492,7 +502,7 @@ namespace Buildframe
             }
             if (boxSelectedEffects.ContainsKey(comboBoxWeaponArcane))
             {
-                Stats stat = arcaneStats[boxSelectedEffects[comboBoxWeaponArcane]];
+                StatsData stat = arcaneStats[boxSelectedEffects[comboBoxWeaponArcane]];
                 if (validArcaneIDs.Contains(stat.id))
                 {
                     comboBoxWeaponArcane.SelectedItem = stat;
@@ -514,7 +524,7 @@ namespace Buildframe
             s += "weapon=" + currentWeapon.id + "\n";
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
-                string statID = ((Stats)comboBoxWeaponArcane.SelectedItem).id;
+                string statID = ((StatsData)comboBoxWeaponArcane.SelectedItem).id;
                 s += "arcane=" + statID + "\n";
             }
             else
@@ -524,7 +534,7 @@ namespace Buildframe
 
             if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
             {
-                Stats stat = (Stats)comboBoxArchgunArcane.SelectedItem;
+                StatsData stat = (StatsData)comboBoxArchgunArcane.SelectedItem;
 
                 string statID = stat.id;
 
@@ -613,7 +623,7 @@ namespace Buildframe
                     if (value != "" && CommonVars.arcaneStats.ContainsKey(value) && comboBoxWeaponArcane.Items.Contains(arcaneStats[value]))
                     {
                         WriteLineIfDebug("Setting arcane to " + value);
-                        Stats stat = CommonVars.arcaneStats[value];
+                        StatsData stat = CommonVars.arcaneStats[value];
                         comboBoxWeaponArcane.SelectedItem = stat;
                     }
                     else
@@ -626,7 +636,7 @@ namespace Buildframe
                     if (value != "" && CommonVars.arcaneStats.ContainsKey(value) && tags.Contains("Archgun"))
                     {
                         WriteLineIfDebug("Setting archgun arcane to " + value);
-                        Stats stat = CommonVars.arcaneStats[value];
+                        StatsData stat = CommonVars.arcaneStats[value];
                         comboBoxArchgunArcane.SelectedItem = stat;
                     }
                     else if (value != "" && tags.Contains("Archgun"))
@@ -842,7 +852,7 @@ namespace Buildframe
             }
             else
             {
-                radial = new Stats();
+                radial = new StatsData();
             }
             if (comboBoxFireMode.DroppedDown)
             {
@@ -934,15 +944,15 @@ namespace Buildframe
             p.X += tableLayoutPanel2.Location.X;
             p.Y += tableLayoutPanel2.Location.Y;
             p.Y += toolStrip1.Height;
-            if (box.SelectedItem is Stats)
+            if (box.SelectedItem is StatsData)
             {
-                int enervate = Methods.Calculation.StatMethods.identifyEnervate((Stats)box.SelectedItem);
+                int enervate = Methods.Calculation.StatMethods.identifyEnervate((StatsData)box.SelectedItem);
                 if (box == comboBoxWeaponArcane && enervate > 0)
                 {
-                    toolTipMods.Show(StatDisplay.generateStatsDescription((Stats)box.SelectedItem, (Methods.Calculation.StatMethods.sumStats(new List<Stats> { selectedFiremode, mergedStats }))), this, p);
+                    toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, (Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats }))), this, p);
                     return;
                 }
-                toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem), this, p);
+                toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);
             }
             else
             {
@@ -959,9 +969,9 @@ namespace Buildframe
             p.Y += box.Height / 2;
             p.Y += toolStrip1.Height;
 
-            if (box.SelectedItem is Stats)
+            if (box.SelectedItem is StatsData)
             {
-                string tooltip = Methods.StatDisplay.generateStatsDescription((Stats)box.SelectedItem);
+                string tooltip = Methods.StatDisplay.generateStatsDescription((StatsData)box.SelectedItem);
                 if (radial.id != "")
                 {
                     tooltip += "\nRadial:\n";

@@ -9,11 +9,11 @@ namespace Buildframe.Methods.Calculation
 {
     internal class Weapon
     {
-        public static double calculateBaseDamage(Stats stats)
+        public static double calculateBaseDamage(StatsData stats)
         {
             return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
-        public static double calculateModDamagePreCrit(Stats stats)
+        public static double calculateModDamagePreCrit(StatsData stats)
         {
             double baseDamage = calculateBaseDamage(stats);
 
@@ -40,39 +40,51 @@ namespace Buildframe.Methods.Calculation
 
             return moddedDamage * stats.damageMultiplier;
         }
-        public static double calculateModStatusChance(Stats stats)
+        public static double calculateModStatusChance(StatsData stats)
         {
             return stats.baseStatusChance * (1 + stats.modStatusChance / 100) + stats.finalStatusChance;
         }
-        public static double calculateModCritChance(Stats stats)
+        public static double calculateModCritChance(StatsData stats)
         {
             return Math.Max(0, stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance);
         }
-        public static double calculateModCritDamage(Stats stats)
+        public static double calculateModCritDamage(StatsData stats)
         {
             return Math.Max(1, stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage);
         }
-        public static double calculateModAverageCritMultiplier(Stats stats)
+        public static double calculateModAverageCritMultiplier(StatsData stats)
         {
+            if (stats.tags.Contains("Devouring_Attrition"))
+            {
+                return calculateModDevouringAttritionMultiplier(stats) + ((calculateModCritDamage(stats) - 1) * (calculateModCritChance(stats) / 100) + 1);
+            }
             return (calculateModCritDamage(stats) - 1) * (calculateModCritChance(stats) / 100) + 1;
         }
-        public static double calculateModSpeed(Stats stats)
+        public static double calculateModDevouringAttritionMultiplier(StatsData stats)
+        {
+            double critChance = calculateModCritChance(stats);
+            double daBonus = 10;
+            daBonus = Math.Max(0, daBonus * (1 - critChance / 100));
+            WriteLineIfDebug("Devouring Attrition bonus " + daBonus + " with crit chance " + critChance);
+            return 1 + daBonus;
+        }
+        public static double calculateModSpeed(StatsData stats)
         {
             return stats.baseAttackSpeed * (1 + stats.modAttackSpeed / 100) + stats.finalAttackSpeed;
         }
-        public static double calculateModMultishot(Stats stats)
+        public static double calculateModMultishot(StatsData stats)
         {
             return Math.Max(stats.baseMultishot * (1 + stats.modMultishot / 100) + stats.finalMultishot, 1);
         }
-        public static double calculateModMagazine(Stats stats)
+        public static double calculateModMagazine(StatsData stats)
         {
             return stats.baseMagazine * (1 + stats.modMagazine / 100) + stats.finalMagazine;
         }
-        public static double calculateModReloadTime(Stats stats)
+        public static double calculateModReloadTime(StatsData stats)
         {
             return stats.baseReloadTime / (1 + (stats.modReloadTime / 100));
         }
-        public static double calculateModAmmoEfficiency(Stats stats)
+        public static double calculateModAmmoEfficiency(StatsData stats)
         {
             double efficiency = stats.baseAmmoEfficiency + stats.modAmmoEfficiency + stats.finalAmmoEfficiency;
             if (efficiency > 100)
@@ -82,7 +94,7 @@ namespace Buildframe.Methods.Calculation
 
             return efficiency;
         }
-        public static double calculateModFireTime(Stats stats)
+        public static double calculateModFireTime(StatsData stats)
         {
             double ammoEfficiency = calculateModAmmoEfficiency(stats);
             double magazine = calculateModMagazine(stats);
@@ -93,7 +105,7 @@ namespace Buildframe.Methods.Calculation
             }
             return magazine / (1 - ammoEfficiency / 100) / calculateModSpeed(stats);
         }
-        public static double calculateModReloadMult(Stats stats)
+        public static double calculateModReloadMult(StatsData stats)
         {
             double fireTime = calculateModFireTime(stats);
             if (fireTime == double.PositiveInfinity)
@@ -108,7 +120,7 @@ namespace Buildframe.Methods.Calculation
             double reloadMult = 1 - (reloadTime / (fireTime + reloadTime));
             return reloadMult;
         }
-        public static double calculateModDPS(Stats stats, bool reload = false)
+        public static double calculateModDPS(StatsData stats, bool reload = false)
         {
 
             double moddedDamage = calculateModDamagePreCrit(stats);
@@ -134,7 +146,7 @@ namespace Buildframe.Methods.Calculation
             return dps;
         }
 
-        public static double calculateEnervateIncrease(Stats stats, int bigCritsCap = 6)
+        public static double calculateEnervateIncrease(StatsData stats, int bigCritsCap = 6)
         {
             WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap);
 
@@ -165,7 +177,7 @@ namespace Buildframe.Methods.Calculation
             return enervateCritChanceIncrease;
         }
 
-        public static Stats setEnervate(Stats stats, int bigCritsCap = 6)
+        public static StatsData setEnervate(StatsData stats, int bigCritsCap = 6)
         {
             double critInc = calculateEnervateIncrease(stats, bigCritsCap);
             stats.finalCriticalChance += critInc;

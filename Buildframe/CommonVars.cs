@@ -17,10 +17,10 @@ namespace Buildframe
         public static string envUSERPROFILE = Environment.GetEnvironmentVariable("USERPROFILE");
         public static string envAPPLOC = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-        public static Dictionary<string, GameData.Weapon> weaponStats = new();
-        public static Dictionary<string, GameData.Stats> fireModeStats = new();
-        public static Dictionary<string, GameData.Stats> modStats = new();
-        public static Dictionary<string, GameData.Stats> arcaneStats = new();
-        public static Dictionary<string, GameData.Stats> miscStats = new();
+        public static Dictionary<string, GameData.WeaponData> weaponStats = new();
+        public static Dictionary<string, GameData.StatsData> fireModeStats = new();
+        public static Dictionary<string, GameData.StatsData> modStats = new();
+        public static Dictionary<string, GameData.StatsData> arcaneStats = new();
+        public static Dictionary<string, GameData.StatsData> miscStats = new();
     }
 }

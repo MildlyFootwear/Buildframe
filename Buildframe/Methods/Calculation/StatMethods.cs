@@ -12,20 +12,20 @@ namespace Buildframe.Methods.Calculation
     {
         public static int summedCnt = 0;
 
-        public static Stats sumStats(List<Stats> statsList)
+        public static StatsData sumStats(List<StatsData> statsList)
         {
             if (statsList.Count == 0)
             {
-                return new Stats();
+                return new StatsData();
             }
-            Stats stats = new Stats();
+            StatsData stats = new StatsData();
             summedCnt++;
             stats.name = statsList[0].name;
             stats.id = "summedTransient" + summedCnt;
 
             WriteLineIfDebug("Starting stats sum for " + statsList.Count + " stats");
 
-            foreach (Stats s in statsList)
+            foreach (StatsData s in statsList)
             {
                 if (s.incarnon)
                 {
@@ -34,9 +34,15 @@ namespace Buildframe.Methods.Calculation
                 }
             }
 
-            foreach (Stats s in statsList)
+            foreach (StatsData s in statsList)
             {
                 WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.");
+
+                if (s.tags.Contains("Devouring_Attrition") && !stats.tags.Contains("Devouring_Attrition"))
+                {
+                    stats.tags += " Devouring_Attrition";
+                }
+
                 stats.baseDamage += s.baseDamage;
                 stats.baseDamagePercentage += s.baseDamagePercentage;
 
@@ -187,7 +193,7 @@ namespace Buildframe.Methods.Calculation
             return stats;
         }
 
-        public static int identifyEnervate(Stats stats)
+        public static int identifyEnervate(StatsData stats)
         {
             string arcaneName = stats.name;
             int returnValue = 0;

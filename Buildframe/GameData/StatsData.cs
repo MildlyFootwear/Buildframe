@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Buildframe.GameData
 {
-    public class Stats
+    public class StatsData
     {
 
         public string id = "";

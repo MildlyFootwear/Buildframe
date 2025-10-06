@@ -28,9 +28,9 @@ namespace Buildframe.Methods
             return cleanName;
         }
 
-        public static Stats loadStatFromFile(string path)
+        public static StatsData loadStatFromFile(string path)
         {
-            Stats stats = new Stats();
+            StatsData stats = new StatsData();
 
             bool resaveToConvert = false; // this will be set to true if there is an indicator of it needing to be updated to the current format for stat files
 
@@ -278,7 +278,7 @@ namespace Buildframe.Methods
             return stats;
         }
 
-        public static void saveStatToFile(string path, GameData.Stats stats)
+        public static void saveStatToFile(string path, GameData.StatsData stats)
         {
             WriteLineIfDebug("Saving stat file: " + path);
 
@@ -412,7 +412,7 @@ namespace Buildframe.Methods
 
         }
 
-        public static void saveWeaponToFile(string path, GameData.Weapon weapon)
+        public static void saveWeaponToFile(string path, GameData.WeaponData weapon)
         {
             string s = "";
             s += "name=" + weapon.name;
@@ -420,12 +420,12 @@ namespace Buildframe.Methods
             s += "\nid=" + weapon.id;
             s += "\ntags=" + weapon.tags;
             s += "\nfireModes=";
-            foreach (Stats stats in weapon.fireModes)
+            foreach (StatsData stats in weapon.fireModes)
             {
                 s += stats.id + ",";
             }
             s += "\nfireModesRadials=";
-            foreach (KeyValuePair<string, Stats> pair in weapon.fireModesRadials)
+            foreach (KeyValuePair<string, StatsData> pair in weapon.fireModesRadials)
             {
                 s += pair.Key + ":" + pair.Value.id + ",";
             }
@@ -438,9 +438,9 @@ namespace Buildframe.Methods
             File.WriteAllText(path, s);
         }
 
-        public static Weapon loadWeaponFromFile(string path)
+        public static WeaponData loadWeaponFromFile(string path)
         {
-            Weapon weapon = new Weapon();
+            WeaponData weapon = new WeaponData();
             if (!Path.GetDirectoryName(path.Replace(envAPPLOC, "")).Contains("Weapon"))
             {
                 WriteLineIfDebug("\nFile load error: not in weapon directory:\n" + path + "\n\n");
@@ -499,7 +499,7 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading arcane file: " + file.Replace(envAPPLOC, ""));
-                Stats stats = loadStatFromFile(file);
+                StatsData stats = loadStatFromFile(file);
                 if (arcaneStats.ContainsKey(stats.id))
                 {
                     MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -518,7 +518,7 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading mod file: " + file.Replace(envAPPLOC, ""));
-                Stats stats = loadStatFromFile(file);
+                StatsData stats = loadStatFromFile(file);
                 if (modStats.ContainsKey(stats.id))
                 {
                     MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -537,7 +537,7 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading misc file: " + file.Replace(envAPPLOC, ""));
-                Stats stats = loadStatFromFile(file);
+                StatsData stats = loadStatFromFile(file);
                 if (miscStats.ContainsKey(stats.id))
                 {
                     MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -556,7 +556,7 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading fire mode file: " + file.Replace(envAPPLOC, ""));
-                Stats stats = loadStatFromFile(file);
+                StatsData stats = loadStatFromFile(file);
                 if (fireModeStats.ContainsKey(stats.id))
                 {
                     MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -575,7 +575,7 @@ namespace Buildframe.Methods
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
                 WriteLineIfDebug("Loading weapon file: " + file.Replace(envAPPLOC, ""));
-                Weapon wpn = loadWeaponFromFile(file);
+                WeaponData wpn = loadWeaponFromFile(file);
                 if (weaponStats.ContainsKey(wpn.id))
                 {
                     MessageBox.Show("Duplicate ID found: " + wpn.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);

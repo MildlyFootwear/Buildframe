@@ -25,7 +25,7 @@ namespace Buildframe.Forms
         public void loadFile(string filePath)
         {
             WriteLineIfDebug("Loading weapon from file: " + filePath);
-            Weapon wpn = LoadAndSave.loadWeaponFromFile(filePath);
+            WeaponData wpn = LoadAndSave.loadWeaponFromFile(filePath);
             if (wpn.id != "")
             {
                 loadedFilePath = filePath;
@@ -182,7 +182,7 @@ namespace Buildframe.Forms
                 }
             }
 
-            Weapon wpn = new Weapon();
+            WeaponData wpn = new WeaponData();
 
             wpn.id = textBoxID.Text;
             wpn.name = textBoxName.Text;

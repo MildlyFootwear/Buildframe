@@ -12,7 +12,7 @@ namespace Buildframe.Methods
     {
 
 
-        public static string generateStatsDescription(Stats stats, Stats? fullSheet = null)
+        public static string generateStatsDescription(StatsData stats, StatsData? fullSheet = null)
         {
             string s = stats.name;
             if (ToolDebug)

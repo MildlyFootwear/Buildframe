@@ -28,7 +28,7 @@ namespace Buildframe.Forms
         public void loadFile(string filePath)
         {
             WriteLineIfDebug("Loading stats from file: " + filePath);
-            GameData.Stats stats = LoadAndSave.loadStatFromFile(filePath);
+            GameData.StatsData stats = LoadAndSave.loadStatFromFile(filePath);
             if (stats.id != "")
             {
                 loadStatsToForm(stats);
@@ -57,7 +57,7 @@ namespace Buildframe.Forms
             }
         }
 
-        private void loadStatsToForm(GameData.Stats stats)
+        private void loadStatsToForm(GameData.StatsData stats)
         {
             textBoxName.Text = stats.name;
             textBoxDescription.Text = stats.description;
@@ -209,7 +209,7 @@ namespace Buildframe.Forms
                 }
             }
 
-            GameData.Stats stats = new GameData.Stats();
+            GameData.StatsData stats = new GameData.StatsData();
 
             stats.name = textBoxName.Text;
 
