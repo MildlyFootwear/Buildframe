@@ -180,6 +180,10 @@ namespace Buildframe.Methods.Calculation
                 }
             }
 
+            stats.modSlash = Math.Max(stats.modSlash, -100);
+            stats.modImpact = Math.Max(stats.modImpact, -100);
+            stats.modPuncture = Math.Max(stats.modPuncture, -100);
+
             return stats;
         }
 

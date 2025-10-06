@@ -397,7 +397,10 @@ namespace Buildframe.Methods
             s += "\nfinalStatusChance=" + Convert.ToString(stats.finalStatusChance);
             s += "\nfinalStatusDamage=" + Convert.ToString(stats.finalStatusDamage);
 
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            if (Path.GetDirectoryName(path) != null && Path.GetDirectoryName(path) != string.Empty)
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+            }
 
             if (File.Exists(path))
             {

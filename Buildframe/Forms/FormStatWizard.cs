@@ -53,7 +53,7 @@ namespace Buildframe.Forms
             }
             else
             {
-                MessageBox.Show("Failed to load stats from the dropped file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to load stats from the selected file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -378,6 +378,16 @@ namespace Buildframe.Forms
                     numericUpDownBaseMultishot.Value = 0;
                     numericUpDownBaseMultishot.ValueChanged += numericUpDownBaseMultishot_ValueChanged;
                 }
+            }
+
+            if (comboBox1.SelectedIndex == 3)
+            {
+                checkBoxIncarnon.Enabled = true;
+            }
+            else
+            {
+                checkBoxIncarnon.Enabled = false;
+                checkBoxIncarnon.Checked = false;
             }
         }
 
