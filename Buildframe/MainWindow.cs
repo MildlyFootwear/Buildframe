@@ -117,10 +117,13 @@ namespace Buildframe
                 }
             }
 
-            if (comboBoxWeaponArcane.SelectedIndex > 0 && comboBoxWeaponArcane.SelectedItem.ToString() != "Secondary Enervate")
+            int enervateCeiling = 0;
+
+            if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
                 StatsData stats = (StatsData)comboBoxWeaponArcane.SelectedItem;
                 selectedStats.Add(stats);
+                enervateCeiling = Methods.Calculation.StatMethods.identifyEnervate((StatsData)comboBoxWeaponArcane.SelectedItem);
                 WriteLineIfDebug("    Selected stats added arcane: " + stats.name);
             }
 
@@ -128,7 +131,7 @@ namespace Buildframe
             {
                 StatsData stats = (StatsData)comboBoxArchgunArcane.SelectedItem;
                 selectedStats.Add(stats);
-                WriteLineIfDebug("    Selected stats added arcane: " + stats.name);
+                WriteLineIfDebug("    Selected stats added arcane from archgun: " + stats.name);
             }
 
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
@@ -136,13 +139,6 @@ namespace Buildframe
             double summedDamage = 0;
             double summedDPSBurst = 0;
             double summedDPSSustained = 0;
-            int enervateCeiling = 0;
-            string arcaneName = "";
-            if (comboBoxWeaponArcane.SelectedIndex > 0)
-            {
-                arcaneName = comboBoxWeaponArcane.SelectedItem.ToString();
-                enervateCeiling = Methods.Calculation.StatMethods.identifyEnervate((StatsData)comboBoxWeaponArcane.SelectedItem);
-            }
 
             if (selectedFiremode.id != "")
             {
@@ -159,7 +155,6 @@ namespace Buildframe
 
                 if (enervateCeiling > 0)
                 {
-                    WriteLineIfDebug("    Selected stats using hardcoded arcane: Secondary Enervate");
                     selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats, enervateCeiling);
                 }
 

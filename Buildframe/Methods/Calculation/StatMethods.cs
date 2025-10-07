@@ -12,6 +12,15 @@ namespace Buildframe.Methods.Calculation
     {
         public static int summedCnt = 0;
 
+        static void appendTagIfValid(StatsData s, StatsData stats, string tag)
+        {
+            if (s.tags.Contains(tag) && !stats.tags.Contains(tag))
+            {
+                WriteLineIfDebug("  Tag \"" + tag + "\" found on " + s);
+                stats.tags += " " + tag;
+            }
+        }
+
         public static StatsData sumStats(List<StatsData> statsList)
         {
             if (statsList.Count == 0)
@@ -20,7 +29,7 @@ namespace Buildframe.Methods.Calculation
             }
             StatsData stats = new StatsData();
             summedCnt++;
-            stats.name = statsList[0].name;
+            stats.name = "";
             stats.id = "summedTransient" + summedCnt;
 
             WriteLineIfDebug("Starting stats sum for " + statsList.Count + " stats");
@@ -38,10 +47,15 @@ namespace Buildframe.Methods.Calculation
             {
                 WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.");
 
-                if (s.tags.Contains("Devouring_Attrition") && !stats.tags.Contains("Devouring_Attrition"))
-                {
-                    stats.tags += " Devouring_Attrition";
-                }
+                stats.name += s.name + ", ";
+
+                appendTagIfValid(s, stats, "Devouring_Attrition");
+                appendTagIfValid(s, stats, "Secondary_Enervate_Rank_0");
+                appendTagIfValid(s, stats, "Secondary_Enervate_Rank_1");
+                appendTagIfValid(s, stats, "Secondary_Enervate_Rank_2");
+                appendTagIfValid(s, stats, "Secondary_Enervate_Rank_3");
+                appendTagIfValid(s, stats, "Secondary_Enervate_Rank_4");
+                appendTagIfValid(s, stats, "Secondary_Enervate_Rank_5");
 
                 stats.baseDamage += s.baseDamage;
                 stats.baseDamagePercentage += s.baseDamagePercentage;
@@ -190,42 +204,43 @@ namespace Buildframe.Methods.Calculation
             stats.modImpact = Math.Max(stats.modImpact, -100);
             stats.modPuncture = Math.Max(stats.modPuncture, -100);
 
+            stats.name = stats.name.Trim().TrimEnd(',');
             return stats;
         }
 
         public static int identifyEnervate(StatsData stats)
         {
-            string arcaneName = stats.name;
+            string arcaneTags = stats.tags;
             int returnValue = 0;
-            if (!arcaneName.Contains("Enervate"))
+            if (!arcaneTags.Contains("Secondary_Enervate_Rank"))
             {
                 return 0;
             }
-            if (arcaneName.Contains("0"))
+            if (arcaneTags.Contains("Secondary_Enervate_Rank_0"))
             {
                 returnValue = 1;
             }
-            else if (arcaneName.Contains("1"))
+            else if (arcaneTags.Contains("Secondary_Enervate_Rank_1"))
             {
                 returnValue = 2;
             }
-            else if (arcaneName.Contains("2"))
+            else if (arcaneTags.Contains("Secondary_Enervate_Rank_2"))
             {
                 returnValue = 3;
             }
-            else if (arcaneName.Contains("3"))
+            else if (arcaneTags.Contains("Secondary_Enervate_Rank_3"))
             {
                 returnValue = 4;
             }
-            else if (arcaneName.Contains("4"))
+            else if (arcaneTags.Contains("Secondary_Enervate_Rank_4"))
             {
                 returnValue = 5;
             }
-            else if (arcaneName.Contains("5"))
+            else if (arcaneTags.Contains("Secondary_Enervate_Rank_5"))
             {
                 returnValue = 6;
             }
-            WriteLineIfDebug("Identified Enervate level " + returnValue + " from arcane " + arcaneName+" - "+stats.id);
+            WriteLineIfDebug("Identified Enervate level " + returnValue + " from arcane " + stats +" - " + stats.id);
             return returnValue;
         }
 
