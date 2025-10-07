@@ -414,5 +414,13 @@ namespace Buildframe.Forms
                 loadFile(openFileDialog1.FileName);
             }
         }
+
+        private void textBoxTags_Leave(object sender, EventArgs e)
+        {
+            if (textBoxTags.Text == String.Empty || textBoxTags.Text.Trim() == "")
+            {
+                textBoxTags.Text = "Any";
+            }
+        }
     }
 }

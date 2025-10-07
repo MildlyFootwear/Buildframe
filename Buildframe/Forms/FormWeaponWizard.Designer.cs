@@ -169,6 +169,7 @@
             textBoxTags.Size = new Size(318, 23);
             textBoxTags.TabIndex = 21;
             textBoxTags.Text = "Any";
+            textBoxTags.Leave += textBoxTags_Leave;
             // 
             // label82
             // 
