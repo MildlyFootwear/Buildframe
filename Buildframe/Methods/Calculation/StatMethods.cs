@@ -50,6 +50,7 @@ namespace Buildframe.Methods.Calculation
                 stats.name += s.name + ", ";
 
                 appendTagIfValid(s, stats, "Devouring_Attrition");
+                appendTagIfValid(s, stats, "Multishot_Reserve_Ammo");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_0");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_1");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_2");

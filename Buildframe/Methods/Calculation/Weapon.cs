@@ -13,6 +13,11 @@ namespace Buildframe.Methods.Calculation
         {
             return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
+        /// <summary>
+        /// Calculates the modified damage before critical hits and status effects are applied.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
         public static double calculateModDamagePreCrit(StatsData stats)
         {
             double baseDamage = calculateBaseDamage(stats);
@@ -40,6 +45,22 @@ namespace Buildframe.Methods.Calculation
 
             return moddedDamage * stats.damageMultiplier;
         }
+
+        /// <summary>
+        /// Used for calculating a damage multiplier when the weapon has a damage increase exclusively for multishot projectiles, such as the Braton incarnon perk.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <param name="multishotExclusiveDamageBuff"></param>
+        /// <returns></returns>
+        public static double calculateModMultishotExclusiveDamageMultiplier(StatsData stats, double multishotExclusiveDamageBuff)
+        {
+            double modMultishot = calculateModMultishot(stats);
+            double mult = ((modMultishot - 1) * (multishotExclusiveDamageBuff / 100) + 1) / modMultishot;
+            WriteLineIfDebug("Multishot exclusive damage multiplier: " + mult + " with multishot " + modMultishot + " and buff " + multishotExclusiveDamageBuff);
+            return mult;
+        }
+
+
         public static double calculateModStatusChance(StatsData stats)
         {
             return stats.baseStatusChance * (1 + stats.modStatusChance / 100) + stats.finalStatusChance;
@@ -52,6 +73,11 @@ namespace Buildframe.Methods.Calculation
         {
             return Math.Max(1, stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage);
         }
+        /// <summary>
+        /// Calculates the average critical hit multiplier as well as Devouring Attrition and related incarnon perks if applicable.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
         public static double calculateModAverageCritMultiplier(StatsData stats)
         {
             if (stats.tags.Contains("Devouring_Attrition"))
@@ -60,6 +86,13 @@ namespace Buildframe.Methods.Calculation
             }
             return (calculateModCritDamage(stats) - 1) * (calculateModCritChance(stats) / 100) + 1;
         }
+
+        /// <summary>
+        /// Calculates the average increase from Devouring Attrition and related incarnon perks, factoring in that critical hits don't receive the bonus.
+        /// More or less additive with the critical chance multiplier
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
         public static double calculateModDevouringAttritionMultiplier(StatsData stats)
         {
             double critChance = calculateModCritChance(stats);

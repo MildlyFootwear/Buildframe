@@ -143,7 +143,6 @@ namespace Buildframe
             if (selectedFiremode.id != "")
             {
                 selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats });
-
                 if (selectedFiremodeWithAppliedStats.tags.Contains("Devouring_Attrition"))
                 {
                     labelAverageCritical.Text = "Average DA/Crit Multiplier";
