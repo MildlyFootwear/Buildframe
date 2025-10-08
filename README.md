@@ -1,4 +1,4 @@
-### Buildframe
+## Buildframe
 
 Buildframe is an indevelopment open source theory crafting utility for Warframe.  
 
@@ -6,7 +6,7 @@ Its intent is to make it easy to create presets and custom effect templates repr
 Reload time, sustained DPS, burst DPS, average critical hit, and more can be calculated with any number of combinations of weapon mods, warframe arcanes, abilities, and more.
 
 
-## How To Use
+### How To Use
 
 Several editors have been built in to facilitate the creation of weapons, mods, arcanes, and other effects. Some instructions have been included in the appropriate editors but to get the best use out of them you will need at least some understanding of how various effects overlay onto eachother.
 Any current or future weapon should be able to be represented, as well as any current or future mods, arcanes, and warframe abilities.
