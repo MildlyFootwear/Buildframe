@@ -43,6 +43,12 @@ namespace Buildframe.Methods.Calculation
 
             double moddedDamage = (baseDamage + modElemental + modPhysical) * (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100);
 
+            if (stats.multishotDamageMultiplier != 1)
+            {
+                WriteIfDebug("Calculating multishot exclusive damage multiplier for " + stats.name + " with multishot damage multiplier of " + stats.multishotDamageMultiplier);
+                moddedDamage *= calculateModMultishotExclusiveDamageMultiplier(stats, (stats.multishotDamageMultiplier - 1) * 100);
+            }
+
             return moddedDamage * stats.damageMultiplier;
         }
 
@@ -55,7 +61,7 @@ namespace Buildframe.Methods.Calculation
         public static double calculateModMultishotExclusiveDamageMultiplier(StatsData stats, double multishotExclusiveDamageBuff)
         {
             double modMultishot = calculateModMultishot(stats);
-            double mult = ((modMultishot - 1) * (multishotExclusiveDamageBuff / 100) + 1) / modMultishot;
+            double mult = ((modMultishot - 1) * (1 + multishotExclusiveDamageBuff / 100) + 1) / modMultishot;
             WriteLineIfDebug("Multishot exclusive damage multiplier: " + mult + " with multishot " + modMultishot + " and buff " + multishotExclusiveDamageBuff);
             return mult;
         }
@@ -124,9 +130,14 @@ namespace Buildframe.Methods.Calculation
             {
                 efficiency = 100;
             }
-
             return efficiency;
         }
+        /// <summary>
+        /// Calculates the continuous time a weapon can fire, based off of modded magazine size/ammo efficiency.
+        /// Takes into account Incarnon perks that consume reserve ammo when applicable.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
         public static double calculateModFireTime(StatsData stats)
         {
             double ammoEfficiency = calculateModAmmoEfficiency(stats);
@@ -135,6 +146,11 @@ namespace Buildframe.Methods.Calculation
             if (ammoEfficiency >= 100 || magazine == 0)
             {
                 return double.PositiveInfinity;
+            }
+
+            if (stats.incarnon && stats.tags.Contains("Multishot_Consumes_Reserve_Ammo"))
+            {
+                return magazine / calculateModMultishot(stats) / calculateModSpeed(stats);
             }
             return magazine / (1 - ammoEfficiency / 100) / calculateModSpeed(stats);
         }

@@ -265,7 +265,12 @@ namespace Buildframe.Methods
             {
                 s += "Final Damage: " + stats.finalDamage + "\n";
             }
-            if (stats.finalDamagePercentage > 0)
+
+            if (stats.tags.Contains("Multishot_Exclusive_Damage_Mult"))
+            { 
+                s += "Multishot Damage Bonus: " + stats.finalDamagePercentage + "%\n";
+            }
+            else if (stats.finalDamagePercentage > 0)
             {
                 s += "Damage Multiplier: +" + stats.finalDamagePercentage + "%\n";
             }

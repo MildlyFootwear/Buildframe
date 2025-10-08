@@ -50,7 +50,7 @@ namespace Buildframe.Methods.Calculation
                 stats.name += s.name + ", ";
 
                 appendTagIfValid(s, stats, "Devouring_Attrition");
-                appendTagIfValid(s, stats, "Multishot_Reserve_Ammo");
+                appendTagIfValid(s, stats, "Multishot_Consumes_Reserve_Ammo");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_0");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_1");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_2");
@@ -138,9 +138,8 @@ namespace Buildframe.Methods.Calculation
 
                 stats.finalDamage += s.finalDamage;
 
-                stats.damageMultiplier *= s.damageMultiplier;
 
-                stats.damageMultiplier *= 1 + (s.finalDamagePercentage / 100);
+
                 stats.finalAttackSpeed += s.finalAttackSpeed;
 
                 stats.finalReloadTime += s.finalReloadTime;
@@ -176,6 +175,21 @@ namespace Buildframe.Methods.Calculation
                 stats.finalStatusChance += s.finalStatusChance;
                 stats.finalStatusDamage += s.finalStatusDamage;
 
+                if (s.multishotDamageMultiplier != 1)
+                {
+                    stats.multishotDamageMultiplier *= s.multishotDamageMultiplier;
+                }
+
+                if (s.tags.Contains("Multishot_Exclusive_Damage_Mult"))
+                {
+                    stats.multishotDamageMultiplier *= 1 + (s.finalDamagePercentage / 100);
+                } else
+                {
+                    stats.damageMultiplier *= 1 + (s.finalDamagePercentage / 100);
+                }
+
+                stats.damageMultiplier *= s.damageMultiplier;
+
             }
 
 
@@ -201,11 +215,13 @@ namespace Buildframe.Methods.Calculation
                 }
             }
 
+            // Floor damage so it doesn't go negative.
             stats.modSlash = Math.Max(stats.modSlash, -100);
             stats.modImpact = Math.Max(stats.modImpact, -100);
             stats.modPuncture = Math.Max(stats.modPuncture, -100);
 
             stats.name = stats.name.Trim().TrimEnd(',');
+
             return stats;
         }
 
