@@ -13,3 +13,10 @@ Most current and future weapons should be able to be roughly represented, as wel
 A reasonable amount of weapons, firemodes, arcanes, mods, and abilities have been included and can be viewed in the editors to get an understanding of how to create your own.  
 
 Several effects have been hardcoded, such as the arcane Secondary Enervate as well as the incarnon perk Devouring/Devastating Attrition found on the Phenmor, Laetum, and Felarx. These can still be manually replicated on the users end, however these should be a more accurate representation of their effects ingame as of the time of writing.
+
+### License
+
+If you are not a programmer, you need not worry about this section.  
+
+The license as of writing is MIT. You can take my code and do whatever you want with it. All code included in this project is my own work unless otherwise noted.  
+If you would like to contribute or create a fork to maintain on your own, you are more than welcome to. All I really ask is not to put anything behind a pay wall.
