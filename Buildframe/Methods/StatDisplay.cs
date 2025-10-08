@@ -18,6 +18,7 @@ namespace Buildframe.Methods
             if (ToolDebug)
             {
                 s += "\nID: " + stats.id;
+                s += "\nTags: " + stats.tags;
             }
             s += "\n\n";
             if (stats.description != "")
