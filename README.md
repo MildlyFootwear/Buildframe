@@ -14,6 +14,14 @@ A reasonable amount of weapons, firemodes, arcanes, mods, and abilities have bee
 
 Several effects have been hardcoded, such as the arcane Secondary Enervate as well as the incarnon perk Devouring/Devastating Attrition found on the Phenmor, Laetum, and Felarx. These can still be manually replicated on the users end, however these should be a more accurate representation of their effects ingame as of the time of writing.
 
+#### Hardcoded Effects
+
+To use; add the tag when appropriate, i.e. Secondary Enervate to an arcane or the multishot damage increase to a firemode.
+
+Multishot_Exclusive_Damage_Mult - makes it so the Final Damage Percentage for a given stat applies to multishot only. Use to represent effects like the multishot perk on the Braton Incarnon.
+Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets it to consume reserve ammo for multishot. Mostly going to effect firemodes such as Braton's incarnon fire.
+Secondary_Enervate_Rank_0 - applies the effects of the Secondary Enervate arcane. Valid tags for Rank_0 through Rank_5.
+
 ### License
 
 If you are not a programmer, you need not worry about this section.  
