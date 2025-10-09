@@ -18,7 +18,7 @@ namespace Buildframe.Methods.Calculation
         /// </summary>
         /// <param name="stats"></param>
         /// <returns></returns>
-        public static double calculateModDamagePreCrit(StatsData stats)
+        public static double calculateModDamagePreCritPreMultishot(StatsData stats, bool allowMultishotMultiplier = true)
         {
             double baseDamage = calculateBaseDamage(stats);
 
@@ -43,7 +43,7 @@ namespace Buildframe.Methods.Calculation
 
             double moddedDamage = (baseDamage + modElemental + modPhysical) * (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100);
 
-            if (stats.multishotDamageMultiplier != 1)
+            if (stats.multishotDamageMultiplier != 1 && allowMultishotMultiplier)
             {
                 WriteIfDebug("Calculating multishot exclusive damage multiplier for " + stats.name + " with multishot damage multiplier of " + stats.multishotDamageMultiplier);
                 moddedDamage *= calculateModMultishotExclusiveDamageMultiplier(stats, (stats.multishotDamageMultiplier - 1) * 100);
@@ -172,7 +172,7 @@ namespace Buildframe.Methods.Calculation
         public static double calculateModDPS(StatsData stats, bool reload = false)
         {
 
-            double moddedDamage = calculateModDamagePreCrit(stats);
+            double moddedDamage = calculateModDamagePreCritPreMultishot(stats);
             double critChance = calculateModCritChance(stats);
             double critDamage = calculateModCritDamage(stats);
 
