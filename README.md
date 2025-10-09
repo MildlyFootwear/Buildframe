@@ -24,7 +24,5 @@ Secondary_Enervate_Rank_0 - applies the effects of the Secondary Enervate arcane
 
 ### License
 
-If you are not a programmer, you need not worry about this section.  
-
 The license as of writing is MIT. You can take my code and do whatever you want with it. All code included in this project is my own work unless otherwise noted.  
 If you would like to contribute or create a fork to maintain on your own, you are more than welcome to. All I really ask is not to put anything behind a pay wall.
