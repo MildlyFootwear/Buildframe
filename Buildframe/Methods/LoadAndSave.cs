@@ -498,7 +498,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading arcane file: " + file.Replace(envAPPLOC, ""));
+                WriteLineIfDebug("Loading arcane file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (arcaneStats.ContainsKey(stats.id))
                 {
@@ -517,7 +517,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading mod file: " + file.Replace(envAPPLOC, ""));
+                WriteLineIfDebug("Loading mod file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (modStats.ContainsKey(stats.id))
                 {
@@ -536,7 +536,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading misc file: " + file.Replace(envAPPLOC, ""));
+                WriteLineIfDebug("Loading misc file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (miscStats.ContainsKey(stats.id))
                 {
@@ -555,7 +555,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading fire mode file: " + file.Replace(envAPPLOC, ""));
+                WriteLineIfDebug("Loading fire mode file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (fireModeStats.ContainsKey(stats.id))
                 {
@@ -574,7 +574,7 @@ namespace Buildframe.Methods
             Directory.CreateDirectory(directory);
             foreach (string file in Directory.GetFiles(directory, "*.cfg"))
             {
-                WriteLineIfDebug("Loading weapon file: " + file.Replace(envAPPLOC, ""));
+                WriteLineIfDebug("Loading weapon file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 WeaponData wpn = loadWeaponFromFile(file);
                 if (weaponStats.ContainsKey(wpn.id))
                 {

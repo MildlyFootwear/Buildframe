@@ -62,7 +62,7 @@ namespace Buildframe.Methods.Calculation
         {
             double modMultishot = calculateModMultishot(stats);
             double mult = ((modMultishot - 1) * (1 + multishotExclusiveDamageBuff / 100) + 1) / modMultishot;
-            WriteLineIfDebug("Multishot exclusive damage multiplier: " + mult + " with multishot " + modMultishot + " and buff " + multishotExclusiveDamageBuff);
+            WriteLineIfDebug("Multishot exclusive damage multiplier: " + mult + " with multishot " + modMultishot + " and buff " + multishotExclusiveDamageBuff, DebuggingWeaponCalc);
             return mult;
         }
 
@@ -104,7 +104,7 @@ namespace Buildframe.Methods.Calculation
             double critChance = calculateModCritChance(stats);
             double daBonus = 10;
             daBonus = Math.Max(0, daBonus * (1 - critChance / 100));
-            WriteLineIfDebug("Devouring Attrition bonus " + daBonus + " with crit chance " + critChance);
+            WriteLineIfDebug("Devouring Attrition bonus " + daBonus + " with crit chance " + critChance, DebuggingWeaponCalc);
             return 1 + daBonus;
         }
         public static double calculateModSpeed(StatsData stats)
@@ -197,7 +197,7 @@ namespace Buildframe.Methods.Calculation
 
         public static double calculateEnervateIncrease(StatsData stats, int bigCritsCap = 6)
         {
-            WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap);
+            WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap, DebuggingWeaponCalc);
 
             double critChance = calculateModCritChance(stats);
             double steps = 0;
@@ -219,10 +219,10 @@ namespace Buildframe.Methods.Calculation
                 }
             }
 
-            WriteLineIfDebug("Average of steps " + steps / degreeOfAccuracy);
+            WriteLineIfDebug("Average of steps " + steps / degreeOfAccuracy, DebuggingWeaponCalc);
 
             double enervateCritChanceIncrease = steps / degreeOfAccuracy * 10 / 2;
-            WriteLineIfDebug("Enervate crit chance increase: " + enervateCritChanceIncrease);
+            WriteLineIfDebug("Enervate crit chance increase: " + enervateCritChanceIncrease, DebuggingWeaponCalc);
             return enervateCritChanceIncrease;
         }
 

@@ -11,9 +11,9 @@ namespace Buildframe.Methods
     {
         [DllImport("kernel32.dll")] public static extern bool AllocConsole();
 
-        public static void WriteLineIfDebug(string s = "")
+        public static void WriteLineIfDebug(string s = "", bool allowPrint = true)
         {
-            if (ToolDebug)
+            if (ToolDebug && allowPrint)
                 Console.WriteLine(s);
         }
 

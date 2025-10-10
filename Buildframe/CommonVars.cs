@@ -13,6 +13,8 @@ namespace Buildframe
         public static List<string> ProhibPathChars = ["|", "<", ">", "?", "*", "/", "\\",":", "="];
 
         public static bool ToolDebug = false;
+        public static bool DebuggingWeaponCalc = false;
+        public static bool DebuggingLoading = false;
 
         public static string envUSERPROFILE = Environment.GetEnvironmentVariable("USERPROFILE");
         public static string envAPPLOC = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
