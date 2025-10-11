@@ -338,7 +338,7 @@ namespace Buildframe
 
             foreach (StatsData stat in CommonVars.arcaneStats.Values)
             {
-                if (stat.tags.Contains("Any"))
+                if (stat.tags.Contains("Any") || stat.tags.Contains("Archgun"))
                 {
                     comboBoxArchgunArcane.Items.Add(stat);
                     comboBoxWeaponArcane.Items.Add(stat);

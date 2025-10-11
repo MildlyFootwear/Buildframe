@@ -16,7 +16,7 @@ Several effects have been hardcoded, such as the arcane Secondary Enervate as we
 
 #### Hardcoded Effects
 
-To use; add the tag when appropriate, i.e. Secondary Enervate to an arcane or the multishot damage increase to a firemode.  
+To use; add the tag when appropriate, i.e. Secondary Enervate to an arcane or the multishot damage increase to a firemode. These tags are meant to be added to effects (firemodes, mods, misc), not the weapon itself.  
 
 Multishot_Exclusive_Damage_Mult - makes it so the Final Damage Percentage for a given stat applies to multishot only. Use to represent effects like the multishot perk on the Braton Incarnon.  
 Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets it to consume reserve ammo for multishot. Mostly going to effect firemodes such as Braton's incarnon fire.  
