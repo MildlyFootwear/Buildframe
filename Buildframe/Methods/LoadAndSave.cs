@@ -502,7 +502,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (arcaneStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 arcaneStats.Add(stats.id, stats);
@@ -521,7 +521,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (modStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 modStats.Add(stats.id, stats);
@@ -540,7 +540,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (miscStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 miscStats.Add(stats.id, stats);
@@ -559,7 +559,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (fireModeStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 fireModeStats.Add(stats.id, stats);
@@ -578,7 +578,7 @@ namespace Buildframe.Methods
                 WeaponData wpn = loadWeaponFromFile(file);
                 if (weaponStats.ContainsKey(wpn.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + wpn.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate ID found: " + wpn.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
                 weaponStats.Add(wpn.id, wpn);

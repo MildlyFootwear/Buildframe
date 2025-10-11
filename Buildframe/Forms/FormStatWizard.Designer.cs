@@ -2602,7 +2602,7 @@
             MaximizeBox = false;
             Name = "FormStatWizard";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Buildframe - Stat Creation Wizard";
+            Text = "Buildframe - Stat Wizard";
             Load += FormStatWizard_Load;
             DragDrop += FormStatWizard_DragDrop;
             basePage.ResumeLayout(false);

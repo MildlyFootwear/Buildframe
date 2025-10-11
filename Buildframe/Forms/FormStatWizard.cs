@@ -142,6 +142,7 @@ namespace Buildframe.Forms
         }
         private void FormStatWizard_Load(object sender, EventArgs e)
         {
+            Text = ToolName + " - Stat Wizard";
             textBoxID.Text = Guid.NewGuid().ToString().Substring(0, 18);
             comboBox1.SelectedIndex = 0;
 
@@ -180,7 +181,7 @@ namespace Buildframe.Forms
                 }
                 if (isABaseChanged)
                 {
-                    if (MessageBox.Show("A base value has been changed for a mod effect.\nThis is typically only done in error.\nContinue?", "Buildframe", MessageBoxButtons.YesNo) == DialogResult.No)
+                    if (MessageBox.Show("A base value has been changed for a mod effect.\nThis is typically only done in error.\nContinue?", ToolName, MessageBoxButtons.YesNo) == DialogResult.No)
                     {
                         return;
                     }
@@ -189,7 +190,7 @@ namespace Buildframe.Forms
 
             if (textBoxName.Text.Trim() == "" || textBoxName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("A name is required.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A name is required.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -197,7 +198,7 @@ namespace Buildframe.Forms
             {
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", "Buildframe", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     {
                         return;
                     }

@@ -92,7 +92,7 @@
             Name = "Info";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Buildframe - Info";
+            Text = "Info";
             Load += Info_Load;
             ResumeLayout(false);
         }

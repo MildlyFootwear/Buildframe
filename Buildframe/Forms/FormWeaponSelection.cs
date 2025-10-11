@@ -11,6 +11,7 @@
 
         private void FormWeaponSelection_Load(object sender, EventArgs e)
         {
+            Text = ToolName + " - Select Weapon";
             comboBoxWeaponSelect.Items.Add("None");
             foreach (var w in CommonVars.weaponStats)
             {

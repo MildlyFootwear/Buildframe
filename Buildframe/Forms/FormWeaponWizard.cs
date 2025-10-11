@@ -96,6 +96,7 @@ namespace Buildframe.Forms
 
         private void FormWeaponWizard_Load(object sender, EventArgs e)
         {
+            Text = ToolName + " - Weapon Wizard";
             textBoxID.Text = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
             comboBoxPrimary.Items.Add("None");
             comboBoxPrimaryRadial.Items.Add("None");
@@ -154,14 +155,14 @@ namespace Buildframe.Forms
 
             if (textBoxTags.Text.Split(' ').Contains("None"))
             {
-                MessageBox.Show("The tag 'None' is reserved and will result in all selection boxes being empty if used.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The tag 'None' is reserved and will result in all selection boxes being empty if used.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
             if (textBoxName.Text.Trim() == "" || textBoxName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("A name is required.", "Buildframe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A name is required.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -170,7 +171,7 @@ namespace Buildframe.Forms
             {
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", "Buildframe", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     {
                         return;
                     }
@@ -256,6 +257,11 @@ namespace Buildframe.Forms
             {
                 textBoxTags.Text = "Any";
             }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

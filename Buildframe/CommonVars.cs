@@ -8,7 +8,7 @@ namespace Buildframe
 {
     public class CommonVars
     {
-        public static string ToolName = "Buildframe";
+        public static string ToolName = Settings.Default.ToolName;
         public static string LatestVer = null;
         public static List<string> ProhibPathChars = ["|", "<", ">", "?", "*", "/", "\\",":", "="];
 

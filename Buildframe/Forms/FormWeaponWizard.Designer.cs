@@ -361,6 +361,7 @@
             toolStrip1.Size = new Size(800, 25);
             toolStrip1.TabIndex = 6;
             toolStrip1.Text = "toolStrip1";
+            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
             // toolStripButtonLoad
             // 
@@ -407,7 +408,7 @@
             MaximizeBox = false;
             Name = "FormWeaponWizard";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Buildframe - Weapon Creation Wizard";
+            Text = "Buildframe - Weapon Wizard";
             Load += FormWeaponWizard_Load;
             DragDrop += FormWeaponWizard_DragDrop;
             DragEnter += FormWeaponWizard_DragEnter;
