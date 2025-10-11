@@ -1,9 +1,11 @@
 ﻿using Buildframe.GameData;
+using Buildframe.Methods.Calculation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Buildframe.GameData
 {
@@ -14,8 +16,8 @@ namespace Buildframe.GameData
         public Dictionary<string, StatsData> fireModesRadials = new();
 
         public string id = "";
-        public string name = "";
-        public string tags = "";
+        public string name = "[Weapon Name]";
+        public string tags = "None";
         public string description = "";
 
         override public string ToString()

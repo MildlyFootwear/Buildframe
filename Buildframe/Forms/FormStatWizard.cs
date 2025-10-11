@@ -150,7 +150,7 @@ namespace Buildframe.Forms
             {
                 if (c is NumericUpDown nud)
                 {
-                    WriteLineIfDebug("Adding to base list: " + nud.Name);
+                    WriteLineIfDebug("Adding to base list: " + nud.Name, false);
                     listBaseValues.Add(nud);
                 }
             }

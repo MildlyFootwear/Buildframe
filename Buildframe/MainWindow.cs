@@ -40,15 +40,15 @@ namespace Buildframe
 
             if (weapon.id == "")
             {
-                foreach (Label lbl in primaryValueLabels)
-                {
-                    lbl.Text = "N/A";
-                }
-                foreach (Label lbl in radialValueLabels)
-                {
-                    lbl.Text = "N/A";
-                }
-                tags = "None".Split('.');
+                currentWeapon = new WeaponData();
+                StatsData Firemode = new StatsData();
+                Firemode.name = "[Firemode]";
+                currentWeapon.fireModes.Add(Firemode);
+                comboBoxFireMode.Items.Clear();
+                comboBoxFireMode.Items.Add(Firemode);
+                tags = weapon.tags.Split(' ');
+                labelWeaponName.Text = weapon.name;
+
                 setHandlerPause(true);
                 loadValidIDs();
                 loadArcanesToSelectionBox();
@@ -57,11 +57,9 @@ namespace Buildframe
 
                 comboBoxArchgunArcane.Visible = false;
                 comboBoxArchgunArcane.SelectedIndex = 0;
-                comboBoxFireMode.Items.Clear();
-                labelWeaponName.Text = "[Weapon Name]";
-                selectedFiremode = new StatsData();
-                radial = new StatsData();
+
                 setHandlerPause(false);
+                comboBoxFireMode.SelectedIndex = 0;
                 return;
 
             }
@@ -103,7 +101,7 @@ namespace Buildframe
                 {
                     StatsData stats = (StatsData)box.SelectedItem;
                     selectedStats.Add(stats);
-                    WriteLineIfDebug("    Selected stats added mod: " + stats.name);
+                    WriteLineIfDebug("    Selected stats added mod: " + stats.name, DebuggingMainWindow);
                 }
             }
 
@@ -113,7 +111,7 @@ namespace Buildframe
                 {
                     StatsData stats = (StatsData)box.SelectedItem;
                     selectedStats.Add(stats);
-                    WriteLineIfDebug("    Selected stats added misc: " + stats.name);
+                    WriteLineIfDebug("    Selected stats added misc: " + stats.name, DebuggingMainWindow);
                 }
             }
 
@@ -124,14 +122,14 @@ namespace Buildframe
                 StatsData stats = (StatsData)comboBoxWeaponArcane.SelectedItem;
                 selectedStats.Add(stats);
                 enervateCeiling = Methods.Calculation.StatMethods.identifyEnervate((StatsData)comboBoxWeaponArcane.SelectedItem);
-                WriteLineIfDebug("    Selected stats added arcane: " + stats.name);
+                WriteLineIfDebug("    Selected stats added arcane: " + stats.name, DebuggingMainWindow);
             }
 
             if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
             {
                 StatsData stats = (StatsData)comboBoxArchgunArcane.SelectedItem;
                 selectedStats.Add(stats);
-                WriteLineIfDebug("    Selected stats added arcane from archgun: " + stats.name);
+                WriteLineIfDebug("    Selected stats added arcane from archgun: " + stats.name, DebuggingMainWindow);
             }
 
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
@@ -265,7 +263,7 @@ namespace Buildframe
 
         public void loadValidIDs()
         {
-            WriteLineIfDebug("Loading valid IDs for weapon with tags: " + string.Join(", ", tags));
+            WriteLineIfDebug("Loading valid IDs for weapon with tags: " + string.Join(", ", tags), DebuggingMainWindow);
             validModIDs.Clear();
             validArcaneIDs.Clear();
             validMiscIDs.Clear();
@@ -293,7 +291,7 @@ namespace Buildframe
                 loadArchgunArcanesToBoxes();
                 return;
             }
-            WriteLineIfDebug("\nLoading valid arcanes\n");
+            WriteLineIfDebug("\nLoading valid arcanes\n", DebuggingMainWindow);
 
 
             string statID = "";
@@ -327,7 +325,7 @@ namespace Buildframe
 
         public void loadArchgunArcanesToBoxes()
         {
-            WriteLineIfDebug("\nLoading archgun arcanes\n");
+            WriteLineIfDebug("\nLoading archgun arcanes\n", DebuggingMainWindow);
             List<ComboBox> arcaneBoxes = new();
             arcaneBoxes.Add(comboBoxWeaponArcane);
             arcaneBoxes.Add(comboBoxArchgunArcane);
@@ -371,7 +369,7 @@ namespace Buildframe
 
         public void loadModsToSelectionBox()
         {
-            WriteLineIfDebug("\nLoading valid mods\n");
+            WriteLineIfDebug("\nLoading valid mods\n", DebuggingMainWindow);
             foreach (ComboBox box in modBoxes)
             {
                 box.Items.Clear();
@@ -405,7 +403,7 @@ namespace Buildframe
 
         public void loadMiscsToSelectionBox()
         {
-            WriteLineIfDebug("\nLoading valid misc effects\n");
+            WriteLineIfDebug("\nLoading valid misc effects\n", DebuggingMainWindow);
             foreach (ComboBox box in miscBoxes)
             {
                 box.Items.Clear();
