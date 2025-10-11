@@ -95,7 +95,7 @@ namespace Buildframe.Methods.Calculation
 
         /// <summary>
         /// Calculates the average increase from Devouring Attrition and related incarnon perks, factoring in that critical hits don't receive the bonus.
-        /// More or less additive with the critical multiplier.
+        /// More or less additive with the critical multiplier, since they have opposing conditionals.
         /// </summary>
         /// <param name="stats"></param>
         /// <returns></returns>
