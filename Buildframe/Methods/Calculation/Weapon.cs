@@ -88,24 +88,24 @@ namespace Buildframe.Methods.Calculation
         {
             if (stats.tags.Contains("Devouring_Attrition"))
             {
-                return calculateModDevouringAttritionMultiplier(stats) + ((calculateModCritDamage(stats) - 1) * (calculateModCritChance(stats) / 100) + 1);
+                return ((calculateModCritDamage(stats) - 1) * (calculateModCritChance(stats) / 100) + 1) + calculateModDevouringAttritionBonusMultiplier(stats);
             }
             return (calculateModCritDamage(stats) - 1) * (calculateModCritChance(stats) / 100) + 1;
         }
 
         /// <summary>
         /// Calculates the average increase from Devouring Attrition and related incarnon perks, factoring in that critical hits don't receive the bonus.
-        /// More or less additive with the critical chance multiplier
+        /// More or less additive with the critical multiplier.
         /// </summary>
         /// <param name="stats"></param>
         /// <returns></returns>
-        public static double calculateModDevouringAttritionMultiplier(StatsData stats)
+        public static double calculateModDevouringAttritionBonusMultiplier(StatsData stats)
         {
             double critChance = calculateModCritChance(stats);
             double daBonus = 10;
-            daBonus = Math.Max(0, daBonus * (1 - critChance / 100));
+            daBonus = daBonus * (1 - Math.Min(critChance / 100, 1));
             WriteLineIfDebug("Devouring Attrition bonus " + daBonus + " with crit chance " + critChance, DebuggingWeaponCalc);
-            return 1 + daBonus;
+            return daBonus;
         }
         public static double calculateModSpeed(StatsData stats)
         {
