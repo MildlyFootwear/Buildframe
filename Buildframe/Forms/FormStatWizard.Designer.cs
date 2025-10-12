@@ -2590,6 +2590,7 @@
             toolStrip1.Size = new Size(1027, 25);
             toolStrip1.TabIndex = 5;
             toolStrip1.Text = "toolStrip1";
+            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
             // toolStripButtonLoad
             // 

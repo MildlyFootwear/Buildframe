@@ -22,6 +22,16 @@ namespace Buildframe.Forms
         string loadedFilePath = "";
         string loadedID = "";
 
+        void genID()
+        {
+            string id = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
+            while (weaponStats.ContainsKey(id))
+            {
+                id = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
+            }
+            textBoxID.Text = id;
+        }
+
         public void loadFile(string filePath)
         {
             WriteLineIfDebug("Loading weapon from file: " + filePath);
@@ -97,7 +107,7 @@ namespace Buildframe.Forms
         private void FormWeaponWizard_Load(object sender, EventArgs e)
         {
             Text = ToolName + " - Weapon Wizard";
-            textBoxID.Text = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
+            genID();
             comboBoxPrimary.Items.Add("None");
             comboBoxPrimaryRadial.Items.Add("None");
             comboBoxSecondary.Items.Add("None");
@@ -145,7 +155,8 @@ namespace Buildframe.Forms
             }
             if (id.Trim() == "" || id.Trim() == string.Empty)
             {
-                id = "weapon_" + Guid.NewGuid().ToString().Substring(0, 8);
+                genID();
+                return;
             }
             textBoxID.Text = id;
         }

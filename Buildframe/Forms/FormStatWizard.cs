@@ -1,4 +1,5 @@
-﻿using Buildframe.Methods;
+﻿using Buildframe.GameData;
+using Buildframe.Methods;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,33 @@ namespace Buildframe.Forms
         string loadedFilePath = "";
         string loadedID = "";
 
+        void genID()
+        {
+            List<string> list = new();
+            int index = comboBox1.SelectedIndex;
+            string newID = Guid.NewGuid().ToString().Substring(0, 18);
+            if (index == 0)
+            {
+                list = CommonVars.modStats.Keys.ToList();
+            }
+            else if (index == 1)
+            {
+                list = CommonVars.arcaneStats.Keys.ToList();
+            }
+            else if (index == 2)
+            {
+                list = CommonVars.miscStats.Keys.ToList();
+            }
+            else if (index == 3)
+            {
+                list = CommonVars.fireModeStats.Keys.ToList();
+            }
+            while (list.Contains(newID))
+            {
+                newID = Guid.NewGuid().ToString().Substring(0, 18);
+            }
+            textBoxID.Text = newID;
+        }
         public void loadFile(string filePath)
         {
             WriteLineIfDebug("Loading stats from file: " + filePath);
@@ -143,7 +171,7 @@ namespace Buildframe.Forms
         private void FormStatWizard_Load(object sender, EventArgs e)
         {
             Text = ToolName + " - Stat Wizard";
-            textBoxID.Text = Guid.NewGuid().ToString().Substring(0, 18);
+            genID();
             comboBox1.SelectedIndex = 0;
 
             foreach (Control c in tableLayoutPanel1.Controls)
@@ -361,7 +389,8 @@ namespace Buildframe.Forms
 
             if (id.Trim() == "" || id.Trim() == string.Empty)
             {
-                id = Guid.NewGuid().ToString().Substring(0, 18);
+                genID();
+                return;
             }
             textBoxID.Text = id;
         }
@@ -422,6 +451,11 @@ namespace Buildframe.Forms
             {
                 textBoxTags.Text = "Any";
             }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
