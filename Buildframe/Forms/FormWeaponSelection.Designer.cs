@@ -36,7 +36,9 @@
             // comboBoxWeaponSelect
             // 
             comboBoxWeaponSelect.FormattingEnabled = true;
+            comboBoxWeaponSelect.IntegralHeight = false;
             comboBoxWeaponSelect.Location = new Point(3, 3);
+            comboBoxWeaponSelect.MaxDropDownItems = 15;
             comboBoxWeaponSelect.Name = "comboBoxWeaponSelect";
             comboBoxWeaponSelect.Size = new Size(256, 23);
             comboBoxWeaponSelect.TabIndex = 0;

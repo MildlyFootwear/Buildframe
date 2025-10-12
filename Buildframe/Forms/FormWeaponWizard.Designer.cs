@@ -220,8 +220,7 @@
             // comboBoxTertiaryRadial
             // 
             comboBoxTertiaryRadial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxTertiaryRadial.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxTertiaryRadial.FormattingEnabled = true;
+            comboBoxTertiaryRadial.IntegralHeight = false;
             comboBoxTertiaryRadial.Location = new Point(73, 154);
             comboBoxTertiaryRadial.Name = "comboBoxTertiaryRadial";
             comboBoxTertiaryRadial.Size = new Size(304, 23);
@@ -241,8 +240,7 @@
             // comboBoxTertiary
             // 
             comboBoxTertiary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxTertiary.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxTertiary.FormattingEnabled = true;
+            comboBoxTertiary.IntegralHeight = false;
             comboBoxTertiary.Location = new Point(73, 124);
             comboBoxTertiary.Name = "comboBoxTertiary";
             comboBoxTertiary.Size = new Size(304, 23);
@@ -273,8 +271,7 @@
             // comboBoxPrimary
             // 
             comboBoxPrimary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxPrimary.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxPrimary.FormattingEnabled = true;
+            comboBoxPrimary.IntegralHeight = false;
             comboBoxPrimary.Location = new Point(73, 4);
             comboBoxPrimary.Name = "comboBoxPrimary";
             comboBoxPrimary.Size = new Size(304, 23);
@@ -294,8 +291,7 @@
             // comboBoxSecondary
             // 
             comboBoxSecondary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxSecondary.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxSecondary.FormattingEnabled = true;
+            comboBoxSecondary.IntegralHeight = false;
             comboBoxSecondary.Location = new Point(73, 64);
             comboBoxSecondary.Name = "comboBoxSecondary";
             comboBoxSecondary.Size = new Size(304, 23);
@@ -315,8 +311,7 @@
             // comboBoxPrimaryRadial
             // 
             comboBoxPrimaryRadial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxPrimaryRadial.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxPrimaryRadial.FormattingEnabled = true;
+            comboBoxPrimaryRadial.IntegralHeight = false;
             comboBoxPrimaryRadial.Location = new Point(73, 34);
             comboBoxPrimaryRadial.Name = "comboBoxPrimaryRadial";
             comboBoxPrimaryRadial.Size = new Size(304, 23);
@@ -336,8 +331,7 @@
             // comboBoxSecondaryRadial
             // 
             comboBoxSecondaryRadial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxSecondaryRadial.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxSecondaryRadial.FormattingEnabled = true;
+            comboBoxSecondaryRadial.IntegralHeight = false;
             comboBoxSecondaryRadial.Location = new Point(73, 94);
             comboBoxSecondaryRadial.Name = "comboBoxSecondaryRadial";
             comboBoxSecondaryRadial.Size = new Size(304, 23);
