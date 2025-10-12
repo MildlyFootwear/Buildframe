@@ -82,5 +82,17 @@ namespace Buildframe.Properties {
                 this["IngoreVersion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShownOpeningMessage {
+            get {
+                return ((bool)(this["ShownOpeningMessage"]));
+            }
+            set {
+                this["ShownOpeningMessage"] = value;
+            }
+        }
     }
 }

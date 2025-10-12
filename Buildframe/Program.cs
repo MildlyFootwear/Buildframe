@@ -33,6 +33,14 @@ namespace Buildframe
                 AllocConsole();
             }
 
+            if (!Settings.Default.ShownOpeningMessage)
+            {
+                MessageBox.Show("This software is early in development. Some features are not implemnted yet and workarounds may be required to properly represent a build.\nIf you need assistance, the documentation on github (link found in Info panel) may be of assistance.", ToolName);
+                Settings.Default.ShownOpeningMessage = true;
+                Settings.Default.Save();
+            }
+            
+
             WriteLineIfDebug("Starting.");
             WriteLineIfDebug("Running from: " + envAPPLOC);
 
