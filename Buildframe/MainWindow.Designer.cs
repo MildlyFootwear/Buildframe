@@ -1028,7 +1028,7 @@
             comboBoxMod8.TabIndex = 10;
             comboBoxMod8.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod8.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod8.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod8.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // comboBoxMod7
             // 
@@ -1042,7 +1042,7 @@
             comboBoxMod7.TabIndex = 9;
             comboBoxMod7.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod7.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod7.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod7.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // comboBoxMod6
             // 
@@ -1056,7 +1056,7 @@
             comboBoxMod6.TabIndex = 8;
             comboBoxMod6.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod6.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod6.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod6.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // comboBoxMod5
             // 
@@ -1070,7 +1070,7 @@
             comboBoxMod5.TabIndex = 7;
             comboBoxMod5.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod5.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod5.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod5.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // comboBoxMod4
             // 
@@ -1084,7 +1084,7 @@
             comboBoxMod4.TabIndex = 6;
             comboBoxMod4.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod4.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod4.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod4.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // comboBoxMod3
             // 
@@ -1098,7 +1098,7 @@
             comboBoxMod3.TabIndex = 5;
             comboBoxMod3.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod3.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod3.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod3.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // comboBoxMod2
             // 
@@ -1112,7 +1112,7 @@
             comboBoxMod2.TabIndex = 4;
             comboBoxMod2.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod2.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod2.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod2.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // label2
             // 
@@ -1165,7 +1165,7 @@
             comboBoxMod1.TabIndex = 3;
             comboBoxMod1.DropDown += comboBoxTooltipShow_Event;
             comboBoxMod1.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
-            comboBoxMod1.DropDownClosed += comboBoxTooltipHide_Event;
+            comboBoxMod1.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
             // saveFileDialog1
             // 

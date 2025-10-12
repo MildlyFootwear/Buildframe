@@ -982,5 +982,23 @@ namespace Buildframe
         {
             toolTipMods.Hide(this);
         }
+
+        private void comboBoxModDropDownClose_Event(object sender, EventArgs e)
+        {
+            List<StatsData> list = new List<StatsData>();
+            foreach (ComboBox box in modBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    if (list.Contains((StatsData)box.SelectedItem))
+                    {
+                        MessageBox.Show("A duplicate mod has been selected. Ensure this is not in error.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                    list.Add((StatsData)box.SelectedItem);
+                }
+            }
+            comboBoxTooltipHide_Event(sender, e);
+        }
     }
 }
