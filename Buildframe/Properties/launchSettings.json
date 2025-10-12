@@ -3,6 +3,11 @@
     "Buildframe": {
       "commandName": "Project",
       "commandLineArgs": "-debug"
+    },
+    "Buildframe Release": {
+      "commandName": "Project",
+      "commandLineArgs": "-resetappconfig",
+      "hotReloadEnabled": false
     }
   }
 }

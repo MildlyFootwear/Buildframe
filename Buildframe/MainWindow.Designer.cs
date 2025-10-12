@@ -179,21 +179,21 @@
             toolStripDropDownButtonCreationWizards.Image = (Image)resources.GetObject("toolStripDropDownButtonCreationWizards.Image");
             toolStripDropDownButtonCreationWizards.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButtonCreationWizards.Name = "toolStripDropDownButtonCreationWizards";
-            toolStripDropDownButtonCreationWizards.Size = new Size(150, 22);
-            toolStripDropDownButtonCreationWizards.Text = "Create Effect Or Weapon";
+            toolStripDropDownButtonCreationWizards.Size = new Size(56, 22);
+            toolStripDropDownButtonCreationWizards.Text = "Editors";
             // 
             // createFireModeOrBuffToolStripMenuItem
             // 
             createFireModeOrBuffToolStripMenuItem.Name = "createFireModeOrBuffToolStripMenuItem";
-            createFireModeOrBuffToolStripMenuItem.Size = new Size(211, 22);
-            createFireModeOrBuffToolStripMenuItem.Text = "Create Effect or Fire Mode";
+            createFireModeOrBuffToolStripMenuItem.Size = new Size(196, 22);
+            createFireModeOrBuffToolStripMenuItem.Text = "Effect/Fire Mode Editor";
             createFireModeOrBuffToolStripMenuItem.Click += createFireModeOrBuffToolStripMenuItem_Click;
             // 
             // createWeaponToolStripMenuItem
             // 
             createWeaponToolStripMenuItem.Name = "createWeaponToolStripMenuItem";
-            createWeaponToolStripMenuItem.Size = new Size(211, 22);
-            createWeaponToolStripMenuItem.Text = "Create Weapon";
+            createWeaponToolStripMenuItem.Size = new Size(196, 22);
+            createWeaponToolStripMenuItem.Text = "Weapon Editor";
             createWeaponToolStripMenuItem.Click += createWeaponToolStripMenuItem_Click;
             // 
             // toolStripButtonInfo
@@ -761,6 +761,7 @@
             // 
             comboBoxFireMode.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFireMode.FormattingEnabled = true;
+            comboBoxFireMode.Items.AddRange(new object[] { "[Firemode]" });
             comboBoxFireMode.Location = new Point(12, 51);
             comboBoxFireMode.Name = "comboBoxFireMode";
             comboBoxFireMode.Size = new Size(292, 23);

@@ -27,7 +27,17 @@ namespace Buildframe
 
             if (argsL.IndexOf("-debug") != -1)
                 ToolDebug = true;
-
+            if (argsL.IndexOf("-debugweapcalc") != -1)
+                DebuggingWeaponCalc = true;
+            if (argsL.IndexOf("-debugload") != -1)
+                DebuggingLoading = true;
+            if (argsL.IndexOf("-debugmain") != -1)
+                DebuggingMainWindow = true;
+            if (argsL.IndexOf("-resetappconfig") != -1)
+            {
+                Settings.Default.Reset();
+                Settings.Default.Save();
+            }
             if (ToolDebug)
             {
                 AllocConsole();

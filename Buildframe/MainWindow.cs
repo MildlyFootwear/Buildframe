@@ -722,24 +722,6 @@ namespace Buildframe
             miscBoxes.Add(comboBoxMiscEffect11);
             miscBoxes.Add(comboBoxMiscEffect12);
 
-            setHandlerPause(true);
-
-            foreach (ComboBox box in modBoxes)
-            {
-                box.Items.Add("None");
-                box.SelectedIndex = 0;
-            }
-            foreach (ComboBox box in miscBoxes)
-            {
-                box.Items.Add("None");
-                box.SelectedIndex = 0;
-            }
-
-            comboBoxWeaponArcane.Items.Add("None");
-            comboBoxWeaponArcane.SelectedIndex = 0;
-
-            setHandlerPause(false);
-
             primaryValueLabels.Add(labelDamageValue);
             primaryValueLabels.Add(labelFireRateValue);
             primaryValueLabels.Add(labelMagazineValue);
@@ -767,20 +749,13 @@ namespace Buildframe
             radialValueLabels.Add(labelSummedDPSBurstValue);
             radialValueLabels.Add(labelSummedDPSSustainedValue);
 
-
-            foreach (Label lbl in primaryValueLabels)
-            {
-                lbl.Text = "N/A";
-            }
-            foreach (Label lbl in radialValueLabels)
-            {
-                lbl.Text = "N/A";
-            }
-
             if (File.Exists("lastbuild.cfg"))
             {
                 WriteLineIfDebug("Loading last session from file");
                 loadSelectedFromFile();
+            } else
+            {
+                loadWeapon(new WeaponData());
             }
 
             Padding newMargin = tableLayoutPanel1.Margin;
