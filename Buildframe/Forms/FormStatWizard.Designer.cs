@@ -622,6 +622,7 @@
             // 
             numericUpDownBaseChargeTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseChargeTime.DecimalPlaces = 2;
+            numericUpDownBaseChargeTime.Enabled = false;
             numericUpDownBaseChargeTime.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             numericUpDownBaseChargeTime.Location = new Point(128, 172);
             numericUpDownBaseChargeTime.Margin = new Padding(1, 0, 1, 0);
@@ -1729,6 +1730,7 @@
             // 
             numericUpDownModChargeTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModChargeTime.DecimalPlaces = 2;
+            numericUpDownModChargeTime.Enabled = false;
             numericUpDownModChargeTime.Location = new Point(136, 196);
             numericUpDownModChargeTime.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModChargeTime.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -1948,6 +1950,7 @@
             // 
             numericUpDownFinalCorrosive.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalCorrosive.DecimalPlaces = 2;
+            numericUpDownFinalCorrosive.Enabled = false;
             numericUpDownFinalCorrosive.Location = new Point(292, 292);
             numericUpDownFinalCorrosive.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalCorrosive.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -1961,6 +1964,7 @@
             // 
             numericUpDownFinalViral.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalViral.DecimalPlaces = 2;
+            numericUpDownFinalViral.Enabled = false;
             numericUpDownFinalViral.Location = new Point(292, 268);
             numericUpDownFinalViral.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalViral.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -1974,6 +1978,7 @@
             // 
             numericUpDownFinalRadiation.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalRadiation.DecimalPlaces = 2;
+            numericUpDownFinalRadiation.Enabled = false;
             numericUpDownFinalRadiation.Location = new Point(292, 244);
             numericUpDownFinalRadiation.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalRadiation.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -1987,6 +1992,7 @@
             // 
             numericUpDownFinalBlast.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalBlast.DecimalPlaces = 2;
+            numericUpDownFinalBlast.Enabled = false;
             numericUpDownFinalBlast.Location = new Point(292, 220);
             numericUpDownFinalBlast.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalBlast.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2000,6 +2006,7 @@
             // 
             numericUpDownFinalToxin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalToxin.DecimalPlaces = 2;
+            numericUpDownFinalToxin.Enabled = false;
             numericUpDownFinalToxin.Location = new Point(292, 196);
             numericUpDownFinalToxin.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalToxin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2013,6 +2020,7 @@
             // 
             numericUpDownFinalElectric.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalElectric.DecimalPlaces = 2;
+            numericUpDownFinalElectric.Enabled = false;
             numericUpDownFinalElectric.Location = new Point(292, 172);
             numericUpDownFinalElectric.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalElectric.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2026,6 +2034,7 @@
             // 
             numericUpDownFinalCold.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalCold.DecimalPlaces = 2;
+            numericUpDownFinalCold.Enabled = false;
             numericUpDownFinalCold.Location = new Point(292, 148);
             numericUpDownFinalCold.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalCold.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2039,6 +2048,7 @@
             // 
             numericUpDownFinalHeat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalHeat.DecimalPlaces = 2;
+            numericUpDownFinalHeat.Enabled = false;
             numericUpDownFinalHeat.Location = new Point(292, 124);
             numericUpDownFinalHeat.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalHeat.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2052,6 +2062,7 @@
             // 
             numericUpDownFinalSlash.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalSlash.DecimalPlaces = 2;
+            numericUpDownFinalSlash.Enabled = false;
             numericUpDownFinalSlash.Location = new Point(292, 100);
             numericUpDownFinalSlash.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalSlash.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2065,6 +2076,7 @@
             // 
             numericUpDownFinalPuncture.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalPuncture.DecimalPlaces = 2;
+            numericUpDownFinalPuncture.Enabled = false;
             numericUpDownFinalPuncture.Location = new Point(292, 76);
             numericUpDownFinalPuncture.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalPuncture.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2078,6 +2090,7 @@
             // 
             numericUpDownFinalImpact.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalImpact.DecimalPlaces = 2;
+            numericUpDownFinalImpact.Enabled = false;
             numericUpDownFinalImpact.Location = new Point(292, 52);
             numericUpDownFinalImpact.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalImpact.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2155,6 +2168,7 @@
             // 
             numericUpDownFinalChargeTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownFinalChargeTime.DecimalPlaces = 2;
+            numericUpDownFinalChargeTime.Enabled = false;
             numericUpDownFinalChargeTime.Location = new Point(127, 172);
             numericUpDownFinalChargeTime.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalChargeTime.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -2492,6 +2506,7 @@
             // 
             numericUpDownFinalMagnetic.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalMagnetic.DecimalPlaces = 2;
+            numericUpDownFinalMagnetic.Enabled = false;
             numericUpDownFinalMagnetic.Location = new Point(292, 316);
             numericUpDownFinalMagnetic.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalMagnetic.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2505,6 +2520,7 @@
             // 
             numericUpDownFinalGas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownFinalGas.DecimalPlaces = 2;
+            numericUpDownFinalGas.Enabled = false;
             numericUpDownFinalGas.Location = new Point(292, 340);
             numericUpDownFinalGas.Margin = new Padding(1, 0, 1, 0);
             numericUpDownFinalGas.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });

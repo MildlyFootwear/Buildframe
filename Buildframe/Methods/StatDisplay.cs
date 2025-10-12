@@ -36,59 +36,65 @@ namespace Buildframe.Methods
                     s += "Enervate Critical Chance Increase: " + Math.Round(crit, 2) + "%\n\n";
                 }
             }
+
+            if (stats.incarnon)
+            {
+                s += "Incarnon Firemode\n\n";
+            }
+
             if (stats.baseImpact != 0)
             {
-                s += "Base Impact: " + stats.baseImpact + "\n";
+                s += "Base Impact Damage: " + stats.baseImpact + "\n";
             }
             if (stats.basePuncture != 0)
             {
-                s += "Base Puncture: " + stats.basePuncture + "\n";
+                s += "Base Puncture Damage: " + stats.basePuncture + "\n";
             }
             if (stats.baseSlash != 0)
             {
-                s += "Base Slash: " + stats.baseSlash + "\n";
+                s += "Base Slash Damage: " + stats.baseSlash + "\n";
             }
 
             if (stats.baseHeat != 0)
             {
-                s += "Base Heat: " + stats.baseHeat + "\n";
+                s += "Base Heat Damage: " + stats.baseHeat + "\n";
             }
             if (stats.baseCold != 0)
             {
-                s += "Base Cold: " + stats.baseCold + "\n";
+                s += "Base Cold Damage: " + stats.baseCold + "\n";
             }
             if (stats.baseElectric != 0)
             {
-                s += "Base Electric: " + stats.baseElectric + "\n";
+                s += "Base Electric Damage: " + stats.baseElectric + "\n";
             }
             if (stats.baseToxin != 0)
             {
-                s += "Base Toxin: " + stats.baseToxin + "\n";
+                s += "Base Toxin Damage: " + stats.baseToxin + "\n";
             }
 
             if (stats.baseBlast != 0)
             {
-                s += "Base Blast: " + stats.baseBlast + "\n";
+                s += "Base Blast Damage: " + stats.baseBlast + "\n";
             }
             if (stats.baseRadiation != 0)
             {
-                s += "Base Radiation: " + stats.baseRadiation + "\n";
+                s += "Base Radiation Damage: " + stats.baseRadiation + "\n";
             }
             if (stats.baseViral != 0)
             {
-                s += "Base Viral: " + stats.baseViral + "\n";
+                s += "Base Viral Damage: " + stats.baseViral + "\n";
             }
             if (stats.baseCorrosive != 0)
             {
-                s += "Base Corrosive: " + stats.baseCorrosive + "\n";
+                s += "Base Corrosive Damage: " + stats.baseCorrosive + "\n";
             }
             if (stats.baseMagnetic != 0)
             {
-                s += "Base Magnetic: " + stats.baseMagnetic + "\n";
+                s += "Base Magnetic Damage: " + stats.baseMagnetic + "\n";
             }
             if (stats.baseGas != 0)
             {
-                s += "Base Gas: " + stats.baseGas + "\n";
+                s += "Base Gas Damage: " + stats.baseGas + "\n";
             }
 
             if (stats.baseDamage != 0)
@@ -232,7 +238,7 @@ namespace Buildframe.Methods
             }
             if (stats.modReloadTime != 0)
             {
-                s += "Mod Reload Time: " + stats.modReloadTime + "%\n";
+                s += "Mod Reload Speed: " + stats.modReloadTime + "%\n";
             }
             if (stats.modAmmoEfficiency != 0)
             {
