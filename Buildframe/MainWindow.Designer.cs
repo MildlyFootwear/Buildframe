@@ -847,6 +847,7 @@
             comboBoxMiscEffect12.IntegralHeight = false;
             comboBoxMiscEffect12.Location = new Point(283, 371);
             comboBoxMiscEffect12.Margin = new Padding(1);
+            comboBoxMiscEffect12.MaxDropDownItems = 10;
             comboBoxMiscEffect12.Name = "comboBoxMiscEffect12";
             comboBoxMiscEffect12.Size = new Size(280, 23);
             comboBoxMiscEffect12.TabIndex = 23;
@@ -862,6 +863,7 @@
             comboBoxMiscEffect11.IntegralHeight = false;
             comboBoxMiscEffect11.Location = new Point(1, 371);
             comboBoxMiscEffect11.Margin = new Padding(1);
+            comboBoxMiscEffect11.MaxDropDownItems = 10;
             comboBoxMiscEffect11.Name = "comboBoxMiscEffect11";
             comboBoxMiscEffect11.Size = new Size(280, 23);
             comboBoxMiscEffect11.TabIndex = 22;
@@ -877,6 +879,7 @@
             comboBoxMiscEffect10.IntegralHeight = false;
             comboBoxMiscEffect10.Location = new Point(283, 346);
             comboBoxMiscEffect10.Margin = new Padding(1);
+            comboBoxMiscEffect10.MaxDropDownItems = 10;
             comboBoxMiscEffect10.Name = "comboBoxMiscEffect10";
             comboBoxMiscEffect10.Size = new Size(280, 23);
             comboBoxMiscEffect10.TabIndex = 21;
@@ -892,6 +895,7 @@
             comboBoxMiscEffect9.IntegralHeight = false;
             comboBoxMiscEffect9.Location = new Point(1, 346);
             comboBoxMiscEffect9.Margin = new Padding(1);
+            comboBoxMiscEffect9.MaxDropDownItems = 10;
             comboBoxMiscEffect9.Name = "comboBoxMiscEffect9";
             comboBoxMiscEffect9.Size = new Size(280, 23);
             comboBoxMiscEffect9.TabIndex = 20;
@@ -907,6 +911,7 @@
             comboBoxMiscEffect8.IntegralHeight = false;
             comboBoxMiscEffect8.Location = new Point(283, 321);
             comboBoxMiscEffect8.Margin = new Padding(1);
+            comboBoxMiscEffect8.MaxDropDownItems = 12;
             comboBoxMiscEffect8.Name = "comboBoxMiscEffect8";
             comboBoxMiscEffect8.Size = new Size(280, 23);
             comboBoxMiscEffect8.TabIndex = 19;
@@ -922,6 +927,7 @@
             comboBoxMiscEffect7.IntegralHeight = false;
             comboBoxMiscEffect7.Location = new Point(1, 321);
             comboBoxMiscEffect7.Margin = new Padding(1);
+            comboBoxMiscEffect7.MaxDropDownItems = 12;
             comboBoxMiscEffect7.Name = "comboBoxMiscEffect7";
             comboBoxMiscEffect7.Size = new Size(280, 23);
             comboBoxMiscEffect7.TabIndex = 18;
@@ -937,6 +943,7 @@
             comboBoxMiscEffect6.IntegralHeight = false;
             comboBoxMiscEffect6.Location = new Point(283, 296);
             comboBoxMiscEffect6.Margin = new Padding(1);
+            comboBoxMiscEffect6.MaxDropDownItems = 12;
             comboBoxMiscEffect6.Name = "comboBoxMiscEffect6";
             comboBoxMiscEffect6.Size = new Size(280, 23);
             comboBoxMiscEffect6.TabIndex = 17;
@@ -952,6 +959,7 @@
             comboBoxMiscEffect5.IntegralHeight = false;
             comboBoxMiscEffect5.Location = new Point(1, 296);
             comboBoxMiscEffect5.Margin = new Padding(1);
+            comboBoxMiscEffect5.MaxDropDownItems = 12;
             comboBoxMiscEffect5.Name = "comboBoxMiscEffect5";
             comboBoxMiscEffect5.Size = new Size(280, 23);
             comboBoxMiscEffect5.TabIndex = 16;
@@ -967,6 +975,7 @@
             comboBoxMiscEffect4.IntegralHeight = false;
             comboBoxMiscEffect4.Location = new Point(283, 271);
             comboBoxMiscEffect4.Margin = new Padding(1);
+            comboBoxMiscEffect4.MaxDropDownItems = 12;
             comboBoxMiscEffect4.Name = "comboBoxMiscEffect4";
             comboBoxMiscEffect4.Size = new Size(280, 23);
             comboBoxMiscEffect4.TabIndex = 15;
@@ -982,6 +991,7 @@
             comboBoxMiscEffect3.IntegralHeight = false;
             comboBoxMiscEffect3.Location = new Point(1, 271);
             comboBoxMiscEffect3.Margin = new Padding(1);
+            comboBoxMiscEffect3.MaxDropDownItems = 12;
             comboBoxMiscEffect3.Name = "comboBoxMiscEffect3";
             comboBoxMiscEffect3.Size = new Size(280, 23);
             comboBoxMiscEffect3.TabIndex = 14;
@@ -997,6 +1007,7 @@
             comboBoxMiscEffect2.IntegralHeight = false;
             comboBoxMiscEffect2.Location = new Point(283, 246);
             comboBoxMiscEffect2.Margin = new Padding(1);
+            comboBoxMiscEffect2.MaxDropDownItems = 12;
             comboBoxMiscEffect2.Name = "comboBoxMiscEffect2";
             comboBoxMiscEffect2.Size = new Size(280, 23);
             comboBoxMiscEffect2.TabIndex = 13;
@@ -1012,6 +1023,7 @@
             comboBoxMiscEffect1.IntegralHeight = false;
             comboBoxMiscEffect1.Location = new Point(1, 246);
             comboBoxMiscEffect1.Margin = new Padding(1);
+            comboBoxMiscEffect1.MaxDropDownItems = 12;
             comboBoxMiscEffect1.Name = "comboBoxMiscEffect1";
             comboBoxMiscEffect1.Size = new Size(280, 23);
             comboBoxMiscEffect1.TabIndex = 12;
@@ -1039,7 +1051,7 @@
             comboBoxMod8.IntegralHeight = false;
             comboBoxMod8.Location = new Point(283, 192);
             comboBoxMod8.Margin = new Padding(1);
-            comboBoxMod8.MaxDropDownItems = 16;
+            comboBoxMod8.MaxDropDownItems = 20;
             comboBoxMod8.Name = "comboBoxMod8";
             comboBoxMod8.Size = new Size(280, 23);
             comboBoxMod8.TabIndex = 10;
@@ -1055,7 +1067,7 @@
             comboBoxMod7.IntegralHeight = false;
             comboBoxMod7.Location = new Point(1, 192);
             comboBoxMod7.Margin = new Padding(1);
-            comboBoxMod7.MaxDropDownItems = 16;
+            comboBoxMod7.MaxDropDownItems = 20;
             comboBoxMod7.Name = "comboBoxMod7";
             comboBoxMod7.Size = new Size(280, 23);
             comboBoxMod7.TabIndex = 9;
@@ -1071,7 +1083,7 @@
             comboBoxMod6.IntegralHeight = false;
             comboBoxMod6.Location = new Point(283, 167);
             comboBoxMod6.Margin = new Padding(1);
-            comboBoxMod6.MaxDropDownItems = 16;
+            comboBoxMod6.MaxDropDownItems = 20;
             comboBoxMod6.Name = "comboBoxMod6";
             comboBoxMod6.Size = new Size(280, 23);
             comboBoxMod6.TabIndex = 8;
@@ -1087,7 +1099,7 @@
             comboBoxMod5.IntegralHeight = false;
             comboBoxMod5.Location = new Point(1, 167);
             comboBoxMod5.Margin = new Padding(1);
-            comboBoxMod5.MaxDropDownItems = 16;
+            comboBoxMod5.MaxDropDownItems = 20;
             comboBoxMod5.Name = "comboBoxMod5";
             comboBoxMod5.Size = new Size(280, 23);
             comboBoxMod5.TabIndex = 7;
@@ -1103,7 +1115,7 @@
             comboBoxMod4.IntegralHeight = false;
             comboBoxMod4.Location = new Point(283, 142);
             comboBoxMod4.Margin = new Padding(1);
-            comboBoxMod4.MaxDropDownItems = 16;
+            comboBoxMod4.MaxDropDownItems = 20;
             comboBoxMod4.Name = "comboBoxMod4";
             comboBoxMod4.Size = new Size(280, 23);
             comboBoxMod4.TabIndex = 6;
@@ -1119,7 +1131,7 @@
             comboBoxMod3.IntegralHeight = false;
             comboBoxMod3.Location = new Point(1, 142);
             comboBoxMod3.Margin = new Padding(1);
-            comboBoxMod3.MaxDropDownItems = 16;
+            comboBoxMod3.MaxDropDownItems = 20;
             comboBoxMod3.Name = "comboBoxMod3";
             comboBoxMod3.Size = new Size(280, 23);
             comboBoxMod3.TabIndex = 5;
@@ -1135,7 +1147,7 @@
             comboBoxMod2.IntegralHeight = false;
             comboBoxMod2.Location = new Point(283, 117);
             comboBoxMod2.Margin = new Padding(1);
-            comboBoxMod2.MaxDropDownItems = 16;
+            comboBoxMod2.MaxDropDownItems = 20;
             comboBoxMod2.Name = "comboBoxMod2";
             comboBoxMod2.Size = new Size(280, 23);
             comboBoxMod2.TabIndex = 4;
@@ -1192,7 +1204,7 @@
             comboBoxMod1.IntegralHeight = false;
             comboBoxMod1.Location = new Point(1, 117);
             comboBoxMod1.Margin = new Padding(1);
-            comboBoxMod1.MaxDropDownItems = 16;
+            comboBoxMod1.MaxDropDownItems = 20;
             comboBoxMod1.Name = "comboBoxMod1";
             comboBoxMod1.Size = new Size(280, 23);
             comboBoxMod1.TabIndex = 3;
