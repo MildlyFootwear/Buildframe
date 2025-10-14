@@ -1,13 +1,16 @@
 {
   "profiles": {
-    "Buildframe": {
-      "commandName": "Project",
-      "commandLineArgs": "-debug"
-    },
     "Buildframe Release": {
       "commandName": "Project",
       "commandLineArgs": "-resetappconfig",
       "hotReloadEnabled": false
+    },
+    "Buildframe Debug": {
+      "commandName": "Project",
+      "commandLineArgs": "-debug"
+    },
+    "Buildframe No Log": {
+      "commandName": "Project"
     }
   }
 }
