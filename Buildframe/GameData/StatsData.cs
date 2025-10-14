@@ -132,6 +132,7 @@ namespace Buildframe.GameData
         // Transient stats, not saved to file
 
         public double damageMultiplier = 1;
+        public double speedMultiplier = 1;
         public double multishotDamageMultiplier = 1;
 
         public override string ToString()

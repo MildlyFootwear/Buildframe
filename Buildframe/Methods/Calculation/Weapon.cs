@@ -109,7 +109,7 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModSpeed(StatsData stats)
         {
-            return stats.baseAttackSpeed * (1 + stats.modAttackSpeed / 100) + stats.finalAttackSpeed;
+            return stats.baseAttackSpeed * (1 + stats.modAttackSpeed / 100) * stats.speedMultiplier;
         }
         public static double calculateModMultishot(StatsData stats)
         {

@@ -138,10 +138,6 @@ namespace Buildframe.Methods.Calculation
 
                 stats.finalDamage += s.finalDamage;
 
-
-
-                stats.finalAttackSpeed += s.finalAttackSpeed;
-
                 stats.finalReloadTime += s.finalReloadTime;
                 if (!stats.incarnon)
                 {
@@ -180,6 +176,11 @@ namespace Buildframe.Methods.Calculation
                     stats.multishotDamageMultiplier *= s.multishotDamageMultiplier;
                 }
 
+                if (s.finalAttackSpeed != 0)
+                {
+                    stats.speedMultiplier *= 1 + (s.finalAttackSpeed / 100);
+                }
+
                 if (s.tags.Contains("Multishot_Exclusive_Damage_Mult"))
                 {
                     stats.multishotDamageMultiplier *= 1 + (s.finalDamagePercentage / 100);
@@ -189,7 +190,7 @@ namespace Buildframe.Methods.Calculation
                 }
 
                 stats.damageMultiplier *= s.damageMultiplier;
-
+                stats.speedMultiplier *= s.speedMultiplier;
             }
 
 

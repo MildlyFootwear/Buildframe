@@ -1008,7 +1008,7 @@
             label79.Name = "label79";
             label79.Size = new Size(383, 50);
             label79.TabIndex = 80;
-            label79.Text = "This is for weapon info cards or incarnon perks specifying \"base\".\r\nEnter stats as a flat number unless instructed otherwise.\r\nOnly use the baseDamage stat if the stats in the 2nd column can't apply.";
+            label79.Text = "This is for weapon info cards or incarnon perks specifying \"base\".\r\nEnter stats as a flat number unless instructed otherwise.\r\nCharge Time is currently unimplemented. Approximate it using speed.";
             // 
             // tabControl1
             // 
@@ -1765,6 +1765,7 @@
             // numericUpDownModMagazine
             // 
             numericUpDownModMagazine.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownModMagazine.DecimalPlaces = 2;
             numericUpDownModMagazine.Location = new Point(136, 172);
             numericUpDownModMagazine.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModMagazine.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
@@ -2215,15 +2216,15 @@
             // numericUpDownFinalAttackSpeed
             // 
             numericUpDownFinalAttackSpeed.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownFinalAttackSpeed.DecimalPlaces = 2;
-            numericUpDownFinalAttackSpeed.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             numericUpDownFinalAttackSpeed.Location = new Point(127, 76);
             numericUpDownFinalAttackSpeed.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownFinalAttackSpeed.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDownFinalAttackSpeed.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownFinalAttackSpeed.Name = "numericUpDownFinalAttackSpeed";
             numericUpDownFinalAttackSpeed.Size = new Size(75, 23);
             numericUpDownFinalAttackSpeed.TabIndex = 55;
             numericUpDownFinalAttackSpeed.TextAlign = HorizontalAlignment.Center;
+            numericUpDownFinalAttackSpeed.Value = new decimal(new int[] { 100, 0, 0, 0 });
             // 
             // label53
             // 
@@ -2275,10 +2276,10 @@
             label57.AutoSize = true;
             label57.Location = new Point(4, 76);
             label57.Name = "label57";
-            label57.Size = new Size(96, 23);
+            label57.Size = new Size(89, 23);
             label57.TabIndex = 16;
-            label57.Text = "finalAttackSpeed";
-            label57.TextAlign = ContentAlignment.MiddleCenter;
+            label57.Text = "Attack Speed %";
+            label57.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label58
             // 

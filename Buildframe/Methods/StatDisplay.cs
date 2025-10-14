@@ -273,22 +273,18 @@ namespace Buildframe.Methods
                 s += "Final Damage: " + stats.finalDamage + "\n";
             }
 
-            if (stats.tags.Contains("Multishot_Exclusive_Damage_Mult"))
+            if (stats.tags.Contains("Multishot_Exclusive_Damage_Mult") && stats.finalDamagePercentage != 0)
             { 
-                s += "Multishot Damage Bonus: " + stats.finalDamagePercentage + "%\n";
+                s += "Multishot Damage Multiplier: " + (stats.finalDamagePercentage / 100 + 1) + "x\n";
             }
-            else if (stats.finalDamagePercentage > 0)
+            else if (stats.finalDamagePercentage != 0)
             {
-                s += "Damage Multiplier: +" + stats.finalDamagePercentage + "%\n";
-            }
-            else if (stats.finalDamagePercentage < 0)
-            {
-                s += "Damage Multiplier: " + stats.finalDamagePercentage + "%\n";
+                s += "Damage Multiplier: " + (stats.finalDamagePercentage / 100 + 1) + "x\n";
             }
 
             if (stats.finalAttackSpeed != 0)
             {
-                s += "Final Attack Speed: " + stats.finalAttackSpeed + "\n";
+                s += "Attack Speed Multiplier: " + (stats.finalAttackSpeed / 100 + 1) + "x\n";
             }
 
             if (stats.finalReloadTime != 0)
