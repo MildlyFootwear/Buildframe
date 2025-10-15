@@ -220,6 +220,8 @@
             // comboBoxTertiaryRadial
             // 
             comboBoxTertiaryRadial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxTertiaryRadial.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxTertiaryRadial.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxTertiaryRadial.IntegralHeight = false;
             comboBoxTertiaryRadial.Location = new Point(73, 154);
             comboBoxTertiaryRadial.Name = "comboBoxTertiaryRadial";
@@ -240,6 +242,8 @@
             // comboBoxTertiary
             // 
             comboBoxTertiary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxTertiary.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxTertiary.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxTertiary.IntegralHeight = false;
             comboBoxTertiary.Location = new Point(73, 124);
             comboBoxTertiary.Name = "comboBoxTertiary";
@@ -271,6 +275,8 @@
             // comboBoxPrimary
             // 
             comboBoxPrimary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxPrimary.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxPrimary.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxPrimary.IntegralHeight = false;
             comboBoxPrimary.Location = new Point(73, 4);
             comboBoxPrimary.Name = "comboBoxPrimary";
@@ -291,6 +297,8 @@
             // comboBoxSecondary
             // 
             comboBoxSecondary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxSecondary.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxSecondary.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxSecondary.IntegralHeight = false;
             comboBoxSecondary.Location = new Point(73, 64);
             comboBoxSecondary.Name = "comboBoxSecondary";
@@ -311,6 +319,8 @@
             // comboBoxPrimaryRadial
             // 
             comboBoxPrimaryRadial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxPrimaryRadial.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxPrimaryRadial.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxPrimaryRadial.IntegralHeight = false;
             comboBoxPrimaryRadial.Location = new Point(73, 34);
             comboBoxPrimaryRadial.Name = "comboBoxPrimaryRadial";
@@ -331,6 +341,8 @@
             // comboBoxSecondaryRadial
             // 
             comboBoxSecondaryRadial.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxSecondaryRadial.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxSecondaryRadial.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxSecondaryRadial.IntegralHeight = false;
             comboBoxSecondaryRadial.Location = new Point(73, 94);
             comboBoxSecondaryRadial.Name = "comboBoxSecondaryRadial";

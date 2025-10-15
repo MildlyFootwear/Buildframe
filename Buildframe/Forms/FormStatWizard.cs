@@ -170,7 +170,7 @@ namespace Buildframe.Forms
         }
         private void FormStatWizard_Load(object sender, EventArgs e)
         {
-            Text = ToolName + " - Stat Wizard";
+            Text = ToolName + " - Stat Editor";
             genID();
             comboBox1.SelectedIndex = 0;
 

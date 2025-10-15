@@ -106,7 +106,7 @@ namespace Buildframe.Forms
 
         private void FormWeaponWizard_Load(object sender, EventArgs e)
         {
-            Text = ToolName + " - Weapon Wizard";
+            Text = ToolName + " - Weapon Editor";
             genID();
             comboBoxPrimary.Items.Add("None");
             comboBoxPrimaryRadial.Items.Add("None");
