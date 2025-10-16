@@ -73,7 +73,7 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModCritChance(StatsData stats)
         {
-            return Math.Max(0, stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance);
+            return Math.Max(0, Math.Round(stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance, 1));
         }
         public static double calculateModCritDamage(StatsData stats)
         {
@@ -200,9 +200,9 @@ namespace Buildframe.Methods.Calculation
             WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap, DebuggingWeaponCalc);
 
             double critChance = calculateModCritChance(stats);
-            double steps = 0;
+            uint steps = 0;
             Random rnd = new Random();
-            int degreeOfAccuracy = 100000;
+            uint degreeOfAccuracy = 1000000;
             for (int i = 0; i <= degreeOfAccuracy; i++)
             {
                 int bigCrits = 0;
@@ -221,7 +221,7 @@ namespace Buildframe.Methods.Calculation
 
             WriteLineIfDebug("Average of steps " + steps / degreeOfAccuracy, DebuggingWeaponCalc);
 
-            double enervateCritChanceIncrease = steps / degreeOfAccuracy * 10 / 2;
+            double enervateCritChanceIncrease = Convert.ToDouble(steps) / degreeOfAccuracy * 10 / 2;
             WriteLineIfDebug("Enervate crit chance increase: " + enervateCritChanceIncrease, DebuggingWeaponCalc);
             return enervateCritChanceIncrease;
         }
