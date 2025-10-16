@@ -73,7 +73,7 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModCritChance(StatsData stats)
         {
-            return Math.Max(0, Math.Round(stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance, 1));
+            return Math.Max(0, Math.Round(stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance, 1, MidpointRounding.ToEven));
         }
         public static double calculateModCritDamage(StatsData stats)
         {
