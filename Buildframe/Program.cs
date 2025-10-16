@@ -37,6 +37,7 @@ namespace Buildframe
             {
                 Settings.Default.Reset();
                 Settings.Default.Save();
+                MessageBox.Show("Application configuration reset. Please restart the application.", ToolName);
                 return;
             }
             if (ToolDebug)
