@@ -965,7 +965,7 @@ namespace Buildframe
                     toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, (Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats }))), this, p);
                     return;
                 }
-                toolTipMods.Show(Methods.StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);
+                toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);
             }
             else
             {

@@ -35,6 +35,8 @@
             // 
             // comboBoxWeaponSelect
             // 
+            comboBoxWeaponSelect.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxWeaponSelect.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxWeaponSelect.FormattingEnabled = true;
             comboBoxWeaponSelect.IntegralHeight = false;
             comboBoxWeaponSelect.Location = new Point(3, 3);
