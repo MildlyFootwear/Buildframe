@@ -1,6 +1,7 @@
 using Buildframe.Forms;
 using Buildframe.GameData;
 using Buildframe.Methods;
+using System.Reflection.Metadata;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Buildframe
@@ -33,6 +34,10 @@ namespace Buildframe
         public StatsData radialWithAppliedStats = new();
 
         public Dictionary<ComboBox, string> boxSelectedEffects = new();
+
+        public string lastSavedWeaponID = "";
+        public string lastSavedBuildName = "";
+        public string lastBuildDirectory = "";
 
         public void loadWeapon(WeaponData weapon)
         {
@@ -840,24 +845,58 @@ namespace Buildframe
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = currentWeapon.name + " build.cfg";
             Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Builds"));
-            saveFileDialog1.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Builds");
+
+            if (lastBuildDirectory != "")
+            {
+                saveFileDialog1.InitialDirectory = lastBuildDirectory;
+            }
+            else
+            {
+                saveFileDialog1.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Builds");
+            }
+
+
+            if (currentWeapon.id == lastSavedWeaponID)
+            {
+                saveFileDialog1.FileName = lastSavedBuildName;
+            } else { 
+                saveFileDialog1.FileName = currentWeapon.name + " build.cfg";
+            }
+
+            
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                if (!saveFileDialog1.FileName.EndsWith(".cfg"))
+                    saveFileDialog1.FileName += ".cfg";
+
+                lastSavedWeaponID = currentWeapon.id;
+                lastSavedBuildName = Path.GetFileName(saveFileDialog1.FileName);
+                lastBuildDirectory = Directory.GetParent(saveFileDialog1.FileName).FullName;
                 saveSelectedToFile(saveFileDialog1.FileName);
             }
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.FileName = "";
             Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Builds"));
-            openFileDialog1.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Builds");
-            openFileDialog1.ShowDialog();
-            if (openFileDialog1.FileName != "")
+
+            if (lastBuildDirectory != "")
+            {
+                openFileDialog1.InitialDirectory = lastBuildDirectory;
+            }
+            else
+            {
+                openFileDialog1.InitialDirectory = Path.Combine(Environment.CurrentDirectory, "Builds");
+            }
+            openFileDialog1.FileName = "";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK && openFileDialog1.FileName != "")
             {
                 loadSelectedFromFile(openFileDialog1.FileName);
+                lastSavedBuildName = Path.GetFileName(openFileDialog1.FileName);
+                lastBuildDirectory = Directory.GetParent(openFileDialog1.FileName).FullName;
+                lastSavedWeaponID = currentWeapon.id;
             }
         }
 
