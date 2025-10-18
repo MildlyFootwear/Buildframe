@@ -39,7 +39,7 @@
             comboBoxWeaponSelect.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxWeaponSelect.FormattingEnabled = true;
             comboBoxWeaponSelect.IntegralHeight = false;
-            comboBoxWeaponSelect.Location = new Point(3, 3);
+            comboBoxWeaponSelect.Location = new Point(12, 12);
             comboBoxWeaponSelect.MaxDropDownItems = 15;
             comboBoxWeaponSelect.Name = "comboBoxWeaponSelect";
             comboBoxWeaponSelect.Size = new Size(256, 23);
@@ -48,7 +48,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(94, 83);
+            button1.Location = new Point(105, 104);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // label1
             // 
-            label1.Location = new Point(3, 29);
+            label1.Location = new Point(12, 44);
             label1.Name = "label1";
             label1.Size = new Size(256, 51);
             label1.TabIndex = 2;
@@ -76,6 +76,7 @@
             Controls.Add(button1);
             Controls.Add(comboBoxWeaponSelect);
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormWeaponSelection";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Weapon Select";

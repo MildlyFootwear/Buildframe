@@ -1,4 +1,6 @@
-﻿namespace Buildframe.Forms
+﻿using System.Drawing.Printing;
+
+namespace Buildframe.Forms
 {
     public partial class FormWeaponSelection : Form
     {
@@ -12,7 +14,12 @@
         private void FormWeaponSelection_Load(object sender, EventArgs e)
         {
             Text = ToolName + " - Select Weapon";
+
+            Padding margins = new Padding(comboBoxWeaponSelect.Location.X, comboBoxWeaponSelect.Location.X, comboBoxWeaponSelect.Location.X, comboBoxWeaponSelect.Location.X);
+            comboBoxWeaponSelect.Margin = margins;
+
             comboBoxWeaponSelect.Items.Add("None");
+
             foreach (var w in CommonVars.weaponStats)
             {
                 comboBoxWeaponSelect.Items.Add(w.Value);
