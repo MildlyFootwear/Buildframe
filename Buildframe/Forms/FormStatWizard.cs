@@ -20,11 +20,29 @@ namespace Buildframe.Forms
         }
 
         bool multishotBaseEdited = false;
-        List<NumericUpDown> listBaseValues = new();
-        List<NumericUpDown> listModValues = new();
-        List<NumericUpDown> listFinalValues = new();
+        bool currentlyTracking = true;
+        bool fieldHasBeenChanged = false;
+        List<NumericUpDown> listBaseFields = new();
+        List<NumericUpDown> listModFields = new();
+        List<NumericUpDown> listFinalFields = new();
+        List<NumericUpDown> changedFields = new();
         string loadedFilePath = "";
         string loadedID = "";
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void FormStatWizard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changedFields.Count > 0 || fieldHasBeenChanged)
+            {
+                if (MessageBox.Show("You have unsaved changes. Are you sure you want to leave?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
 
         void genID()
         {
@@ -87,6 +105,10 @@ namespace Buildframe.Forms
 
         private void loadStatsToForm(GameData.StatsData stats)
         {
+            changedFields.Clear();
+            currentlyTracking = false;
+            fieldHasBeenChanged = false;
+
             textBoxName.Text = stats.name;
             textBoxDescription.Text = stats.description;
             textBoxID.Text = stats.id;
@@ -167,6 +189,8 @@ namespace Buildframe.Forms
             numericUpDownFinalCriticalDamage.Value = (decimal)stats.finalCriticalDamage;
             numericUpDownFinalStatusChance.Value = (decimal)stats.finalStatusChance;
             numericUpDownFinalStatusDamage.Value = (decimal)stats.finalStatusDamage;
+
+            currentlyTracking = true;
         }
         private void FormStatWizard_Load(object sender, EventArgs e)
         {
@@ -178,8 +202,29 @@ namespace Buildframe.Forms
             {
                 if (c is NumericUpDown nud)
                 {
-                    WriteLineIfDebug("Adding to base list: " + nud.Name, false);
-                    listBaseValues.Add(nud);
+                    WriteLineIfDebug("Adding to base list: " + nud.Name, true);
+                    listBaseFields.Add(nud);
+                    nud.ValueChanged += numericUpDown_TrackChanged;
+                }
+            }
+
+            foreach (Control c in tableLayoutPanel3.Controls)
+            {
+                if (c is NumericUpDown nud)
+                {
+                    WriteLineIfDebug("Adding to mod list: " + nud.Name, true);
+                    listModFields.Add(nud);
+                    nud.ValueChanged += numericUpDown_TrackChanged;
+                }
+            }
+
+            foreach (Control c in tableLayoutPanel4.Controls)
+            {
+                if (c is NumericUpDown nud)
+                {
+                    WriteLineIfDebug("Adding to final list: " + nud.Name, true);
+                    listFinalFields.Add(nud);
+                    nud.ValueChanged += numericUpDown_TrackChanged;
                 }
             }
 
@@ -190,7 +235,7 @@ namespace Buildframe.Forms
             tableLayoutPanel4.Height = tableLayoutPanel1.Height;
 
             Button close = new Button();
-            close.Click += (s, ev) => { Close(); };
+            close.Click += buttonCancel_Click;
             this.CancelButton = close;
         }
 
@@ -199,7 +244,7 @@ namespace Buildframe.Forms
             if (comboBox1.SelectedIndex == 0)
             {
                 bool isABaseChanged = false;
-                foreach (NumericUpDown nud in listBaseValues)
+                foreach (NumericUpDown nud in listBaseFields)
                 {
                     if (nud.Value != 0)
                     {
@@ -226,7 +271,7 @@ namespace Buildframe.Forms
             {
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                     {
                         return;
                     }
@@ -456,6 +501,13 @@ namespace Buildframe.Forms
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void numericUpDown_TrackChanged(object sender, EventArgs e)
+        {
+            if (!currentlyTracking || fieldHasBeenChanged) return;
+
+            fieldHasBeenChanged = true;
         }
     }
 }

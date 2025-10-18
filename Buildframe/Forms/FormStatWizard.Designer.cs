@@ -2621,6 +2621,7 @@
             Name = "FormStatWizard";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Stat Wizard";
+            FormClosing += FormStatWizard_FormClosing;
             Load += FormStatWizard_Load;
             DragDrop += FormStatWizard_DragDrop;
             basePage.ResumeLayout(false);
