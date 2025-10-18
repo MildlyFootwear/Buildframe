@@ -57,6 +57,7 @@ namespace Buildframe.Methods.Calculation
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_3");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_4");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_5");
+                appendTagIfValid(s, stats, "Semi_Auto_Fire");
 
                 stats.baseDamage += s.baseDamage;
                 stats.baseDamagePercentage += s.baseDamagePercentage;

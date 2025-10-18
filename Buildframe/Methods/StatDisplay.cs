@@ -15,10 +15,19 @@ namespace Buildframe.Methods
         public static string generateStatsDescription(StatsData stats, StatsData? fullSheet = null)
         {
             string s = stats.name;
+            s += "\nTags: " + stats.tags;
             if (ToolDebug)
             {
                 s += "\nID: " + stats.id;
-                s += "\nTags: " + stats.tags;
+            }
+            
+            if (stats.incarnon)
+            {
+                s += "\nIncarnon";
+            }
+            if (stats.tags.Contains("Semi_Auto_Fire"))
+            {
+                s += "\nSemi-Auto";
             }
             s += "\n\n";
             if (stats.description != "")
@@ -35,11 +44,6 @@ namespace Buildframe.Methods
                     double crit = Calculation.Weapon.calculateEnervateIncrease(fullSheet, enervate);
                     s += "Enervate Critical Chance Increase: " + Math.Round(crit, 2) + "%\n\n";
                 }
-            }
-
-            if (stats.incarnon)
-            {
-                s += "Incarnon Firemode\n\n";
             }
 
             if (stats.baseImpact != 0)

@@ -416,10 +416,11 @@
             // 
             // labelAverageCritical
             // 
-            labelAverageCritical.AutoSize = true;
+            labelAverageCritical.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelAverageCritical.CausesValidation = false;
             labelAverageCritical.Location = new Point(4, 211);
             labelAverageCritical.Name = "labelAverageCritical";
-            labelAverageCritical.Size = new Size(144, 15);
+            labelAverageCritical.Size = new Size(162, 20);
             labelAverageCritical.TabIndex = 8;
             labelAverageCritical.Text = "Average Critical Multiplier";
             // 
@@ -470,10 +471,11 @@
             // 
             // labelFireRate
             // 
-            labelFireRate.AutoSize = true;
+            labelFireRate.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelFireRate.CausesValidation = false;
             labelFireRate.Location = new Point(4, 1);
             labelFireRate.Name = "labelFireRate";
-            labelFireRate.Size = new Size(52, 15);
+            labelFireRate.Size = new Size(162, 20);
             labelFireRate.TabIndex = 1;
             labelFireRate.Text = "Fire Rate";
             // 

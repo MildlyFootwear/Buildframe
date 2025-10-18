@@ -149,7 +149,13 @@ namespace Buildframe
                 {
                     labelAverageCritical.Text = "Average Critical Multiplier";
                 }
-
+                if (selectedFiremodeWithAppliedStats.tags.Contains("Semi_Auto_Fire"))
+                {
+                    labelFireRate.Text = "Fire Rate (Semi)";
+                } else
+                {
+                    labelFireRate.Text = "Fire Rate";
+                }
                 if (enervateCeiling > 0)
                 {
                     selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats, enervateCeiling);
@@ -201,6 +207,7 @@ namespace Buildframe
                     lbl.Text = "N/A";
                 }
                 labelAverageCritical.Text = "Average Critical Multiplier";
+                labelFireRate.Text = "Fire Rate";
             }
             if (radial.id != "")
             {

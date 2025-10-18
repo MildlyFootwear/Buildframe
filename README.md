@@ -21,6 +21,7 @@ To use; add the tag when appropriate, i.e. Secondary Enervate to an arcane or th
 Multishot_Exclusive_Damage_Mult - makes it so the Final Damage Percentage for a given stat applies to multishot only. Use to represent effects like the multishot perk on the Braton Incarnon.  
 Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets it to consume reserve ammo for multishot. Mostly going to effect firemodes such as Braton's incarnon fire.  
 Secondary_Enervate_Rank_0 - applies the effects of the Secondary Enervate arcane. Valid tags for Rank_0 through Rank_5.  
+Semi_Auto_Fire - Caps fire rate at 10. Use for weapons with the fire-mode semi.
 
 ### License
 
