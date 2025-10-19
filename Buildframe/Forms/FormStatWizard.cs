@@ -1,14 +1,4 @@
-﻿using Buildframe.GameData;
-using Buildframe.Methods;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Buildframe.Methods;
 
 namespace Buildframe.Forms
 {
@@ -25,7 +15,6 @@ namespace Buildframe.Forms
         List<NumericUpDown> listBaseFields = new();
         List<NumericUpDown> listModFields = new();
         List<NumericUpDown> listFinalFields = new();
-        List<NumericUpDown> changedFields = new();
         string loadedFilePath = "";
         string loadedID = "";
         string loadedName = "";
@@ -107,7 +96,6 @@ namespace Buildframe.Forms
 
         private void loadStatsToForm(GameData.StatsData stats)
         {
-            changedFields.Clear();
             currentlyTracking = false;
             fieldHasBeenChanged = false;
 
