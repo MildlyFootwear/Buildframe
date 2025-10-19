@@ -256,6 +256,8 @@ namespace Buildframe
             WriteLineIfDebug("Finished updating weapon stats\n");
         }
 
+        #region Validation
+
         public bool hasTag(StatsData stat)
         {
             if (tags.Contains("None"))
@@ -298,6 +300,10 @@ namespace Buildframe
                     validMiscIDs.Add(stat.id);
             }
         }
+
+        #endregion
+
+        #region SelectionBoxEffects
 
         public void loadArcanesToSelectionBox()
         {
@@ -521,6 +527,10 @@ namespace Buildframe
             }
         }
 
+        #endregion
+
+        #region Load/Save
+
         public void saveSelectedToFile(string path = "lastbuild.cfg")
         {
             if (currentWeapon.id == "")
@@ -693,6 +703,8 @@ namespace Buildframe
             WriteLineIfDebug("Loaded build from " + path);
         }
 
+        #endregion
+
         public void setHandlerPause(bool pause)
         {
             if (!pause && pauseHandler)
@@ -769,7 +781,8 @@ namespace Buildframe
             {
                 WriteLineIfDebug("Loading last session from file");
                 loadSelectedFromFile();
-            } else
+            }
+            else
             {
                 loadWeapon(new WeaponData());
             }
@@ -779,11 +792,6 @@ namespace Buildframe
             newMargin.Right = tableLayoutPanel1.Location.X;
             tableLayoutPanel1.Margin = newMargin;
             tableLayoutPanel2.Margin = newMargin;
-
-        }
-
-        private void ToolStripMenuItemSelectWeapon_Click(object sender, EventArgs e)
-        {
 
         }
 
