@@ -28,6 +28,7 @@ namespace Buildframe.Forms
         List<NumericUpDown> changedFields = new();
         string loadedFilePath = "";
         string loadedID = "";
+        string loadedName = "";
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -35,7 +36,7 @@ namespace Buildframe.Forms
         }
         private void FormStatWizard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (changedFields.Count > 0 || fieldHasBeenChanged)
+            if (fieldHasBeenChanged)
             {
                 if (MessageBox.Show("You have unsaved changes. Are you sure you want to leave?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 {
@@ -80,6 +81,7 @@ namespace Buildframe.Forms
                 loadStatsToForm(stats);
                 loadedFilePath = filePath;
                 loadedID = stats.id;
+                loadedName = stats.name;
                 if (filePath.Contains("Mods"))
                 {
                     comboBox1.SelectedIndex = 0;
@@ -271,7 +273,7 @@ namespace Buildframe.Forms
             {
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                    if (MessageBox.Show("You will overwrite \"" + loadedName + "\" unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                     {
                         return;
                     }
@@ -282,7 +284,7 @@ namespace Buildframe.Forms
                     }
                 }
             }
-
+            fieldHasBeenChanged = false;
             GameData.StatsData stats = new GameData.StatsData();
 
             stats.name = textBoxName.Text;
