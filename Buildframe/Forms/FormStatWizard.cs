@@ -261,7 +261,7 @@ namespace Buildframe.Forms
             {
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("You will overwrite \"" + loadedName + "\" unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                    if (MessageBox.Show("\"" + loadedName + "\" will be overwritten unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                     {
                         return;
                     }
