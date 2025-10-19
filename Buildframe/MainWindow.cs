@@ -772,7 +772,9 @@ namespace Buildframe
 
             Padding newMargin = tableLayoutPanel1.Margin;
             newMargin.Bottom = tableLayoutPanel1.Location.X;
+            newMargin.Right = tableLayoutPanel1.Location.X;
             tableLayoutPanel1.Margin = newMargin;
+            tableLayoutPanel2.Margin = newMargin;
 
         }
 
