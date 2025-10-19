@@ -937,6 +937,8 @@ namespace Buildframe
 
         #endregion
 
+
+        #region Toolstrip Events
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Builds"));
@@ -1041,5 +1043,6 @@ namespace Buildframe
             form.ShowDialog();
         }
 
+        #endregion
     }
 }
