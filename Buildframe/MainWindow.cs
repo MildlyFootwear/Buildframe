@@ -45,6 +45,8 @@ namespace Buildframe
 
             if (weapon.id == "")
             {
+                Text = Settings.Default.ToolName + " " + Settings.Default.Version;
+
                 currentWeapon = new WeaponData();
                 StatsData Firemode = new StatsData();
                 Firemode.name = "[Firemode]";
@@ -69,6 +71,7 @@ namespace Buildframe
 
             }
 
+            Text = Settings.Default.ToolName + " " + Settings.Default.Version + " - " + currentWeapon.name;
             tags = weapon.tags.Split(' ');
 
             comboBoxFireMode.Items.Clear();
@@ -253,6 +256,8 @@ namespace Buildframe
             WriteLineIfDebug("Finished updating weapon stats\n");
         }
 
+        #region Validation
+
         public bool hasTag(StatsData stat)
         {
             if (tags.Contains("None"))
@@ -295,6 +300,10 @@ namespace Buildframe
                     validMiscIDs.Add(stat.id);
             }
         }
+
+        #endregion
+
+        #region SelectionBoxEffects
 
         public void loadArcanesToSelectionBox()
         {
@@ -518,6 +527,10 @@ namespace Buildframe
             }
         }
 
+        #endregion
+
+        #region Load/Save
+
         public void saveSelectedToFile(string path = "lastbuild.cfg")
         {
             if (currentWeapon.id == "")
@@ -690,6 +703,8 @@ namespace Buildframe
             WriteLineIfDebug("Loaded build from " + path);
         }
 
+        #endregion
+
         public void setHandlerPause(bool pause)
         {
             if (!pause && pauseHandler)
@@ -705,6 +720,7 @@ namespace Buildframe
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Text = Settings.Default.ToolName + " " + Settings.Default.Version;
+
             if (Settings.Default.SavedPosition != new Point(1, 1))
                 this.Location = Settings.Default.SavedPosition; WriteLineIfDebug("    Set position to " + this.Location);
             if (Settings.Default.SavedSize != new Size(1, 1))
@@ -765,19 +781,17 @@ namespace Buildframe
             {
                 WriteLineIfDebug("Loading last session from file");
                 loadSelectedFromFile();
-            } else
+            }
+            else
             {
                 loadWeapon(new WeaponData());
             }
 
             Padding newMargin = tableLayoutPanel1.Margin;
             newMargin.Bottom = tableLayoutPanel1.Location.X;
+            newMargin.Right = tableLayoutPanel1.Location.X;
             tableLayoutPanel1.Margin = newMargin;
-
-        }
-
-        private void ToolStripMenuItemSelectWeapon_Click(object sender, EventArgs e)
-        {
+            tableLayoutPanel2.Margin = newMargin;
 
         }
 
