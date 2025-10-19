@@ -42,6 +42,8 @@ namespace Buildframe.Methods
                 return stats;
             }
 
+            stats.filePath = path;
+
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] split = s.Split('=');
@@ -446,6 +448,7 @@ namespace Buildframe.Methods
                 WriteLineIfDebug("\nFile load error: not in weapon directory:\n" + path + "\n\n");
                 return weapon;
             }
+            weapon.filePath = path;
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] split = s.Split('=');
@@ -496,13 +499,13 @@ namespace Buildframe.Methods
             arcaneStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "Arcanes");
             Directory.CreateDirectory(directory);
-            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            foreach (string file in Directory.GetFiles(directory, "*.cfg").OrderByDescending(f => File.GetLastWriteTime(f)))
             {
                 WriteLineIfDebug("Loading arcane file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (arcaneStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    promptForDelete(stats.id, arcaneStats[stats.id].filePath, file);
                     continue;
                 }
                 arcaneStats.Add(stats.id, stats);
@@ -515,13 +518,13 @@ namespace Buildframe.Methods
             modStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "Mods");
             Directory.CreateDirectory(directory);
-            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            foreach (string file in Directory.GetFiles(directory, "*.cfg").OrderByDescending(f => File.GetLastWriteTime(f)))
             {
                 WriteLineIfDebug("Loading mod file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (modStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    promptForDelete(stats.id, modStats[stats.id].filePath, file);
                     continue;
                 }
                 modStats.Add(stats.id, stats);
@@ -534,13 +537,13 @@ namespace Buildframe.Methods
             miscStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "Misc");
             Directory.CreateDirectory(directory);
-            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            foreach (string file in Directory.GetFiles(directory, "*.cfg").OrderByDescending(f => File.GetLastWriteTime(f)))
             {
                 WriteLineIfDebug("Loading misc file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (miscStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    promptForDelete(stats.id, miscStats[stats.id].filePath, file);
                     continue;
                 }
                 miscStats.Add(stats.id, stats);
@@ -553,13 +556,13 @@ namespace Buildframe.Methods
             fireModeStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "FireModes");
             Directory.CreateDirectory(directory);
-            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            foreach (string file in Directory.GetFiles(directory, "*.cfg").OrderByDescending(f => File.GetLastWriteTime(f)))
             {
                 WriteLineIfDebug("Loading fire mode file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 StatsData stats = loadStatFromFile(file);
                 if (fireModeStats.ContainsKey(stats.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + stats.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    promptForDelete(stats.id, fireModeStats[stats.id].filePath, file);
                     continue;
                 }
                 fireModeStats.Add(stats.id, stats);
@@ -572,18 +575,31 @@ namespace Buildframe.Methods
             weaponStats.Clear();
             string directory = Path.Combine(envAPPLOC, "Data", "Weapons");
             Directory.CreateDirectory(directory);
-            foreach (string file in Directory.GetFiles(directory, "*.cfg"))
+            foreach (string file in Directory.GetFiles(directory, "*.cfg").OrderByDescending(f => File.GetLastWriteTime(f)))
             {
                 WriteLineIfDebug("Loading weapon file: " + file.Replace(envAPPLOC, ""), DebuggingLoading);
                 WeaponData wpn = loadWeaponFromFile(file);
                 if (weaponStats.ContainsKey(wpn.id))
                 {
-                    MessageBox.Show("Duplicate ID found: " + wpn.id + "\nFile " + file + "\n\nBehavior may be erratic until the file is deleted or ID is changed.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    WriteLineIfDebug("Duplicate weapon ID found: " + wpn.id + " in file "+file, DebuggingLoading);
+                    promptForDelete(wpn.id, weaponStats[wpn.id].filePath, file);
                     continue;
                 }
                 weaponStats.Add(wpn.id, wpn);
             }
             weaponStats = weaponStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
+        }
+
+        static void promptForDelete(string id, string file1, string file2)
+        {
+            DateTime file1Date = File.GetLastWriteTime(file1);
+            DateTime file2Date = File.GetLastWriteTime(file2);
+            string path = file1Date < file2Date ? file1 : file2;
+            DialogResult result = MessageBox.Show("Duplicate ID found: " + id + "\nOlder file is "+path+"\nOlder file will not be loaded.\n\nWould you like to delete the older file?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                File.Delete(path);
+            }
         }
     }
 }

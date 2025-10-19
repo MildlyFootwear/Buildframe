@@ -20,6 +20,8 @@ namespace Buildframe.GameData
         public string tags = "None";
         public string description = "";
 
+        public string filePath = "";
+
         override public string ToString()
         {
             return name;
