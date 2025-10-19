@@ -505,7 +505,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (arcaneStats.ContainsKey(stats.id))
                 {
-                    promptForDelete(stats.id, arcaneStats[stats.id].filePath, file);
+                    promptForDelete(stats.id, arcaneStats[stats.id].name, arcaneStats[stats.id].filePath, file);
                     continue;
                 }
                 arcaneStats.Add(stats.id, stats);
@@ -524,7 +524,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (modStats.ContainsKey(stats.id))
                 {
-                    promptForDelete(stats.id, modStats[stats.id].filePath, file);
+                    promptForDelete(stats.id, modStats[stats.id].name, modStats[stats.id].filePath, file);
                     continue;
                 }
                 modStats.Add(stats.id, stats);
@@ -543,7 +543,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (miscStats.ContainsKey(stats.id))
                 {
-                    promptForDelete(stats.id, miscStats[stats.id].filePath, file);
+                    promptForDelete(stats.id, miscStats[stats.id].name, miscStats[stats.id].filePath, file);
                     continue;
                 }
                 miscStats.Add(stats.id, stats);
@@ -562,7 +562,7 @@ namespace Buildframe.Methods
                 StatsData stats = loadStatFromFile(file);
                 if (fireModeStats.ContainsKey(stats.id))
                 {
-                    promptForDelete(stats.id, fireModeStats[stats.id].filePath, file);
+                    promptForDelete(stats.id, fireModeStats[stats.id].name, fireModeStats[stats.id].filePath, file);
                     continue;
                 }
                 fireModeStats.Add(stats.id, stats);
@@ -582,7 +582,7 @@ namespace Buildframe.Methods
                 if (weaponStats.ContainsKey(wpn.id))
                 {
                     WriteLineIfDebug("Duplicate weapon ID found: " + wpn.id + " in file "+file, DebuggingLoading);
-                    promptForDelete(wpn.id, weaponStats[wpn.id].filePath, file);
+                    promptForDelete(wpn.id, weaponStats[wpn.id].name, weaponStats[wpn.id].filePath, file);
                     continue;
                 }
                 weaponStats.Add(wpn.id, wpn);
@@ -590,12 +590,12 @@ namespace Buildframe.Methods
             weaponStats = weaponStats.OrderBy(x => x.Value.name).ToDictionary(x => x.Key, x => x.Value);
         }
 
-        static void promptForDelete(string id, string file1, string file2)
+        static void promptForDelete(string id, string name, string file1, string file2)
         {
             DateTime file1Date = File.GetLastWriteTime(file1);
             DateTime file2Date = File.GetLastWriteTime(file2);
             string path = file1Date < file2Date ? file1 : file2;
-            DialogResult result = MessageBox.Show("Duplicate ID found: " + id + "\nOlder file is "+path+"\nOlder file will not be loaded.\n\nWould you like to delete the older file?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            DialogResult result = MessageBox.Show("Duplicate ID found: " + id + " which is \"" + name + "\"\nOlder file is " + path+"\nOlder file will not be loaded.\n\nWould you like to delete the older file?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
                 File.Delete(path);
