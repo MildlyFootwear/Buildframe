@@ -803,6 +803,8 @@ namespace Buildframe
             saveSelectedToFile();
         }
 
+        #region Selection Box Events
+
         private void comboBoxMod_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (pauseHandler)
@@ -856,6 +858,84 @@ namespace Buildframe
                 return;
             updateWeaponStats();
         }
+
+
+        private void comboBoxTooltipShow_Event(object sender, EventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            Point p = box.Location;
+            p.X += box.Width;
+            p.X += 10 * this.DeviceDpi / 100;
+            p.Y += box.Height / 2;
+            p.X += tableLayoutPanel2.Location.X;
+            p.Y += tableLayoutPanel2.Location.Y;
+            p.Y += toolStrip1.Height;
+            if (box.SelectedItem is StatsData)
+            {
+                int enervate = Methods.Calculation.StatMethods.identifyEnervate((StatsData)box.SelectedItem);
+                if (box == comboBoxWeaponArcane && enervate > 0)
+                {
+                    toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, (Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats }))), this, p);
+                    return;
+                }
+                toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);
+            }
+            else
+            {
+                toolTipMods.Hide(this);
+            }
+        }
+
+        private void comboBoxFireModeTooltipShow_Event(object sender, EventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            Point p = box.Location;
+            p.X += box.Width;
+            p.X += 10 * this.DeviceDpi / 100;
+            p.Y += box.Height / 2;
+            p.Y += toolStrip1.Height;
+
+            if (box.SelectedItem is StatsData)
+            {
+                string tooltip = Methods.StatDisplay.generateStatsDescription((StatsData)box.SelectedItem);
+                if (radial.id != "")
+                {
+                    tooltip += "\nRadial:\n";
+                    tooltip += Methods.StatDisplay.generateStatsDescription(radial);
+                }
+
+                toolTipMods.Show(tooltip, this, p);
+            }
+            else
+            {
+                toolTipMods.Hide(this);
+            }
+        }
+
+        private void comboBoxTooltipHide_Event(object sender, EventArgs e)
+        {
+            toolTipMods.Hide(this);
+        }
+
+        private void comboBoxModDropDownClose_Event(object sender, EventArgs e)
+        {
+            List<StatsData> list = new List<StatsData>();
+            foreach (ComboBox box in modBoxes)
+            {
+                if (box.SelectedIndex > 0)
+                {
+                    if (list.Contains((StatsData)box.SelectedItem))
+                    {
+                        MessageBox.Show("A duplicate mod has been selected. Ensure this is not in error.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                    list.Add((StatsData)box.SelectedItem);
+                }
+            }
+            comboBoxTooltipHide_Event(sender, e);
+        }
+
+        #endregion
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -961,79 +1041,5 @@ namespace Buildframe
             form.ShowDialog();
         }
 
-        private void comboBoxTooltipShow_Event(object sender, EventArgs e)
-        {
-            ComboBox box = (ComboBox)sender;
-            Point p = box.Location;
-            p.X += box.Width;
-            p.X += 10 * this.DeviceDpi / 100;
-            p.Y += box.Height / 2;
-            p.X += tableLayoutPanel2.Location.X;
-            p.Y += tableLayoutPanel2.Location.Y;
-            p.Y += toolStrip1.Height;
-            if (box.SelectedItem is StatsData)
-            {
-                int enervate = Methods.Calculation.StatMethods.identifyEnervate((StatsData)box.SelectedItem);
-                if (box == comboBoxWeaponArcane && enervate > 0)
-                {
-                    toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, (Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats }))), this, p);
-                    return;
-                }
-                toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);
-            }
-            else
-            {
-                toolTipMods.Hide(this);
-            }
-        }
-
-        private void comboBoxFireModeTooltipShow_Event(object sender, EventArgs e)
-        {
-            ComboBox box = (ComboBox)sender;
-            Point p = box.Location;
-            p.X += box.Width;
-            p.X += 10 * this.DeviceDpi / 100;
-            p.Y += box.Height / 2;
-            p.Y += toolStrip1.Height;
-
-            if (box.SelectedItem is StatsData)
-            {
-                string tooltip = Methods.StatDisplay.generateStatsDescription((StatsData)box.SelectedItem);
-                if (radial.id != "")
-                {
-                    tooltip += "\nRadial:\n";
-                    tooltip += Methods.StatDisplay.generateStatsDescription(radial);
-                }
-
-                toolTipMods.Show(tooltip, this, p);
-            }
-            else
-            {
-                toolTipMods.Hide(this);
-            }
-        }
-
-        private void comboBoxTooltipHide_Event(object sender, EventArgs e)
-        {
-            toolTipMods.Hide(this);
-        }
-
-        private void comboBoxModDropDownClose_Event(object sender, EventArgs e)
-        {
-            List<StatsData> list = new List<StatsData>();
-            foreach (ComboBox box in modBoxes)
-            {
-                if (box.SelectedIndex > 0)
-                {
-                    if (list.Contains((StatsData)box.SelectedItem))
-                    {
-                        MessageBox.Show("A duplicate mod has been selected. Ensure this is not in error.", ToolName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                    }
-                    list.Add((StatsData)box.SelectedItem);
-                }
-            }
-            comboBoxTooltipHide_Event(sender, e);
-        }
     }
 }
