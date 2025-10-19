@@ -178,11 +178,12 @@ namespace Buildframe.Forms
             }
 
 
-            if (textBoxID.Text == loadedID)
+            if (weaponStats.ContainsKey(textBoxID.Text))
             {
+                loadedFilePath = weaponStats[textBoxID.Text].filePath;
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("You will overwrite the loaded file unless you change the ID.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    if (MessageBox.Show("\""+weaponStats[loadedID]+"\" will be overwritten unless the ID is changed.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     {
                         return;
                     }
