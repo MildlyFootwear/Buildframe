@@ -147,7 +147,7 @@
             numericUpDownModDamageFaction = new NumericUpDown();
             label52 = new Label();
             label80 = new Label();
-            finalPage = new TabPage();
+            miscPage = new TabPage();
             tableLayoutPanel4 = new TableLayoutPanel();
             numericUpDownFinalCorrosive = new NumericUpDown();
             numericUpDownFinalViral = new NumericUpDown();
@@ -204,6 +204,8 @@
             toolStrip1 = new ToolStrip();
             toolStripButtonLoad = new ToolStripButton();
             openFileDialog1 = new OpenFileDialog();
+            labelBasePunchthrough = new Label();
+            numericUpDownPunchthrough = new NumericUpDown();
             basePage = new TabPage();
             basePage.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -261,7 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).BeginInit();
-            finalPage.SuspendLayout();
+            miscPage.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCorrosive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalViral).BeginInit();
@@ -289,6 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).BeginInit();
             tableLayoutPanel5.SuspendLayout();
             toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).BeginInit();
             SuspendLayout();
             // 
             // basePage
@@ -1018,7 +1021,7 @@
             tabControl1.Controls.Add(identifiersPage);
             tabControl1.Controls.Add(basePage);
             tabControl1.Controls.Add(modPage);
-            tabControl1.Controls.Add(finalPage);
+            tabControl1.Controls.Add(miscPage);
             tabControl1.Location = new Point(3, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -1859,15 +1862,15 @@
             label80.TabIndex = 82;
             label80.Text = "This is for 90% of weapon mods, arcanes, and abilities.\r\nEnter values as percentages unless instructed otherwise.";
             // 
-            // finalPage
+            // miscPage
             // 
-            finalPage.Controls.Add(tableLayoutPanel4);
-            finalPage.Location = new Point(4, 27);
-            finalPage.Name = "finalPage";
-            finalPage.Size = new Size(412, 335);
-            finalPage.TabIndex = 3;
-            finalPage.Text = "Final Stats";
-            finalPage.UseVisualStyleBackColor = true;
+            miscPage.Controls.Add(tableLayoutPanel4);
+            miscPage.Location = new Point(4, 27);
+            miscPage.Name = "miscPage";
+            miscPage.Size = new Size(412, 335);
+            miscPage.TabIndex = 3;
+            miscPage.Text = "Misc Stats";
+            miscPage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
@@ -1878,6 +1881,8 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel4.Controls.Add(numericUpDownPunchthrough, 1, 12);
+            tableLayoutPanel4.Controls.Add(labelBasePunchthrough, 0, 12);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalCorrosive, 3, 11);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalViral, 3, 10);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalRadiation, 3, 9);
@@ -2591,7 +2596,6 @@
             toolStrip1.Size = new Size(1027, 25);
             toolStrip1.TabIndex = 5;
             toolStrip1.Text = "toolStrip1";
-            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
             // toolStripButtonLoad
             // 
@@ -2606,6 +2610,31 @@
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // labelBasePunchthrough
+            // 
+            labelBasePunchthrough.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            labelBasePunchthrough.AutoSize = true;
+            labelBasePunchthrough.Location = new Point(4, 316);
+            labelBasePunchthrough.Name = "labelBasePunchthrough";
+            labelBasePunchthrough.Size = new Size(84, 23);
+            labelBasePunchthrough.TabIndex = 84;
+            labelBasePunchthrough.Text = "Punchthrough";
+            labelBasePunchthrough.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDownPunchthrough
+            // 
+            numericUpDownPunchthrough.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownPunchthrough.DecimalPlaces = 2;
+            numericUpDownPunchthrough.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            numericUpDownPunchthrough.Location = new Point(127, 316);
+            numericUpDownPunchthrough.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownPunchthrough.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownPunchthrough.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownPunchthrough.Name = "numericUpDownPunchthrough";
+            numericUpDownPunchthrough.Size = new Size(75, 23);
+            numericUpDownPunchthrough.TabIndex = 85;
+            numericUpDownPunchthrough.TextAlign = HorizontalAlignment.Center;
             // 
             // FormStatWizard
             // 
@@ -2684,7 +2713,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).EndInit();
-            finalPage.ResumeLayout(false);
+            miscPage.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCorrosive).EndInit();
@@ -2714,6 +2743,7 @@
             tableLayoutPanel5.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2773,7 +2803,7 @@
         private NumericUpDown numericUpDownBaseMagnetic;
         private NumericUpDown numericUpDownBaseGas;
         private TabPage identifiersPage;
-        private TabPage finalPage;
+        private TabPage miscPage;
         private TableLayoutPanel tableLayoutPanel2;
         private TextBox textBoxName;
         private Label label26;
@@ -2895,5 +2925,7 @@
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButtonLoad;
         private OpenFileDialog openFileDialog1;
+        private Label labelBasePunchthrough;
+        private NumericUpDown numericUpDownPunchthrough;
     }
 }

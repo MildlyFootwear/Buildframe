@@ -105,6 +105,7 @@ namespace Buildframe.Forms
             textBoxTags.Text = stats.tags;
             checkBoxIncarnon.Checked = stats.incarnon;
 
+            numericUpDownPunchthrough.Value = (decimal)stats.punchthrough;
             numericUpDownBaseDamage.Value = (decimal)stats.baseDamage;
             numericUpDownBaseAttackSpeed.Value = (decimal)stats.baseAttackSpeed;
             numericUpDownBaseReloadTime.Value = (decimal)stats.baseReloadTime;
@@ -285,6 +286,7 @@ namespace Buildframe.Forms
             stats.tags = textBoxTags.Text;
             stats.incarnon = checkBoxIncarnon.Checked;
 
+            stats.punchthrough = (double)numericUpDownPunchthrough.Value;
             stats.baseDamage = (double)numericUpDownBaseDamage.Value;
             stats.baseAttackSpeed = (double)numericUpDownBaseAttackSpeed.Value;
             stats.baseReloadTime = (double)numericUpDownBaseReloadTime.Value;
@@ -486,11 +488,6 @@ namespace Buildframe.Forms
             {
                 textBoxTags.Text = "Any";
             }
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void numericUpDown_TrackChanged(object sender, EventArgs e)

@@ -7,7 +7,7 @@
     },
     "Buildframe Debug": {
       "commandName": "Project",
-      "commandLineArgs": "-debug -debugload"
+      "commandLineArgs": "-debug"
     },
     "Buildframe No Log": {
       "commandName": "Project"

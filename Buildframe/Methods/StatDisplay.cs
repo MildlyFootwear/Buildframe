@@ -46,6 +46,10 @@ namespace Buildframe.Methods
                 }
             }
 
+            if (stats.punchthrough != 0)
+            {
+                s += "Punchthrough: " + stats.punchthrough + "\n";
+            }
             if (stats.baseImpact != 0)
             {
                 s += "Base Impact Damage: " + stats.baseImpact + "\n";

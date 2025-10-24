@@ -59,6 +59,8 @@ namespace Buildframe.Methods
                 if (split[0] == "incarnon")
                     stats.incarnon = Convert.ToBoolean(split[1]);
 
+                if (split[0] == "punchthrough")
+                    stats.punchthrough = Convert.ToDouble(split[1]);
                 if (split[0] == "baseDamage")
                     stats.baseDamage = Convert.ToDouble(split[1]);
                 if (split[0] == "baseDamagePercentage")
@@ -285,6 +287,7 @@ namespace Buildframe.Methods
             s += "\nincarnon=" + Convert.ToString(stats.incarnon);
             s += "\ntags=" + stats.tags;
 
+            s += "\npunchthrough=" + Convert.ToString(stats.punchthrough);
             s += "\nbaseDamage=" + Convert.ToString(stats.baseDamage);
             s += "\nbaseDamagePercentage=" + Convert.ToString(stats.baseDamagePercentage);
 

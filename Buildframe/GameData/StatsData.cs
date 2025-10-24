@@ -15,11 +15,9 @@ namespace Buildframe.GameData
         public string description = "";
 
         public bool incarnon = false;
-
         // This section is used for base stats, such as weapons and most incarnon perks.
 
-        public double baseDamage = 0; // Only use if no other category applies.
-        public double baseDamagePercentage = 0; // Only use if no other category applies.
+        public double punchthrough = 0;
 
         public double baseAttackSpeed = 0;
 
@@ -27,6 +25,9 @@ namespace Buildframe.GameData
         public double baseAmmoEfficiency = 0;
         public double baseMagazine = 0;
         public double baseChargeTime = 0;
+
+        public double baseDamage = 0;
+        public double baseDamagePercentage = 0;
 
         public double baseImpact = 0;
         public double basePuncture = 0;
