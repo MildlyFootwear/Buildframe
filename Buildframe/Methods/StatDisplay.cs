@@ -15,7 +15,8 @@ namespace Buildframe.Methods
         public static string generateStatsDescription(StatsData stats, StatsData? fullSheet = null)
         {
             string s = stats.name;
-            s += "\nTags: " + stats.tags;
+            if (fireModeStats.Values.Contains(stats) == false || stats.tags != "Any")
+                s += "\nTags: " + stats.tags;
             if (ToolDebug)
             {
                 s += "\nID: " + stats.id;
