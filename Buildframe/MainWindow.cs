@@ -275,6 +275,20 @@ namespace Buildframe
                     return true;
                 }
             }
+
+            string[] statTags = stat.tags.Split(' ');
+            foreach (string tag in statTags)
+            {
+                if (tag.StartsWith("WeaponName_"))
+                {
+                    string name = tag.Replace("WeaponName_", "").Replace("_", " ");
+                    if (currentWeapon.name.StartsWith(name))
+                    {
+                        return true;
+                    }
+                }
+            }
+
             return false;
         }
 
