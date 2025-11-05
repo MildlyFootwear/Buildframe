@@ -264,7 +264,7 @@ namespace Buildframe
             {
                 return false;
             }
-            if (stat.tags.Contains("Any") || tags.Contains("Any") || stat.tags.Contains(currentWeapon.name))
+            if (stat.tags.Contains("Any") || tags.Contains("Any"))
             {
                 return true;
             }
