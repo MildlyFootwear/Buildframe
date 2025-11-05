@@ -494,6 +494,7 @@ namespace Buildframe.Forms
         {
             NumericUpDown numericUpDown = (NumericUpDown)sender;
             WriteLineIfDebug(numericUpDown.Name + " changed to " + numericUpDown.Value, DebuggingStatWindow);
+
             if (!currentlyTracking || fieldHasBeenChanged) return;
 
             fieldHasBeenChanged = true;

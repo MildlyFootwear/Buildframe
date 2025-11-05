@@ -33,6 +33,10 @@ namespace Buildframe
                 DebuggingLoading = true;
             if (argsL.IndexOf("-debugmain") != -1)
                 DebuggingMainWindow = true;
+            if (argsL.IndexOf("-debugstatwin") != -1)
+                DebuggingStatWindow = true;
+
+
             if (argsL.IndexOf("-resetappconfig") != -1)
             {
                 Settings.Default.Reset();
