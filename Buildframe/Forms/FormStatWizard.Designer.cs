@@ -96,7 +96,6 @@
             label82 = new Label();
             modPage = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
-            numericUpDownAbilityWeaponDamage = new NumericUpDown();
             label77 = new Label();
             numericUpDownModCorrosive = new NumericUpDown();
             numericUpDownModViral = new NumericUpDown();
@@ -123,7 +122,6 @@
             label42 = new Label();
             label43 = new Label();
             label44 = new Label();
-            numericUpDownModDamage = new NumericUpDown();
             numericUpDownModMagnetic = new NumericUpDown();
             numericUpDownModGas = new NumericUpDown();
             label45 = new Label();
@@ -144,11 +142,12 @@
             label29 = new Label();
             label33 = new Label();
             numericUpDownModAttackSpeed = new NumericUpDown();
-            numericUpDownModDamageFaction = new NumericUpDown();
             label52 = new Label();
             label80 = new Label();
             miscPage = new TabPage();
             tableLayoutPanel4 = new TableLayoutPanel();
+            numericUpDownPunchthrough = new NumericUpDown();
+            labelBasePunchthrough = new Label();
             numericUpDownFinalCorrosive = new NumericUpDown();
             numericUpDownFinalViral = new NumericUpDown();
             numericUpDownFinalRadiation = new NumericUpDown();
@@ -204,8 +203,9 @@
             toolStrip1 = new ToolStrip();
             toolStripButtonLoad = new ToolStripButton();
             openFileDialog1 = new OpenFileDialog();
-            labelBasePunchthrough = new Label();
-            numericUpDownPunchthrough = new NumericUpDown();
+            numericUpDownModDamage = new NumericUpDown();
+            numericUpDownModDamageFaction = new NumericUpDown();
+            numericUpDownAbilityWeaponDamage = new NumericUpDown();
             basePage = new TabPage();
             basePage.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -238,7 +238,6 @@
             tableLayoutPanel2.SuspendLayout();
             modPage.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCorrosive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModViral).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModRadiation).BeginInit();
@@ -250,7 +249,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModSlash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModPuncture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModImpact).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModMagnetic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModGas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModStatusDamage).BeginInit();
@@ -262,9 +260,9 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModMagazine).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).BeginInit();
             miscPage.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCorrosive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalViral).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalRadiation).BeginInit();
@@ -291,7 +289,9 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).BeginInit();
             tableLayoutPanel5.SuspendLayout();
             toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).BeginInit();
             SuspendLayout();
             // 
             // basePage
@@ -1179,6 +1179,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel3.Controls.Add(numericUpDownAbilityWeaponDamage, 1, 2);
+            tableLayoutPanel3.Controls.Add(numericUpDownModDamageFaction, 1, 3);
             tableLayoutPanel3.Controls.Add(label77, 0, 2);
             tableLayoutPanel3.Controls.Add(numericUpDownModCorrosive, 3, 11);
             tableLayoutPanel3.Controls.Add(numericUpDownModViral, 3, 10);
@@ -1205,7 +1206,6 @@
             tableLayoutPanel3.Controls.Add(label42, 2, 11);
             tableLayoutPanel3.Controls.Add(label43, 2, 12);
             tableLayoutPanel3.Controls.Add(label44, 2, 13);
-            tableLayoutPanel3.Controls.Add(numericUpDownModDamage, 1, 1);
             tableLayoutPanel3.Controls.Add(numericUpDownModMagnetic, 3, 12);
             tableLayoutPanel3.Controls.Add(numericUpDownModGas, 3, 13);
             tableLayoutPanel3.Controls.Add(label45, 0, 12);
@@ -1226,9 +1226,9 @@
             tableLayoutPanel3.Controls.Add(label29, 0, 5);
             tableLayoutPanel3.Controls.Add(label33, 0, 4);
             tableLayoutPanel3.Controls.Add(numericUpDownModAttackSpeed, 1, 4);
-            tableLayoutPanel3.Controls.Add(numericUpDownModDamageFaction, 1, 3);
             tableLayoutPanel3.Controls.Add(label52, 0, 3);
             tableLayoutPanel3.Controls.Add(label80, 0, 0);
+            tableLayoutPanel3.Controls.Add(numericUpDownModDamage, 1, 1);
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 14;
@@ -1248,19 +1248,6 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.Size = new Size(380, 364);
             tableLayoutPanel3.TabIndex = 1;
-            // 
-            // numericUpDownAbilityWeaponDamage
-            // 
-            numericUpDownAbilityWeaponDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownAbilityWeaponDamage.DecimalPlaces = 2;
-            numericUpDownAbilityWeaponDamage.Location = new Point(136, 76);
-            numericUpDownAbilityWeaponDamage.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownAbilityWeaponDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownAbilityWeaponDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownAbilityWeaponDamage.Name = "numericUpDownAbilityWeaponDamage";
-            numericUpDownAbilityWeaponDamage.Size = new Size(75, 23);
-            numericUpDownAbilityWeaponDamage.TabIndex = 81;
-            numericUpDownAbilityWeaponDamage.TextAlign = HorizontalAlignment.Center;
             // 
             // label77
             // 
@@ -1570,19 +1557,6 @@
             label44.Text = "modGas";
             label44.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // numericUpDownModDamage
-            // 
-            numericUpDownModDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownModDamage.DecimalPlaces = 2;
-            numericUpDownModDamage.Location = new Point(136, 52);
-            numericUpDownModDamage.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownModDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownModDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownModDamage.Name = "numericUpDownModDamage";
-            numericUpDownModDamage.Size = new Size(75, 23);
-            numericUpDownModDamage.TabIndex = 54;
-            numericUpDownModDamage.TextAlign = HorizontalAlignment.Center;
-            // 
             // numericUpDownModMagnetic
             // 
             numericUpDownModMagnetic.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -1826,19 +1800,6 @@
             numericUpDownModAttackSpeed.TabIndex = 55;
             numericUpDownModAttackSpeed.TextAlign = HorizontalAlignment.Center;
             // 
-            // numericUpDownModDamageFaction
-            // 
-            numericUpDownModDamageFaction.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownModDamageFaction.DecimalPlaces = 2;
-            numericUpDownModDamageFaction.Location = new Point(136, 100);
-            numericUpDownModDamageFaction.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownModDamageFaction.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownModDamageFaction.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownModDamageFaction.Name = "numericUpDownModDamageFaction";
-            numericUpDownModDamageFaction.Size = new Size(75, 23);
-            numericUpDownModDamageFaction.TabIndex = 79;
-            numericUpDownModDamageFaction.TextAlign = HorizontalAlignment.Center;
-            // 
             // label52
             // 
             label52.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
@@ -1951,6 +1912,31 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.Size = new Size(369, 364);
             tableLayoutPanel4.TabIndex = 2;
+            // 
+            // numericUpDownPunchthrough
+            // 
+            numericUpDownPunchthrough.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownPunchthrough.DecimalPlaces = 2;
+            numericUpDownPunchthrough.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            numericUpDownPunchthrough.Location = new Point(127, 316);
+            numericUpDownPunchthrough.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownPunchthrough.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownPunchthrough.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownPunchthrough.Name = "numericUpDownPunchthrough";
+            numericUpDownPunchthrough.Size = new Size(75, 23);
+            numericUpDownPunchthrough.TabIndex = 85;
+            numericUpDownPunchthrough.TextAlign = HorizontalAlignment.Center;
+            // 
+            // labelBasePunchthrough
+            // 
+            labelBasePunchthrough.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            labelBasePunchthrough.AutoSize = true;
+            labelBasePunchthrough.Location = new Point(4, 316);
+            labelBasePunchthrough.Name = "labelBasePunchthrough";
+            labelBasePunchthrough.Size = new Size(84, 23);
+            labelBasePunchthrough.TabIndex = 84;
+            labelBasePunchthrough.Text = "Punchthrough";
+            labelBasePunchthrough.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // numericUpDownFinalCorrosive
             // 
@@ -2611,30 +2597,44 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // labelBasePunchthrough
+            // numericUpDownModDamage
             // 
-            labelBasePunchthrough.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            labelBasePunchthrough.AutoSize = true;
-            labelBasePunchthrough.Location = new Point(4, 316);
-            labelBasePunchthrough.Name = "labelBasePunchthrough";
-            labelBasePunchthrough.Size = new Size(84, 23);
-            labelBasePunchthrough.TabIndex = 84;
-            labelBasePunchthrough.Text = "Punchthrough";
-            labelBasePunchthrough.TextAlign = ContentAlignment.MiddleCenter;
+            numericUpDownModDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownModDamage.DecimalPlaces = 2;
+            numericUpDownModDamage.Location = new Point(136, 52);
+            numericUpDownModDamage.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownModDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModDamage.Name = "numericUpDownModDamage";
+            numericUpDownModDamage.Size = new Size(75, 23);
+            numericUpDownModDamage.TabIndex = 52;
+            numericUpDownModDamage.TextAlign = HorizontalAlignment.Center;
             // 
-            // numericUpDownPunchthrough
+            // numericUpDownModDamageFaction
             // 
-            numericUpDownPunchthrough.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownPunchthrough.DecimalPlaces = 2;
-            numericUpDownPunchthrough.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownPunchthrough.Location = new Point(127, 316);
-            numericUpDownPunchthrough.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownPunchthrough.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numericUpDownPunchthrough.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownPunchthrough.Name = "numericUpDownPunchthrough";
-            numericUpDownPunchthrough.Size = new Size(75, 23);
-            numericUpDownPunchthrough.TabIndex = 85;
-            numericUpDownPunchthrough.TextAlign = HorizontalAlignment.Center;
+            numericUpDownModDamageFaction.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownModDamageFaction.DecimalPlaces = 2;
+            numericUpDownModDamageFaction.Location = new Point(136, 100);
+            numericUpDownModDamageFaction.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModDamageFaction.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownModDamageFaction.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModDamageFaction.Name = "numericUpDownModDamageFaction";
+            numericUpDownModDamageFaction.Size = new Size(75, 23);
+            numericUpDownModDamageFaction.TabIndex = 54;
+            numericUpDownModDamageFaction.TextAlign = HorizontalAlignment.Center;
+            // 
+            // numericUpDownAbilityWeaponDamage
+            // 
+            numericUpDownAbilityWeaponDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownAbilityWeaponDamage.DecimalPlaces = 2;
+            numericUpDownAbilityWeaponDamage.Location = new Point(136, 76);
+            numericUpDownAbilityWeaponDamage.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownAbilityWeaponDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownAbilityWeaponDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownAbilityWeaponDamage.Name = "numericUpDownAbilityWeaponDamage";
+            numericUpDownAbilityWeaponDamage.Size = new Size(75, 23);
+            numericUpDownAbilityWeaponDamage.TabIndex = 53;
+            numericUpDownAbilityWeaponDamage.TextAlign = HorizontalAlignment.Center;
             // 
             // FormStatWizard
             // 
@@ -2688,7 +2688,6 @@
             modPage.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCorrosive).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModViral).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModRadiation).EndInit();
@@ -2700,7 +2699,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModSlash).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModPuncture).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModImpact).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModMagnetic).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModGas).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModStatusDamage).EndInit();
@@ -2712,10 +2710,10 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModMagazine).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).EndInit();
             miscPage.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCorrosive).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalViral).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalRadiation).EndInit();
@@ -2743,7 +2741,9 @@
             tableLayoutPanel5.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2857,7 +2857,6 @@
         private Label label49;
         private Label label50;
         private Label label51;
-        private NumericUpDown numericUpDownModDamage;
         private NumericUpDown numericUpDownModMagnetic;
         private NumericUpDown numericUpDownModGas;
         private TableLayoutPanel tableLayoutPanel4;
@@ -2909,10 +2908,8 @@
         private NumericUpDown numericUpDownFinalDamageMult;
         private NumericUpDown numericUpDownFinalMagnetic;
         private NumericUpDown numericUpDownFinalGas;
-        private NumericUpDown numericUpDownAbilityWeaponDamage;
         private Label label77;
         private Label label29;
-        private NumericUpDown numericUpDownModDamageFaction;
         private Label label52;
         private Label label78;
         private TextBox textBoxTags;
@@ -2927,5 +2924,8 @@
         private OpenFileDialog openFileDialog1;
         private Label labelBasePunchthrough;
         private NumericUpDown numericUpDownPunchthrough;
+        private NumericUpDown numericUpDownAbilityWeaponDamage;
+        private NumericUpDown numericUpDownModDamageFaction;
+        private NumericUpDown numericUpDownModDamage;
     }
 }
