@@ -27,13 +27,13 @@ namespace Buildframe
 
             if (argsL.IndexOf("-debug") != -1)
                 ToolDebug = true;
-            if (argsL.IndexOf("-debugweapcalc") != -1)
+            if (argsL.IndexOf("-debugweapcalc") != -1 || argsL.IndexOf("-fulldebug") != -1)
                 DebuggingWeaponCalc = true;
-            if (argsL.IndexOf("-debugload") != -1)
+            if (argsL.IndexOf("-debugload") != -1 || argsL.IndexOf("-fulldebug") != -1)
                 DebuggingLoading = true;
-            if (argsL.IndexOf("-debugmain") != -1)
+            if (argsL.IndexOf("-debugmain") != -1 || argsL.IndexOf("-fulldebug") != -1)
                 DebuggingMainWindow = true;
-            if (argsL.IndexOf("-debugstatwin") != -1)
+            if (argsL.IndexOf("-debugstatwin") != -1 || argsL.IndexOf("-fulldebug") != -1)
                 DebuggingStatWindow = true;
 
 
