@@ -13,7 +13,7 @@ namespace Buildframe.Methods
 
         public static void WriteLineIfDebug(string s = "", bool allowPrint = true)
         {
-            if (ToolDebug && allowPrint)
+            if (ToolDebug && (allowPrint || DebuggingFull))
                 Console.WriteLine(s);
         }
 
