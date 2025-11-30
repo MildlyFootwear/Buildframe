@@ -11,6 +11,7 @@ namespace Buildframe.GameData
 
         public string id = "";
         public string name = "";
+        public string displayName = "";
         public string tags = "";
         public string description = "";
 
@@ -140,7 +141,7 @@ namespace Buildframe.GameData
 
         public override string ToString()
         {
-            return name;
+            return displayName.Length > name.Length ? displayName : name;
         }
     }
 }
