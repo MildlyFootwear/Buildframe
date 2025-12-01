@@ -204,6 +204,8 @@ namespace Buildframe
                 labelDPSBurstValue.Text = DPSBurst.ToString("#,##0");
                 labelDPSSustainedValue.Text = DPSSustained.ToString("#,##0");
 
+                labelPunchthroughValue.Text = selectedFiremodeWithAppliedStats.punchthrough.ToString();
+
                 summedDamage = Damage;
                 summedDPSBurst = DPSBurst;
                 summedDPSSustained = DPSSustained;
