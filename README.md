@@ -22,6 +22,8 @@ Multishot_Exclusive_Damage_Mult - makes it so the Final Damage Percentage for a 
 Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets it to consume reserve ammo for multishot. Mostly going to effect firemodes such as Braton's incarnon fire.  
 Secondary_Enervate_Rank_0 - applies the effects of the Secondary Enervate arcane. Valid tags for Rank_0 through Rank_5.  
 Semi_Auto_Fire - Caps fire rate at 10. Use for weapons with the fire-mode semi.
+NoIncarnonMode - stats containing this tag will still be selectable but won't be applied to incarnon firemodes, i.e. Oraxia's Silken Stride or Cyte's resupply.
+WeaponName_(insert text) - stats with this tag will show as valid for any weapon whose name starts with the given text.
 
 ### License
 
