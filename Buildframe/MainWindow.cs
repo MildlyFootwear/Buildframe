@@ -140,6 +140,17 @@ namespace Buildframe
                 WriteLineIfDebug("    Selected stats added arcane from archgun: " + stats.name, DebuggingMainWindow);
             }
 
+            if (selectedFiremode.incarnon)
+            {
+                foreach (StatsData statsData in selectedStats.ToList())
+                {
+                    if (statsData.tags.Contains("NoIncarnonMode"))
+                    {
+                        selectedStats.Remove(statsData);
+                    }
+                }
+            }
+
             mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
 
             double summedDamage = 0;
