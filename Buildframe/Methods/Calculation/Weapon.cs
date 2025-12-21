@@ -218,9 +218,12 @@ namespace Buildframe.Methods.Calculation
             WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap, DebuggingWeaponCalc);
 
             double critChance = calculateModCritChance(stats, true);
+
+            WriteLineIfDebug("Base crit chance pre-enervate: " + critChance, DebuggingWeaponCalc);
+
             uint steps = 0;
             Random rnd = new Random();
-            uint degreeOfAccuracy = 1000000;
+            uint degreeOfAccuracy = 100000;
             for (int i = 0; i <= degreeOfAccuracy; i++)
             {
                 int bigCrits = 0;

@@ -11,6 +11,10 @@
     },
     "Buildframe No Log": {
       "commandName": "Project"
+    },
+    "Buildframe Debug Weapon Calc": {
+      "commandName": "Project",
+      "commandLineArgs": "-debug -debugweapcalc"
     }
   }
 }
