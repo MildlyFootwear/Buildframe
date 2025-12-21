@@ -71,9 +71,14 @@ namespace Buildframe.Methods.Calculation
         {
             return stats.baseStatusChance * (1 + stats.modStatusChance / 100) + stats.finalStatusChance;
         }
-        public static double calculateModCritChance(StatsData stats)
+        public static double calculateModCritChance(StatsData stats, bool preEnervate = false)
         {
             double rawCritChance = Math.Max(0, stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance);
+
+            if (preEnervate)
+            {
+                return rawCritChance;
+            }
 
             int enervateRank = StatMethods.identifyEnervate(stats);
 
@@ -212,7 +217,7 @@ namespace Buildframe.Methods.Calculation
         {
             WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap, DebuggingWeaponCalc);
 
-            double critChance = calculateModCritChance(stats);
+            double critChance = calculateModCritChance(stats, true);
             uint steps = 0;
             Random rnd = new Random();
             uint degreeOfAccuracy = 1000000;
