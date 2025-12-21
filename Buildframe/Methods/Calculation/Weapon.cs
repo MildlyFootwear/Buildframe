@@ -220,7 +220,7 @@ namespace Buildframe.Methods.Calculation
         {
             if (lastCalcedEnervate != null && lastCalcedEnervate == stats.id)
             {
-                WriteLineIfDebug("Using cache for " + stats.name + ": " + lastCalcedEnervateValue, DebuggingWeaponCalc);
+                WriteLineIfDebug("Using cache for " + stats.id + ": " + lastCalcedEnervateValue, DebuggingWeaponCalc);
                 return lastCalcedEnervateValue;
             }
 
