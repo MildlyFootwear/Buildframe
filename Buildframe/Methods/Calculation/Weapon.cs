@@ -213,8 +213,19 @@ namespace Buildframe.Methods.Calculation
             return dps;
         }
 
+        static string lastCalcedEnervate;
+        static double lastCalcedEnervateValue;
+
         public static double calculateEnervateIncrease(StatsData stats, int bigCritsCap)
         {
+            if (lastCalcedEnervate != null && lastCalcedEnervate == stats.id)
+            {
+                WriteLineIfDebug("Using cache for " + stats.name + ": " + lastCalcedEnervateValue, DebuggingWeaponCalc);
+                return lastCalcedEnervateValue;
+            }
+
+            lastCalcedEnervate = stats.id;
+
             WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap, DebuggingWeaponCalc);
 
             double critChance = calculateModCritChance(stats, true);
@@ -223,7 +234,7 @@ namespace Buildframe.Methods.Calculation
 
             uint steps = 0;
             Random rnd = new Random();
-            uint degreeOfAccuracy = 100000;
+            uint degreeOfAccuracy = 1000000;
             for (int i = 0; i <= degreeOfAccuracy; i++)
             {
                 int bigCrits = 0;
@@ -240,9 +251,10 @@ namespace Buildframe.Methods.Calculation
                 }
             }
 
-            WriteLineIfDebug("Average of steps " + steps / degreeOfAccuracy, DebuggingWeaponCalc);
+            WriteLineIfDebug("Average of steps " + Convert.ToDouble(steps) / degreeOfAccuracy, DebuggingWeaponCalc);
 
             double enervateCritChanceIncrease = Math.Round(Convert.ToDouble(steps) / degreeOfAccuracy * 10 / 2, 1, MidpointRounding.ToZero);
+            lastCalcedEnervateValue = enervateCritChanceIncrease;
             WriteLineIfDebug("Enervate crit chance increase: " + enervateCritChanceIncrease, DebuggingWeaponCalc);
             return enervateCritChanceIncrease;
         }
