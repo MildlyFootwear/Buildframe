@@ -175,10 +175,6 @@ namespace Buildframe
                 {
                     labelFireRate.Text = "Fire Rate";
                 }
-                if (enervateCeiling > 0)
-                {
-                    selectedFiremodeWithAppliedStats = Methods.Calculation.Weapon.setEnervate(selectedFiremodeWithAppliedStats, enervateCeiling);
-                }
 
                 double Damage = Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats); ;
                 double DPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
@@ -233,11 +229,6 @@ namespace Buildframe
             if (radial.id != "")
             {
                 radialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<StatsData> { radial, mergedStats });
-
-                if (enervateCeiling > 0)
-                {
-                    radialWithAppliedStats = Methods.Calculation.Weapon.setEnervate(radialWithAppliedStats, enervateCeiling);
-                }
 
                 double multishot = Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);
                 double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(radialWithAppliedStats);

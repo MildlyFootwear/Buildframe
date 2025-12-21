@@ -73,7 +73,16 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModCritChance(StatsData stats)
         {
-            return Math.Max(0, stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance);
+            double rawCritChance = Math.Max(0, stats.baseCriticalChance * (1 + stats.modCriticalChance / 100) + stats.finalCriticalChance);
+
+            int enervateRank = StatMethods.identifyEnervate(stats);
+
+            if (enervateRank > 0)
+            {
+                double enervateCritIncrease = calculateEnervateIncrease(stats, enervateRank);
+                return rawCritChance + enervateCritIncrease;
+            }
+            return rawCritChance;
         }
         public static double calculateModCritDamage(StatsData stats)
         {
@@ -199,7 +208,7 @@ namespace Buildframe.Methods.Calculation
             return dps;
         }
 
-        public static double calculateEnervateIncrease(StatsData stats, int bigCritsCap = 6)
+        public static double calculateEnervateIncrease(StatsData stats, int bigCritsCap)
         {
             WriteLineIfDebug("Rolling enervate for " + stats.name + " with cap of " + bigCritsCap, DebuggingWeaponCalc);
 
