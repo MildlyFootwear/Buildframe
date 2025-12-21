@@ -16,7 +16,7 @@ namespace Buildframe.Methods.Calculation
         {
             if (s.tags.Contains(tag) && !stats.tags.Contains(tag))
             {
-                WriteLineIfDebug("  Tag \"" + tag + "\" found on " + s);
+                WriteLineIfDebug("  Tag \"" + tag + "\" found on " + s, DebuggingStatManip);
                 stats.tags += " " + tag;
             }
         }
@@ -45,7 +45,7 @@ namespace Buildframe.Methods.Calculation
 
             foreach (StatsData s in statsList)
             {
-                WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.");
+                WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.", DebuggingStatManip);
 
                 stats.name += s.name + ", ";
 
@@ -261,7 +261,7 @@ namespace Buildframe.Methods.Calculation
             {
                 returnValue = 6;
             }
-            WriteLineIfDebug("Identified Enervate level " + returnValue + " from arcane " + stats +" - " + stats.id);
+            WriteLineIfDebug("Identified Enervate level " + returnValue + " from arcane " + stats + " - " + stats.id, DebuggingStatManip);
             return returnValue;
         }
 

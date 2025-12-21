@@ -17,6 +17,7 @@ namespace Buildframe
         public static bool DebuggingLoading = false;
         public static bool DebuggingMainWindow = false;
         public static bool DebuggingStatWindow = false;
+        public static bool DebuggingStatManip = false;
         public static bool DebuggingFull = false;
 
         public static string envUSERPROFILE = Environment.GetEnvironmentVariable("USERPROFILE");

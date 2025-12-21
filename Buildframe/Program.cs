@@ -37,6 +37,8 @@ namespace Buildframe
                 DebuggingMainWindow = true;
             if (argsL.IndexOf("-debugstatwin") != -1)
                 DebuggingStatWindow = true;
+            if (argsL.IndexOf("-debugstatmanip") != -1)
+                DebuggingStatManip = true;
 
 
             if (argsL.IndexOf("-resetappconfig") != -1)
