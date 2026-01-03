@@ -12,7 +12,7 @@
       <Value Profile="(Default)">Buildframe</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.1.4</Value>
+      <Value Profile="(Default)">v0.1.5</Value>
     </Setting>
     <Setting Name="IngoreVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
