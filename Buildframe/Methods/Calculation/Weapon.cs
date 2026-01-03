@@ -129,8 +129,12 @@ namespace Buildframe.Methods.Calculation
             }
             return stats.baseAttackSpeed * (1 + stats.modAttackSpeed / 100) * stats.speedMultiplier;
         }
-        public static double calculateModMultishot(StatsData stats)
+        public static double calculateModMultishot(StatsData stats, bool verifyMultishotLock = true)
         {
+            if (stats.tags.Contains("Multishot_Locked") && verifyMultishotLock)
+            {
+                return Math.Max(stats.baseMultishot, 1);
+            }
             return Math.Max(stats.baseMultishot * (1 + stats.modMultishot / 100) + stats.finalMultishot, 1);
         }
         public static double calculateModMagazine(StatsData stats)
@@ -168,7 +172,7 @@ namespace Buildframe.Methods.Calculation
 
             if (stats.incarnon && stats.tags.Contains("Multishot_Consumes_Reserve_Ammo"))
             {
-                return magazine / calculateModMultishot(stats) / calculateModSpeed(stats);
+                return magazine / calculateModMultishot(stats, false) / calculateModSpeed(stats);
             }
             return magazine / (1 - ammoEfficiency / 100) / calculateModSpeed(stats);
         }

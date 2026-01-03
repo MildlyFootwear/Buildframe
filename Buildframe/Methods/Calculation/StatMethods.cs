@@ -51,6 +51,7 @@ namespace Buildframe.Methods.Calculation
 
                 appendTagIfValid(s, stats, "Devouring_Attrition");
                 appendTagIfValid(s, stats, "Multishot_Consumes_Reserve_Ammo");
+                appendTagIfValid(s, stats, "Multishot_Locked");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_0");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_1");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_2");
