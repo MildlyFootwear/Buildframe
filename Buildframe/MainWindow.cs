@@ -29,9 +29,9 @@ namespace Buildframe
         public WeaponData currentWeapon = new();
         public string[] tags = { "None" };
         public StatsData selectedFiremode = new();
-        public StatsData radial = new();
+        public StatsData selectedFiremodeRadial = new();
         public StatsData selectedFiremodeWithAppliedStats = new();
-        public StatsData radialWithAppliedStats = new();
+        public StatsData selectedFiremodeRadialWithAppliedStats = new();
 
         public Dictionary<ComboBox, string> boxSelectedEffects = new();
 
@@ -159,7 +159,9 @@ namespace Buildframe
 
             if (selectedFiremode.id != "")
             {
-                selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats });
+                List<StatsData> stats = [selectedFiremode, .. selectedStats];
+
+                selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(stats);
                 if (selectedFiremodeWithAppliedStats.tags.Contains("Devouring_Attrition"))
                 {
                     labelAverageCritical.Text = "Average DA/Crit Multiplier";
@@ -226,25 +228,27 @@ namespace Buildframe
                 labelAverageCritical.Text = "Average Critical Multiplier";
                 labelFireRate.Text = "Fire Rate";
             }
-            if (radial.id != "")
+            if (selectedFiremodeRadial.id != "")
             {
-                radialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(new List<StatsData> { radial, mergedStats });
+                List<StatsData> stats = [selectedFiremodeRadial, .. selectedStats];
 
-                double multishot = Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);
-                double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(radialWithAppliedStats);
-                double speed = Methods.Calculation.Weapon.calculateModSpeed(radialWithAppliedStats);
+                selectedFiremodeRadialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(stats);
+
+                double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats);
+                double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeRadialWithAppliedStats);
+                double speed = Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeRadialWithAppliedStats);
 
                 labelRadialStatusPerSecondValue.Text = Math.Round(multishot * statusChance / 100 * speed, 2).ToString();
-                labelRadialAverageCritMultValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats), 2).ToString() + "x";
-                labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(radialWithAppliedStats), 2).ToString() + "%";
-                labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(radialWithAppliedStats), 2).ToString() + "x";
-                labelRadialStatusValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(radialWithAppliedStats), 2).ToString() + "%";
-                labelRadialDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats), 2).ToString("#,##0");
-                labelRadialDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats), 2).ToString("#,##0");
-                labelRadialDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true), 2).ToString("#,##0");
-                summedDamage += Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(radialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(radialWithAppliedStats);
-                summedDPSBurst += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats);
-                summedDPSSustained += Methods.Calculation.Weapon.calculateModDPS(radialWithAppliedStats, true);
+                labelRadialAverageCritMultValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "x";
+                labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "%";
+                labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "x";
+                labelRadialStatusValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "%";
+                labelRadialDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats), 2).ToString("#,##0");
+                labelRadialDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats), 2).ToString("#,##0");
+                labelRadialDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats, true), 2).ToString("#,##0");
+                summedDamage += Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats);
+                summedDPSBurst += Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats);
+                summedDPSSustained += Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats, true);
                 labelSummedDamageValue.Text = summedDamage.ToString("#,##0");
                 labelSummedDPSBurstValue.Text = summedDPSBurst.ToString("#,##0");
                 labelSummedDPSSustainedValue.Text = summedDPSSustained.ToString("#,##0");
@@ -861,11 +865,11 @@ namespace Buildframe
             WriteLineIfDebug("Selected fire mode: " + selectedFiremode.id + " : " + selectedFiremode.name);
             if (currentWeapon.fireModesRadials.ContainsKey(selectedFiremode.id))
             {
-                radial = currentWeapon.fireModesRadials[selectedFiremode.id];
+                selectedFiremodeRadial = currentWeapon.fireModesRadials[selectedFiremode.id];
             }
             else
             {
-                radial = new StatsData();
+                selectedFiremodeRadial = new StatsData();
             }
             if (comboBoxFireMode.DroppedDown)
             {
@@ -916,10 +920,10 @@ namespace Buildframe
             if (box.SelectedItem is StatsData)
             {
                 string tooltip = Methods.StatDisplay.generateStatsDescription((StatsData)box.SelectedItem);
-                if (radial.id != "")
+                if (selectedFiremodeRadial.id != "")
                 {
                     tooltip += "\nRadial:\n";
-                    tooltip += Methods.StatDisplay.generateStatsDescription(radial);
+                    tooltip += Methods.StatDisplay.generateStatsDescription(selectedFiremodeRadial);
                 }
 
                 toolTipMods.Show(tooltip, this, p);
