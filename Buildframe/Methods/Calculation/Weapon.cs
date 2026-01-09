@@ -45,7 +45,7 @@ namespace Buildframe.Methods.Calculation
 
             if (stats.multishotDamageMultiplier != 1 && allowMultishotMultiplier)
             {
-                WriteIfDebug("Calculating multishot exclusive damage multiplier for " + stats.name + " with multishot damage multiplier of " + stats.multishotDamageMultiplier);
+                WriteLineIfDebug("Calculating multishot exclusive damage multiplier for " + stats.name + " with multishot damage multiplier of " + stats.multishotDamageMultiplier);
                 moddedDamage *= calculateModMultishotExclusiveDamageMultiplier(stats, (stats.multishotDamageMultiplier - 1) * 100);
             }
 
