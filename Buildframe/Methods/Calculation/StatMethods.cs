@@ -33,6 +33,7 @@ namespace Buildframe.Methods.Calculation
             stats.id = "summedTransient" + summedCnt;
 
             WriteLineIfDebug("Starting stats sum for " + statsList.Count + " stats");
+            bool isRadial = false;
 
             foreach (StatsData s in statsList)
             {
@@ -41,10 +42,19 @@ namespace Buildframe.Methods.Calculation
                     stats.incarnon = true;
                     stats.baseMagazine = s.baseMagazine;
                 }
+                if (s.tags.Contains("RadialFireMode"))
+                {
+                    isRadial = true;
+                }
             }
 
             foreach (StatsData s in statsList)
             {
+                if (isRadial && s.tags.Contains("ExcludeRadialFireMode"))
+                {
+                    WriteLineIfDebug(" Skipping: " + s.id + "/" + s.name + " from stats (radial fire mode exclusion).", DebuggingStatManip);
+                    continue;
+                }
                 WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.", DebuggingStatManip);
 
                 stats.name += s.name + ", ";
