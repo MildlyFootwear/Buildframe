@@ -276,14 +276,14 @@ namespace Buildframe.Forms
             fieldHasBeenChanged = false;
             GameData.StatsData stats = new GameData.StatsData();
 
-            stats.name = textBoxName.Text;
+            stats.name = textBoxName.Text.Trim();
 
-            string desc = textBoxDescription.Text;
+            string desc = textBoxDescription.Text.Trim();
             stats.description = desc;
 
 
-            stats.id = textBoxID.Text;
-            stats.tags = textBoxTags.Text;
+            stats.id = textBoxID.Text.Trim();
+            stats.tags = textBoxTags.Text.Trim();
             stats.incarnon = checkBoxIncarnon.Checked;
 
             stats.punchthrough = (double)numericUpDownPunchthrough.Value;
@@ -362,7 +362,7 @@ namespace Buildframe.Forms
             stats.finalStatusChance = (double)numericUpDownFinalStatusChance.Value;
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
 
-            string fileName = LoadAndSave.cleanFileName(stats.name + " - " + stats.id + ".cfg");
+            string fileName = LoadAndSave.cleanFileName(stats.name.Trim() + " - " + stats.id.Trim() + ".cfg");
 
             string filePath = envAPPLOC;
 
@@ -413,7 +413,7 @@ namespace Buildframe.Forms
 
         private void textBoxID_Leave(object sender, EventArgs e)
         {
-            string id = textBoxID.Text;
+            string id = textBoxID.Text.Trim();
             foreach (string s in CommonVars.ProhibPathChars)
             {
                 id = id.Replace(s, "");
