@@ -21,7 +21,7 @@ namespace Buildframe.Methods.Calculation
             }
         }
 
-        public static StatsData sumStats(List<StatsData> statsList)
+        public static StatsData sumStats(List<StatsData> statsList, bool radialOverride = false)
         {
             if (statsList.Count == 0)
             {
@@ -33,8 +33,11 @@ namespace Buildframe.Methods.Calculation
             stats.id = "summedTransient" + summedCnt;
 
             WriteLineIfDebug("Starting stats sum for " + statsList.Count + " stats");
-            bool isRadial = false;
-
+            bool isRadial = radialOverride;
+            if (radialOverride)
+            {
+                WriteLineIfDebug(" Radial fire mode forced by override.", DebuggingStatManip);
+            }
             foreach (StatsData s in statsList)
             {
                 if (s.incarnon)
@@ -42,7 +45,7 @@ namespace Buildframe.Methods.Calculation
                     stats.incarnon = true;
                     stats.baseMagazine = s.baseMagazine;
                 }
-                if (s.tags.Contains("RadialFireMode"))
+                if (!isRadial && s.tags.Contains("RadialFireMode"))
                 {
                     WriteLineIfDebug(" Detected radial fire mode stat: " + s.id + "/" + s.name, DebuggingStatManip);
                     isRadial = true;

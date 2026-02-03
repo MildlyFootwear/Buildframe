@@ -231,8 +231,12 @@ namespace Buildframe
             if (selectedFiremodeRadial.id != "")
             {
                 List<StatsData> stats = [selectedFiremodeRadial, .. selectedStats];
-
-                selectedFiremodeRadialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(stats);
+                bool overrideRadial = false;
+                if (selectedFiremodeRadial.name.Contains("Radial"))
+                {
+                    overrideRadial = true;
+                }
+                selectedFiremodeRadialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(stats, overrideRadial);
 
                 double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats);
                 double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeRadialWithAppliedStats);
