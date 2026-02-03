@@ -19,12 +19,21 @@ Several effects have been hardcoded, such as the arcane Secondary Enervate as we
 To use; add the tag when appropriate, i.e. Secondary Enervate to an arcane or the multishot damage increase to a firemode. These tags are meant to be added to effects (firemodes, mods, misc), not the weapon itself.  
 
 Multishot_Exclusive_Damage_Mult - makes it so the Final Damage Percentage for a given stat applies to multishot only. Use to represent effects like the multishot perk on the Braton Incarnon.  
-Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets it to consume reserve ammo for multishot. Mostly going to effect firemodes such as Braton's incarnon fire.  
+
+Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets it to consume reserve ammo for multishot. Mostly going to effect firemodes such as Braton's incarnon fire.
+
 Multishot_Locked - tag designed for Cannonade mods and certain incarnon fire modes that have a hitscan AoE effect.
+
+ExcludeRadialFire - will exclude an effect from applying to radial firemodes.
+
 Secondary_Enervate_Rank_0 - applies the effects of the Secondary Enervate arcane. Valid tags for Rank_0 through Rank_5.  
+
 Semi_Auto_Fire - Caps fire rate at 10. Use for weapons with the fire-mode semi.
+
 NoIncarnonMode - stats containing this tag will still be selectable but won't be applied to incarnon firemodes, i.e. Oraxia's Silken Stride or Cyte's resupply.
+
 WeaponName_(insert text) - stats with this tag will show as valid for any weapon whose name starts with the given text.
+
 
 ### License
 
