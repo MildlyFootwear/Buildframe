@@ -45,7 +45,16 @@ namespace Buildframe
             {
                 Settings.Default.Reset();
                 Settings.Default.Save();
-                MessageBox.Show("Application configuration reset. Please restart the application.", ToolName);
+                String exePath = Application.ExecutablePath;
+                if (exePath.EndsWith("Buildframe\\bin\\Release\\net8.0-windows\\Buildframe.exe"))
+                {
+                    File.Copy(exePath.Replace("Buildframe\\bin\\Release\\net8.0-windows\\Buildframe.exe", "README.md"), "README.md", true);
+                    File.Copy(exePath.Replace("Buildframe\\bin\\Release\\net8.0-windows\\Buildframe.exe", "LICENSE"), "LICENSE", true);
+                    MessageBox.Show("Application configuration reset and readme updated.", ToolName);
+                }
+                else {
+                    MessageBox.Show("Application configuration reset. Please restart the application.", ToolName);
+                }
                 return;
             }
             if (ToolDebug)
