@@ -44,13 +44,14 @@ namespace Buildframe.Methods.Calculation
                 }
                 if (s.tags.Contains("RadialFireMode"))
                 {
+                    WriteLineIfDebug(" Detected radial fire mode stat: " + s.id + "/" + s.name, DebuggingStatManip);
                     isRadial = true;
                 }
             }
 
             foreach (StatsData s in statsList)
             {
-                if (isRadial && s.tags.Contains("ExcludeRadialFireMode"))
+                if (isRadial && s.tags.Contains("ExcludeRadialFire"))
                 {
                     WriteLineIfDebug(" Skipping: " + s.id + "/" + s.name + " from stats (radial fire mode exclusion).", DebuggingStatManip);
                     continue;
