@@ -27,7 +27,7 @@ namespace Buildframe
         public StatsData mergedStats = new();
 
         public WeaponData currentWeapon = new();
-        public string[] tags = { "None" };
+        public string[] selectedWeaponTags = { "None" };
         public StatsData selectedFiremode = new();
         public StatsData selectedFiremodeRadial = new();
         public StatsData selectedFiremodeWithAppliedStats = new();
@@ -53,7 +53,7 @@ namespace Buildframe
                 currentWeapon.fireModes.Add(Firemode);
                 comboBoxFireMode.Items.Clear();
                 comboBoxFireMode.Items.Add(Firemode);
-                tags = weapon.tags.Split(' ');
+                selectedWeaponTags = weapon.tags.Split(' ');
                 labelWeaponName.Text = weapon.name;
 
                 setHandlerPause(true);
@@ -66,13 +66,14 @@ namespace Buildframe
                 comboBoxArchgunArcane.SelectedIndex = 0;
 
                 setHandlerPause(false);
+                setMainLabels(1);
                 comboBoxFireMode.SelectedIndex = 0;
                 return;
 
             }
 
             Text = Settings.Default.ToolName + " " + Settings.Default.Version + " - " + currentWeapon.name;
-            tags = weapon.tags.Split(' ');
+            selectedWeaponTags = weapon.tags.Split(' ');
 
             comboBoxFireMode.Items.Clear();
             foreach (StatsData fm in weapon.fireModes)
@@ -85,18 +86,45 @@ namespace Buildframe
             loadArcanesToSelectionBox();
             loadModsToSelectionBox();
             loadMiscsToSelectionBox();
-            if (tags.Contains("Archgun"))
+            if (selectedWeaponTags.Contains("Archgun"))
             {
+                setMainLabels(2);
                 comboBoxArchgunArcane.Visible = true;
             }
-            else
+            else if (selectedWeaponTags.Contains("Amp"))
             {
+                setMainLabels(3);
+                comboBoxArchgunArcane.Visible = false;
+                comboBoxArchgunArcane.SelectedIndex = 0;
+            } else 
+            {
+                setMainLabels(1);
                 comboBoxArchgunArcane.Visible = false;
                 comboBoxArchgunArcane.SelectedIndex = 0;
             }
             setHandlerPause(false);
             comboBoxFireMode.SelectedIndex = 0;
 
+        }
+
+        public void setMainLabels(int mode = 1)
+        {
+            if (mode == 1)
+            {
+                labelWeaponArcane.Text = "Weapon Arcane";
+                labelMods.Text = "Weapon Mods";
+                labelMiscEffects.Text = "Warframe Arcanes/Abilities/Misc Effects";
+            } else if (mode == 2)
+            {
+                labelWeaponArcane.Text = "Archgun Arcanes";
+                labelMods.Text = "Archgun Mods";
+                labelMiscEffects.Text = "Warframe Arcanes/Abilities/Misc Effects";
+            } else if (mode == 3)
+            {
+                labelWeaponArcane.Text = "Artifact Arcane";
+                labelMods.Text = "Artifact Mods";
+                labelMiscEffects.Text = "School/Misc Effects";
+            }
         }
 
         public void updateWeaponStats()
@@ -133,7 +161,7 @@ namespace Buildframe
                 WriteLineIfDebug("    Selected stats added arcane: " + stats.name, DebuggingMainWindow);
             }
 
-            if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
+            if (selectedWeaponTags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
             {
                 StatsData stats = (StatsData)comboBoxArchgunArcane.SelectedItem;
                 selectedStats.Add(stats);
@@ -211,7 +239,10 @@ namespace Buildframe
 
                 labelDamageValue.Text = Damage.ToString("#,##0");
                 labelDPSBurstValue.Text = DPSBurst.ToString("#,##0");
-                labelDPSSustainedValue.Text = DPSSustained.ToString("#,##0");
+                if (DPSBurst != DPSSustained)
+                    labelDPSSustainedValue.Text = DPSSustained.ToString("#,##0");
+                else
+                    labelDPSSustainedValue.Text = "N/A";
 
                 labelPunchthroughValue.Text = Math.Round(selectedFiremodeWithAppliedStats.punchthrough, 1).ToString();
 
@@ -242,21 +273,33 @@ namespace Buildframe
                 double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeRadialWithAppliedStats);
                 double speed = Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeRadialWithAppliedStats);
 
+                double DPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats);
+                double DPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats, true);
+
                 labelRadialStatusPerSecondValue.Text = Math.Round(multishot * statusChance / 100 * speed, 2).ToString();
                 labelRadialAverageCritMultValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "x";
                 labelRadialCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "%";
                 labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "x";
                 labelRadialStatusValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "%";
                 labelRadialDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats), 2).ToString("#,##0");
-                labelRadialDPSBurstValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats), 2).ToString("#,##0");
-                labelRadialDPSSustainedValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats, true), 2).ToString("#,##0");
+                
+                labelRadialDPSBurstValue.Text = DPSBurst.ToString("#,##0");
+
+                if (DPSBurst != DPSSustained)
+                    labelRadialDPSSustainedValue.Text = DPSSustained.ToString("#,##0");
+                else
+                    labelRadialDPSSustainedValue.Text = "N/A";
+
                 summedDamage += Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats);
-                summedDPSBurst += Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats);
-                summedDPSSustained += Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats, true);
+                summedDPSBurst += DPSBurst;
+                summedDPSSustained += DPSSustained;
+
                 labelSummedDamageValue.Text = summedDamage.ToString("#,##0");
                 labelSummedDPSBurstValue.Text = summedDPSBurst.ToString("#,##0");
-                labelSummedDPSSustainedValue.Text = summedDPSSustained.ToString("#,##0");
-
+                if (summedDPSBurst != summedDPSSustained)
+                    labelSummedDPSSustainedValue.Text = summedDPSSustained.ToString("#,##0");
+                else
+                    labelSummedDPSSustainedValue.Text = "N/A";
             }
             else
             {
@@ -272,17 +315,12 @@ namespace Buildframe
 
         public bool hasTag(StatsData stat)
         {
-            if (tags.Contains("None"))
+            if (selectedWeaponTags.Contains("None"))
             {
                 return false;
             }
-            if (stat.tags.Contains("Any") || tags.Contains("Any"))
-            {
-                return true;
-            }
-            foreach (string tag in tags)
-            {
-                if (stat.tags.Contains(tag))
+            if (stat.tags.Contains("-Any") == false && selectedWeaponTags.Contains("-Any") == false){
+                if (stat.tags.Contains("Any") || selectedWeaponTags.Contains("Any"))
                 {
                     return true;
                 }
@@ -299,6 +337,20 @@ namespace Buildframe
                         return true;
                     }
                 }
+                foreach (string weaponTag in selectedWeaponTags)
+                {
+                    if (weaponTag.StartsWith("-"))
+                    {
+                        if (statTags.Contains(weaponTag.Replace("-", "")))
+                        {
+                            return false;
+                        }
+                    }
+                    if (tag == weaponTag)
+                    {
+                        return true;
+                    }
+                }
             }
 
             return false;
@@ -306,7 +358,7 @@ namespace Buildframe
 
         public void loadValidIDs()
         {
-            WriteLineIfDebug("Loading valid IDs for weapon with tags: " + string.Join(", ", tags), DebuggingMainWindow);
+            WriteLineIfDebug("Loading valid IDs for weapon with tags: " + string.Join(", ", selectedWeaponTags), DebuggingMainWindow);
             validModIDs.Clear();
             validArcaneIDs.Clear();
             validMiscIDs.Clear();
@@ -333,7 +385,7 @@ namespace Buildframe
 
         public void loadArcanesToSelectionBox()
         {
-            if (tags.Contains("Archgun"))
+            if (selectedWeaponTags.Contains("Archgun"))
             {
                 loadArchgunArcanesToBoxes();
                 return;
@@ -575,7 +627,7 @@ namespace Buildframe
                 s += "arcane=\n";
             }
 
-            if (tags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
+            if (selectedWeaponTags.Contains("Archgun") && comboBoxArchgunArcane.SelectedIndex > 0)
             {
                 StatsData stat = (StatsData)comboBoxArchgunArcane.SelectedItem;
 
@@ -583,7 +635,7 @@ namespace Buildframe
 
                 s += "archgunarcane=" + statID + "\n";
             }
-            else if (tags.Contains("Archgun"))
+            else if (selectedWeaponTags.Contains("Archgun"))
             {
                 s += "archgunarcane=\n";
             }
@@ -641,7 +693,7 @@ namespace Buildframe
                     {
                         loadWeapon(CommonVars.weaponStats[value]);
                         setHandlerPause(true);
-                        if (tags.Contains("Archgun"))
+                        if (selectedWeaponTags.Contains("Archgun"))
                         {
                             comboBoxArchgunArcane.SelectedIndex = 0;
                         }
@@ -676,13 +728,13 @@ namespace Buildframe
                 }
                 else if (key == "archgunarcane")
                 {
-                    if (value != "" && CommonVars.arcaneStats.ContainsKey(value) && tags.Contains("Archgun"))
+                    if (value != "" && CommonVars.arcaneStats.ContainsKey(value) && selectedWeaponTags.Contains("Archgun"))
                     {
                         WriteLineIfDebug("Setting archgun arcane to " + value);
                         StatsData stat = CommonVars.arcaneStats[value];
                         comboBoxArchgunArcane.SelectedItem = stat;
                     }
-                    else if (value != "" && tags.Contains("Archgun"))
+                    else if (value != "" && selectedWeaponTags.Contains("Archgun"))
                     {
                         WriteLineIfDebug("Archgun Arcane ID in file not found or not valid for weapon: " + value);
                     }

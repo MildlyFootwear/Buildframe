@@ -141,7 +141,16 @@ namespace Buildframe.GameData
 
         public override string ToString()
         {
-            return displayName.Length > name.Length ? displayName : name;
+            string returnString = displayName.Length > name.Length ? displayName : name;
+            if (returnString.StartsWith("Amp - "))
+            {
+                returnString = returnString.Substring(6);
+            }
+            if (returnString == "")
+            {
+                returnString = id;
+            }
+            return returnString;
         }
     }
 }

@@ -43,7 +43,7 @@
             labelFireTimeValue = new Label();
             labelFireTime = new Label();
             labelSummedDamageValue = new Label();
-            label5 = new Label();
+            labelAverageDamageSummed = new Label();
             labelDPSSustainedValue = new Label();
             labelDPSBurstValue = new Label();
             labelAverageCriticalValue = new Label();
@@ -70,14 +70,14 @@
             labelStatusPerSecondValue = new Label();
             labelDamage = new Label();
             labelDamageValue = new Label();
-            label19 = new Label();
-            label18 = new Label();
+            labelDPSSustainedRadial = new Label();
+            labelDPSBurstRadial = new Label();
             labelRadialDPSSustainedValue = new Label();
             labelRadialDPSBurstValue = new Label();
             label16 = new Label();
-            label17 = new Label();
-            label = new Label();
-            label13 = new Label();
+            labelRadialStatusPerSecond = new Label();
+            labelAverageDamageRadial = new Label();
+            labelCriticalChanceRadial = new Label();
             label14 = new Label();
             label15 = new Label();
             labelRadialCriticalChanceValue = new Label();
@@ -86,9 +86,9 @@
             labelRadialDamageValue = new Label();
             labelRadialCriticalMultiplierValue = new Label();
             labelRadialAverageCritMultValue = new Label();
-            label21 = new Label();
+            labelDPSSustainedSummed = new Label();
             labelSummedDPSSustainedValue = new Label();
-            label20 = new Label();
+            labelDPSBurstSummed = new Label();
             labelSummedDPSBurstValue = new Label();
             labelPunchthrough = new Label();
             labelPunchthroughValue = new Label();
@@ -108,7 +108,7 @@
             comboBoxMiscEffect3 = new ComboBox();
             comboBoxMiscEffect2 = new ComboBox();
             comboBoxMiscEffect1 = new ComboBox();
-            label3 = new Label();
+            labelMiscEffects = new Label();
             comboBoxMod8 = new ComboBox();
             comboBoxMod7 = new ComboBox();
             comboBoxMod6 = new ComboBox();
@@ -116,9 +116,9 @@
             comboBoxMod4 = new ComboBox();
             comboBoxMod3 = new ComboBox();
             comboBoxMod2 = new ComboBox();
-            label2 = new Label();
+            labelMods = new Label();
             comboBoxWeaponArcane = new ComboBox();
-            label1 = new Label();
+            labelWeaponArcane = new Label();
             comboBoxMod1 = new ComboBox();
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
@@ -220,7 +220,7 @@
             tableLayoutPanel1.Controls.Add(labelFireTimeValue, 1, 5);
             tableLayoutPanel1.Controls.Add(labelFireTime, 0, 5);
             tableLayoutPanel1.Controls.Add(labelSummedDamageValue, 1, 23);
-            tableLayoutPanel1.Controls.Add(label5, 0, 23);
+            tableLayoutPanel1.Controls.Add(labelAverageDamageSummed, 0, 23);
             tableLayoutPanel1.Controls.Add(labelDPSSustainedValue, 1, 14);
             tableLayoutPanel1.Controls.Add(labelDPSBurstValue, 1, 13);
             tableLayoutPanel1.Controls.Add(labelAverageCriticalValue, 1, 11);
@@ -247,14 +247,14 @@
             tableLayoutPanel1.Controls.Add(labelStatusPerSecondValue, 1, 8);
             tableLayoutPanel1.Controls.Add(labelDamage, 0, 12);
             tableLayoutPanel1.Controls.Add(labelDamageValue, 1, 12);
-            tableLayoutPanel1.Controls.Add(label19, 0, 22);
-            tableLayoutPanel1.Controls.Add(label18, 0, 21);
+            tableLayoutPanel1.Controls.Add(labelDPSSustainedRadial, 0, 22);
+            tableLayoutPanel1.Controls.Add(labelDPSBurstRadial, 0, 21);
             tableLayoutPanel1.Controls.Add(labelRadialDPSSustainedValue, 1, 22);
             tableLayoutPanel1.Controls.Add(labelRadialDPSBurstValue, 1, 21);
             tableLayoutPanel1.Controls.Add(label16, 0, 15);
-            tableLayoutPanel1.Controls.Add(label17, 0, 16);
-            tableLayoutPanel1.Controls.Add(label, 0, 20);
-            tableLayoutPanel1.Controls.Add(label13, 0, 17);
+            tableLayoutPanel1.Controls.Add(labelRadialStatusPerSecond, 0, 16);
+            tableLayoutPanel1.Controls.Add(labelAverageDamageRadial, 0, 20);
+            tableLayoutPanel1.Controls.Add(labelCriticalChanceRadial, 0, 17);
             tableLayoutPanel1.Controls.Add(label14, 0, 18);
             tableLayoutPanel1.Controls.Add(label15, 0, 19);
             tableLayoutPanel1.Controls.Add(labelRadialCriticalChanceValue, 1, 17);
@@ -263,9 +263,9 @@
             tableLayoutPanel1.Controls.Add(labelRadialDamageValue, 1, 20);
             tableLayoutPanel1.Controls.Add(labelRadialCriticalMultiplierValue, 1, 18);
             tableLayoutPanel1.Controls.Add(labelRadialAverageCritMultValue, 1, 19);
-            tableLayoutPanel1.Controls.Add(label21, 0, 25);
+            tableLayoutPanel1.Controls.Add(labelDPSSustainedSummed, 0, 25);
             tableLayoutPanel1.Controls.Add(labelSummedDPSSustainedValue, 1, 25);
-            tableLayoutPanel1.Controls.Add(label20, 0, 24);
+            tableLayoutPanel1.Controls.Add(labelDPSBurstSummed, 0, 24);
             tableLayoutPanel1.Controls.Add(labelSummedDPSBurstValue, 1, 24);
             tableLayoutPanel1.Controls.Add(labelPunchthrough, 0, 4);
             tableLayoutPanel1.Controls.Add(labelPunchthroughValue, 1, 4);
@@ -330,14 +330,14 @@
             labelSummedDamageValue.Size = new Size(115, 20);
             labelSummedDamageValue.TabIndex = 52;
             // 
-            // label5
+            // labelAverageDamageSummed
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(4, 484);
-            label5.Name = "label5";
-            label5.Size = new Size(156, 15);
-            label5.TabIndex = 51;
-            label5.Text = "Average Damage (Summed)";
+            labelAverageDamageSummed.AutoSize = true;
+            labelAverageDamageSummed.Location = new Point(4, 484);
+            labelAverageDamageSummed.Name = "labelAverageDamageSummed";
+            labelAverageDamageSummed.Size = new Size(156, 15);
+            labelAverageDamageSummed.TabIndex = 51;
+            labelAverageDamageSummed.Text = "Average Damage (Summed)";
             // 
             // labelDPSSustainedValue
             // 
@@ -575,23 +575,23 @@
             labelDamageValue.Size = new Size(115, 20);
             labelDamageValue.TabIndex = 48;
             // 
-            // label19
+            // labelDPSSustainedRadial
             // 
-            label19.AutoSize = true;
-            label19.Location = new Point(4, 463);
-            label19.Name = "label19";
-            label19.Size = new Size(128, 15);
-            label19.TabIndex = 20;
-            label19.Text = "DPS (Radial, Sustained)";
+            labelDPSSustainedRadial.AutoSize = true;
+            labelDPSSustainedRadial.Location = new Point(4, 463);
+            labelDPSSustainedRadial.Name = "labelDPSSustainedRadial";
+            labelDPSSustainedRadial.Size = new Size(128, 15);
+            labelDPSSustainedRadial.TabIndex = 20;
+            labelDPSSustainedRadial.Text = "DPS (Radial, Sustained)";
             // 
-            // label18
+            // labelDPSBurstRadial
             // 
-            label18.AutoSize = true;
-            label18.Location = new Point(4, 442);
-            label18.Name = "label18";
-            label18.Size = new Size(104, 15);
-            label18.TabIndex = 19;
-            label18.Text = "DPS (Radial, Burst)";
+            labelDPSBurstRadial.AutoSize = true;
+            labelDPSBurstRadial.Location = new Point(4, 442);
+            labelDPSBurstRadial.Name = "labelDPSBurstRadial";
+            labelDPSBurstRadial.Size = new Size(104, 15);
+            labelDPSBurstRadial.TabIndex = 19;
+            labelDPSBurstRadial.Text = "DPS (Radial, Burst)";
             // 
             // labelRadialDPSSustainedValue
             // 
@@ -620,32 +620,32 @@
             label16.TabIndex = 17;
             label16.Text = "Status (Radial)";
             // 
-            // label17
+            // labelRadialStatusPerSecond
             // 
-            label17.AutoSize = true;
-            label17.Location = new Point(4, 337);
-            label17.Name = "label17";
-            label17.Size = new Size(144, 15);
-            label17.TabIndex = 18;
-            label17.Text = "Status Per Second (Radial)";
+            labelRadialStatusPerSecond.AutoSize = true;
+            labelRadialStatusPerSecond.Location = new Point(4, 337);
+            labelRadialStatusPerSecond.Name = "labelRadialStatusPerSecond";
+            labelRadialStatusPerSecond.Size = new Size(144, 15);
+            labelRadialStatusPerSecond.TabIndex = 18;
+            labelRadialStatusPerSecond.Text = "Status Per Second (Radial)";
             // 
-            // label
+            // labelAverageDamageRadial
             // 
-            label.AutoSize = true;
-            label.Location = new Point(4, 421);
-            label.Name = "label";
-            label.Size = new Size(140, 15);
-            label.TabIndex = 49;
-            label.Text = "Average Damage (Radial)";
+            labelAverageDamageRadial.AutoSize = true;
+            labelAverageDamageRadial.Location = new Point(4, 421);
+            labelAverageDamageRadial.Name = "labelAverageDamageRadial";
+            labelAverageDamageRadial.Size = new Size(140, 15);
+            labelAverageDamageRadial.TabIndex = 49;
+            labelAverageDamageRadial.Text = "Average Damage (Radial)";
             // 
-            // label13
+            // labelCriticalChanceRadial
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(4, 358);
-            label13.Name = "label13";
-            label13.Size = new Size(130, 15);
-            label13.TabIndex = 14;
-            label13.Text = "Critical Chance (Radial)";
+            labelCriticalChanceRadial.AutoSize = true;
+            labelCriticalChanceRadial.Location = new Point(4, 358);
+            labelCriticalChanceRadial.Name = "labelCriticalChanceRadial";
+            labelCriticalChanceRadial.Size = new Size(130, 15);
+            labelCriticalChanceRadial.TabIndex = 14;
+            labelCriticalChanceRadial.Text = "Critical Chance (Radial)";
             // 
             // label14
             // 
@@ -719,14 +719,14 @@
             labelRadialAverageCritMultValue.Size = new Size(115, 20);
             labelRadialAverageCritMultValue.TabIndex = 39;
             // 
-            // label21
+            // labelDPSSustainedSummed
             // 
-            label21.AutoSize = true;
-            label21.Location = new Point(4, 526);
-            label21.Name = "label21";
-            label21.Size = new Size(144, 15);
-            label21.TabIndex = 22;
-            label21.Text = "DPS (Summed, Sustained)";
+            labelDPSSustainedSummed.AutoSize = true;
+            labelDPSSustainedSummed.Location = new Point(4, 526);
+            labelDPSSustainedSummed.Name = "labelDPSSustainedSummed";
+            labelDPSSustainedSummed.Size = new Size(144, 15);
+            labelDPSSustainedSummed.TabIndex = 22;
+            labelDPSSustainedSummed.Text = "DPS (Summed, Sustained)";
             // 
             // labelSummedDPSSustainedValue
             // 
@@ -737,14 +737,14 @@
             labelSummedDPSSustainedValue.Size = new Size(115, 20);
             labelSummedDPSSustainedValue.TabIndex = 45;
             // 
-            // label20
+            // labelDPSBurstSummed
             // 
-            label20.AutoSize = true;
-            label20.Location = new Point(4, 505);
-            label20.Name = "label20";
-            label20.Size = new Size(120, 15);
-            label20.TabIndex = 21;
-            label20.Text = "DPS (Summed, Burst)";
+            labelDPSBurstSummed.AutoSize = true;
+            labelDPSBurstSummed.Location = new Point(4, 505);
+            labelDPSBurstSummed.Name = "labelDPSBurstSummed";
+            labelDPSBurstSummed.Size = new Size(120, 15);
+            labelDPSBurstSummed.TabIndex = 21;
+            labelDPSBurstSummed.Text = "DPS (Summed, Burst)";
             // 
             // labelSummedDPSBurstValue
             // 
@@ -814,7 +814,7 @@
             tableLayoutPanel2.Controls.Add(comboBoxMiscEffect3, 0, 10);
             tableLayoutPanel2.Controls.Add(comboBoxMiscEffect2, 1, 9);
             tableLayoutPanel2.Controls.Add(comboBoxMiscEffect1, 0, 9);
-            tableLayoutPanel2.Controls.Add(label3, 0, 8);
+            tableLayoutPanel2.Controls.Add(labelMiscEffects, 0, 8);
             tableLayoutPanel2.Controls.Add(comboBoxMod8, 1, 7);
             tableLayoutPanel2.Controls.Add(comboBoxMod7, 0, 7);
             tableLayoutPanel2.Controls.Add(comboBoxMod6, 1, 6);
@@ -822,9 +822,9 @@
             tableLayoutPanel2.Controls.Add(comboBoxMod4, 1, 5);
             tableLayoutPanel2.Controls.Add(comboBoxMod3, 0, 5);
             tableLayoutPanel2.Controls.Add(comboBoxMod2, 1, 4);
-            tableLayoutPanel2.Controls.Add(label2, 0, 3);
+            tableLayoutPanel2.Controls.Add(labelMods, 0, 3);
             tableLayoutPanel2.Controls.Add(comboBoxWeaponArcane, 0, 2);
-            tableLayoutPanel2.Controls.Add(label1, 0, 1);
+            tableLayoutPanel2.Controls.Add(labelWeaponArcane, 0, 1);
             tableLayoutPanel2.Controls.Add(comboBoxMod1, 0, 4);
             tableLayoutPanel2.Location = new Point(333, 81);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -1057,17 +1057,17 @@
             comboBoxMiscEffect1.SelectedIndexChanged += comboBoxMisc_SelectedIndexChanged;
             comboBoxMiscEffect1.DropDownClosed += comboBoxTooltipHide_Event;
             // 
-            // label3
+            // labelMiscEffects
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label3.AutoSize = true;
-            tableLayoutPanel2.SetColumnSpan(label3, 2);
-            label3.Location = new Point(3, 216);
-            label3.Name = "label3";
-            label3.Size = new Size(558, 29);
-            label3.TabIndex = 11;
-            label3.Text = "Warframe Arcane/Buffs/Misc Effects";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            labelMiscEffects.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelMiscEffects.AutoSize = true;
+            tableLayoutPanel2.SetColumnSpan(labelMiscEffects, 2);
+            labelMiscEffects.Location = new Point(3, 216);
+            labelMiscEffects.Name = "labelMiscEffects";
+            labelMiscEffects.Size = new Size(558, 29);
+            labelMiscEffects.TabIndex = 11;
+            labelMiscEffects.Text = "Warframe Arcane/Buffs/Misc Effects";
+            labelMiscEffects.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // comboBoxMod8
             // 
@@ -1181,17 +1181,17 @@
             comboBoxMod2.SelectedIndexChanged += comboBoxMod_SelectedIndexChanged;
             comboBoxMod2.DropDownClosed += comboBoxModDropDownClose_Event;
             // 
-            // label2
+            // labelMods
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            tableLayoutPanel2.SetColumnSpan(label2, 2);
-            label2.Location = new Point(3, 87);
-            label2.Name = "label2";
-            label2.Size = new Size(558, 29);
-            label2.TabIndex = 2;
-            label2.Text = "Weapon Mods";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            labelMods.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelMods.AutoSize = true;
+            tableLayoutPanel2.SetColumnSpan(labelMods, 2);
+            labelMods.Location = new Point(3, 87);
+            labelMods.Name = "labelMods";
+            labelMods.Size = new Size(558, 29);
+            labelMods.TabIndex = 2;
+            labelMods.Text = "Weapon Mods";
+            labelMods.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // comboBoxWeaponArcane
             // 
@@ -1210,17 +1210,17 @@
             comboBoxWeaponArcane.SelectedIndexChanged += comboBoxWeaponArcane_SelectedIndexChanged;
             comboBoxWeaponArcane.DropDownClosed += comboBoxTooltipHide_Event;
             // 
-            // label1
+            // labelWeaponArcane
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            tableLayoutPanel2.SetColumnSpan(label1, 2);
-            label1.Location = new Point(3, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(558, 29);
-            label1.TabIndex = 0;
-            label1.Text = "Weapon Arcane";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            labelWeaponArcane.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelWeaponArcane.AutoSize = true;
+            tableLayoutPanel2.SetColumnSpan(labelWeaponArcane, 2);
+            labelWeaponArcane.Location = new Point(3, 29);
+            labelWeaponArcane.Name = "labelWeaponArcane";
+            labelWeaponArcane.Size = new Size(558, 29);
+            labelWeaponArcane.TabIndex = 0;
+            labelWeaponArcane.Text = "Weapon Arcane";
+            labelWeaponArcane.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // comboBoxMod1
             // 
@@ -1290,14 +1290,14 @@
         private Label labelWeaponName;
         private Label labelFireRate;
         private Label labelDamage;
-        private Label label20;
-        private Label label19;
-        private Label label18;
-        private Label label17;
+        private Label labelDPSBurstSummed;
+        private Label labelDPSSustainedRadial;
+        private Label labelDPSBurstRadial;
+        private Label labelRadialStatusPerSecond;
         private Label label16;
         private Label label15;
         private Label label14;
-        private Label label13;
+        private Label labelCriticalChanceRadial;
         private Label labelAmmoEfficiency;
         private Label labelStatusProjectile;
         private Label labelDPSBurst;
@@ -1332,9 +1332,9 @@
         private Label labelDPSSustained;
         private Label labelDamageValue;
         private TableLayoutPanel tableLayoutPanel2;
-        private Label label1;
+        private Label labelWeaponArcane;
         private ComboBox comboBoxWeaponArcane;
-        private Label label2;
+        private Label labelMods;
         private ComboBox comboBoxMod8;
         private ComboBox comboBoxMod7;
         private ComboBox comboBoxMod6;
@@ -1343,7 +1343,7 @@
         private ComboBox comboBoxMod3;
         private ComboBox comboBoxMod2;
         private ComboBox comboBoxMod1;
-        private Label label3;
+        private Label labelMiscEffects;
         private ComboBox comboBoxMiscEffect1;
         private ComboBox comboBoxMiscEffect8;
         private ComboBox comboBoxMiscEffect7;
@@ -1353,9 +1353,9 @@
         private ComboBox comboBoxMiscEffect3;
         private ComboBox comboBoxMiscEffect2;
         private Label labelRadialDamageValue;
-        private Label label;
+        private Label labelAverageDamageRadial;
         private Label labelSummedDamageValue;
-        private Label label5;
+        private Label labelAverageDamageSummed;
         private ComboBox comboBoxMiscEffect12;
         private ComboBox comboBoxMiscEffect11;
         private ComboBox comboBoxMiscEffect10;
@@ -1376,7 +1376,7 @@
         private ToolTip toolTipMods;
         private Label labelPunchthroughValue;
         private Label labelPunchthrough;
-        private Label label21;
+        private Label labelDPSSustainedSummed;
         private Label labelSummedDPSSustainedValue;
     }
 }
