@@ -327,6 +327,9 @@ namespace Buildframe
             }
 
             string[] statTags = stat.tags.Split(' ');
+
+            bool weaponTagMatch = false;
+
             foreach (string tag in statTags)
             {
                 if (tag.StartsWith("WeaponName_"))
@@ -334,26 +337,35 @@ namespace Buildframe
                     string name = tag.Replace("WeaponName_", "").Replace("_", " ");
                     if (currentWeapon.name.StartsWith(name))
                     {
-                        return true;
+                        weaponTagMatch = true;
                     }
                 }
                 foreach (string weaponTag in selectedWeaponTags)
                 {
                     if (weaponTag.StartsWith("-"))
                     {
-                        if (statTags.Contains(weaponTag.Replace("-", "")))
+                        if (weaponTag.Substring(1) == tag)
                         {
-                            return false;
+                            weaponTagMatch = false;
+                            break;
+                        }
+                    }
+                    if (tag.StartsWith("-"))
+                    {
+                        if (tag.Substring(1) == weaponTag)
+                        {
+                            weaponTagMatch = false;
+                            break;
                         }
                     }
                     if (tag == weaponTag)
                     {
-                        return true;
+                        weaponTagMatch = true;
                     }
                 }
             }
 
-            return false;
+            return weaponTagMatch;
         }
 
         public void loadValidIDs()
