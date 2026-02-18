@@ -31,6 +31,8 @@
             TabPage basePage;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatWizard));
             tableLayoutPanel1 = new TableLayoutPanel();
+            numericUpDownBaseReserveAmmo = new NumericUpDown();
+            labelBaseReserveAmmo = new Label();
             checkBoxIncarnon = new CheckBox();
             numericUpDownBaseCorrosive = new NumericUpDown();
             numericUpDownBaseViral = new NumericUpDown();
@@ -96,6 +98,10 @@
             label82 = new Label();
             modPage = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
+            numericUpDownModReserveAmmo = new NumericUpDown();
+            labelModReserveAmmo = new Label();
+            numericUpDownAbilityWeaponDamage = new NumericUpDown();
+            numericUpDownModDamageFaction = new NumericUpDown();
             label77 = new Label();
             numericUpDownModCorrosive = new NumericUpDown();
             numericUpDownModViral = new NumericUpDown();
@@ -144,6 +150,7 @@
             numericUpDownModAttackSpeed = new NumericUpDown();
             label52 = new Label();
             label80 = new Label();
+            numericUpDownModDamage = new NumericUpDown();
             miscPage = new TabPage();
             tableLayoutPanel4 = new TableLayoutPanel();
             numericUpDownPunchthrough = new NumericUpDown();
@@ -203,12 +210,10 @@
             toolStrip1 = new ToolStrip();
             toolStripButtonLoad = new ToolStripButton();
             openFileDialog1 = new OpenFileDialog();
-            numericUpDownModDamage = new NumericUpDown();
-            numericUpDownModDamageFaction = new NumericUpDown();
-            numericUpDownAbilityWeaponDamage = new NumericUpDown();
             basePage = new TabPage();
             basePage.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseReserveAmmo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseCorrosive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseViral).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseRadiation).BeginInit();
@@ -238,6 +243,9 @@
             tableLayoutPanel2.SuspendLayout();
             modPage.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModReserveAmmo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCorrosive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModViral).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModRadiation).BeginInit();
@@ -260,6 +268,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModMagazine).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).BeginInit();
             miscPage.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).BeginInit();
@@ -289,9 +298,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalGas).BeginInit();
             tableLayoutPanel5.SuspendLayout();
             toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).BeginInit();
             SuspendLayout();
             // 
             // basePage
@@ -316,6 +322,8 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.Controls.Add(numericUpDownBaseReserveAmmo, 1, 12);
+            tableLayoutPanel1.Controls.Add(labelBaseReserveAmmo, 0, 12);
             tableLayoutPanel1.Controls.Add(checkBoxIncarnon, 1, 13);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseCorrosive, 3, 11);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseViral, 3, 10);
@@ -386,6 +394,29 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
             tableLayoutPanel1.Size = new Size(391, 360);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // numericUpDownBaseReserveAmmo
+            // 
+            numericUpDownBaseReserveAmmo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownBaseReserveAmmo.Location = new Point(128, 316);
+            numericUpDownBaseReserveAmmo.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownBaseReserveAmmo.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
+            numericUpDownBaseReserveAmmo.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownBaseReserveAmmo.Name = "numericUpDownBaseReserveAmmo";
+            numericUpDownBaseReserveAmmo.Size = new Size(75, 23);
+            numericUpDownBaseReserveAmmo.TabIndex = 82;
+            numericUpDownBaseReserveAmmo.TextAlign = HorizontalAlignment.Center;
+            // 
+            // labelBaseReserveAmmo
+            // 
+            labelBaseReserveAmmo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            labelBaseReserveAmmo.AutoSize = true;
+            labelBaseReserveAmmo.Location = new Point(4, 316);
+            labelBaseReserveAmmo.Name = "labelBaseReserveAmmo";
+            labelBaseReserveAmmo.Size = new Size(108, 23);
+            labelBaseReserveAmmo.TabIndex = 81;
+            labelBaseReserveAmmo.Text = "baseReserveAmmo";
+            labelBaseReserveAmmo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // checkBoxIncarnon
             // 
@@ -1178,6 +1209,8 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel3.Controls.Add(numericUpDownModReserveAmmo, 1, 13);
+            tableLayoutPanel3.Controls.Add(labelModReserveAmmo, 0, 13);
             tableLayoutPanel3.Controls.Add(numericUpDownAbilityWeaponDamage, 1, 2);
             tableLayoutPanel3.Controls.Add(numericUpDownModDamageFaction, 1, 3);
             tableLayoutPanel3.Controls.Add(label77, 0, 2);
@@ -1248,6 +1281,56 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.Size = new Size(380, 364);
             tableLayoutPanel3.TabIndex = 1;
+            // 
+            // numericUpDownModReserveAmmo
+            // 
+            numericUpDownModReserveAmmo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownModReserveAmmo.DecimalPlaces = 2;
+            numericUpDownModReserveAmmo.Location = new Point(136, 340);
+            numericUpDownModReserveAmmo.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModReserveAmmo.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownModReserveAmmo.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModReserveAmmo.Name = "numericUpDownModReserveAmmo";
+            numericUpDownModReserveAmmo.Size = new Size(75, 23);
+            numericUpDownModReserveAmmo.TabIndex = 84;
+            numericUpDownModReserveAmmo.TextAlign = HorizontalAlignment.Center;
+            // 
+            // labelModReserveAmmo
+            // 
+            labelModReserveAmmo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            labelModReserveAmmo.AutoSize = true;
+            labelModReserveAmmo.Location = new Point(4, 340);
+            labelModReserveAmmo.Name = "labelModReserveAmmo";
+            labelModReserveAmmo.Size = new Size(109, 23);
+            labelModReserveAmmo.TabIndex = 83;
+            labelModReserveAmmo.Text = "modReserveAmmo";
+            labelModReserveAmmo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDownAbilityWeaponDamage
+            // 
+            numericUpDownAbilityWeaponDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownAbilityWeaponDamage.DecimalPlaces = 2;
+            numericUpDownAbilityWeaponDamage.Location = new Point(136, 76);
+            numericUpDownAbilityWeaponDamage.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownAbilityWeaponDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownAbilityWeaponDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownAbilityWeaponDamage.Name = "numericUpDownAbilityWeaponDamage";
+            numericUpDownAbilityWeaponDamage.Size = new Size(75, 23);
+            numericUpDownAbilityWeaponDamage.TabIndex = 53;
+            numericUpDownAbilityWeaponDamage.TextAlign = HorizontalAlignment.Center;
+            // 
+            // numericUpDownModDamageFaction
+            // 
+            numericUpDownModDamageFaction.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownModDamageFaction.DecimalPlaces = 2;
+            numericUpDownModDamageFaction.Location = new Point(136, 100);
+            numericUpDownModDamageFaction.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModDamageFaction.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownModDamageFaction.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModDamageFaction.Name = "numericUpDownModDamageFaction";
+            numericUpDownModDamageFaction.Size = new Size(75, 23);
+            numericUpDownModDamageFaction.TabIndex = 54;
+            numericUpDownModDamageFaction.TextAlign = HorizontalAlignment.Center;
             // 
             // label77
             // 
@@ -1822,6 +1905,19 @@
             label80.Size = new Size(372, 50);
             label80.TabIndex = 82;
             label80.Text = "This is for 90% of weapon mods, arcanes, and abilities.\r\nEnter values as percentages unless instructed otherwise.";
+            // 
+            // numericUpDownModDamage
+            // 
+            numericUpDownModDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownModDamage.DecimalPlaces = 2;
+            numericUpDownModDamage.Location = new Point(136, 52);
+            numericUpDownModDamage.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownModDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModDamage.Name = "numericUpDownModDamage";
+            numericUpDownModDamage.Size = new Size(75, 23);
+            numericUpDownModDamage.TabIndex = 52;
+            numericUpDownModDamage.TextAlign = HorizontalAlignment.Center;
             // 
             // miscPage
             // 
@@ -2597,45 +2693,6 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // numericUpDownModDamage
-            // 
-            numericUpDownModDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownModDamage.DecimalPlaces = 2;
-            numericUpDownModDamage.Location = new Point(136, 52);
-            numericUpDownModDamage.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownModDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownModDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownModDamage.Name = "numericUpDownModDamage";
-            numericUpDownModDamage.Size = new Size(75, 23);
-            numericUpDownModDamage.TabIndex = 52;
-            numericUpDownModDamage.TextAlign = HorizontalAlignment.Center;
-            // 
-            // numericUpDownModDamageFaction
-            // 
-            numericUpDownModDamageFaction.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownModDamageFaction.DecimalPlaces = 2;
-            numericUpDownModDamageFaction.Location = new Point(136, 100);
-            numericUpDownModDamageFaction.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownModDamageFaction.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownModDamageFaction.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownModDamageFaction.Name = "numericUpDownModDamageFaction";
-            numericUpDownModDamageFaction.Size = new Size(75, 23);
-            numericUpDownModDamageFaction.TabIndex = 54;
-            numericUpDownModDamageFaction.TextAlign = HorizontalAlignment.Center;
-            // 
-            // numericUpDownAbilityWeaponDamage
-            // 
-            numericUpDownAbilityWeaponDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownAbilityWeaponDamage.DecimalPlaces = 2;
-            numericUpDownAbilityWeaponDamage.Location = new Point(136, 76);
-            numericUpDownAbilityWeaponDamage.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownAbilityWeaponDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownAbilityWeaponDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownAbilityWeaponDamage.Name = "numericUpDownAbilityWeaponDamage";
-            numericUpDownAbilityWeaponDamage.Size = new Size(75, 23);
-            numericUpDownAbilityWeaponDamage.TabIndex = 53;
-            numericUpDownAbilityWeaponDamage.TextAlign = HorizontalAlignment.Center;
-            // 
             // FormStatWizard
             // 
             AllowDrop = true;
@@ -2657,6 +2714,7 @@
             basePage.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseReserveAmmo).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseCorrosive).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseViral).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseRadiation).EndInit();
@@ -2688,6 +2746,9 @@
             modPage.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModReserveAmmo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCorrosive).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModViral).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModRadiation).EndInit();
@@ -2710,6 +2771,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModMagazine).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).EndInit();
             miscPage.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
@@ -2741,9 +2803,6 @@
             tableLayoutPanel5.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2927,5 +2986,9 @@
         private NumericUpDown numericUpDownAbilityWeaponDamage;
         private NumericUpDown numericUpDownModDamageFaction;
         private NumericUpDown numericUpDownModDamage;
+        private NumericUpDown numericUpDownBaseReserveAmmo;
+        private Label labelBaseReserveAmmo;
+        private Label labelModReserveAmmo;
+        private NumericUpDown numericUpDownModReserveAmmo;
     }
 }

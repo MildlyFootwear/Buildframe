@@ -54,7 +54,7 @@ namespace Buildframe.GameData
         public double baseStatusChance = 0;
         public double baseStatusDamage = 0;
 
-
+        public double baseReserveAmmo = 0;
 
         // This section is used for additive stats, such as mods and most arcanes.
 
@@ -93,6 +93,7 @@ namespace Buildframe.GameData
         public double modStatusChance = 0;
         public double modStatusDamage = 0;
 
+        public double modReserveAmmo = 0;
 
 
         // This section is used for final stats, such as Arcane Crepuscular and some status effects.

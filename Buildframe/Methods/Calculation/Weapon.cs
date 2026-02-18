@@ -123,6 +123,10 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModSpeed(StatsData stats)
         {
+            if (stats.tags.Contains("Firerate_Locked"))
+            {
+                return stats.baseAttackSpeed;
+            }
             if (stats.tags.Contains("Semi_Auto_Fire"))
             {
                 return Math.Min(10, stats.baseAttackSpeed * (1 + stats.modAttackSpeed / 100) * stats.speedMultiplier);

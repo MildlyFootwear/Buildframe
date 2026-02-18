@@ -126,7 +126,8 @@ namespace Buildframe.Methods
                     stats.baseStatusChance = Convert.ToDouble(split[1]);
                 if (split[0] == "baseStatusDamage")
                     stats.baseStatusDamage = Convert.ToDouble(split[1]);
-
+                if (split[0] == "baseReserveAmmo")
+                    stats.baseReserveAmmo = Convert.ToDouble(split[1]);
 
 
                 if (split[0] == "modDamage")
@@ -195,7 +196,8 @@ namespace Buildframe.Methods
                     stats.modStatusChance = Convert.ToDouble(split[1]);
                 if (split[0] == "modStatusDamage")
                     stats.modStatusDamage = Convert.ToDouble(split[1]);
-
+                if (split[0] == "modReserveAmmo")
+                    stats.modReserveAmmo = Convert.ToDouble(split[1]);
 
 
 
@@ -321,6 +323,7 @@ namespace Buildframe.Methods
 
             s += "\nbaseStatusChance=" + Convert.ToString(stats.baseStatusChance);
             s += "\nbaseStatusDamage=" + Convert.ToString(stats.baseStatusDamage);
+            s += "\nbaseReserveAmmo=" + Convert.ToString(stats.baseReserveAmmo);
 
 
 
@@ -359,6 +362,7 @@ namespace Buildframe.Methods
 
             s += "\nmodStatusChance=" + Convert.ToString(stats.modStatusChance);
             s += "\nmodStatusDamage=" + Convert.ToString(stats.modStatusDamage);
+            s += "\nmodReserveAmmo=" + Convert.ToString(stats.modReserveAmmo);
 
 
 

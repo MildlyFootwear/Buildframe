@@ -24,7 +24,6 @@ namespace Buildframe
         public List<string> validMiscIDs = new();
 
         public List<StatsData> selectedStats = new();
-        public StatsData mergedStats = new();
 
         public WeaponData currentWeapon = new();
         public string[] selectedWeaponTags = { "None" };
@@ -179,8 +178,6 @@ namespace Buildframe
                 }
             }
 
-            mergedStats = Methods.Calculation.StatMethods.sumStats(selectedStats);
-
             double summedDamage = 0;
             double summedDPSBurst = 0;
             double summedDPSSustained = 0;
@@ -319,16 +316,16 @@ namespace Buildframe
             {
                 return false;
             }
+            bool weaponTagMatch = false;
+
             if (stat.tags.Contains("-Any") == false && selectedWeaponTags.Contains("-Any") == false){
                 if (stat.tags.Contains("Any") || selectedWeaponTags.Contains("Any"))
                 {
-                    return true;
+                    weaponTagMatch = true;
                 }
             }
 
             string[] statTags = stat.tags.Split(' ');
-
-            bool weaponTagMatch = false;
 
             foreach (string tag in statTags)
             {
@@ -965,7 +962,7 @@ namespace Buildframe
                 int enervate = Methods.Calculation.StatMethods.identifyEnervate((StatsData)box.SelectedItem);
                 if (box == comboBoxWeaponArcane && enervate > 0)
                 {
-                    toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, (Methods.Calculation.StatMethods.sumStats(new List<StatsData> { selectedFiremode, mergedStats }))), this, p);
+                    toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, Methods.Calculation.StatMethods.sumStats([selectedFiremode, .. selectedStats])), this, p);
                     return;
                 }
                 toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);

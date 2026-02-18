@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Buildframe.Methods.Calculation
 {
@@ -51,7 +52,7 @@ namespace Buildframe.Methods.Calculation
                     isRadial = true;
                 }
             }
-
+            int index = 0;
             foreach (StatsData s in statsList)
             {
                 if (isRadial && s.tags.Contains("ExcludeRadialFire"))
@@ -59,6 +60,29 @@ namespace Buildframe.Methods.Calculation
                     WriteLineIfDebug(" Skipping: " + s.id + "/" + s.name + " from stats (radial fire mode exclusion).", DebuggingStatManip);
                     continue;
                 }
+
+                bool skip = false;
+                if (index != 0) { 
+                    foreach (string tag in s.tags.Split(' '))
+                    {
+                        if (tag.StartsWith("-"))
+                        {
+                            WriteLineIfDebug("  Exclusion tag \"" + tag + "\" found on " + s, DebuggingStatManip);
+                            if (statsList[0].tags.Contains(tag.Substring(1)))
+                            {
+                                skip = true;
+                                WriteLineIfDebug(" Skipping: " + s.id + "/" + s.name + " from stats (exclusion tag " + tag + " found).", DebuggingStatManip);
+                                break;
+                            }
+                        }
+                    }
+
+                    if (skip)
+                    {
+                        continue;
+                    }
+                }
+
                 WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.", DebuggingStatManip);
 
                 stats.name += s.name + ", ";
@@ -66,6 +90,7 @@ namespace Buildframe.Methods.Calculation
                 appendTagIfValid(s, stats, "Devouring_Attrition");
                 appendTagIfValid(s, stats, "Multishot_Consumes_Reserve_Ammo");
                 appendTagIfValid(s, stats, "Multishot_Locked");
+                appendTagIfValid(s, stats, "Firerate_Locked");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_0");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_1");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_2");
@@ -209,6 +234,8 @@ namespace Buildframe.Methods.Calculation
 
                 stats.damageMultiplier *= s.damageMultiplier;
                 stats.speedMultiplier *= s.speedMultiplier;
+
+                index++;
             }
 
 

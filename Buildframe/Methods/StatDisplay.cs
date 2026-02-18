@@ -159,6 +159,10 @@ namespace Buildframe.Methods
             {
                 s += "Base Status Damage: " + stats.baseStatusDamage + "\n";
             }
+            if (stats.baseReserveAmmo != 0)
+            {
+                s += "Base Reserve Ammo: " + stats.baseReserveAmmo + "\n";
+            }
 
 
             if (stats.modDamage != 0)
@@ -275,7 +279,10 @@ namespace Buildframe.Methods
             {
                 s += "Mod Status Damage: " + stats.modStatusDamage + "%\n";
             }
-
+            if (stats.modReserveAmmo != 0)
+            {
+                s += "Mod Reserve Ammo: " + stats.modReserveAmmo + "%\n";
+            }
 
             if (stats.finalDamage != 0)
             {

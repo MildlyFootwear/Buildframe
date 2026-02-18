@@ -311,6 +311,7 @@ namespace Buildframe.Forms
             stats.baseCriticalDamage = (double)numericUpDownBaseCriticalDamage.Value;
             stats.baseStatusChance = (double)numericUpDownBaseStatusChance.Value;
             stats.baseStatusDamage = (double)numericUpDownBaseStatusDamage.Value;
+            stats.baseReserveAmmo = (double)numericUpDownBaseReserveAmmo.Value;
 
             stats.modDamage = (double)numericUpDownModDamage.Value;
             stats.modDamagePercentage = (double)numericUpDownAbilityWeaponDamage.Value;

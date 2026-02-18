@@ -15,6 +15,10 @@
     "Buildframe Debug Weapon Calc": {
       "commandName": "Project",
       "commandLineArgs": "-debug -debugweapcalc -debugstatmanip"
+    },
+    "Buildframe Debug Full": {
+      "commandName": "Project",
+      "commandLineArgs": "-debug -fulldebug"
     }
   }
 }
