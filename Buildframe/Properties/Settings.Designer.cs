@@ -61,7 +61,7 @@ namespace Buildframe.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v0.2.1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v0.2.2")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
