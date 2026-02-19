@@ -1,4 +1,5 @@
 ﻿using Buildframe.Methods;
+using System.Windows.Forms;
 
 namespace Buildframe.Forms
 {
@@ -130,6 +131,7 @@ namespace Buildframe.Forms
             numericUpDownBaseCriticalDamage.Value = (decimal)stats.baseCriticalDamage;
             numericUpDownBaseStatusChance.Value = (decimal)stats.baseStatusChance;
             numericUpDownBaseStatusDamage.Value = (decimal)stats.baseStatusDamage;
+            numericUpDownBaseReserveAmmo.Value = (decimal)stats.baseReserveAmmo;
 
             numericUpDownModDamage.Value = (decimal)stats.modDamage;
             numericUpDownAbilityWeaponDamage.Value = (decimal)stats.modDamagePercentage;
@@ -156,6 +158,7 @@ namespace Buildframe.Forms
             numericUpDownModCriticalDamage.Value = (decimal)stats.modCriticalDamage;
             numericUpDownModStatusChance.Value = (decimal)stats.modStatusChance;
             numericUpDownModStatusDamage.Value = (decimal)stats.modStatusDamage;
+            numericUpDownModReserveAmmo.Value = (decimal)stats.modReserveAmmo;
 
             numericUpDownFinalDamageMult.Value = (decimal)stats.finalDamagePercentage + 100;
             numericUpDownFinalAttackSpeed.Value = (decimal)stats.finalAttackSpeed + 100;
