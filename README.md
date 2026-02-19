@@ -22,7 +22,9 @@ Multishot_Exclusive_Damage_Mult - makes it so the Final Damage Percentage for a 
 
 Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets it to consume reserve ammo for multishot. Mostly going to effect firemodes such as Braton's incarnon fire.
 
-Multishot_Locked - tag designed for Cannonade mods and certain incarnon fire modes that have a hitscan AoE effect.
+Multishot_Locked - tag designed for Acuity mods and certain incarnon fire modes that have a hitscan AoE effect.
+
+Firerate_Locked - Cannonade mods.
 
 ExcludeRadialFire - will exclude an effect from applying to radial firemodes.
 
