@@ -338,6 +338,7 @@ namespace Buildframe.Forms
             stats.modCriticalDamage = (double)numericUpDownModCriticalDamage.Value;
             stats.modStatusChance = (double)numericUpDownModStatusChance.Value;
             stats.modStatusDamage = (double)numericUpDownModStatusDamage.Value;
+            stats.modReserveAmmo = (double)numericUpDownModReserveAmmo.Value;
 
             stats.finalDamagePercentage = (double)numericUpDownFinalDamageMult.Value - 100;
             stats.finalAttackSpeed = (double)numericUpDownFinalAttackSpeed.Value - 100;
