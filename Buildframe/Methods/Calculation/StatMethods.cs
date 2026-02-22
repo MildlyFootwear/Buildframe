@@ -227,6 +227,11 @@ namespace Buildframe.Methods.Calculation
                 if (s.tags.Contains("Multishot_Exclusive_Damage_Mult"))
                 {
                     stats.multishotDamageMultiplier *= 1 + (s.finalDamagePercentage / 100);
+                } else if (s.tags.Contains("Extra_Hit")) { 
+                    if (!stats.incarnon)
+                    {
+                        stats.extraHit += s.finalDamagePercentage / 100;
+                    }
                 } else
                 {
                     stats.damageMultiplier *= 1 + (s.finalDamagePercentage / 100);
@@ -260,6 +265,8 @@ namespace Buildframe.Methods.Calculation
                     stats.baseDamage = 0;
                 }
             }
+
+            stats.damageMultiplier *= stats.extraHit + 1;
 
             // Floor damage so it doesn't go negative.
             stats.modSlash = Math.Max(stats.modSlash, -100);

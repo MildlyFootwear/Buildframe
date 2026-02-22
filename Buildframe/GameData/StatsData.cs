@@ -137,6 +137,7 @@ namespace Buildframe.GameData
         public string filePath = "";
 
         public double damageMultiplier = 1;
+        public double extraHit = 0;
         public double speedMultiplier = 1;
         public double multishotDamageMultiplier = 1;
 
