@@ -83,6 +83,12 @@ namespace Buildframe.Methods.Calculation
                     }
                 }
 
+                if (stats.incarnon && s.tags.Contains("NoIncarnonMode"))
+                {
+                    WriteLineIfDebug(" Skipping: " + s.id + "/" + s.name + " from stats (incarnon mode exclusion).", DebuggingStatManip);
+                    continue;
+                }
+
                 WriteLineIfDebug(" Adding: " + s.id + "/" + s.name + " to stats.", DebuggingStatManip);
 
                 stats.name += s.name + ", ";
