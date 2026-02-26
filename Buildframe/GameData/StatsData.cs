@@ -18,8 +18,6 @@ namespace Buildframe.GameData
         public bool incarnon = false;
         // This section is used for base stats, such as weapons and most incarnon perks.
 
-        public double punchthrough = 0;
-
         public double baseAttackSpeed = 0;
 
         public double baseReloadTime = 0;
@@ -97,6 +95,9 @@ namespace Buildframe.GameData
 
 
         // This section is used for final stats, such as Arcane Crepuscular and some status effects.
+
+        public double punchthrough = 0;
+        public double ammoRegen = 0;
 
         public double finalDamage = 0;
         public double finalDamagePercentage = 0;

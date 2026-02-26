@@ -220,6 +220,8 @@ namespace Buildframe.Methods.Calculation
                 stats.finalStatusChance += s.finalStatusChance;
                 stats.finalStatusDamage += s.finalStatusDamage;
 
+                stats.ammoRegen += s.ammoRegen;
+
                 if (s.multishotDamageMultiplier != 1)
                 {
                     stats.multishotDamageMultiplier *= s.multishotDamageMultiplier;

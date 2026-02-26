@@ -106,7 +106,6 @@ namespace Buildframe.Forms
             textBoxTags.Text = stats.tags;
             checkBoxIncarnon.Checked = stats.incarnon;
 
-            numericUpDownPunchthrough.Value = (decimal)stats.punchthrough;
             numericUpDownBaseDamage.Value = (decimal)stats.baseDamage;
             numericUpDownBaseAttackSpeed.Value = (decimal)stats.baseAttackSpeed;
             numericUpDownBaseReloadTime.Value = (decimal)stats.baseReloadTime;
@@ -183,6 +182,10 @@ namespace Buildframe.Forms
             numericUpDownFinalCriticalDamage.Value = (decimal)stats.finalCriticalDamage;
             numericUpDownFinalStatusChance.Value = (decimal)stats.finalStatusChance;
             numericUpDownFinalStatusDamage.Value = (decimal)stats.finalStatusDamage;
+
+            numericUpDownPunchthrough.Value = (decimal)stats.punchthrough;
+            numericUpDownAmmoRegen.Value = (decimal)stats.ammoRegen;
+
 
             currentlyTracking = true;
         }
@@ -289,7 +292,6 @@ namespace Buildframe.Forms
             stats.tags = textBoxTags.Text.Trim();
             stats.incarnon = checkBoxIncarnon.Checked;
 
-            stats.punchthrough = (double)numericUpDownPunchthrough.Value;
             stats.baseDamage = (double)numericUpDownBaseDamage.Value;
             stats.baseAttackSpeed = (double)numericUpDownBaseAttackSpeed.Value;
             stats.baseReloadTime = (double)numericUpDownBaseReloadTime.Value;
@@ -366,6 +368,9 @@ namespace Buildframe.Forms
             stats.finalCriticalDamage = (double)numericUpDownFinalCriticalDamage.Value;
             stats.finalStatusChance = (double)numericUpDownFinalStatusChance.Value;
             stats.finalStatusDamage = (double)numericUpDownFinalStatusDamage.Value;
+
+            stats.punchthrough = (double)numericUpDownPunchthrough.Value;
+            stats.ammoRegen = (double)numericUpDownAmmoRegen.Value;
 
             string fileName = LoadAndSave.cleanFileName(stats.name.Trim() + " - " + stats.id.Trim() + ".cfg");
 
@@ -503,6 +508,11 @@ namespace Buildframe.Forms
             if (!currentlyTracking || fieldHasBeenChanged) return;
 
             fieldHasBeenChanged = true;
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

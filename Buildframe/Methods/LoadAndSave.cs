@@ -59,8 +59,6 @@ namespace Buildframe.Methods
                 if (split[0] == "incarnon")
                     stats.incarnon = Convert.ToBoolean(split[1]);
 
-                if (split[0] == "punchthrough")
-                    stats.punchthrough = Convert.ToDouble(split[1]);
                 if (split[0] == "baseDamage")
                     stats.baseDamage = Convert.ToDouble(split[1]);
                 if (split[0] == "baseDamagePercentage")
@@ -266,6 +264,12 @@ namespace Buildframe.Methods
                     stats.finalStatusChance = Convert.ToDouble(split[1]);
                 if (split[0] == "finalStatusDamage")
                     stats.finalStatusDamage = Convert.ToDouble(split[1]);
+
+
+                if (split[0] == "punchthrough")
+                    stats.punchthrough = Convert.ToDouble(split[1]);
+                if (split[0] == "ammoRegen")
+                    stats.ammoRegen = Convert.ToDouble(split[1]);
             }
 
             if (resaveToConvert)
@@ -289,7 +293,6 @@ namespace Buildframe.Methods
             s += "\nincarnon=" + Convert.ToString(stats.incarnon);
             s += "\ntags=" + stats.tags;
 
-            s += "\npunchthrough=" + Convert.ToString(stats.punchthrough);
             s += "\nbaseDamage=" + Convert.ToString(stats.baseDamage);
             s += "\nbaseDamagePercentage=" + Convert.ToString(stats.baseDamagePercentage);
 
@@ -399,6 +402,10 @@ namespace Buildframe.Methods
 
             s += "\nfinalStatusChance=" + Convert.ToString(stats.finalStatusChance);
             s += "\nfinalStatusDamage=" + Convert.ToString(stats.finalStatusDamage);
+
+            s += "\npunchthrough=" + Convert.ToString(stats.punchthrough);
+            s += "\nammoRegen=" + Convert.ToString(stats.ammoRegen);
+
 
             if (Path.GetDirectoryName(path) != null && Path.GetDirectoryName(path) != string.Empty)
             {

@@ -153,6 +153,8 @@
             numericUpDownModDamage = new NumericUpDown();
             miscPage = new TabPage();
             tableLayoutPanel4 = new TableLayoutPanel();
+            numericUpDownAmmoRegen = new NumericUpDown();
+            labelAmmoRegeneration = new Label();
             numericUpDownPunchthrough = new NumericUpDown();
             labelBasePunchthrough = new Label();
             numericUpDownFinalCorrosive = new NumericUpDown();
@@ -271,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).BeginInit();
             miscPage.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAmmoRegen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCorrosive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalViral).BeginInit();
@@ -1938,6 +1941,8 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel4.Controls.Add(numericUpDownAmmoRegen, 1, 13);
+            tableLayoutPanel4.Controls.Add(labelAmmoRegeneration, 0, 13);
             tableLayoutPanel4.Controls.Add(numericUpDownPunchthrough, 1, 12);
             tableLayoutPanel4.Controls.Add(labelBasePunchthrough, 0, 12);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalCorrosive, 3, 11);
@@ -2008,6 +2013,31 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.Size = new Size(369, 364);
             tableLayoutPanel4.TabIndex = 2;
+            // 
+            // numericUpDownAmmoRegen
+            // 
+            numericUpDownAmmoRegen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownAmmoRegen.DecimalPlaces = 2;
+            numericUpDownAmmoRegen.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            numericUpDownAmmoRegen.Location = new Point(127, 340);
+            numericUpDownAmmoRegen.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownAmmoRegen.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownAmmoRegen.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownAmmoRegen.Name = "numericUpDownAmmoRegen";
+            numericUpDownAmmoRegen.Size = new Size(75, 23);
+            numericUpDownAmmoRegen.TabIndex = 87;
+            numericUpDownAmmoRegen.TextAlign = HorizontalAlignment.Center;
+            // 
+            // labelAmmoRegeneration
+            // 
+            labelAmmoRegeneration.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            labelAmmoRegeneration.AutoSize = true;
+            labelAmmoRegeneration.Location = new Point(4, 340);
+            labelAmmoRegeneration.Name = "labelAmmoRegeneration";
+            labelAmmoRegeneration.Size = new Size(90, 23);
+            labelAmmoRegeneration.TabIndex = 86;
+            labelAmmoRegeneration.Text = "Ammo Regen/s";
+            labelAmmoRegeneration.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // numericUpDownPunchthrough
             // 
@@ -2678,6 +2708,7 @@
             toolStrip1.Size = new Size(1027, 25);
             toolStrip1.TabIndex = 5;
             toolStrip1.Text = "toolStrip1";
+            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
             // 
             // toolStripButtonLoad
             // 
@@ -2775,6 +2806,7 @@
             miscPage.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAmmoRegen).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPunchthrough).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalCorrosive).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFinalViral).EndInit();
@@ -2990,5 +3022,7 @@
         private Label labelBaseReserveAmmo;
         private Label labelModReserveAmmo;
         private NumericUpDown numericUpDownModReserveAmmo;
+        private Label labelAmmoRegeneration;
+        private NumericUpDown numericUpDownAmmoRegen;
     }
 }

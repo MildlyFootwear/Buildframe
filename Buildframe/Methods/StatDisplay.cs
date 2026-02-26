@@ -131,9 +131,17 @@ namespace Buildframe.Methods
             {
                 s += "Base Ammo Efficiency: " + stats.baseAmmoEfficiency + "%\n";
             }
-            if (stats.baseReloadTime != 0)
+            if (stats.baseReloadTime != 0 && stats.ammoRegen != 0)
+            {
+                s += "Base Reload Delay: " + stats.baseReloadTime + "s\n";
+            }
+            else if (stats.baseReloadTime != 0)
             {
                 s += "Base Reload Time: " + stats.baseReloadTime + "s\n";
+            }
+            if (stats.ammoRegen != 0)
+            {
+                s += "Ammo Regen: " + stats.ammoRegen + "/s\n";
             }
 
 

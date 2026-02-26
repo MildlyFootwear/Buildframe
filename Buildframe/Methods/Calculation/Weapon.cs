@@ -147,6 +147,10 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModReloadTime(StatsData stats)
         {
+            if (stats.ammoRegen != 0)
+            {
+                return calculateModMagazine(stats) / stats.ammoRegen + stats.baseReloadTime / (1 + (stats.modReloadTime / 100));
+            }
             return stats.baseReloadTime / (1 + (stats.modReloadTime / 100));
         }
         public static double calculateModAmmoEfficiency(StatsData stats)
