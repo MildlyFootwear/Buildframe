@@ -462,9 +462,9 @@
             labelMagazine.AutoSize = true;
             labelMagazine.Location = new Point(4, 43);
             labelMagazine.Name = "labelMagazine";
-            labelMagazine.Size = new Size(58, 15);
+            labelMagazine.Size = new Size(106, 15);
             labelMagazine.TabIndex = 4;
-            labelMagazine.Text = "Magazine";
+            labelMagazine.Text = "Effective Magazine";
             // 
             // labelMultishot
             // 
