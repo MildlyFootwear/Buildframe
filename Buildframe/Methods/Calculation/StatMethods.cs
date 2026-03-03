@@ -104,6 +104,7 @@ namespace Buildframe.Methods.Calculation
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_4");
                 appendTagIfValid(s, stats, "Secondary_Enervate_Rank_5");
                 appendTagIfValid(s, stats, "Semi_Auto_Fire");
+                appendTagIfValid(s, stats, "Volt_Shield_Double_Crit_Damage");
 
                 stats.punchthrough += s.punchthrough;
 

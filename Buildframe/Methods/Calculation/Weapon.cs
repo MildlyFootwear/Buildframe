@@ -91,7 +91,12 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModCritDamage(StatsData stats)
         {
-            return Math.Max(1, stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage);
+            double critDamage = Math.Max(1, stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage);
+            if (stats.tags.Contains("Volt_Shield_Double_Crit_Damage"))
+            { 
+                critDamage *= 2; 
+            }
+            return critDamage;
         }
         /// <summary>
         /// Calculates the average critical hit multiplier as well as Devouring Attrition and related incarnon perks if applicable.
