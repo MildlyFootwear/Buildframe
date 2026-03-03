@@ -194,7 +194,6 @@ namespace Buildframe.Forms
             Text = ToolName + " - Stat Editor";
             genID();
             comboBox1.SelectedIndex = 0;
-
             foreach (Control c in tableLayoutPanel1.Controls)
             {
                 if (c is NumericUpDown nud)
@@ -202,6 +201,8 @@ namespace Buildframe.Forms
                     WriteLineIfDebug("Adding to base list: " + nud.Name, true);
                     listBaseFields.Add(nud);
                     nud.ValueChanged += numericUpDown_TrackChanged;
+                    int tabIndex = Convert.ToInt32(tableLayoutPanel1.GetColumn(nud).ToString() + "" + tableLayoutPanel1.GetRow(nud).ToString("0#")); // Blame me for this later.
+                    nud.TabIndex = tabIndex;
                 }
             }
 
@@ -212,6 +213,8 @@ namespace Buildframe.Forms
                     WriteLineIfDebug("Adding to mod list: " + nud.Name, true);
                     listModFields.Add(nud);
                     nud.ValueChanged += numericUpDown_TrackChanged;
+                    int tabIndex = Convert.ToInt32(tableLayoutPanel3.GetColumn(nud).ToString() + "" + tableLayoutPanel3.GetRow(nud).ToString("0#")); // Blame me for this later.
+                    nud.TabIndex = tabIndex;
                 }
             }
 
@@ -222,6 +225,8 @@ namespace Buildframe.Forms
                     WriteLineIfDebug("Adding to final list: " + nud.Name, true);
                     listFinalFields.Add(nud);
                     nud.ValueChanged += numericUpDown_TrackChanged;
+                    int tabIndex = Convert.ToInt32(tableLayoutPanel4.GetColumn(nud).ToString() + "" + tableLayoutPanel4.GetRow(nud).ToString("0#")); // Blame me for this later.
+                    nud.TabIndex = tabIndex;
                 }
             }
 
