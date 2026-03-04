@@ -201,7 +201,7 @@ namespace Buildframe.Forms
                     WriteLineIfDebug("Adding to base list: " + nud.Name, true);
                     listBaseFields.Add(nud);
                     nud.ValueChanged += numericUpDown_TrackChanged;
-                    int tabIndex = Convert.ToInt32(tableLayoutPanel1.GetColumn(nud).ToString() + "" + tableLayoutPanel1.GetRow(nud).ToString("0#")); // Blame me for this later.
+                    int tabIndex = tableLayoutPanel1.GetColumn(nud) * 100 + tableLayoutPanel1.GetRow(nud);
                     nud.TabIndex = tabIndex;
                 }
             }
@@ -213,7 +213,7 @@ namespace Buildframe.Forms
                     WriteLineIfDebug("Adding to mod list: " + nud.Name, true);
                     listModFields.Add(nud);
                     nud.ValueChanged += numericUpDown_TrackChanged;
-                    int tabIndex = Convert.ToInt32(tableLayoutPanel3.GetColumn(nud).ToString() + "" + tableLayoutPanel3.GetRow(nud).ToString("0#")); // Blame me for this later.
+                    int tabIndex = tableLayoutPanel3.GetColumn(nud) * 100 + tableLayoutPanel3.GetRow(nud);
                     nud.TabIndex = tabIndex;
                 }
             }
@@ -225,7 +225,7 @@ namespace Buildframe.Forms
                     WriteLineIfDebug("Adding to final list: " + nud.Name, true);
                     listFinalFields.Add(nud);
                     nud.ValueChanged += numericUpDown_TrackChanged;
-                    int tabIndex = Convert.ToInt32(tableLayoutPanel4.GetColumn(nud).ToString() + "" + tableLayoutPanel4.GetRow(nud).ToString("0#")); // Blame me for this later.
+                    int tabIndex = tableLayoutPanel4.GetColumn(nud) * 100 + tableLayoutPanel4.GetRow(nud);
                     nud.TabIndex = tabIndex;
                 }
             }
