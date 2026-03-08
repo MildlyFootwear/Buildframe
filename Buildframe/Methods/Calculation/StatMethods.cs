@@ -145,6 +145,8 @@ namespace Buildframe.Methods.Calculation
                 stats.baseStatusChance += s.baseStatusChance;
                 stats.baseStatusDamage += s.baseStatusDamage;
 
+                stats.baseReserveAmmo += s.baseReserveAmmo;
+
 
 
                 stats.modDamage += s.modDamage;
@@ -185,6 +187,7 @@ namespace Buildframe.Methods.Calculation
                 stats.modStatusChance += s.modStatusChance;
                 stats.modStatusDamage += s.modStatusDamage;
 
+                stats.modReserveAmmo += s.modReserveAmmo;
 
                 stats.finalDamage += s.finalDamage;
 

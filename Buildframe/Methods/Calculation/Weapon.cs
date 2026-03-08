@@ -150,6 +150,10 @@ namespace Buildframe.Methods.Calculation
         {
             return stats.baseMagazine * (1 + stats.modMagazine / 100) + stats.finalMagazine;
         }
+        public static double calculateModReserveAmmo(StatsData stats)
+        {
+            return stats.baseReserveAmmo * (1 + stats.modReserveAmmo / 100);
+        }
         public static double calculateModReloadTime(StatsData stats)
         {
             if (stats.ammoRegen != 0)
