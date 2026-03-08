@@ -170,6 +170,7 @@ namespace Buildframe
             double summedDamage = 0;
             double summedDPSBurst = 0;
             double summedDPSSustained = 0;
+            double totalFireTime = 0;
 
             if (selectedFiremode.id != "")
             {
@@ -200,12 +201,14 @@ namespace Buildframe
                 double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats);
                 double speed = Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats);
 
+                double magazine = Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats);
+
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
                 labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats), 2).ToString();
-                labelMagazineValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats)).ToString();
+                labelMagazineValue.Text = Math.Round(magazine).ToString();
 
                 double fireTime = Methods.Calculation.Weapon.calculateModFireTime(selectedFiremodeWithAppliedStats);
                 if (fireTime != double.PositiveInfinity)
@@ -215,6 +218,17 @@ namespace Buildframe
                 else
                 {
                     labelFireTimeValue.Text = fireTime.ToString();
+                }
+
+                double reserveAmmo = Methods.Calculation.Weapon.calculateModReserveAmmo(selectedFiremodeWithAppliedStats);
+                if (reserveAmmo > 0 && fireTime != double.PositiveInfinity)
+                {
+                    totalFireTime = reserveAmmo / magazine * fireTime;
+                    labelTotalFireTimeValue.Text = Math.Round(totalFireTime, 1).ToString() + "s";
+                }
+                else
+                {
+                    labelTotalFireTimeValue.Text = "N/A";
                 }
 
                 labelReloadValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModReloadTime(selectedFiremodeWithAppliedStats), 2).ToString() + "s";
@@ -293,6 +307,14 @@ namespace Buildframe
                 {
                     lbl.Text = "N/A";
                 }
+            }
+            if (totalFireTime > 0)
+            {
+                labelTotalDamageValue.Text = (totalFireTime * summedDPSBurst).ToString("#,##0");
+            }
+            else
+            {
+                labelTotalDamageValue.Text = "N/A";
             }
             WriteLineIfDebug("Finished updating weapon stats\n");
         }
@@ -868,6 +890,8 @@ namespace Buildframe
             newMargin.Right = tableLayoutPanel1.Location.X;
             tableLayoutPanel1.Margin = newMargin;
             tableLayoutPanel2.Margin = newMargin;
+
+            tableLayoutPanelDerivedStats.Location = new Point(tableLayoutPanel2.Location.X, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Height - tableLayoutPanelDerivedStats.Height);
 
         }
 

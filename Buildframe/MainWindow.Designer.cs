@@ -123,9 +123,16 @@
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
             toolTipMods = new ToolTip(components);
+            tableLayoutPanelDerivedStats = new TableLayoutPanel();
+            labelTotalDamageValue = new Label();
+            labelTotalFireTimeValue = new Label();
+            labelTotalFireTime = new Label();
+            label1 = new Label();
+            labelTotalDamage = new Label();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanelDerivedStats.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
@@ -1255,6 +1262,78 @@
             toolTipMods.UseAnimation = false;
             toolTipMods.UseFading = false;
             // 
+            // tableLayoutPanelDerivedStats
+            // 
+            tableLayoutPanelDerivedStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanelDerivedStats.ColumnCount = 2;
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamageValue, 1, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTimeValue, 1, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTime, 0, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(label1, 0, 0);
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamage, 0, 2);
+            tableLayoutPanelDerivedStats.Location = new Point(333, 485);
+            tableLayoutPanelDerivedStats.Name = "tableLayoutPanelDerivedStats";
+            tableLayoutPanelDerivedStats.RowCount = 7;
+            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelDerivedStats.Size = new Size(563, 141);
+            tableLayoutPanelDerivedStats.TabIndex = 5;
+            // 
+            // labelTotalDamageValue
+            // 
+            labelTotalDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelTotalDamageValue.CausesValidation = false;
+            labelTotalDamageValue.Location = new Point(125, 46);
+            labelTotalDamageValue.Name = "labelTotalDamageValue";
+            labelTotalDamageValue.Size = new Size(434, 20);
+            labelTotalDamageValue.TabIndex = 57;
+            // 
+            // labelTotalFireTimeValue
+            // 
+            labelTotalFireTimeValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelTotalFireTimeValue.CausesValidation = false;
+            labelTotalFireTimeValue.Location = new Point(125, 25);
+            labelTotalFireTimeValue.Name = "labelTotalFireTimeValue";
+            labelTotalFireTimeValue.Size = new Size(434, 20);
+            labelTotalFireTimeValue.TabIndex = 56;
+            // 
+            // labelTotalFireTime
+            // 
+            labelTotalFireTime.AutoSize = true;
+            labelTotalFireTime.Location = new Point(4, 25);
+            labelTotalFireTime.Name = "labelTotalFireTime";
+            labelTotalFireTime.Size = new Size(83, 15);
+            labelTotalFireTime.TabIndex = 54;
+            labelTotalFireTime.Text = "Total Fire Time";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            tableLayoutPanelDerivedStats.SetColumnSpan(label1, 2);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(4, 1);
+            label1.Name = "label1";
+            label1.Size = new Size(555, 23);
+            label1.TabIndex = 1;
+            label1.Text = "Derived Stats";
+            // 
+            // labelTotalDamage
+            // 
+            labelTotalDamage.AutoSize = true;
+            labelTotalDamage.Location = new Point(4, 46);
+            labelTotalDamage.Name = "labelTotalDamage";
+            labelTotalDamage.Size = new Size(79, 15);
+            labelTotalDamage.TabIndex = 55;
+            labelTotalDamage.Text = "Total Damage";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1262,6 +1341,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1045, 746);
+            Controls.Add(tableLayoutPanelDerivedStats);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(comboBoxFireMode);
             Controls.Add(tableLayoutPanel1);
@@ -1279,6 +1359,8 @@
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            tableLayoutPanelDerivedStats.ResumeLayout(false);
+            tableLayoutPanelDerivedStats.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1378,5 +1460,11 @@
         private Label labelPunchthrough;
         private Label labelDPSSustainedSummed;
         private Label labelSummedDPSSustainedValue;
+        private TableLayoutPanel tableLayoutPanelDerivedStats;
+        private Label label1;
+        private Label labelTotalFireTime;
+        private Label labelTotalDamageValue;
+        private Label labelTotalFireTimeValue;
+        private Label labelTotalDamage;
     }
 }
