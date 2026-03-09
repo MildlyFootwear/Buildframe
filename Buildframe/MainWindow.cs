@@ -177,6 +177,8 @@ namespace Buildframe
                 List<StatsData> stats = [selectedFiremode, .. selectedStats];
 
                 selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(stats);
+
+                labelEffectiveStatusDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateEffectiveElementalDamage(selectedFiremodeWithAppliedStats), 2).ToString("#,##0");
                 if (selectedFiremodeWithAppliedStats.tags.Contains("Devouring_Attrition"))
                 {
                     labelAverageCritical.Text = "Average DA/Crit Multiplier";
@@ -203,13 +205,14 @@ namespace Buildframe
 
                 double magazine = Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats);
 
+
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
-                labelFireRateValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats), 2).ToString();
+                labelFireRateValue.Text = Math.Round(speed, 2).ToString();
                 labelMagazineValue.Text = Math.Round(magazine).ToString();
-
+                labelDirectHitsPerSecondValue.Text = Math.Round(speed * multishot, 2).ToString();
                 double fireTime = Methods.Calculation.Weapon.calculateModFireTime(selectedFiremodeWithAppliedStats);
                 if (fireTime != double.PositiveInfinity)
                 {
@@ -862,6 +865,12 @@ namespace Buildframe
             primaryValueLabels.Add(labelDPSBurstValue);
             primaryValueLabels.Add(labelDPSSustainedValue);
             primaryValueLabels.Add(labelFireTimeValue);
+
+            primaryValueLabels.Add(labelTotalFireTimeValue);
+            primaryValueLabels.Add(labelPunchthroughValue);
+            primaryValueLabels.Add(labelEffectiveStatusDamageValue);
+            primaryValueLabels.Add(labelTotalDamageValue);
+            primaryValueLabels.Add(labelDirectHitsPerSecondValue);
 
             radialValueLabels.Add(labelRadialAverageCritMultValue);
             radialValueLabels.Add(labelRadialCriticalChanceValue);

@@ -129,6 +129,10 @@
             labelTotalFireTime = new Label();
             label1 = new Label();
             labelTotalDamage = new Label();
+            labelEffectiveStatusDamage = new Label();
+            labelEffectiveStatusDamageValue = new Label();
+            labelDirectHitsPerSecond = new Label();
+            labelDirectHitsPerSecondValue = new Label();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -1265,17 +1269,20 @@
             // tableLayoutPanelDerivedStats
             // 
             tableLayoutPanelDerivedStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanelDerivedStats.ColumnCount = 5;
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanelDerivedStats.ColumnCount = 4;
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140F));
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamageValue, 1, 2);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTimeValue, 1, 1);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTime, 0, 1);
             tableLayoutPanelDerivedStats.Controls.Add(label1, 0, 0);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamage, 0, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelEffectiveStatusDamage, 0, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelEffectiveStatusDamageValue, 1, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecond, 0, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecondValue, 1, 4);
             tableLayoutPanelDerivedStats.Location = new Point(333, 485);
             tableLayoutPanelDerivedStats.Name = "tableLayoutPanelDerivedStats";
             tableLayoutPanelDerivedStats.RowCount = 7;
@@ -1293,18 +1300,18 @@
             // 
             labelTotalDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelTotalDamageValue.CausesValidation = false;
-            labelTotalDamageValue.Location = new Point(125, 46);
+            labelTotalDamageValue.Location = new Point(155, 46);
             labelTotalDamageValue.Name = "labelTotalDamageValue";
-            labelTotalDamageValue.Size = new Size(154, 20);
+            labelTotalDamageValue.Size = new Size(124, 20);
             labelTotalDamageValue.TabIndex = 57;
             // 
             // labelTotalFireTimeValue
             // 
             labelTotalFireTimeValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelTotalFireTimeValue.CausesValidation = false;
-            labelTotalFireTimeValue.Location = new Point(125, 25);
+            labelTotalFireTimeValue.Location = new Point(155, 25);
             labelTotalFireTimeValue.Name = "labelTotalFireTimeValue";
-            labelTotalFireTimeValue.Size = new Size(154, 20);
+            labelTotalFireTimeValue.Size = new Size(124, 20);
             labelTotalFireTimeValue.TabIndex = 56;
             // 
             // labelTotalFireTime
@@ -1336,6 +1343,42 @@
             labelTotalDamage.Size = new Size(79, 15);
             labelTotalDamage.TabIndex = 55;
             labelTotalDamage.Text = "Total Damage";
+            // 
+            // labelEffectiveStatusDamage
+            // 
+            labelEffectiveStatusDamage.AutoSize = true;
+            labelEffectiveStatusDamage.Location = new Point(4, 67);
+            labelEffectiveStatusDamage.Name = "labelEffectiveStatusDamage";
+            labelEffectiveStatusDamage.Size = new Size(134, 15);
+            labelEffectiveStatusDamage.TabIndex = 58;
+            labelEffectiveStatusDamage.Text = "Effective Status Damage";
+            // 
+            // labelEffectiveStatusDamageValue
+            // 
+            labelEffectiveStatusDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelEffectiveStatusDamageValue.CausesValidation = false;
+            labelEffectiveStatusDamageValue.Location = new Point(155, 67);
+            labelEffectiveStatusDamageValue.Name = "labelEffectiveStatusDamageValue";
+            labelEffectiveStatusDamageValue.Size = new Size(124, 20);
+            labelEffectiveStatusDamageValue.TabIndex = 59;
+            // 
+            // labelDirectHitsPerSecond
+            // 
+            labelDirectHitsPerSecond.AutoSize = true;
+            labelDirectHitsPerSecond.Location = new Point(4, 88);
+            labelDirectHitsPerSecond.Name = "labelDirectHitsPerSecond";
+            labelDirectHitsPerSecond.Size = new Size(124, 15);
+            labelDirectHitsPerSecond.TabIndex = 60;
+            labelDirectHitsPerSecond.Text = "Direct Hits Per Second";
+            // 
+            // labelDirectHitsPerSecondValue
+            // 
+            labelDirectHitsPerSecondValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelDirectHitsPerSecondValue.CausesValidation = false;
+            labelDirectHitsPerSecondValue.Location = new Point(155, 88);
+            labelDirectHitsPerSecondValue.Name = "labelDirectHitsPerSecondValue";
+            labelDirectHitsPerSecondValue.Size = new Size(124, 20);
+            labelDirectHitsPerSecondValue.TabIndex = 61;
             // 
             // MainWindow
             // 
@@ -1469,5 +1512,9 @@
         private Label labelTotalDamageValue;
         private Label labelTotalFireTimeValue;
         private Label labelTotalDamage;
+        private Label labelEffectiveStatusDamage;
+        private Label labelEffectiveStatusDamageValue;
+        private Label labelDirectHitsPerSecond;
+        private Label labelDirectHitsPerSecondValue;
     }
 }

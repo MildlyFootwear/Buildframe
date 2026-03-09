@@ -13,6 +13,13 @@ namespace Buildframe.Methods.Calculation
         {
             return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
+        public static double calculateEffectiveElementalDamage(StatsData stats)
+        {
+            double baseDamage = calculateBaseDamage(stats);
+            double elementalDamage = baseDamage * (1 + stats.modDamage / 100) * (1 + stats.modStatusDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamageFaction / 100);
+            elementalDamage *= calculateModAverageCritMultiplier(stats);
+            return elementalDamage;
+        }
         /// <summary>
         /// Calculates the modified damage before critical hits and status effects are applied.
         /// </summary>
@@ -193,6 +200,22 @@ namespace Buildframe.Methods.Calculation
             }
             return magazine / (1 - ammoEfficiency / 100) / calculateModSpeed(stats);
         }
+        /// <summary>
+        /// Calculates the effective multiplier for status damage.
+        /// Faction damage is counteded twice to reflect it applying to both initial and status damage.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
+        public static double calculateModStatusMult(StatsData stats, bool skipBaseDamageFaction = false)
+        {
+            if (skipBaseDamageFaction)
+            {
+                return (1 + stats.modStatusDamage / 100) * (1 + stats.modDamageFaction / 100);
+            }
+
+            return (1 + stats.modStatusDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamageFaction / 100);
+        }
+
         public static double calculateModReloadMult(StatsData stats)
         {
             double fireTime = calculateModFireTime(stats);
