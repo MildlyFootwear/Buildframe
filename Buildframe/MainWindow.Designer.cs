@@ -1265,9 +1265,12 @@
             // tableLayoutPanelDerivedStats
             // 
             tableLayoutPanelDerivedStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanelDerivedStats.ColumnCount = 2;
+            tableLayoutPanelDerivedStats.ColumnCount = 5;
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamageValue, 1, 2);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTimeValue, 1, 1);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTime, 0, 1);
@@ -1292,7 +1295,7 @@
             labelTotalDamageValue.CausesValidation = false;
             labelTotalDamageValue.Location = new Point(125, 46);
             labelTotalDamageValue.Name = "labelTotalDamageValue";
-            labelTotalDamageValue.Size = new Size(434, 20);
+            labelTotalDamageValue.Size = new Size(154, 20);
             labelTotalDamageValue.TabIndex = 57;
             // 
             // labelTotalFireTimeValue
@@ -1301,7 +1304,7 @@
             labelTotalFireTimeValue.CausesValidation = false;
             labelTotalFireTimeValue.Location = new Point(125, 25);
             labelTotalFireTimeValue.Name = "labelTotalFireTimeValue";
-            labelTotalFireTimeValue.Size = new Size(434, 20);
+            labelTotalFireTimeValue.Size = new Size(154, 20);
             labelTotalFireTimeValue.TabIndex = 56;
             // 
             // labelTotalFireTime
@@ -1317,11 +1320,11 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            tableLayoutPanelDerivedStats.SetColumnSpan(label1, 2);
+            tableLayoutPanelDerivedStats.SetColumnSpan(label1, 4);
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(4, 1);
             label1.Name = "label1";
-            label1.Size = new Size(555, 23);
+            label1.Size = new Size(557, 23);
             label1.TabIndex = 1;
             label1.Text = "Derived Stats";
             // 
