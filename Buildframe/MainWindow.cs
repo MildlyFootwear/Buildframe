@@ -205,6 +205,10 @@ namespace Buildframe
 
                 double magazine = Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats);
 
+                labelSlashProcDamageValue.Text = selectedFiremodeWithAppliedStats.modSlash.ToString() + "%";
+                labelHeatProcDamageValue.Text = selectedFiremodeWithAppliedStats.modHeat.ToString() + "%";
+                labelToxinProcDamageValue.Text = selectedFiremodeWithAppliedStats.modToxin.ToString() + "%";
+                labelElectricProcDamageValue.Text = selectedFiremodeWithAppliedStats.modElectric.ToString() + "%";
 
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
