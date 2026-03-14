@@ -236,6 +236,8 @@ namespace Buildframe.Methods.Calculation
                     stats.speedMultiplier *= 1 + (s.finalAttackSpeed / 100);
                 }
 
+                stats.extraHit += s.extraHit;
+
                 if (s.tags.Contains("Multishot_Exclusive_Damage_Mult"))
                 {
                     stats.multishotDamageMultiplier *= 1 + (s.finalDamagePercentage / 100);
@@ -251,7 +253,6 @@ namespace Buildframe.Methods.Calculation
 
                 stats.damageMultiplier *= s.damageMultiplier;
                 stats.speedMultiplier *= s.speedMultiplier;
-
                 index++;
             }
 
@@ -277,8 +278,6 @@ namespace Buildframe.Methods.Calculation
                     stats.baseDamage = 0;
                 }
             }
-
-            stats.damageMultiplier *= stats.extraHit + 1;
 
             // Floor damage so it doesn't go negative.
             stats.modSlash = Math.Max(stats.modSlash, -100);

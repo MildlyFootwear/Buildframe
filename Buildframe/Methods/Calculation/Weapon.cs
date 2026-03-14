@@ -17,6 +17,7 @@ namespace Buildframe.Methods.Calculation
         {
             double baseDamage = calculateBaseDamage(stats);
             double elementalDamage = baseDamage * (1 + stats.modDamage / 100) * (1 + stats.modStatusDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamageFaction / 100);
+            elementalDamage *= stats.damageMultiplier;
             elementalDamage *= calculateModAverageCritMultiplier(stats);
             return elementalDamage;
         }
@@ -54,6 +55,11 @@ namespace Buildframe.Methods.Calculation
             {
                 WriteLineIfDebug("Calculating multishot exclusive damage multiplier for " + stats.name + " with multishot damage multiplier of " + stats.multishotDamageMultiplier);
                 moddedDamage *= calculateModMultishotExclusiveDamageMultiplier(stats, (stats.multishotDamageMultiplier - 1) * 100);
+            }
+
+            if (stats.extraHit != 0)
+            {
+                moddedDamage *= 1 + stats.extraHit;
             }
 
             return moddedDamage * stats.damageMultiplier;

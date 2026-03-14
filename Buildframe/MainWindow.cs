@@ -178,7 +178,6 @@ namespace Buildframe
 
                 selectedFiremodeWithAppliedStats = Methods.Calculation.StatMethods.sumStats(stats);
 
-                labelEffectiveStatusDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateEffectiveElementalDamage(selectedFiremodeWithAppliedStats), 2).ToString("#,##0");
                 if (selectedFiremodeWithAppliedStats.tags.Contains("Devouring_Attrition"))
                 {
                     labelAverageCritical.Text = "Average DA/Crit Multiplier";
@@ -209,6 +208,7 @@ namespace Buildframe
                 labelHeatProcDamageValue.Text = selectedFiremodeWithAppliedStats.modHeat.ToString() + "%";
                 labelToxinProcDamageValue.Text = selectedFiremodeWithAppliedStats.modToxin.ToString() + "%";
                 labelElectricProcDamageValue.Text = selectedFiremodeWithAppliedStats.modElectric.ToString() + "%";
+                labelEffectiveStatusDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateEffectiveElementalDamage(selectedFiremodeWithAppliedStats), 2).ToString("#,##0");
 
                 labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
