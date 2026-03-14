@@ -32,7 +32,7 @@ namespace Buildframe
         public StatsData selectedFiremodeWithAppliedStats = new();
         public StatsData selectedFiremodeRadialWithAppliedStats = new();
 
-        public Dictionary<ComboBox, string> boxSelectedEffects = new();
+        public Dictionary<ComboBox, string> boxSelectedEffectsIDs = new();
 
         public string lastSavedWeaponID = "";
         public string lastSavedBuildName = "";
@@ -421,9 +421,9 @@ namespace Buildframe
 
 
             string statID = "";
-            if (boxSelectedEffects.ContainsKey(comboBoxWeaponArcane))
+            if (boxSelectedEffectsIDs.ContainsKey(comboBoxWeaponArcane))
             {
-                statID = boxSelectedEffects[comboBoxWeaponArcane];
+                statID = boxSelectedEffectsIDs[comboBoxWeaponArcane];
             }
             comboBoxWeaponArcane.Items.Clear();
             comboBoxWeaponArcane.Items.Add("None");
@@ -437,7 +437,7 @@ namespace Buildframe
             {
                 comboBoxWeaponArcane.Items.Add(arcaneStats[id]);
             }
-            if (boxSelectedEffects.ContainsKey(comboBoxWeaponArcane) && validArcaneIDs.Contains(statID))
+            if (boxSelectedEffectsIDs.ContainsKey(comboBoxWeaponArcane) && validArcaneIDs.Contains(statID))
             {
                 int index = validArcaneIDs.IndexOf(statID) + 1;
                 comboBoxWeaponArcane.SelectedIndex = index;
@@ -482,9 +482,9 @@ namespace Buildframe
             foreach (ComboBox box in arcaneBoxes)
             {
 
-                if (boxSelectedEffects.ContainsKey(box) && box.Items.Contains(arcaneStats[boxSelectedEffects[box]]))
+                if (boxSelectedEffectsIDs.ContainsKey(box) && box.Items.Contains(arcaneStats[boxSelectedEffectsIDs[box]]))
                 {
-                    box.SelectedItem = arcaneStats[boxSelectedEffects[box]];
+                    box.SelectedItem = arcaneStats[boxSelectedEffectsIDs[box]];
                 }
                 else
                 {
@@ -515,9 +515,9 @@ namespace Buildframe
 
             foreach (ComboBox box in modBoxes)
             {
-                if (boxSelectedEffects.ContainsKey(box) && box.Items.Contains(modStats[boxSelectedEffects[box]]))
+                if (boxSelectedEffectsIDs.ContainsKey(box) && box.Items.Contains(modStats[boxSelectedEffectsIDs[box]]))
                 {
-                    box.SelectedItem = modStats[boxSelectedEffects[box]];
+                    box.SelectedItem = modStats[boxSelectedEffectsIDs[box]];
                 }
                 else
                 {
@@ -548,9 +548,9 @@ namespace Buildframe
 
             foreach (ComboBox box in miscBoxes)
             {
-                if (boxSelectedEffects.ContainsKey(box) && box.Items.Contains(miscStats[boxSelectedEffects[box]]))
+                if (boxSelectedEffectsIDs.ContainsKey(box) && box.Items.Contains(miscStats[boxSelectedEffectsIDs[box]]))
                 {
-                    box.SelectedItem = miscStats[boxSelectedEffects[box]];
+                    box.SelectedItem = miscStats[boxSelectedEffectsIDs[box]];
                 }
                 else
                 {
@@ -562,44 +562,44 @@ namespace Buildframe
 
         public void stashBoxEffects()
         {
-            boxSelectedEffects.Clear();
+            boxSelectedEffectsIDs.Clear();
             foreach (ComboBox box in modBoxes)
             {
                 if (box.SelectedIndex > 0)
                 {
-                    boxSelectedEffects.Add(box, ((StatsData)box.SelectedItem).id);
+                    boxSelectedEffectsIDs.Add(box, ((StatsData)box.SelectedItem).id);
                 }
                 else
                 {
-                    boxSelectedEffects.Remove(box);
+                    boxSelectedEffectsIDs.Remove(box);
                 }
             }
             foreach (ComboBox box in miscBoxes)
             {
                 if (box.SelectedIndex > 0)
                 {
-                    boxSelectedEffects.Add(box, ((StatsData)box.SelectedItem).id);
+                    boxSelectedEffectsIDs.Add(box, ((StatsData)box.SelectedItem).id);
                 }
                 else
                 {
-                    boxSelectedEffects.Remove(box);
+                    boxSelectedEffectsIDs.Remove(box);
                 }
             }
             if (comboBoxWeaponArcane.SelectedIndex > 0)
             {
-                boxSelectedEffects.Add(comboBoxWeaponArcane, ((StatsData)comboBoxWeaponArcane.SelectedItem).id);
+                boxSelectedEffectsIDs.Add(comboBoxWeaponArcane, ((StatsData)comboBoxWeaponArcane.SelectedItem).id);
             }
             else
             {
-                boxSelectedEffects.Remove(comboBoxWeaponArcane);
+                boxSelectedEffectsIDs.Remove(comboBoxWeaponArcane);
             }
             if (comboBoxArchgunArcane.SelectedIndex > 0)
             {
-                boxSelectedEffects.Add(comboBoxArchgunArcane, ((StatsData)comboBoxArchgunArcane.SelectedItem).id);
+                boxSelectedEffectsIDs.Add(comboBoxArchgunArcane, ((StatsData)comboBoxArchgunArcane.SelectedItem).id);
             }
             else
             {
-                boxSelectedEffects.Remove(comboBoxArchgunArcane);
+                boxSelectedEffectsIDs.Remove(comboBoxArchgunArcane);
             }
         }
 
@@ -607,20 +607,20 @@ namespace Buildframe
         {
             foreach (ComboBox box in modBoxes)
             {
-                if (!boxSelectedEffects.ContainsKey(box))
+                if (!boxSelectedEffectsIDs.ContainsKey(box))
                 {
                     box.SelectedIndex = 0;
                     continue;
                 }
-                StatsData stat = modStats[boxSelectedEffects[box]];
+                StatsData stat = modStats[boxSelectedEffectsIDs[box]];
                 if (validModIDs.Contains(stat.id))
                 {
                     box.SelectedItem = stat;
                 }
             }
-            if (boxSelectedEffects.ContainsKey(comboBoxWeaponArcane))
+            if (boxSelectedEffectsIDs.ContainsKey(comboBoxWeaponArcane))
             {
-                StatsData stat = arcaneStats[boxSelectedEffects[comboBoxWeaponArcane]];
+                StatsData stat = arcaneStats[boxSelectedEffectsIDs[comboBoxWeaponArcane]];
                 if (validArcaneIDs.Contains(stat.id))
                 {
                     comboBoxWeaponArcane.SelectedItem = stat;
