@@ -124,6 +124,8 @@
             openFileDialog1 = new OpenFileDialog();
             toolTipMods = new ToolTip(components);
             tableLayoutPanelDerivedStats = new TableLayoutPanel();
+            labelDirectHitDamageValue = new Label();
+            labelDirectHitDamage = new Label();
             labelElectricProcDamageValue = new Label();
             labelElectricProcDamage = new Label();
             labelToxinProcDamageValue = new Label();
@@ -1282,6 +1284,8 @@
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamageValue, 1, 5);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamage, 0, 5);
             tableLayoutPanelDerivedStats.Controls.Add(labelElectricProcDamageValue, 3, 4);
             tableLayoutPanelDerivedStats.Controls.Add(labelElectricProcDamage, 2, 4);
             tableLayoutPanelDerivedStats.Controls.Add(labelToxinProcDamageValue, 3, 3);
@@ -1311,6 +1315,24 @@
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.Size = new Size(563, 141);
             tableLayoutPanelDerivedStats.TabIndex = 5;
+            // 
+            // labelDirectHitDamageValue
+            // 
+            labelDirectHitDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelDirectHitDamageValue.CausesValidation = false;
+            labelDirectHitDamageValue.Location = new Point(165, 109);
+            labelDirectHitDamageValue.Name = "labelDirectHitDamageValue";
+            labelDirectHitDamageValue.Size = new Size(114, 20);
+            labelDirectHitDamageValue.TabIndex = 71;
+            // 
+            // labelDirectHitDamage
+            // 
+            labelDirectHitDamage.AutoSize = true;
+            labelDirectHitDamage.Location = new Point(4, 109);
+            labelDirectHitDamage.Name = "labelDirectHitDamage";
+            labelDirectHitDamage.Size = new Size(139, 15);
+            labelDirectHitDamage.TabIndex = 70;
+            labelDirectHitDamage.Text = "Single Direct Hit Damage";
             // 
             // labelElectricProcDamageValue
             // 
@@ -1612,5 +1634,7 @@
         private Label labelHeatProcDamage;
         private Label labelSlashProcDamageValue;
         private Label labelSlashProcDamage;
+        private Label labelDirectHitDamageValue;
+        private Label labelDirectHitDamage;
     }
 }

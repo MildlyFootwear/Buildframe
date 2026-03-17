@@ -194,11 +194,14 @@ namespace Buildframe
                     labelFireRate.Text = "Fire Rate";
                 }
 
-                double Damage = Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats); ;
+                double Damage = Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats);
+                labelDirectHitDamageValue.Text = Damage.ToString("#,##0");
+                double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
+                Damage *= multishot;
                 double DPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
                 double DPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats, true);
 
-                double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
+
                 double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats);
                 double speed = Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeWithAppliedStats);
 
