@@ -231,6 +231,12 @@ namespace Buildframe
                 }
 
                 double reserveAmmo = Methods.Calculation.Weapon.calculateModReserveAmmo(selectedFiremodeWithAppliedStats);
+                
+                if (selectedFiremodeWithAppliedStats.tags.Contains("Multishot_Consumes_Reserve_Ammo"))
+                {
+                    reserveAmmo /= multishot;
+                }
+
                 if (reserveAmmo > 0 && fireTime != double.PositiveInfinity)
                 {
                     totalFireTime = reserveAmmo / magazine * fireTime;
