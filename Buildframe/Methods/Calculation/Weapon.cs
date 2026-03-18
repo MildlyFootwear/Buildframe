@@ -13,7 +13,12 @@ namespace Buildframe.Methods.Calculation
         {
             return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
-        public static double calculateEffectiveElementalDamage(StatsData stats)
+        /// <summary>
+        /// Calculates the modified damage used as the weapon's damage for DoT/status effect calculations.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
+        public static double calculateEffectiveStatusDamage(StatsData stats)
         {
             double baseDamage = calculateBaseDamage(stats);
             double elementalDamage = baseDamage * (1 + stats.modDamage / 100) * (1 + stats.modStatusDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamageFaction / 100);
