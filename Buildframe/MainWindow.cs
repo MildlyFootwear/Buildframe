@@ -1,6 +1,7 @@
 using Buildframe.Forms;
 using Buildframe.GameData;
 using Buildframe.Methods;
+using Buildframe.Methods.Calculation;
 using System.Reflection.Metadata;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -44,6 +45,7 @@ namespace Buildframe
 
             if (weapon.id == "")
             {
+                saveToolStripMenuItem.Enabled = false;
                 Text = Settings.Default.ToolName + " " + Settings.Default.Version;
 
                 currentWeapon = new WeaponData();
@@ -70,6 +72,8 @@ namespace Buildframe
                 return;
 
             }
+
+            saveToolStripMenuItem.Enabled = true;
 
             Text = Settings.Default.ToolName + " " + Settings.Default.Version + " - " + currentWeapon.name;
             selectedWeaponTags = weapon.tags.Split(' ');
@@ -884,6 +888,13 @@ namespace Buildframe
             primaryValueLabels.Add(labelEffectiveStatusDamageValue);
             primaryValueLabels.Add(labelTotalDamageValue);
             primaryValueLabels.Add(labelDirectHitsPerSecondValue);
+            primaryValueLabels.Add(labelDirectHitDamageValue);
+
+            primaryValueLabels.Add(labelSlashProcDamageValue);
+            primaryValueLabels.Add(labelHeatProcDamageValue);
+            primaryValueLabels.Add(labelToxinProcDamageValue);
+            primaryValueLabels.Add(labelElectricProcDamageValue);
+
 
             radialValueLabels.Add(labelRadialAverageCritMultValue);
             radialValueLabels.Add(labelRadialCriticalChanceValue);
@@ -1064,7 +1075,8 @@ namespace Buildframe
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Builds"));
-
+            if (currentWeapon.id == "")
+                return;
             if (lastBuildDirectory != "")
             {
                 saveFileDialog1.InitialDirectory = lastBuildDirectory;
