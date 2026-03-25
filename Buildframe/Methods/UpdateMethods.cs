@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Buildframe.Methods
+﻿namespace Buildframe.Methods
 {
     public class UpdateMethods
     {
@@ -38,7 +30,7 @@ namespace Buildframe.Methods
             {
                 WriteLineIfDebug("    CheckGitVersion Exception: " + ex.Message);
                 LatestVer = "Unknown";
-            } 
+            }
 
         }
 
@@ -62,8 +54,8 @@ namespace Buildframe.Methods
                     {
                         var taskDialog = TaskDialog.ShowDialog(new TaskDialogPage
                         {
-                            Caption = ToolName + " - "+Settings.Default.Version,
-                            Text = LatestVer+" is available. Go to download page?",
+                            Caption = ToolName + " - " + Settings.Default.Version,
+                            Text = LatestVer + " is available. Go to download page?",
                             Buttons =
                             {
                                 new TaskDialogButton
@@ -99,10 +91,10 @@ namespace Buildframe.Methods
                             }
                         }
                     }
-                    if (LatestVer == Settings.Default.IngoreVersion) { WriteLineIfDebug("    "+LatestVer + " is ignored"); }
+                    if (LatestVer == Settings.Default.IngoreVersion) { WriteLineIfDebug("    " + LatestVer + " is ignored"); }
                     else if (LatestVer == Settings.Default.Version)
                     {
-                        WriteLineIfDebug("    "+Settings.Default.Version + " is up to date with repository version " + LatestVer);
+                        WriteLineIfDebug("    " + Settings.Default.Version + " is up to date with repository version " + LatestVer);
 
                     }
                 }

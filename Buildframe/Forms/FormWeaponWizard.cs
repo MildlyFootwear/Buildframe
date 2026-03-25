@@ -1,14 +1,5 @@
 ﻿using Buildframe.GameData;
 using Buildframe.Methods;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Buildframe.Forms
 {
@@ -183,7 +174,7 @@ namespace Buildframe.Forms
                 loadedFilePath = weaponStats[textBoxID.Text].filePath;
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("\""+weaponStats[loadedID]+"\" will be overwritten unless the ID is changed.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    if (MessageBox.Show("\"" + weaponStats[loadedID] + "\" will be overwritten unless the ID is changed.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     {
                         return;
                     }

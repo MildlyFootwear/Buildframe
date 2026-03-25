@@ -1,10 +1,5 @@
 ﻿using Buildframe.GameData;
 using Buildframe.Methods.Calculation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Buildframe.Methods
 {
@@ -21,7 +16,7 @@ namespace Buildframe.Methods
             {
                 s += "\nID: " + stats.id;
             }
-            
+
             if (stats.incarnon)
             {
                 s += "\nIncarnon";
@@ -298,9 +293,10 @@ namespace Buildframe.Methods
             }
 
             if (stats.tags.Contains("Multishot_Exclusive_Damage_Mult") && stats.finalDamagePercentage != 0)
-            { 
+            {
                 s += "Multishot Damage Multiplier: " + (stats.finalDamagePercentage / 100 + 1) + "x\n";
-            } else if (stats.tags.Contains("Extra_Hit") && stats.finalDamagePercentage != 0)
+            }
+            else if (stats.tags.Contains("Extra_Hit") && stats.finalDamagePercentage != 0)
             {
                 s += "Extra Hit: " + stats.finalDamagePercentage + "%\n";
             }

@@ -1,9 +1,4 @@
 ﻿using Buildframe.GameData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Buildframe.Methods.Calculation
 {
@@ -98,8 +93,8 @@ namespace Buildframe.Methods.Calculation
         {
             double critDamage = Math.Max(1, stats.baseCriticalDamage * (1 + stats.modCriticalDamage / 100) + stats.finalCriticalDamage);
             if (stats.tags.Contains("Volt_Shield_Double_Crit_Damage"))
-            { 
-                critDamage *= 2; 
+            {
+                critDamage *= 2;
             }
             return critDamage;
         }

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Buildframe
+﻿namespace Buildframe
 {
     public class CommonVars
     {
         public static string ToolName = Settings.Default.ToolName;
         public static string LatestVer = null;
-        public static List<string> ProhibPathChars = ["|", "<", ">", "?", "*", "/", "\\",":", "="];
+        public static List<string> ProhibPathChars = ["|", "<", ">", "?", "*", "/", "\\", ":", "="];
 
         public static bool ToolDebug = false;
         public static bool DebuggingWeaponCalc = false;

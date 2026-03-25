@@ -1,13 +1,4 @@
-﻿using Buildframe.GameData;
-using Buildframe.Methods.Calculation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace Buildframe.GameData
+﻿namespace Buildframe.GameData
 {
     public class WeaponData
     {

@@ -1,6 +1,5 @@
 using Buildframe.Methods;
 using System.Collections.Immutable;
-using Buildframe.Methods;
 
 namespace Buildframe
 {
@@ -52,7 +51,8 @@ namespace Buildframe
                     File.Copy(exePath.Replace("Buildframe\\bin\\Release\\net8.0-windows\\Buildframe.exe", "LICENSE"), "LICENSE", true);
                     MessageBox.Show("Application configuration reset and readme updated.", ToolName);
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Application configuration reset. Please restart the application.", ToolName);
                 }
                 return;
@@ -68,7 +68,7 @@ namespace Buildframe
                 Settings.Default.ShownOpeningMessage = true;
                 Settings.Default.Save();
             }
-            
+
 
             WriteLineIfDebug("Starting.");
             WriteLineIfDebug("Running from: " + envAPPLOC);

@@ -1,11 +1,4 @@
 ﻿using Buildframe.GameData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Buildframe.Methods.Calculation
 {
@@ -62,7 +55,8 @@ namespace Buildframe.Methods.Calculation
                 }
 
                 bool skip = false;
-                if (index != 0) { 
+                if (index != 0)
+                {
                     foreach (string tag in s.tags.Split(' '))
                     {
                         if (tag.StartsWith("-"))
@@ -241,12 +235,15 @@ namespace Buildframe.Methods.Calculation
                 if (s.tags.Contains("Multishot_Exclusive_Damage_Mult"))
                 {
                     stats.multishotDamageMultiplier *= 1 + (s.finalDamagePercentage / 100);
-                } else if (s.tags.Contains("Extra_Hit")) { 
+                }
+                else if (s.tags.Contains("Extra_Hit"))
+                {
                     if (!stats.incarnon)
                     {
                         stats.extraHit += s.finalDamagePercentage / 100;
                     }
-                } else
+                }
+                else
                 {
                     stats.damageMultiplier *= 1 + (s.finalDamagePercentage / 100);
                 }

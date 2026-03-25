@@ -1,10 +1,4 @@
 ﻿using Buildframe.GameData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Buildframe.Methods
 {
@@ -38,7 +32,7 @@ namespace Buildframe.Methods
 
             if (!directory.Contains("Arcanes") && !directory.Contains("FireModes") && !directory.Contains("Misc") && !directory.Contains("Mods"))
             {
-                WriteLineIfDebug("\nFile load error: not in stat directory:\n"+path + "\n\n");
+                WriteLineIfDebug("\nFile load error: not in stat directory:\n" + path + "\n\n");
                 return stats;
             }
 
@@ -459,7 +453,7 @@ namespace Buildframe.Methods
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] split = s.Split('=');
-                
+
                 if (split[0] == "name")
                     weapon.name = split[1];
                 if (split[0] == "description")
@@ -581,7 +575,7 @@ namespace Buildframe.Methods
                 WeaponData wpn = loadWeaponFromFile(file);
                 if (weaponStats.ContainsKey(wpn.id))
                 {
-                    WriteLineIfDebug("Duplicate weapon ID found: " + wpn.id + " in file "+file, DebuggingLoading);
+                    WriteLineIfDebug("Duplicate weapon ID found: " + wpn.id + " in file " + file, DebuggingLoading);
                     promptForDelete(wpn.id, weaponStats[wpn.id].name, weaponStats[wpn.id].filePath, file);
                     continue;
                 }
@@ -595,7 +589,7 @@ namespace Buildframe.Methods
             DateTime file1Date = File.GetLastWriteTime(file1);
             DateTime file2Date = File.GetLastWriteTime(file2);
             string path = file1Date < file2Date ? file1 : file2;
-            DialogResult result = MessageBox.Show("Duplicate ID found: " + id + " which is \"" + name + "\"\nOlder file is " + path+"\nOlder file will not be loaded.\n\nWould you like to delete the older file?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            DialogResult result = MessageBox.Show("Duplicate ID found: " + id + " which is \"" + name + "\"\nOlder file is " + path + "\nOlder file will not be loaded.\n\nWould you like to delete the older file?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
                 File.Delete(path);

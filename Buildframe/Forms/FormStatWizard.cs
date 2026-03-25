@@ -1,5 +1,4 @@
 ﻿using Buildframe.Methods;
-using System.Windows.Forms;
 
 namespace Buildframe.Forms
 {

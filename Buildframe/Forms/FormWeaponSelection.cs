@@ -1,6 +1,4 @@
-﻿using System.Drawing.Printing;
-
-namespace Buildframe.Forms
+﻿namespace Buildframe.Forms
 {
     public partial class FormWeaponSelection : Form
     {

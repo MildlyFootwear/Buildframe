@@ -1,9 +1,6 @@
 using Buildframe.Forms;
 using Buildframe.GameData;
 using Buildframe.Methods;
-using Buildframe.Methods.Calculation;
-using System.Reflection.Metadata;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Buildframe
 {
@@ -99,7 +96,8 @@ namespace Buildframe
                 setMainLabels(3);
                 comboBoxArchgunArcane.Visible = false;
                 comboBoxArchgunArcane.SelectedIndex = 0;
-            } else 
+            }
+            else
             {
                 setMainLabels(1);
                 comboBoxArchgunArcane.Visible = false;
@@ -117,12 +115,14 @@ namespace Buildframe
                 labelWeaponArcane.Text = "Weapon Arcane";
                 labelMods.Text = "Weapon Mods";
                 labelMiscEffects.Text = "Warframe Arcanes/Abilities/Misc Effects";
-            } else if (mode == 2)
+            }
+            else if (mode == 2)
             {
                 labelWeaponArcane.Text = "Archgun Arcanes";
                 labelMods.Text = "Archgun Mods";
                 labelMiscEffects.Text = "Warframe Arcanes/Abilities/Misc Effects";
-            } else if (mode == 3)
+            }
+            else if (mode == 3)
             {
                 labelWeaponArcane.Text = "Artifact Arcane";
                 labelMods.Text = "Artifact Mods";
@@ -193,7 +193,8 @@ namespace Buildframe
                 if (selectedFiremodeWithAppliedStats.tags.Contains("Semi_Auto_Fire"))
                 {
                     labelFireRate.Text = "Fire Rate (Semi)";
-                } else
+                }
+                else
                 {
                     labelFireRate.Text = "Fire Rate";
                 }
@@ -235,7 +236,7 @@ namespace Buildframe
                 }
 
                 double reserveAmmo = Methods.Calculation.Weapon.calculateModReserveAmmo(selectedFiremodeWithAppliedStats);
-                
+
                 if (selectedFiremodeWithAppliedStats.tags.Contains("Multishot_Consumes_Reserve_Ammo"))
                 {
                     reserveAmmo /= multishot;
@@ -302,7 +303,7 @@ namespace Buildframe
                 labelRadialCriticalMultiplierValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "x";
                 labelRadialStatusValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeRadialWithAppliedStats), 2).ToString() + "%";
                 labelRadialDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats), 2).ToString("#,##0");
-                
+
                 labelRadialDPSBurstValue.Text = DPSBurst.ToString("#,##0");
 
                 if (DPSBurst != DPSSustained)
@@ -349,7 +350,8 @@ namespace Buildframe
             }
             bool weaponTagMatch = false;
 
-            if (stat.tags.Contains("-Any") == false && selectedWeaponTags.Contains("-Any") == false){
+            if (stat.tags.Contains("-Any") == false && selectedWeaponTags.Contains("-Any") == false)
+            {
                 if (stat.tags.Contains("Any") || selectedWeaponTags.Contains("Any"))
                 {
                     weaponTagMatch = true;
@@ -1090,11 +1092,13 @@ namespace Buildframe
             if (currentWeapon.id == lastSavedWeaponID)
             {
                 saveFileDialog1.FileName = lastSavedBuildName;
-            } else { 
+            }
+            else
+            {
                 saveFileDialog1.FileName = currentWeapon.name + " build.cfg";
             }
 
-            
+
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
