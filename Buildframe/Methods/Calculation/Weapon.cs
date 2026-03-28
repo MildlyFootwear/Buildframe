@@ -9,13 +9,23 @@ namespace Buildframe.Methods.Calculation
             return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
         /// <summary>
+        /// Calculates the damage multiplier provided by generic damage boosts involving +DMG%, faction damage, and damage multipliers.
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
+        public static double calculateModDamageMultiplier(StatsData stats)
+        {
+            return (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100) * stats.damageMultiplier;
+        }
+        /// <summary>
         /// Calculates the modified damage before critical hits and status effects are applied.
         /// </summary>
         /// <param name="stats"></param>
         /// <returns></returns>
-        public static double calculateModDamagePreCritPreMultishot(StatsData stats, bool allowMultishotMultiplier = true)
+        public static double calculateModDamagePreCritPreMultishot(StatsData stats, bool allowMultishotMultiplier = true, bool skipExtraHit = false)
         {
             double baseDamage = calculateBaseDamage(stats);
+            double modDamageMult = calculateModDamageMultiplier(stats);
 
             double modImpact = Physical.getModImpact(stats);
             double modPuncture = Physical.getModPuncture(stats);
@@ -36,7 +46,7 @@ namespace Buildframe.Methods.Calculation
             double modElemental = modHeat + modElectric + modCold + modToxin + modCorrosive + modViral + modRadiation + modBlast + modMagnetic + modGas;
             double modPhysical = modSlash + modImpact + modPuncture;
 
-            double moddedDamage = (baseDamage + modElemental + modPhysical) * (1 + stats.modDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamagePercentage / 100);
+            double moddedDamage = (baseDamage + modElemental + modPhysical) * modDamageMult;
 
             if (stats.multishotDamageMultiplier != 1 && allowMultishotMultiplier)
             {
@@ -44,12 +54,12 @@ namespace Buildframe.Methods.Calculation
                 moddedDamage *= calculateModMultishotExclusiveDamageMultiplier(stats, (stats.multishotDamageMultiplier - 1) * 100);
             }
 
-            if (stats.extraHit != 0)
+            if (stats.extraHit != 0 && !skipExtraHit)
             {
                 moddedDamage *= 1 + stats.extraHit;
             }
 
-            return moddedDamage * stats.damageMultiplier;
+            return moddedDamage;
         }
 
         /// <summary>

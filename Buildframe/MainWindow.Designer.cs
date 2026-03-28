@@ -126,14 +126,14 @@
             tableLayoutPanelDerivedStats = new TableLayoutPanel();
             labelDirectHitDamageValue = new Label();
             labelDirectHitDamage = new Label();
-            labelElectricProcDamageValue = new Label();
-            labelElectricProcDamage = new Label();
-            labelToxinProcDamageValue = new Label();
-            labelToxinProcDamage = new Label();
-            labelHeatProcDamageValue = new Label();
-            labelHeatProcDamage = new Label();
-            labelSlashProcDamageValue = new Label();
-            labelSlashProcDamage = new Label();
+            labelElectricWeightDamageValue = new Label();
+            labelElectricWeightDamage = new Label();
+            labelToxinWeightDamageValue = new Label();
+            labelToxinWeightDamage = new Label();
+            labelHeatWeightDamageValue = new Label();
+            labelHeatWeightDamage = new Label();
+            labelSlashWeightValue = new Label();
+            labelSlashWeight = new Label();
             labelTotalDamageValue = new Label();
             labelTotalFireTimeValue = new Label();
             labelTotalFireTime = new Label();
@@ -143,6 +143,8 @@
             labelEffectiveStatusDamageValue = new Label();
             labelDirectHitsPerSecond = new Label();
             labelDirectHitsPerSecondValue = new Label();
+            labelExtraHitDamage = new Label();
+            labelExtraHitDamageValue = new Label();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -1286,14 +1288,14 @@
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
             tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamageValue, 1, 5);
             tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamage, 0, 5);
-            tableLayoutPanelDerivedStats.Controls.Add(labelElectricProcDamageValue, 3, 4);
-            tableLayoutPanelDerivedStats.Controls.Add(labelElectricProcDamage, 2, 4);
-            tableLayoutPanelDerivedStats.Controls.Add(labelToxinProcDamageValue, 3, 3);
-            tableLayoutPanelDerivedStats.Controls.Add(labelToxinProcDamage, 2, 3);
-            tableLayoutPanelDerivedStats.Controls.Add(labelHeatProcDamageValue, 3, 2);
-            tableLayoutPanelDerivedStats.Controls.Add(labelHeatProcDamage, 2, 2);
-            tableLayoutPanelDerivedStats.Controls.Add(labelSlashProcDamageValue, 3, 1);
-            tableLayoutPanelDerivedStats.Controls.Add(labelSlashProcDamage, 2, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamageValue, 3, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamage, 2, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelToxinWeightDamageValue, 3, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelToxinWeightDamage, 2, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelHeatWeightDamageValue, 3, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelHeatWeightDamage, 2, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelSlashWeightValue, 3, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(labelSlashWeight, 2, 1);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamageValue, 1, 2);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTimeValue, 1, 1);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTime, 0, 1);
@@ -1303,7 +1305,9 @@
             tableLayoutPanelDerivedStats.Controls.Add(labelEffectiveStatusDamageValue, 1, 3);
             tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecond, 0, 4);
             tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecondValue, 1, 4);
-            tableLayoutPanelDerivedStats.Location = new Point(333, 485);
+            tableLayoutPanelDerivedStats.Controls.Add(labelExtraHitDamage, 0, 6);
+            tableLayoutPanelDerivedStats.Controls.Add(labelExtraHitDamageValue, 1, 6);
+            tableLayoutPanelDerivedStats.Location = new Point(333, 481);
             tableLayoutPanelDerivedStats.Name = "tableLayoutPanelDerivedStats";
             tableLayoutPanelDerivedStats.RowCount = 7;
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
@@ -1313,7 +1317,7 @@
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDerivedStats.Size = new Size(563, 141);
+            tableLayoutPanelDerivedStats.Size = new Size(563, 147);
             tableLayoutPanelDerivedStats.TabIndex = 5;
             // 
             // labelDirectHitDamageValue
@@ -1334,77 +1338,77 @@
             labelDirectHitDamage.TabIndex = 70;
             labelDirectHitDamage.Text = "Single Direct Hit Damage";
             // 
-            // labelElectricProcDamageValue
+            // labelElectricWeightDamageValue
             // 
-            labelElectricProcDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelElectricProcDamageValue.CausesValidation = false;
-            labelElectricProcDamageValue.Location = new Point(447, 88);
-            labelElectricProcDamageValue.Name = "labelElectricProcDamageValue";
-            labelElectricProcDamageValue.Size = new Size(114, 20);
-            labelElectricProcDamageValue.TabIndex = 69;
+            labelElectricWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelElectricWeightDamageValue.CausesValidation = false;
+            labelElectricWeightDamageValue.Location = new Point(447, 88);
+            labelElectricWeightDamageValue.Name = "labelElectricWeightDamageValue";
+            labelElectricWeightDamageValue.Size = new Size(114, 20);
+            labelElectricWeightDamageValue.TabIndex = 69;
             // 
-            // labelElectricProcDamage
+            // labelElectricWeightDamage
             // 
-            labelElectricProcDamage.AutoSize = true;
-            labelElectricProcDamage.Location = new Point(286, 88);
-            labelElectricProcDamage.Name = "labelElectricProcDamage";
-            labelElectricProcDamage.Size = new Size(119, 15);
-            labelElectricProcDamage.TabIndex = 68;
-            labelElectricProcDamage.Text = "Electric Proc Damage";
+            labelElectricWeightDamage.AutoSize = true;
+            labelElectricWeightDamage.Location = new Point(286, 88);
+            labelElectricWeightDamage.Name = "labelElectricWeightDamage";
+            labelElectricWeightDamage.Size = new Size(134, 15);
+            labelElectricWeightDamage.TabIndex = 68;
+            labelElectricWeightDamage.Text = "Electric Weight (DMG%)";
             // 
-            // labelToxinProcDamageValue
+            // labelToxinWeightDamageValue
             // 
-            labelToxinProcDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelToxinProcDamageValue.CausesValidation = false;
-            labelToxinProcDamageValue.Location = new Point(447, 67);
-            labelToxinProcDamageValue.Name = "labelToxinProcDamageValue";
-            labelToxinProcDamageValue.Size = new Size(114, 20);
-            labelToxinProcDamageValue.TabIndex = 67;
+            labelToxinWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelToxinWeightDamageValue.CausesValidation = false;
+            labelToxinWeightDamageValue.Location = new Point(447, 67);
+            labelToxinWeightDamageValue.Name = "labelToxinWeightDamageValue";
+            labelToxinWeightDamageValue.Size = new Size(114, 20);
+            labelToxinWeightDamageValue.TabIndex = 67;
             // 
-            // labelToxinProcDamage
+            // labelToxinWeightDamage
             // 
-            labelToxinProcDamage.AutoSize = true;
-            labelToxinProcDamage.Location = new Point(286, 67);
-            labelToxinProcDamage.Name = "labelToxinProcDamage";
-            labelToxinProcDamage.Size = new Size(109, 15);
-            labelToxinProcDamage.TabIndex = 66;
-            labelToxinProcDamage.Text = "Toxin Proc Damage";
+            labelToxinWeightDamage.AutoSize = true;
+            labelToxinWeightDamage.Location = new Point(286, 67);
+            labelToxinWeightDamage.Name = "labelToxinWeightDamage";
+            labelToxinWeightDamage.Size = new Size(124, 15);
+            labelToxinWeightDamage.TabIndex = 66;
+            labelToxinWeightDamage.Text = "Toxin Weight (DMG%)";
             // 
-            // labelHeatProcDamageValue
+            // labelHeatWeightDamageValue
             // 
-            labelHeatProcDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelHeatProcDamageValue.CausesValidation = false;
-            labelHeatProcDamageValue.Location = new Point(447, 46);
-            labelHeatProcDamageValue.Name = "labelHeatProcDamageValue";
-            labelHeatProcDamageValue.Size = new Size(114, 20);
-            labelHeatProcDamageValue.TabIndex = 65;
+            labelHeatWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelHeatWeightDamageValue.CausesValidation = false;
+            labelHeatWeightDamageValue.Location = new Point(447, 46);
+            labelHeatWeightDamageValue.Name = "labelHeatWeightDamageValue";
+            labelHeatWeightDamageValue.Size = new Size(114, 20);
+            labelHeatWeightDamageValue.TabIndex = 65;
             // 
-            // labelHeatProcDamage
+            // labelHeatWeightDamage
             // 
-            labelHeatProcDamage.AutoSize = true;
-            labelHeatProcDamage.Location = new Point(286, 46);
-            labelHeatProcDamage.Name = "labelHeatProcDamage";
-            labelHeatProcDamage.Size = new Size(106, 15);
-            labelHeatProcDamage.TabIndex = 64;
-            labelHeatProcDamage.Text = "Heat Proc Damage";
+            labelHeatWeightDamage.AutoSize = true;
+            labelHeatWeightDamage.Location = new Point(286, 46);
+            labelHeatWeightDamage.Name = "labelHeatWeightDamage";
+            labelHeatWeightDamage.Size = new Size(121, 15);
+            labelHeatWeightDamage.TabIndex = 64;
+            labelHeatWeightDamage.Text = "Heat Weight (DMG%)";
             // 
-            // labelSlashProcDamageValue
+            // labelSlashWeightValue
             // 
-            labelSlashProcDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelSlashProcDamageValue.CausesValidation = false;
-            labelSlashProcDamageValue.Location = new Point(447, 25);
-            labelSlashProcDamageValue.Name = "labelSlashProcDamageValue";
-            labelSlashProcDamageValue.Size = new Size(114, 20);
-            labelSlashProcDamageValue.TabIndex = 63;
+            labelSlashWeightValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelSlashWeightValue.CausesValidation = false;
+            labelSlashWeightValue.Location = new Point(447, 25);
+            labelSlashWeightValue.Name = "labelSlashWeightValue";
+            labelSlashWeightValue.Size = new Size(114, 20);
+            labelSlashWeightValue.TabIndex = 63;
             // 
-            // labelSlashProcDamage
+            // labelSlashWeight
             // 
-            labelSlashProcDamage.AutoSize = true;
-            labelSlashProcDamage.Location = new Point(286, 25);
-            labelSlashProcDamage.Name = "labelSlashProcDamage";
-            labelSlashProcDamage.Size = new Size(108, 15);
-            labelSlashProcDamage.TabIndex = 62;
-            labelSlashProcDamage.Text = "Slash Proc Damage";
+            labelSlashWeight.AutoSize = true;
+            labelSlashWeight.Location = new Point(286, 25);
+            labelSlashWeight.Name = "labelSlashWeight";
+            labelSlashWeight.Size = new Size(75, 15);
+            labelSlashWeight.TabIndex = 62;
+            labelSlashWeight.Text = "Slash Weight";
             // 
             // labelTotalDamageValue
             // 
@@ -1489,6 +1493,24 @@
             labelDirectHitsPerSecondValue.Name = "labelDirectHitsPerSecondValue";
             labelDirectHitsPerSecondValue.Size = new Size(114, 20);
             labelDirectHitsPerSecondValue.TabIndex = 61;
+            // 
+            // labelExtraHitDamage
+            // 
+            labelExtraHitDamage.AutoSize = true;
+            labelExtraHitDamage.Location = new Point(4, 130);
+            labelExtraHitDamage.Name = "labelExtraHitDamage";
+            labelExtraHitDamage.Size = new Size(99, 15);
+            labelExtraHitDamage.TabIndex = 72;
+            labelExtraHitDamage.Text = "Extra Hit Damage";
+            // 
+            // labelExtraHitDamageValue
+            // 
+            labelExtraHitDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelExtraHitDamageValue.CausesValidation = false;
+            labelExtraHitDamageValue.Location = new Point(165, 130);
+            labelExtraHitDamageValue.Name = "labelExtraHitDamageValue";
+            labelExtraHitDamageValue.Size = new Size(114, 20);
+            labelExtraHitDamageValue.TabIndex = 73;
             // 
             // MainWindow
             // 
@@ -1626,15 +1648,17 @@
         private Label labelEffectiveStatusDamageValue;
         private Label labelDirectHitsPerSecond;
         private Label labelDirectHitsPerSecondValue;
-        private Label labelElectricProcDamageValue;
-        private Label labelElectricProcDamage;
-        private Label labelToxinProcDamageValue;
-        private Label labelToxinProcDamage;
-        private Label labelHeatProcDamageValue;
-        private Label labelHeatProcDamage;
-        private Label labelSlashProcDamageValue;
-        private Label labelSlashProcDamage;
+        private Label labelElectricWeightDamageValue;
+        private Label labelElectricWeightDamage;
+        private Label labelToxinWeightDamageValue;
+        private Label labelToxinWeightDamage;
+        private Label labelHeatWeightDamageValue;
+        private Label labelHeatWeightDamage;
+        private Label labelSlashWeightValue;
+        private Label labelSlashWeight;
         private Label labelDirectHitDamageValue;
         private Label labelDirectHitDamage;
+        private Label labelExtraHitDamage;
+        private Label labelExtraHitDamageValue;
     }
 }

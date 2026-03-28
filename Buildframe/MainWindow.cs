@@ -199,10 +199,14 @@ namespace Buildframe
                     labelFireRate.Text = "Fire Rate";
                 }
 
-                double Damage = Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats);
-                labelDirectHitDamageValue.Text = Damage.ToString("#,##0");
+                double averageCritMult = Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats);
+                double nonCritDamageMult = Methods.Calculation.Weapon.calculateModDamageMultiplier(selectedFiremodeWithAppliedStats);
+
+                double directHitDamage = Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeWithAppliedStats, true, true) * averageCritMult;
+                labelDirectHitDamageValue.Text = directHitDamage.ToString("#,##0");
+                labelExtraHitDamageValue.Text = (directHitDamage * selectedFiremodeWithAppliedStats.extraHit).ToString("#,##0");
                 double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
-                Damage *= multishot;
+                double Damage = directHitDamage * multishot;
                 double DPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
                 double DPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats, true);
 
@@ -212,13 +216,17 @@ namespace Buildframe
 
                 double magazine = Methods.Calculation.Weapon.calculateModMagazine(selectedFiremodeWithAppliedStats);
 
-                labelSlashProcDamageValue.Text = selectedFiremodeWithAppliedStats.modSlash.ToString() + "%";
-                labelHeatProcDamageValue.Text = selectedFiremodeWithAppliedStats.modHeat.ToString() + "%";
-                labelToxinProcDamageValue.Text = selectedFiremodeWithAppliedStats.modToxin.ToString() + "%";
-                labelElectricProcDamageValue.Text = selectedFiremodeWithAppliedStats.modElectric.ToString() + "%";
+                double moddedSlashDamage = Methods.Calculation.Physical.getBaseAndModSlash(selectedFiremodeWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                labelSlashWeightValue.Text = Math.Round(1 / (directHitDamage / moddedSlashDamage) * 100, 2).ToString() + "%";
+                double moddedHeatDamage = Methods.Calculation.Elemental.getBaseAndModHeat(selectedFiremodeWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                labelHeatWeightDamageValue.Text = Math.Round(1 / (directHitDamage / moddedHeatDamage) * 100, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modHeat.ToString() + "%)";
+                double moddedToxinDamage = Methods.Calculation.Elemental.getBaseAndModToxin(selectedFiremodeWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                labelToxinWeightDamageValue.Text = Math.Round(1 / (directHitDamage / moddedToxinDamage) * 100, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modToxin.ToString() + "%)";
+                double moddedElectricDamage = Methods.Calculation.Elemental.getBaseAndModElectric(selectedFiremodeWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                labelElectricWeightDamageValue.Text = Math.Round(1 / (directHitDamage / moddedElectricDamage) * 100, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modElectric.ToString() + "%)";
                 labelEffectiveStatusDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateEffectiveStatusDamage(selectedFiremodeWithAppliedStats), 2).ToString("#,##0");
 
-                labelAverageCriticalValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
+                labelAverageCriticalValue.Text = Math.Round(averageCritMult, 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
                 labelCriticalDamageValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritDamage(selectedFiremodeWithAppliedStats), 2).ToString() + "x";
                 labelStatusProjectileValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
@@ -892,10 +900,10 @@ namespace Buildframe
             primaryValueLabels.Add(labelDirectHitsPerSecondValue);
             primaryValueLabels.Add(labelDirectHitDamageValue);
 
-            primaryValueLabels.Add(labelSlashProcDamageValue);
-            primaryValueLabels.Add(labelHeatProcDamageValue);
-            primaryValueLabels.Add(labelToxinProcDamageValue);
-            primaryValueLabels.Add(labelElectricProcDamageValue);
+            primaryValueLabels.Add(labelSlashWeightValue);
+            primaryValueLabels.Add(labelHeatWeightDamageValue);
+            primaryValueLabels.Add(labelToxinWeightDamageValue);
+            primaryValueLabels.Add(labelElectricWeightDamageValue);
 
 
             radialValueLabels.Add(labelRadialAverageCritMultValue);
