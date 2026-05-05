@@ -122,10 +122,10 @@
             comboBoxMod1 = new ComboBox();
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
-            toolTipMods = new ToolTip(components);
+            toolTipEffectInfo = new ToolTip(components);
+            labelEffectiveStatusDPS = new Label();
             tableLayoutPanelDerivedStats = new TableLayoutPanel();
             labelEffectiveStatusDPSValue = new Label();
-            labelEffectiveStatusDPS = new Label();
             labelElectricWeightDamageValue = new Label();
             labelElectricWeightDamage = new Label();
             labelToxinWeightDamageValue = new Label();
@@ -147,6 +147,7 @@
             labelExtraHitDamageValue = new Label();
             labelDirectHitsPerSecond = new Label();
             labelDirectHitsPerSecondValue = new Label();
+            toolTipLabelInfo = new ToolTip(components);
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -342,7 +343,7 @@
             labelFireTime.AutoSize = true;
             labelFireTime.Location = new Point(4, 106);
             labelFireTime.Name = "labelFireTime";
-            labelFireTime.Size = new Size(56, 15);
+            labelFireTime.Size = new Size(55, 15);
             labelFireTime.TabIndex = 53;
             labelFireTime.Text = "Fire Time";
             // 
@@ -478,7 +479,7 @@
             labelReload.AutoSize = true;
             labelReload.Location = new Point(4, 127);
             labelReload.Name = "labelReload";
-            labelReload.Size = new Size(73, 15);
+            labelReload.Size = new Size(72, 15);
             labelReload.TabIndex = 5;
             labelReload.Text = "Reload Time";
             // 
@@ -587,7 +588,7 @@
             labelDamage.AutoSize = true;
             labelDamage.Location = new Point(4, 253);
             labelDamage.Name = "labelDamage";
-            labelDamage.Size = new Size(139, 15);
+            labelDamage.Size = new Size(138, 15);
             labelDamage.TabIndex = 24;
             labelDamage.Text = "Average Damage Per Tap";
             // 
@@ -1275,10 +1276,23 @@
             openFileDialog1.Filter = "cfg|*.cfg";
             openFileDialog1.Title = "Buildframe - Load Build From File";
             // 
-            // toolTipMods
+            // toolTipEffectInfo
             // 
-            toolTipMods.UseAnimation = false;
-            toolTipMods.UseFading = false;
+            toolTipEffectInfo.AutoPopDelay = 5000;
+            toolTipEffectInfo.InitialDelay = 500;
+            toolTipEffectInfo.ReshowDelay = 100;
+            toolTipEffectInfo.UseAnimation = false;
+            toolTipEffectInfo.UseFading = false;
+            // 
+            // labelEffectiveStatusDPS
+            // 
+            labelEffectiveStatusDPS.AutoSize = true;
+            labelEffectiveStatusDPS.Location = new Point(4, 89);
+            labelEffectiveStatusDPS.Name = "labelEffectiveStatusDPS";
+            labelEffectiveStatusDPS.Size = new Size(111, 15);
+            labelEffectiveStatusDPS.TabIndex = 74;
+            labelEffectiveStatusDPS.Text = "Effective Status DPS";
+            toolTipLabelInfo.SetToolTip(labelEffectiveStatusDPS, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
             // 
             // tableLayoutPanelDerivedStats
             // 
@@ -1328,19 +1342,11 @@
             // 
             labelEffectiveStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelEffectiveStatusDPSValue.CausesValidation = false;
-            labelEffectiveStatusDPSValue.Location = new Point(165, 88);
+            labelEffectiveStatusDPSValue.Location = new Point(165, 89);
             labelEffectiveStatusDPSValue.Name = "labelEffectiveStatusDPSValue";
             labelEffectiveStatusDPSValue.Size = new Size(114, 20);
             labelEffectiveStatusDPSValue.TabIndex = 75;
-            // 
-            // labelEffectiveStatusDPS
-            // 
-            labelEffectiveStatusDPS.AutoSize = true;
-            labelEffectiveStatusDPS.Location = new Point(4, 88);
-            labelEffectiveStatusDPS.Name = "labelEffectiveStatusDPS";
-            labelEffectiveStatusDPS.Size = new Size(111, 15);
-            labelEffectiveStatusDPS.TabIndex = 74;
-            labelEffectiveStatusDPS.Text = "Effective Status DPS";
+            toolTipLabelInfo.SetToolTip(labelEffectiveStatusDPSValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
             // 
             // labelElectricWeightDamageValue
             // 
@@ -1437,7 +1443,7 @@
             labelTotalFireTime.AutoSize = true;
             labelTotalFireTime.Location = new Point(4, 26);
             labelTotalFireTime.Name = "labelTotalFireTime";
-            labelTotalFireTime.Size = new Size(85, 15);
+            labelTotalFireTime.Size = new Size(83, 15);
             labelTotalFireTime.TabIndex = 54;
             labelTotalFireTime.Text = "Total Fire Time";
             // 
@@ -1458,7 +1464,7 @@
             labelTotalDamage.AutoSize = true;
             labelTotalDamage.Location = new Point(4, 47);
             labelTotalDamage.Name = "labelTotalDamage";
-            labelTotalDamage.Size = new Size(80, 15);
+            labelTotalDamage.Size = new Size(79, 15);
             labelTotalDamage.TabIndex = 55;
             labelTotalDamage.Text = "Total Damage";
             // 
@@ -1483,7 +1489,7 @@
             // labelDirectHitDamage
             // 
             labelDirectHitDamage.AutoSize = true;
-            labelDirectHitDamage.Location = new Point(286, 109);
+            labelDirectHitDamage.Location = new Point(286, 110);
             labelDirectHitDamage.Name = "labelDirectHitDamage";
             labelDirectHitDamage.Size = new Size(139, 15);
             labelDirectHitDamage.TabIndex = 70;
@@ -1493,7 +1499,7 @@
             // 
             labelDirectHitDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDirectHitDamageValue.CausesValidation = false;
-            labelDirectHitDamageValue.Location = new Point(447, 109);
+            labelDirectHitDamageValue.Location = new Point(447, 110);
             labelDirectHitDamageValue.Name = "labelDirectHitDamageValue";
             labelDirectHitDamageValue.Size = new Size(114, 20);
             labelDirectHitDamageValue.TabIndex = 71;
@@ -1501,9 +1507,9 @@
             // labelExtraHitDamage
             // 
             labelExtraHitDamage.AutoSize = true;
-            labelExtraHitDamage.Location = new Point(286, 130);
+            labelExtraHitDamage.Location = new Point(286, 131);
             labelExtraHitDamage.Name = "labelExtraHitDamage";
-            labelExtraHitDamage.Size = new Size(98, 15);
+            labelExtraHitDamage.Size = new Size(99, 15);
             labelExtraHitDamage.TabIndex = 72;
             labelExtraHitDamage.Text = "Extra Hit Damage";
             // 
@@ -1511,7 +1517,7 @@
             // 
             labelExtraHitDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelExtraHitDamageValue.CausesValidation = false;
-            labelExtraHitDamageValue.Location = new Point(447, 130);
+            labelExtraHitDamageValue.Location = new Point(447, 131);
             labelExtraHitDamageValue.Name = "labelExtraHitDamageValue";
             labelExtraHitDamageValue.Size = new Size(114, 20);
             labelExtraHitDamageValue.TabIndex = 73;
@@ -1519,7 +1525,7 @@
             // labelDirectHitsPerSecond
             // 
             labelDirectHitsPerSecond.AutoSize = true;
-            labelDirectHitsPerSecond.Location = new Point(4, 109);
+            labelDirectHitsPerSecond.Location = new Point(4, 110);
             labelDirectHitsPerSecond.Name = "labelDirectHitsPerSecond";
             labelDirectHitsPerSecond.Size = new Size(124, 15);
             labelDirectHitsPerSecond.TabIndex = 60;
@@ -1529,10 +1535,16 @@
             // 
             labelDirectHitsPerSecondValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDirectHitsPerSecondValue.CausesValidation = false;
-            labelDirectHitsPerSecondValue.Location = new Point(165, 109);
+            labelDirectHitsPerSecondValue.Location = new Point(165, 110);
             labelDirectHitsPerSecondValue.Name = "labelDirectHitsPerSecondValue";
             labelDirectHitsPerSecondValue.Size = new Size(114, 20);
             labelDirectHitsPerSecondValue.TabIndex = 61;
+            // 
+            // toolTipLabelInfo
+            // 
+            toolTipLabelInfo.AutoPopDelay = 500000;
+            toolTipLabelInfo.InitialDelay = 500;
+            toolTipLabelInfo.ReshowDelay = 100;
             // 
             // MainWindow
             // 
@@ -1655,7 +1667,7 @@
         private ComboBox comboBoxArchgunArcane;
         private Label labelFireTimeValue;
         private Label labelFireTime;
-        private ToolTip toolTipMods;
+        private ToolTip toolTipEffectInfo;
         private Label labelPunchthroughValue;
         private Label labelPunchthrough;
         private Label labelDPSSustainedSummed;
@@ -1684,5 +1696,6 @@
         private Label labelExtraHitDamageValue;
         private Label labelEffectiveStatusDPSValue;
         private Label labelEffectiveStatusDPS;
+        private ToolTip toolTipLabelInfo;
     }
 }

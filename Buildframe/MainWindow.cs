@@ -1021,14 +1021,14 @@ namespace Buildframe
                 int enervate = Methods.Calculation.StatMethods.identifyEnervate((StatsData)box.SelectedItem);
                 if (box == comboBoxWeaponArcane && enervate > 0)
                 {
-                    toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, Methods.Calculation.StatMethods.sumStats([selectedFiremode, .. selectedStats])), this, p);
+                    toolTipEffectInfo.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem, Methods.Calculation.StatMethods.sumStats([selectedFiremode, .. selectedStats])), this, p);
                     return;
                 }
-                toolTipMods.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);
+                toolTipEffectInfo.Show(StatDisplay.generateStatsDescription((StatsData)box.SelectedItem), this, p);
             }
             else
             {
-                toolTipMods.Hide(this);
+                toolTipEffectInfo.Hide(this);
             }
         }
 
@@ -1050,17 +1050,17 @@ namespace Buildframe
                     tooltip += Methods.StatDisplay.generateStatsDescription(selectedFiremodeRadial);
                 }
 
-                toolTipMods.Show(tooltip, this, p);
+                toolTipEffectInfo.Show(tooltip, this, p);
             }
             else
             {
-                toolTipMods.Hide(this);
+                toolTipEffectInfo.Hide(this);
             }
         }
 
         private void comboBoxTooltipHide_Event(object sender, EventArgs e)
         {
-            toolTipMods.Hide(this);
+            toolTipEffectInfo.Hide(this);
         }
 
         private void comboBoxModDropDownClose_Event(object sender, EventArgs e)
