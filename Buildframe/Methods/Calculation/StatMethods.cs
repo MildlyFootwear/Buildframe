@@ -62,7 +62,7 @@ namespace Buildframe.Methods.Calculation
                         if (tag.StartsWith("-"))
                         {
                             WriteLineIfDebug("  Exclusion tag \"" + tag + "\" found on " + s, DebuggingStatManip);
-                            if (statsList[0].tags.Contains(tag.Substring(1)))
+                            if (statsList[0].tags.Split(' ').Contains(tag.Substring(1)))
                             {
                                 skip = true;
                                 WriteLineIfDebug(" Skipping: " + s.id + "/" + s.name + " from stats (exclusion tag " + tag + " found).", DebuggingStatManip);
