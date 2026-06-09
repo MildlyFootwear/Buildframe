@@ -1163,6 +1163,26 @@ namespace Buildframe
             }
         }
 
+        private void createRivenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stashBoxEffects();
+
+            FormStatEditor form = new FormStatEditor();
+            form.setEffectName("Riven - " + currentWeapon.name);
+            form.setEffectTags("WeaponName_" + currentWeapon.name.Replace(" ", "_"));
+            form.ShowDialog();
+
+            LoadAndSave.loadFireModeFiles();
+            LoadAndSave.loadModFiles();
+            LoadAndSave.loadArcaneFiles();
+            LoadAndSave.loadMiscFiles();
+            LoadAndSave.loadWeaponFiles();
+            if (currentWeapon.id != "")
+            {
+                loadWeapon(weaponStats[currentWeapon.id]);
+            }
+        }
+
         private void createWeaponToolStripMenuItem_Click(object sender, EventArgs e)
         {
             stashBoxEffects();
@@ -1193,5 +1213,6 @@ namespace Buildframe
         }
 
         #endregion
+
     }
 }

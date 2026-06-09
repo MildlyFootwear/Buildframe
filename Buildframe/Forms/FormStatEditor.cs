@@ -34,6 +34,14 @@ namespace Buildframe.Forms
             }
         }
 
+        public void setEffectName(string name)
+        {
+            textBoxName.Text = name;
+        }
+        public void setEffectTags(string tags)
+        {
+            textBoxTags.Text = tags;
+        }
         void genID()
         {
             List<string> list = new();

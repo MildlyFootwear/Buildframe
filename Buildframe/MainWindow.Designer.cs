@@ -38,6 +38,7 @@
             toolStripDropDownButtonCreationWizards = new ToolStripDropDownButton();
             createFireModeOrBuffToolStripMenuItem = new ToolStripMenuItem();
             createWeaponToolStripMenuItem = new ToolStripMenuItem();
+            createRivenToolStripMenuItem = new ToolStripMenuItem();
             toolStripButtonInfo = new ToolStripButton();
             tableLayoutPanel1 = new TableLayoutPanel();
             labelFireTimeValue = new Label();
@@ -203,7 +204,7 @@
             // 
             toolStripDropDownButtonCreationWizards.AutoToolTip = false;
             toolStripDropDownButtonCreationWizards.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButtonCreationWizards.DropDownItems.AddRange(new ToolStripItem[] { createFireModeOrBuffToolStripMenuItem, createWeaponToolStripMenuItem });
+            toolStripDropDownButtonCreationWizards.DropDownItems.AddRange(new ToolStripItem[] { createFireModeOrBuffToolStripMenuItem, createWeaponToolStripMenuItem, createRivenToolStripMenuItem });
             toolStripDropDownButtonCreationWizards.Image = (Image)resources.GetObject("toolStripDropDownButtonCreationWizards.Image");
             toolStripDropDownButtonCreationWizards.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButtonCreationWizards.Name = "toolStripDropDownButtonCreationWizards";
@@ -223,6 +224,13 @@
             createWeaponToolStripMenuItem.Size = new Size(196, 22);
             createWeaponToolStripMenuItem.Text = "Weapon Editor";
             createWeaponToolStripMenuItem.Click += createWeaponToolStripMenuItem_Click;
+            // 
+            // createRivenToolStripMenuItem
+            // 
+            createRivenToolStripMenuItem.Name = "createRivenToolStripMenuItem";
+            createRivenToolStripMenuItem.Size = new Size(196, 22);
+            createRivenToolStripMenuItem.Text = "Create Riven";
+            createRivenToolStripMenuItem.Click += createRivenToolStripMenuItem_Click;
             // 
             // toolStripButtonInfo
             // 
@@ -1697,5 +1705,6 @@
         private Label labelEffectiveStatusDPSValue;
         private Label labelEffectiveStatusDPS;
         private ToolTip toolTipLabelInfo;
+        private ToolStripMenuItem createRivenToolStripMenuItem;
     }
 }
