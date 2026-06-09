@@ -1167,7 +1167,7 @@ namespace Buildframe
         {
             stashBoxEffects();
 
-            FormWeaponWizard form = new FormWeaponWizard();
+            FormWeaponEditor form = new FormWeaponEditor();
             form.ShowDialog();
             LoadAndSave.loadWeaponFiles();
             if (currentWeapon.id != "")

@@ -3,9 +3,9 @@ using Buildframe.Methods;
 
 namespace Buildframe.Forms
 {
-    public partial class FormWeaponWizard : Form
+    public partial class FormWeaponEditor : Form
     {
-        public FormWeaponWizard()
+        public FormWeaponEditor()
         {
             InitializeComponent();
         }

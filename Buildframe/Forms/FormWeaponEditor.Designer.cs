@@ -1,6 +1,6 @@
 ﻿namespace Buildframe.Forms
 {
-    partial class FormWeaponWizard
+    partial class FormWeaponEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWeaponWizard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWeaponEditor));
             tableLayoutPanel2 = new TableLayoutPanel();
             textBoxDescription = new TextBox();
             label5 = new Label();
