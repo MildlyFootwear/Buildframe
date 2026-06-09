@@ -2,9 +2,9 @@
 
 namespace Buildframe.Forms
 {
-    public partial class FormStatWizard : Form
+    public partial class FormStatEditor : Form
     {
-        public FormStatWizard()
+        public FormStatEditor()
         {
             InitializeComponent();
         }

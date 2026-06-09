@@ -1149,7 +1149,7 @@ namespace Buildframe
         {
             stashBoxEffects();
 
-            FormStatWizard form = new FormStatWizard();
+            FormStatEditor form = new FormStatEditor();
             form.ShowDialog();
 
             LoadAndSave.loadFireModeFiles();

@@ -1,6 +1,6 @@
 ﻿namespace Buildframe.Forms
 {
-    partial class FormStatWizard
+    partial class FormStatEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             TabPage basePage;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatWizard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatEditor));
             tableLayoutPanel1 = new TableLayoutPanel();
             numericUpDownBaseReserveAmmo = new NumericUpDown();
             labelBaseReserveAmmo = new Label();
