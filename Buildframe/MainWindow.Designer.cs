@@ -124,9 +124,9 @@
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
             toolTipEffectInfo = new ToolTip(components);
-            labelEffectiveStatusDPS = new Label();
+            labelDirectHitStatusDPS = new Label();
             tableLayoutPanelDerivedStats = new TableLayoutPanel();
-            labelEffectiveStatusDPSValue = new Label();
+            labelDirectHitStatusDPSValue = new Label();
             labelElectricWeightDamageValue = new Label();
             labelElectricWeightDamage = new Label();
             labelToxinWeightDamageValue = new Label();
@@ -140,8 +140,8 @@
             labelTotalFireTime = new Label();
             label1 = new Label();
             labelTotalDamage = new Label();
-            labelEffectiveStatusDamage = new Label();
-            labelEffectiveStatusDamageValue = new Label();
+            labelDirectHitStatusDamage = new Label();
+            labelDirectHitStatusDamageValue = new Label();
             labelDirectHitDamage = new Label();
             labelDirectHitDamageValue = new Label();
             labelExtraHitDamage = new Label();
@@ -1292,15 +1292,15 @@
             toolTipEffectInfo.UseAnimation = false;
             toolTipEffectInfo.UseFading = false;
             // 
-            // labelEffectiveStatusDPS
+            // labelDirectHitStatusDPS
             // 
-            labelEffectiveStatusDPS.AutoSize = true;
-            labelEffectiveStatusDPS.Location = new Point(4, 89);
-            labelEffectiveStatusDPS.Name = "labelEffectiveStatusDPS";
-            labelEffectiveStatusDPS.Size = new Size(111, 15);
-            labelEffectiveStatusDPS.TabIndex = 74;
-            labelEffectiveStatusDPS.Text = "Effective Status DPS";
-            toolTipLabelInfo.SetToolTip(labelEffectiveStatusDPS, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
+            labelDirectHitStatusDPS.AutoSize = true;
+            labelDirectHitStatusDPS.Location = new Point(4, 89);
+            labelDirectHitStatusDPS.Name = "labelDirectHitStatusDPS";
+            labelDirectHitStatusDPS.Size = new Size(116, 15);
+            labelDirectHitStatusDPS.TabIndex = 74;
+            labelDirectHitStatusDPS.Text = "Direct Hit Status DPS";
+            toolTipLabelInfo.SetToolTip(labelDirectHitStatusDPS, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
             // 
             // tableLayoutPanelDerivedStats
             // 
@@ -1310,8 +1310,8 @@
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanelDerivedStats.Controls.Add(labelEffectiveStatusDPSValue, 1, 4);
-            tableLayoutPanelDerivedStats.Controls.Add(labelEffectiveStatusDPS, 0, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDPSValue, 1, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDPS, 0, 4);
             tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamageValue, 3, 4);
             tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamage, 2, 4);
             tableLayoutPanelDerivedStats.Controls.Add(labelToxinWeightDamageValue, 3, 3);
@@ -1325,8 +1325,8 @@
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTime, 0, 1);
             tableLayoutPanelDerivedStats.Controls.Add(label1, 0, 0);
             tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamage, 0, 2);
-            tableLayoutPanelDerivedStats.Controls.Add(labelEffectiveStatusDamage, 0, 3);
-            tableLayoutPanelDerivedStats.Controls.Add(labelEffectiveStatusDamageValue, 1, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDamage, 0, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDamageValue, 1, 3);
             tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamage, 2, 5);
             tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamageValue, 3, 5);
             tableLayoutPanelDerivedStats.Controls.Add(labelExtraHitDamage, 2, 6);
@@ -1346,15 +1346,15 @@
             tableLayoutPanelDerivedStats.Size = new Size(563, 152);
             tableLayoutPanelDerivedStats.TabIndex = 5;
             // 
-            // labelEffectiveStatusDPSValue
+            // labelDirectHitStatusDPSValue
             // 
-            labelEffectiveStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelEffectiveStatusDPSValue.CausesValidation = false;
-            labelEffectiveStatusDPSValue.Location = new Point(165, 89);
-            labelEffectiveStatusDPSValue.Name = "labelEffectiveStatusDPSValue";
-            labelEffectiveStatusDPSValue.Size = new Size(114, 20);
-            labelEffectiveStatusDPSValue.TabIndex = 75;
-            toolTipLabelInfo.SetToolTip(labelEffectiveStatusDPSValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
+            labelDirectHitStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelDirectHitStatusDPSValue.CausesValidation = false;
+            labelDirectHitStatusDPSValue.Location = new Point(165, 89);
+            labelDirectHitStatusDPSValue.Name = "labelDirectHitStatusDPSValue";
+            labelDirectHitStatusDPSValue.Size = new Size(114, 20);
+            labelDirectHitStatusDPSValue.TabIndex = 75;
+            toolTipLabelInfo.SetToolTip(labelDirectHitStatusDPSValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
             // 
             // labelElectricWeightDamageValue
             // 
@@ -1476,23 +1476,23 @@
             labelTotalDamage.TabIndex = 55;
             labelTotalDamage.Text = "Total Damage";
             // 
-            // labelEffectiveStatusDamage
+            // labelDirectHitStatusDamage
             // 
-            labelEffectiveStatusDamage.AutoSize = true;
-            labelEffectiveStatusDamage.Location = new Point(4, 68);
-            labelEffectiveStatusDamage.Name = "labelEffectiveStatusDamage";
-            labelEffectiveStatusDamage.Size = new Size(134, 15);
-            labelEffectiveStatusDamage.TabIndex = 58;
-            labelEffectiveStatusDamage.Text = "Effective Status Damage";
+            labelDirectHitStatusDamage.AutoSize = true;
+            labelDirectHitStatusDamage.Location = new Point(4, 68);
+            labelDirectHitStatusDamage.Name = "labelDirectHitStatusDamage";
+            labelDirectHitStatusDamage.Size = new Size(139, 15);
+            labelDirectHitStatusDamage.TabIndex = 58;
+            labelDirectHitStatusDamage.Text = "Direct Hit Status Damage";
             // 
-            // labelEffectiveStatusDamageValue
+            // labelDirectHitStatusDamageValue
             // 
-            labelEffectiveStatusDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelEffectiveStatusDamageValue.CausesValidation = false;
-            labelEffectiveStatusDamageValue.Location = new Point(165, 68);
-            labelEffectiveStatusDamageValue.Name = "labelEffectiveStatusDamageValue";
-            labelEffectiveStatusDamageValue.Size = new Size(114, 20);
-            labelEffectiveStatusDamageValue.TabIndex = 59;
+            labelDirectHitStatusDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelDirectHitStatusDamageValue.CausesValidation = false;
+            labelDirectHitStatusDamageValue.Location = new Point(165, 68);
+            labelDirectHitStatusDamageValue.Name = "labelDirectHitStatusDamageValue";
+            labelDirectHitStatusDamageValue.Size = new Size(114, 20);
+            labelDirectHitStatusDamageValue.TabIndex = 59;
             // 
             // labelDirectHitDamage
             // 
@@ -1686,8 +1686,8 @@
         private Label labelTotalDamageValue;
         private Label labelTotalFireTimeValue;
         private Label labelTotalDamage;
-        private Label labelEffectiveStatusDamage;
-        private Label labelEffectiveStatusDamageValue;
+        private Label labelDirectHitStatusDamage;
+        private Label labelDirectHitStatusDamageValue;
         private Label labelDirectHitsPerSecond;
         private Label labelDirectHitsPerSecondValue;
         private Label labelElectricWeightDamageValue;
@@ -1702,8 +1702,8 @@
         private Label labelDirectHitDamage;
         private Label labelExtraHitDamage;
         private Label labelExtraHitDamageValue;
-        private Label labelEffectiveStatusDPSValue;
-        private Label labelEffectiveStatusDPS;
+        private Label labelDirectHitStatusDPSValue;
+        private Label labelDirectHitStatusDPS;
         private ToolTip toolTipLabelInfo;
         private ToolStripMenuItem createRivenToolStripMenuItem;
     }

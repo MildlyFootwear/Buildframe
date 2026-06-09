@@ -225,7 +225,7 @@ namespace Buildframe
                 double moddedElectricDamage = Methods.Calculation.Elemental.getBaseAndModElectric(selectedFiremodeWithAppliedStats) * nonCritDamageMult * averageCritMult;
                 labelElectricWeightDamageValue.Text = Math.Round(1 / (directHitDamage / moddedElectricDamage) * 100, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modElectric.ToString() + "%)";
                 double effectiveStatusDamage = Methods.Calculation.Weapon.calculateEffectiveStatusDamage(selectedFiremodeWithAppliedStats);
-                labelEffectiveStatusDamageValue.Text = Math.Round(effectiveStatusDamage, 2).ToString("#,##0");
+                labelDirectHitStatusDamageValue.Text = Math.Round(effectiveStatusDamage, 2).ToString("#,##0");
 
                 labelAverageCriticalValue.Text = Math.Round(averageCritMult, 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
@@ -266,7 +266,7 @@ namespace Buildframe
 
                 labelMultishotValue.Text = Math.Round(multishot, 2).ToString();
                 labelStatusPerSecondValue.Text = Math.Round(multishot * statusChance / 100 * speed, 2).ToString();
-                labelEffectiveStatusDPSValue.Text = (multishot * statusChance / 100 * speed * effectiveStatusDamage).ToString("#,##0");
+                labelDirectHitStatusDPSValue.Text = (multishot * statusChance / 100 * speed * effectiveStatusDamage).ToString("#,##0");
 
                 labelDamageValue.Text = Damage.ToString("#,##0");
                 labelDPSBurstValue.Text = DPSBurst.ToString("#,##0");
@@ -897,8 +897,8 @@ namespace Buildframe
 
             primaryValueLabels.Add(labelTotalFireTimeValue);
             primaryValueLabels.Add(labelPunchthroughValue);
-            primaryValueLabels.Add(labelEffectiveStatusDamageValue);
-            primaryValueLabels.Add(labelEffectiveStatusDPSValue);
+            primaryValueLabels.Add(labelDirectHitStatusDamageValue);
+            primaryValueLabels.Add(labelDirectHitStatusDPSValue);
             primaryValueLabels.Add(labelTotalDamageValue);
             primaryValueLabels.Add(labelDirectHitsPerSecondValue);
             primaryValueLabels.Add(labelDirectHitDamageValue);
