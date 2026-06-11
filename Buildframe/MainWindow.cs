@@ -1168,8 +1168,16 @@ namespace Buildframe
             stashBoxEffects();
 
             FormStatEditor form = new FormStatEditor();
-            form.setEffectName("Riven - " + currentWeapon.name);
-            form.setEffectTags("WeaponName_" + currentWeapon.name.Replace(" ", "_"));
+            if (currentWeapon.name.EndsWith(" Incarnon") || currentWeapon.name.EndsWith(" Incarnon Multishot") || currentWeapon.name.EndsWith(" Incarnon Channel"))
+            {
+                form.setEffectName("Riven - " + currentWeapon.name.Replace(" Incarnon Multishot", "").Replace(" Incarnon Channel", "").Replace(" Incarnon", ""));
+                form.setEffectTags("WeaponName_" + currentWeapon.name.Replace(" Incarnon Multishot", "").Replace(" Incarnon Channel", "").Replace(" Incarnon", "").Replace(" ", "_"));
+            }
+            else
+            {
+                form.setEffectName("Riven - " + currentWeapon.name);
+                form.setEffectTags("WeaponName_" + currentWeapon.name.Replace(" Incarnon", "").Replace(" ", "_"));
+            }
             form.ShowDialog();
 
             LoadAndSave.loadFireModeFiles();
