@@ -303,7 +303,7 @@
             tableLayoutPanel1.Controls.Add(labelSummedDPSBurstValue, 1, 24);
             tableLayoutPanel1.Controls.Add(labelPunchthrough, 0, 4);
             tableLayoutPanel1.Controls.Add(labelPunchthroughValue, 1, 4);
-            tableLayoutPanel1.Location = new Point(12, 61);
+            tableLayoutPanel1.Location = new Point(12, 55);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 27;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
