@@ -55,10 +55,12 @@
         {
             if (comboBoxWeaponSelect.SelectedIndex < 1)
             {
+                labelTags.Text = "";
                 label1.Text = "No weapon selected.";
                 return;
             }
             label1.Text = weaponStats.Values.ToList()[comboBoxWeaponSelect.SelectedIndex - 1].description;
+            labelTags.Text = weaponStats.Values.ToList()[comboBoxWeaponSelect.SelectedIndex - 1].tags;
         }
 
     }

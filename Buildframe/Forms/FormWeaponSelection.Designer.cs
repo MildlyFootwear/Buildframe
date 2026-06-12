@@ -31,6 +31,7 @@
             comboBoxWeaponSelect = new ComboBox();
             button1 = new Button();
             label1 = new Label();
+            labelTags = new Label();
             SuspendLayout();
             // 
             // comboBoxWeaponSelect
@@ -48,7 +49,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(105, 104);
+            button1.Location = new Point(105, 123);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -58,11 +59,19 @@
             // 
             // label1
             // 
-            label1.Location = new Point(12, 44);
+            label1.Location = new Point(12, 68);
             label1.Name = "label1";
             label1.Size = new Size(256, 51);
             label1.TabIndex = 2;
             label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // labelTags
+            // 
+            labelTags.Location = new Point(12, 41);
+            labelTags.Name = "labelTags";
+            labelTags.Size = new Size(256, 28);
+            labelTags.TabIndex = 3;
+            labelTags.TextAlign = ContentAlignment.TopCenter;
             // 
             // FormWeaponSelection
             // 
@@ -72,6 +81,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(368, 153);
+            Controls.Add(labelTags);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(comboBoxWeaponSelect);
@@ -89,5 +99,6 @@
         private ComboBox comboBoxWeaponSelect;
         private Button button1;
         private Label label1;
+        private Label labelTags;
     }
 }
