@@ -174,7 +174,7 @@ namespace Buildframe.Forms
                 loadedFilePath = weaponStats[textBoxID.Text].filePath;
                 if (File.Exists(loadedFilePath))
                 {
-                    if (MessageBox.Show("\"" + weaponStats[loadedID] + "\" will be overwritten unless the ID is changed.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    if (MessageBox.Show("\"" + weaponStats[loadedID] + "\" will be overwritten unless the ID is changed.\nContinue?", ToolName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                     {
                         return;
                     }
