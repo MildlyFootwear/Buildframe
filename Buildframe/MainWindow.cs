@@ -937,7 +937,7 @@ namespace Buildframe
             tableLayoutPanel1.Margin = newMargin;
             tableLayoutPanel2.Margin = newMargin;
 
-            tableLayoutPanelDerivedStats.Location = new Point(tableLayoutPanel2.Location.X, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Height - tableLayoutPanelDerivedStats.Height);
+            tableLayoutPanelDerivedStats.Location = new Point(tableLayoutPanel2.Location.X + 1, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Height - tableLayoutPanelDerivedStats.Height);
 
         }
 
