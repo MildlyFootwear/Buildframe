@@ -51,6 +51,10 @@ namespace Buildframe
                     File.Copy(exePath.Replace("Buildframe\\bin\\Release\\net8.0-windows\\Buildframe.exe", "LICENSE"), "LICENSE", true);
                     MessageBox.Show("Application configuration reset and readme updated.", ToolName);
                 }
+                else if (exePath.EndsWith("Buildframe\\bin\\Debug\\net8.0-windows\\Buildframe.exe")) 
+                {
+                    MessageBox.Show("Debug configuration reset. Readme not updated.", ToolName);
+                }
                 else
                 {
                     MessageBox.Show("Application configuration reset. Please restart the application.", ToolName);
