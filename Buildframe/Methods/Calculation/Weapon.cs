@@ -214,6 +214,10 @@ namespace Buildframe.Methods.Calculation
             double elementalDamage = baseDamage * (1 + stats.modDamage / 100) * (1 + stats.modStatusDamage / 100) * (1 + stats.modDamageFaction / 100) * (1 + stats.modDamageFaction / 100);
             elementalDamage *= stats.damageMultiplier;
             elementalDamage *= calculateModAverageCritMultiplier(stats);
+            if (stats.tags.Contains("Held_Beam_Fire"))
+            {
+                elementalDamage *= calculateModMultishot(stats, true);
+            }
             return elementalDamage;
         }
         public static double calculateModReloadMult(StatsData stats)
