@@ -32,6 +32,8 @@ Secondary_Enervate_Rank_0 - applies the effects of the Secondary Enervate arcane
 
 Semi_Auto_Fire - Caps fire rate at 10. Use for weapons with the fire-mode semi.
 
+Held_Beam_Fire - Adjusts status damage to scale as if a beam weapon, with multishot increasing individual damage as well as status per second.
+
 Extra_Hit - added to a stat that is meant to represent an extra hit, like Cyte's Resupply or Oraxia's Silken Stride.
 
 NoIncarnonMode - stats containing this tag will still be selectable but won't be applied to incarnon firemodes, i.e. Oraxia's Silken Stride or Cyte's resupply.
