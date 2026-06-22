@@ -253,8 +253,13 @@ namespace Buildframe
 
                 if (reserveAmmo > 0 && fireTime != double.PositiveInfinity)
                 {
-                    totalFireTime = reserveAmmo / magazine * fireTime;
+                    totalFireTime = reserveAmmo / magazine * fireTime + fireTime;
                     labelTotalFireTimeValue.Text = Math.Round(totalFireTime, 1).ToString() + "s";
+                }
+                else if (selectedFiremodeWithAppliedStats.incarnon)
+                {
+                    totalFireTime = fireTime;
+                    labelTotalFireTimeValue.Text = Math.Round(totalFireTime, 2).ToString() + "s";
                 }
                 else
                 {
