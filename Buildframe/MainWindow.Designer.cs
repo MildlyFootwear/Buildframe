@@ -882,7 +882,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(564, 398);
+            tableLayoutPanel2.Size = new Size(564, 402);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // comboBoxArchgunArcane
