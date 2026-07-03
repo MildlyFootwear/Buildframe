@@ -1281,7 +1281,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
             tableLayoutPanel3.Size = new Size(380, 364);
             tableLayoutPanel3.TabIndex = 1;
             // 
@@ -2010,7 +2010,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.RowStyles.Add(new RowStyle());
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
             tableLayoutPanel4.Size = new Size(369, 364);
             tableLayoutPanel4.TabIndex = 2;
             // 
@@ -2724,7 +2724,7 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // FormStatWizard
+            // FormStatEditor
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2735,7 +2735,7 @@
             Controls.Add(toolStrip1);
             Controls.Add(tableLayoutPanel5);
             MaximizeBox = false;
-            Name = "FormStatWizard";
+            Name = "FormStatEditor";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Buildframe - Stat Wizard";
             FormClosing += FormStatWizard_FormClosing;
