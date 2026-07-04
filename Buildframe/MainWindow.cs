@@ -234,6 +234,9 @@ namespace Buildframe
                 labelFireRateValue.Text = Math.Round(speed, 2).ToString();
                 labelMagazineValue.Text = Math.Round(magazine).ToString();
                 labelDirectHitsPerSecondValue.Text = Math.Round(speed * multishot, 2).ToString();
+                double extraHitDPS = speed * multishot * directHitDamage * selectedFiremodeWithAppliedStats.extraHit;
+                labelExtraHitDPSValue.Text = extraHitDPS.ToString("#,##0");
+                labelExtraHitStatusDPSValue.Text = (extraHitDPS * (selectedFiremodeWithAppliedStats.modDamageFaction / 100 + 1) * (selectedFiremodeWithAppliedStats.modStatusDamage / 100 + 1)).ToString("#,##0");
                 double fireTime = Methods.Calculation.Weapon.calculateModFireTime(selectedFiremodeWithAppliedStats);
                 if (fireTime != double.PositiveInfinity)
                 {
@@ -907,6 +910,8 @@ namespace Buildframe
             primaryValueLabels.Add(labelTotalDamageValue);
             primaryValueLabels.Add(labelDirectHitsPerSecondValue);
             primaryValueLabels.Add(labelDirectHitDamageValue);
+            primaryValueLabels.Add(labelExtraHitDamageValue);
+            primaryValueLabels.Add(labelExtraHitDPSValue);
 
             primaryValueLabels.Add(labelSlashWeightValue);
             primaryValueLabels.Add(labelHeatWeightDamageValue);
