@@ -138,7 +138,6 @@
             labelTotalDamageValue = new Label();
             labelTotalFireTimeValue = new Label();
             labelTotalFireTime = new Label();
-            label1 = new Label();
             labelTotalDamage = new Label();
             labelDirectHitStatusDamage = new Label();
             labelDirectHitStatusDamageValue = new Label();
@@ -149,10 +148,15 @@
             labelDirectHitsPerSecond = new Label();
             labelDirectHitsPerSecondValue = new Label();
             toolTipLabelInfo = new ToolTip(components);
+            tabControlMiscStats = new TabControl();
+            tabPageDamageStatistics = new TabPage();
+            tabPageDoTStatistics = new TabPage();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanelDerivedStats.SuspendLayout();
+            tabControlMiscStats.SuspendLayout();
+            tabPageDamageStatistics.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
@@ -1299,7 +1303,7 @@
             // labelDirectHitStatusDPS
             // 
             labelDirectHitStatusDPS.AutoSize = true;
-            labelDirectHitStatusDPS.Location = new Point(4, 89);
+            labelDirectHitStatusDPS.Location = new Point(4, 64);
             labelDirectHitStatusDPS.Name = "labelDirectHitStatusDPS";
             labelDirectHitStatusDPS.Size = new Size(116, 15);
             labelDirectHitStatusDPS.TabIndex = 74;
@@ -1311,52 +1315,50 @@
             tableLayoutPanelDerivedStats.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanelDerivedStats.ColumnCount = 4;
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
             tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDPSValue, 1, 4);
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDPS, 0, 4);
-            tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamageValue, 3, 4);
-            tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamage, 2, 4);
-            tableLayoutPanelDerivedStats.Controls.Add(labelToxinWeightDamageValue, 3, 3);
-            tableLayoutPanelDerivedStats.Controls.Add(labelToxinWeightDamage, 2, 3);
-            tableLayoutPanelDerivedStats.Controls.Add(labelHeatWeightDamageValue, 3, 2);
-            tableLayoutPanelDerivedStats.Controls.Add(labelHeatWeightDamage, 2, 2);
-            tableLayoutPanelDerivedStats.Controls.Add(labelSlashWeightValue, 3, 1);
-            tableLayoutPanelDerivedStats.Controls.Add(labelSlashWeight, 2, 1);
-            tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamageValue, 1, 2);
-            tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTimeValue, 1, 1);
-            tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTime, 0, 1);
-            tableLayoutPanelDerivedStats.Controls.Add(label1, 0, 0);
-            tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamage, 0, 2);
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDamage, 0, 3);
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDamageValue, 1, 3);
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamage, 2, 5);
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamageValue, 3, 5);
-            tableLayoutPanelDerivedStats.Controls.Add(labelExtraHitDamage, 2, 6);
-            tableLayoutPanelDerivedStats.Controls.Add(labelExtraHitDamageValue, 3, 6);
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecond, 0, 5);
-            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecondValue, 1, 5);
-            tableLayoutPanelDerivedStats.Location = new Point(321, 452);
+            tableLayoutPanelDerivedStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDPSValue, 1, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDPS, 0, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamageValue, 3, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelElectricWeightDamage, 2, 3);
+            tableLayoutPanelDerivedStats.Controls.Add(labelToxinWeightDamageValue, 3, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelToxinWeightDamage, 2, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelHeatWeightDamageValue, 3, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(labelHeatWeightDamage, 2, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(labelSlashWeightValue, 3, 0);
+            tableLayoutPanelDerivedStats.Controls.Add(labelSlashWeight, 2, 0);
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamageValue, 1, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTimeValue, 1, 0);
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalFireTime, 0, 0);
+            tableLayoutPanelDerivedStats.Controls.Add(labelTotalDamage, 0, 1);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDamage, 0, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitStatusDamageValue, 1, 2);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamage, 2, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitDamageValue, 3, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelExtraHitDamage, 2, 5);
+            tableLayoutPanelDerivedStats.Controls.Add(labelExtraHitDamageValue, 3, 5);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecond, 0, 4);
+            tableLayoutPanelDerivedStats.Controls.Add(labelDirectHitsPerSecondValue, 1, 4);
+            tableLayoutPanelDerivedStats.Location = new Point(3, 3);
             tableLayoutPanelDerivedStats.Name = "tableLayoutPanelDerivedStats";
-            tableLayoutPanelDerivedStats.RowCount = 7;
-            tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 24F));
+            tableLayoutPanelDerivedStats.RowCount = 6;
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDerivedStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDerivedStats.Size = new Size(563, 152);
+            tableLayoutPanelDerivedStats.Size = new Size(557, 123);
             tableLayoutPanelDerivedStats.TabIndex = 5;
             // 
             // labelDirectHitStatusDPSValue
             // 
             labelDirectHitStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDirectHitStatusDPSValue.CausesValidation = false;
-            labelDirectHitStatusDPSValue.Location = new Point(165, 89);
+            labelDirectHitStatusDPSValue.Location = new Point(165, 64);
             labelDirectHitStatusDPSValue.Name = "labelDirectHitStatusDPSValue";
-            labelDirectHitStatusDPSValue.Size = new Size(114, 20);
+            labelDirectHitStatusDPSValue.Size = new Size(105, 20);
             labelDirectHitStatusDPSValue.TabIndex = 75;
             toolTipLabelInfo.SetToolTip(labelDirectHitStatusDPSValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
             // 
@@ -1364,15 +1366,15 @@
             // 
             labelElectricWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelElectricWeightDamageValue.CausesValidation = false;
-            labelElectricWeightDamageValue.Location = new Point(447, 89);
+            labelElectricWeightDamageValue.Location = new Point(438, 64);
             labelElectricWeightDamageValue.Name = "labelElectricWeightDamageValue";
-            labelElectricWeightDamageValue.Size = new Size(114, 20);
+            labelElectricWeightDamageValue.Size = new Size(115, 20);
             labelElectricWeightDamageValue.TabIndex = 69;
             // 
             // labelElectricWeightDamage
             // 
             labelElectricWeightDamage.AutoSize = true;
-            labelElectricWeightDamage.Location = new Point(286, 89);
+            labelElectricWeightDamage.Location = new Point(277, 64);
             labelElectricWeightDamage.Name = "labelElectricWeightDamage";
             labelElectricWeightDamage.Size = new Size(134, 15);
             labelElectricWeightDamage.TabIndex = 68;
@@ -1382,15 +1384,15 @@
             // 
             labelToxinWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelToxinWeightDamageValue.CausesValidation = false;
-            labelToxinWeightDamageValue.Location = new Point(447, 68);
+            labelToxinWeightDamageValue.Location = new Point(438, 43);
             labelToxinWeightDamageValue.Name = "labelToxinWeightDamageValue";
-            labelToxinWeightDamageValue.Size = new Size(114, 20);
+            labelToxinWeightDamageValue.Size = new Size(115, 20);
             labelToxinWeightDamageValue.TabIndex = 67;
             // 
             // labelToxinWeightDamage
             // 
             labelToxinWeightDamage.AutoSize = true;
-            labelToxinWeightDamage.Location = new Point(286, 68);
+            labelToxinWeightDamage.Location = new Point(277, 43);
             labelToxinWeightDamage.Name = "labelToxinWeightDamage";
             labelToxinWeightDamage.Size = new Size(124, 15);
             labelToxinWeightDamage.TabIndex = 66;
@@ -1400,15 +1402,15 @@
             // 
             labelHeatWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelHeatWeightDamageValue.CausesValidation = false;
-            labelHeatWeightDamageValue.Location = new Point(447, 47);
+            labelHeatWeightDamageValue.Location = new Point(438, 22);
             labelHeatWeightDamageValue.Name = "labelHeatWeightDamageValue";
-            labelHeatWeightDamageValue.Size = new Size(114, 20);
+            labelHeatWeightDamageValue.Size = new Size(115, 20);
             labelHeatWeightDamageValue.TabIndex = 65;
             // 
             // labelHeatWeightDamage
             // 
             labelHeatWeightDamage.AutoSize = true;
-            labelHeatWeightDamage.Location = new Point(286, 47);
+            labelHeatWeightDamage.Location = new Point(277, 22);
             labelHeatWeightDamage.Name = "labelHeatWeightDamage";
             labelHeatWeightDamage.Size = new Size(121, 15);
             labelHeatWeightDamage.TabIndex = 64;
@@ -1418,15 +1420,15 @@
             // 
             labelSlashWeightValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelSlashWeightValue.CausesValidation = false;
-            labelSlashWeightValue.Location = new Point(447, 26);
+            labelSlashWeightValue.Location = new Point(438, 1);
             labelSlashWeightValue.Name = "labelSlashWeightValue";
-            labelSlashWeightValue.Size = new Size(114, 20);
+            labelSlashWeightValue.Size = new Size(115, 20);
             labelSlashWeightValue.TabIndex = 63;
             // 
             // labelSlashWeight
             // 
             labelSlashWeight.AutoSize = true;
-            labelSlashWeight.Location = new Point(286, 26);
+            labelSlashWeight.Location = new Point(277, 1);
             labelSlashWeight.Name = "labelSlashWeight";
             labelSlashWeight.Size = new Size(75, 15);
             labelSlashWeight.TabIndex = 62;
@@ -1436,45 +1438,33 @@
             // 
             labelTotalDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelTotalDamageValue.CausesValidation = false;
-            labelTotalDamageValue.Location = new Point(165, 47);
+            labelTotalDamageValue.Location = new Point(165, 22);
             labelTotalDamageValue.Name = "labelTotalDamageValue";
-            labelTotalDamageValue.Size = new Size(114, 20);
+            labelTotalDamageValue.Size = new Size(105, 20);
             labelTotalDamageValue.TabIndex = 57;
             // 
             // labelTotalFireTimeValue
             // 
             labelTotalFireTimeValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelTotalFireTimeValue.CausesValidation = false;
-            labelTotalFireTimeValue.Location = new Point(165, 26);
+            labelTotalFireTimeValue.Location = new Point(165, 1);
             labelTotalFireTimeValue.Name = "labelTotalFireTimeValue";
-            labelTotalFireTimeValue.Size = new Size(114, 20);
+            labelTotalFireTimeValue.Size = new Size(105, 20);
             labelTotalFireTimeValue.TabIndex = 56;
             // 
             // labelTotalFireTime
             // 
             labelTotalFireTime.AutoSize = true;
-            labelTotalFireTime.Location = new Point(4, 26);
+            labelTotalFireTime.Location = new Point(4, 1);
             labelTotalFireTime.Name = "labelTotalFireTime";
             labelTotalFireTime.Size = new Size(83, 15);
             labelTotalFireTime.TabIndex = 54;
             labelTotalFireTime.Text = "Total Fire Time";
             // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            tableLayoutPanelDerivedStats.SetColumnSpan(label1, 4);
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(4, 1);
-            label1.Name = "label1";
-            label1.Size = new Size(557, 24);
-            label1.TabIndex = 1;
-            label1.Text = "Derived Stats";
-            // 
             // labelTotalDamage
             // 
             labelTotalDamage.AutoSize = true;
-            labelTotalDamage.Location = new Point(4, 47);
+            labelTotalDamage.Location = new Point(4, 22);
             labelTotalDamage.Name = "labelTotalDamage";
             labelTotalDamage.Size = new Size(79, 15);
             labelTotalDamage.TabIndex = 55;
@@ -1483,7 +1473,7 @@
             // labelDirectHitStatusDamage
             // 
             labelDirectHitStatusDamage.AutoSize = true;
-            labelDirectHitStatusDamage.Location = new Point(4, 68);
+            labelDirectHitStatusDamage.Location = new Point(4, 43);
             labelDirectHitStatusDamage.Name = "labelDirectHitStatusDamage";
             labelDirectHitStatusDamage.Size = new Size(139, 15);
             labelDirectHitStatusDamage.TabIndex = 58;
@@ -1493,15 +1483,15 @@
             // 
             labelDirectHitStatusDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDirectHitStatusDamageValue.CausesValidation = false;
-            labelDirectHitStatusDamageValue.Location = new Point(165, 68);
+            labelDirectHitStatusDamageValue.Location = new Point(165, 43);
             labelDirectHitStatusDamageValue.Name = "labelDirectHitStatusDamageValue";
-            labelDirectHitStatusDamageValue.Size = new Size(114, 20);
+            labelDirectHitStatusDamageValue.Size = new Size(105, 20);
             labelDirectHitStatusDamageValue.TabIndex = 59;
             // 
             // labelDirectHitDamage
             // 
             labelDirectHitDamage.AutoSize = true;
-            labelDirectHitDamage.Location = new Point(286, 110);
+            labelDirectHitDamage.Location = new Point(277, 85);
             labelDirectHitDamage.Name = "labelDirectHitDamage";
             labelDirectHitDamage.Size = new Size(139, 15);
             labelDirectHitDamage.TabIndex = 70;
@@ -1511,15 +1501,15 @@
             // 
             labelDirectHitDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDirectHitDamageValue.CausesValidation = false;
-            labelDirectHitDamageValue.Location = new Point(447, 110);
+            labelDirectHitDamageValue.Location = new Point(438, 85);
             labelDirectHitDamageValue.Name = "labelDirectHitDamageValue";
-            labelDirectHitDamageValue.Size = new Size(114, 20);
+            labelDirectHitDamageValue.Size = new Size(115, 20);
             labelDirectHitDamageValue.TabIndex = 71;
             // 
             // labelExtraHitDamage
             // 
             labelExtraHitDamage.AutoSize = true;
-            labelExtraHitDamage.Location = new Point(286, 131);
+            labelExtraHitDamage.Location = new Point(277, 106);
             labelExtraHitDamage.Name = "labelExtraHitDamage";
             labelExtraHitDamage.Size = new Size(99, 15);
             labelExtraHitDamage.TabIndex = 72;
@@ -1529,15 +1519,15 @@
             // 
             labelExtraHitDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelExtraHitDamageValue.CausesValidation = false;
-            labelExtraHitDamageValue.Location = new Point(447, 131);
+            labelExtraHitDamageValue.Location = new Point(438, 106);
             labelExtraHitDamageValue.Name = "labelExtraHitDamageValue";
-            labelExtraHitDamageValue.Size = new Size(114, 20);
+            labelExtraHitDamageValue.Size = new Size(115, 20);
             labelExtraHitDamageValue.TabIndex = 73;
             // 
             // labelDirectHitsPerSecond
             // 
             labelDirectHitsPerSecond.AutoSize = true;
-            labelDirectHitsPerSecond.Location = new Point(4, 110);
+            labelDirectHitsPerSecond.Location = new Point(4, 85);
             labelDirectHitsPerSecond.Name = "labelDirectHitsPerSecond";
             labelDirectHitsPerSecond.Size = new Size(124, 15);
             labelDirectHitsPerSecond.TabIndex = 60;
@@ -1547,9 +1537,9 @@
             // 
             labelDirectHitsPerSecondValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDirectHitsPerSecondValue.CausesValidation = false;
-            labelDirectHitsPerSecondValue.Location = new Point(165, 110);
+            labelDirectHitsPerSecondValue.Location = new Point(165, 85);
             labelDirectHitsPerSecondValue.Name = "labelDirectHitsPerSecondValue";
-            labelDirectHitsPerSecondValue.Size = new Size(114, 20);
+            labelDirectHitsPerSecondValue.Size = new Size(105, 20);
             labelDirectHitsPerSecondValue.TabIndex = 61;
             // 
             // toolTipLabelInfo
@@ -1558,6 +1548,38 @@
             toolTipLabelInfo.InitialDelay = 500;
             toolTipLabelInfo.ReshowDelay = 100;
             // 
+            // tabControlMiscStats
+            // 
+            tabControlMiscStats.Appearance = TabAppearance.FlatButtons;
+            tabControlMiscStats.Controls.Add(tabPageDamageStatistics);
+            tabControlMiscStats.Controls.Add(tabPageDoTStatistics);
+            tabControlMiscStats.Location = new Point(310, 446);
+            tabControlMiscStats.Name = "tabControlMiscStats";
+            tabControlMiscStats.SelectedIndex = 0;
+            tabControlMiscStats.Size = new Size(574, 155);
+            tabControlMiscStats.TabIndex = 6;
+            // 
+            // tabPageDamageStatistics
+            // 
+            tabPageDamageStatistics.Controls.Add(tableLayoutPanelDerivedStats);
+            tabPageDamageStatistics.Location = new Point(4, 27);
+            tabPageDamageStatistics.Name = "tabPageDamageStatistics";
+            tabPageDamageStatistics.Padding = new Padding(3);
+            tabPageDamageStatistics.Size = new Size(566, 124);
+            tabPageDamageStatistics.TabIndex = 0;
+            tabPageDamageStatistics.Text = "Damage Statistics";
+            tabPageDamageStatistics.UseVisualStyleBackColor = true;
+            // 
+            // tabPageDoTStatistics
+            // 
+            tabPageDoTStatistics.Location = new Point(4, 27);
+            tabPageDoTStatistics.Name = "tabPageDoTStatistics";
+            tabPageDoTStatistics.Padding = new Padding(3);
+            tabPageDoTStatistics.Size = new Size(547, 124);
+            tabPageDoTStatistics.TabIndex = 1;
+            tabPageDoTStatistics.Text = "Status Statistics";
+            tabPageDoTStatistics.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1565,7 +1587,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1045, 746);
-            Controls.Add(tableLayoutPanelDerivedStats);
+            Controls.Add(tabControlMiscStats);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(comboBoxFireMode);
             Controls.Add(tableLayoutPanel1);
@@ -1584,6 +1606,8 @@
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanelDerivedStats.ResumeLayout(false);
             tableLayoutPanelDerivedStats.PerformLayout();
+            tabControlMiscStats.ResumeLayout(false);
+            tabPageDamageStatistics.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1684,7 +1708,6 @@
         private Label labelDPSSustainedSummed;
         private Label labelSummedDPSSustainedValue;
         private TableLayoutPanel tableLayoutPanelDerivedStats;
-        private Label label1;
         private Label labelTotalFireTime;
         private Label labelTotalDamageValue;
         private Label labelTotalFireTimeValue;
@@ -1709,5 +1732,8 @@
         private Label labelDirectHitStatusDPS;
         private ToolTip toolTipLabelInfo;
         private ToolStripMenuItem createRivenToolStripMenuItem;
+        private TabControl tabControlMiscStats;
+        private TabPage tabPageDamageStatistics;
+        private TabPage tabPageDoTStatistics;
     }
 }
