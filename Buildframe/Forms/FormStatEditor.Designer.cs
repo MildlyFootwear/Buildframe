@@ -1699,7 +1699,7 @@
             numericUpDownModStatusChance.DecimalPlaces = 2;
             numericUpDownModStatusChance.Location = new Point(136, 292);
             numericUpDownModStatusChance.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownModStatusChance.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownModStatusChance.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModStatusChance.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModStatusChance.Name = "numericUpDownModStatusChance";
             numericUpDownModStatusChance.Size = new Size(75, 23);
@@ -1747,7 +1747,7 @@
             numericUpDownModCriticalChance.DecimalPlaces = 2;
             numericUpDownModCriticalChance.Location = new Point(136, 244);
             numericUpDownModCriticalChance.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownModCriticalChance.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDownModCriticalChance.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModCriticalChance.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModCriticalChance.Name = "numericUpDownModCriticalChance";
             numericUpDownModCriticalChance.Size = new Size(75, 23);
