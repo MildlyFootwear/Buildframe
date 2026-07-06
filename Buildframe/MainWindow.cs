@@ -204,7 +204,6 @@ namespace Buildframe
 
                 double directHitDamage = Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeWithAppliedStats, true, true) * averageCritMult;
                 labelDirectHitDamageValue.Text = directHitDamage.ToString("#,##0");
-                labelExtraHitDamageValue.Text = (directHitDamage * selectedFiremodeWithAppliedStats.extraHit).ToString("#,##0");
                 double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeWithAppliedStats);
                 double Damage = directHitDamage * multishot;
                 double DPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeWithAppliedStats);
@@ -226,6 +225,7 @@ namespace Buildframe
                 labelElectricWeightDamageValue.Text = Math.Round(1 / (directHitDamage / moddedElectricDamage) * 100, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modElectric.ToString() + "%)";
                 double effectiveStatusDamage = Methods.Calculation.Weapon.calculateEffectiveStatusDamage(selectedFiremodeWithAppliedStats);
                 labelDirectHitStatusDamageValue.Text = Math.Round(effectiveStatusDamage, 2).ToString("#,##0");
+                labelDirectForcedStatusDPSValue.Text = (multishot *  speed * effectiveStatusDamage).ToString("#,##0");
 
                 labelAverageCriticalValue.Text = Math.Round(averageCritMult, 2).ToString() + "x";
                 labelCriticalChanceValue.Text = Math.Round(Methods.Calculation.Weapon.calculateModCritChance(selectedFiremodeWithAppliedStats), 2).ToString() + "%";
@@ -234,9 +234,21 @@ namespace Buildframe
                 labelFireRateValue.Text = Math.Round(speed, 2).ToString();
                 labelMagazineValue.Text = Math.Round(magazine).ToString();
                 labelDirectHitsPerSecondValue.Text = Math.Round(speed * multishot, 2).ToString();
-                double extraHitDPS = speed * multishot * directHitDamage * selectedFiremodeWithAppliedStats.extraHit;
-                labelExtraHitDPSValue.Text = extraHitDPS.ToString("#,##0");
-                labelExtraHitStatusDPSValue.Text = (extraHitDPS * (selectedFiremodeWithAppliedStats.modDamageFaction / 100 + 1) * (selectedFiremodeWithAppliedStats.modStatusDamage / 100 + 1)).ToString("#,##0");
+
+                if (selectedFiremodeWithAppliedStats.extraHit > 0)
+                {
+                    double extraHitDPS = speed * multishot * directHitDamage * selectedFiremodeWithAppliedStats.extraHit;
+                    labelExtraHitDamageValue.Text = (directHitDamage * selectedFiremodeWithAppliedStats.extraHit).ToString("#,##0");
+                    labelExtraHitDPSValue.Text = extraHitDPS.ToString("#,##0");
+                    labelExtraHitStatusDPSValue.Text = (extraHitDPS * (selectedFiremodeWithAppliedStats.modDamageFaction / 100 + 1) * (selectedFiremodeWithAppliedStats.modStatusDamage / 100 + 1)).ToString("#,##0");
+                }
+                else
+                {
+                    labelExtraHitDamageValue.Text = "N/A";
+                    labelExtraHitDPSValue.Text = "N/A";
+                    labelExtraHitStatusDPSValue.Text = "N/A";
+                }
+
                 double fireTime = Methods.Calculation.Weapon.calculateModFireTime(selectedFiremodeWithAppliedStats);
                 if (fireTime != double.PositiveInfinity)
                 {
@@ -912,12 +924,16 @@ namespace Buildframe
             primaryValueLabels.Add(labelDirectHitDamageValue);
             primaryValueLabels.Add(labelExtraHitDamageValue);
             primaryValueLabels.Add(labelExtraHitDPSValue);
+            primaryValueLabels.Add(labelExtraHitStatusDPSValue);
+
 
             primaryValueLabels.Add(labelSlashWeightValue);
             primaryValueLabels.Add(labelHeatWeightDamageValue);
             primaryValueLabels.Add(labelToxinWeightDamageValue);
             primaryValueLabels.Add(labelElectricWeightDamageValue);
-
+            primaryValueLabels.Add(labelDirectHitStatusDamageValue);
+            primaryValueLabels.Add(labelDirectHitStatusDPSValue);
+            primaryValueLabels.Add(labelDirectForcedStatusDPSValue);
 
             radialValueLabels.Add(labelRadialAverageCritMultValue);
             radialValueLabels.Add(labelRadialCriticalChanceValue);

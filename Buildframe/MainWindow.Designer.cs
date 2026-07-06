@@ -150,12 +150,14 @@
             toolTipLabelInfo = new ToolTip(components);
             labelDirectHitStatusDPSValue = new Label();
             labelDirectHitStatusDPS = new Label();
+            labelDirectHitStatusDamage = new Label();
+            labelDirectHitStatusDamageValue = new Label();
+            labelDirectForcedStatusDPS = new Label();
+            labelDirectForcedStatusDPSValue = new Label();
             tabControlMiscStats = new TabControl();
             tabPageDamageStatistics = new TabPage();
             tabPageDirectStatusStatistics = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
-            labelDirectHitStatusDamage = new Label();
-            labelDirectHitStatusDamageValue = new Label();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -1549,21 +1551,61 @@
             // 
             labelDirectHitStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelDirectHitStatusDPSValue.CausesValidation = false;
-            labelDirectHitStatusDPSValue.Location = new Point(165, 22);
+            labelDirectHitStatusDPSValue.Location = new Point(438, 1);
             labelDirectHitStatusDPSValue.Name = "labelDirectHitStatusDPSValue";
-            labelDirectHitStatusDPSValue.Size = new Size(105, 20);
+            labelDirectHitStatusDPSValue.Size = new Size(118, 20);
             labelDirectHitStatusDPSValue.TabIndex = 79;
             toolTipLabelInfo.SetToolTip(labelDirectHitStatusDPSValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
             // 
             // labelDirectHitStatusDPS
             // 
             labelDirectHitStatusDPS.AutoSize = true;
-            labelDirectHitStatusDPS.Location = new Point(4, 22);
+            labelDirectHitStatusDPS.Location = new Point(277, 1);
             labelDirectHitStatusDPS.Name = "labelDirectHitStatusDPS";
             labelDirectHitStatusDPS.Size = new Size(116, 15);
             labelDirectHitStatusDPS.TabIndex = 78;
             labelDirectHitStatusDPS.Text = "Direct Hit Status DPS";
             toolTipLabelInfo.SetToolTip(labelDirectHitStatusDPS, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
+            // 
+            // labelDirectHitStatusDamage
+            // 
+            labelDirectHitStatusDamage.AutoSize = true;
+            labelDirectHitStatusDamage.Location = new Point(4, 1);
+            labelDirectHitStatusDamage.Name = "labelDirectHitStatusDamage";
+            labelDirectHitStatusDamage.Size = new Size(139, 15);
+            labelDirectHitStatusDamage.TabIndex = 76;
+            labelDirectHitStatusDamage.Text = "Direct Hit Status Damage";
+            toolTipLabelInfo.SetToolTip(labelDirectHitStatusDamage, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.\r\n");
+            // 
+            // labelDirectHitStatusDamageValue
+            // 
+            labelDirectHitStatusDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelDirectHitStatusDamageValue.CausesValidation = false;
+            labelDirectHitStatusDamageValue.Location = new Point(165, 1);
+            labelDirectHitStatusDamageValue.Name = "labelDirectHitStatusDamageValue";
+            labelDirectHitStatusDamageValue.Size = new Size(105, 20);
+            labelDirectHitStatusDamageValue.TabIndex = 77;
+            toolTipLabelInfo.SetToolTip(labelDirectHitStatusDamageValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.\r\n");
+            // 
+            // labelDirectForcedStatusDPS
+            // 
+            labelDirectForcedStatusDPS.AutoSize = true;
+            labelDirectForcedStatusDPS.Location = new Point(277, 22);
+            labelDirectForcedStatusDPS.Name = "labelDirectForcedStatusDPS";
+            labelDirectForcedStatusDPS.Size = new Size(136, 15);
+            labelDirectForcedStatusDPS.TabIndex = 80;
+            labelDirectForcedStatusDPS.Text = "Direct Forced Status DPS";
+            toolTipLabelInfo.SetToolTip(labelDirectForcedStatusDPS, "Represents forced status procs, not those from extra hits.");
+            // 
+            // labelDirectForcedStatusDPSValue
+            // 
+            labelDirectForcedStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelDirectForcedStatusDPSValue.CausesValidation = false;
+            labelDirectForcedStatusDPSValue.Location = new Point(438, 22);
+            labelDirectForcedStatusDPSValue.Name = "labelDirectForcedStatusDPSValue";
+            labelDirectForcedStatusDPSValue.Size = new Size(118, 20);
+            labelDirectForcedStatusDPSValue.TabIndex = 81;
+            toolTipLabelInfo.SetToolTip(labelDirectForcedStatusDPSValue, "Represents forced status procs, not those from extra hits.");
             // 
             // tabControlMiscStats
             // 
@@ -1608,8 +1650,6 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
             tableLayoutPanel3.Controls.Add(labelDirectHitStatusDamage, 0, 0);
             tableLayoutPanel3.Controls.Add(labelDirectHitStatusDamageValue, 1, 0);
-            tableLayoutPanel3.Controls.Add(labelDirectHitStatusDPS, 0, 1);
-            tableLayoutPanel3.Controls.Add(labelDirectHitStatusDPSValue, 1, 1);
             tableLayoutPanel3.Controls.Add(labelElectricWeightDamage, 2, 5);
             tableLayoutPanel3.Controls.Add(labelElectricWeightDamageValue, 3, 5);
             tableLayoutPanel3.Controls.Add(labelToxinWeightDamage, 2, 4);
@@ -1618,6 +1658,10 @@
             tableLayoutPanel3.Controls.Add(labelHeatWeightDamageValue, 3, 3);
             tableLayoutPanel3.Controls.Add(labelSlashWeight, 2, 2);
             tableLayoutPanel3.Controls.Add(labelSlashWeightValue, 3, 2);
+            tableLayoutPanel3.Controls.Add(labelDirectHitStatusDPS, 2, 0);
+            tableLayoutPanel3.Controls.Add(labelDirectHitStatusDPSValue, 3, 0);
+            tableLayoutPanel3.Controls.Add(labelDirectForcedStatusDPS, 2, 1);
+            tableLayoutPanel3.Controls.Add(labelDirectForcedStatusDPSValue, 3, 1);
             tableLayoutPanel3.Location = new Point(0, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 6;
@@ -1629,24 +1673,6 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel3.Size = new Size(560, 123);
             tableLayoutPanel3.TabIndex = 7;
-            // 
-            // labelDirectHitStatusDamage
-            // 
-            labelDirectHitStatusDamage.AutoSize = true;
-            labelDirectHitStatusDamage.Location = new Point(4, 1);
-            labelDirectHitStatusDamage.Name = "labelDirectHitStatusDamage";
-            labelDirectHitStatusDamage.Size = new Size(139, 15);
-            labelDirectHitStatusDamage.TabIndex = 76;
-            labelDirectHitStatusDamage.Text = "Direct Hit Status Damage";
-            // 
-            // labelDirectHitStatusDamageValue
-            // 
-            labelDirectHitStatusDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            labelDirectHitStatusDamageValue.CausesValidation = false;
-            labelDirectHitStatusDamageValue.Location = new Point(165, 1);
-            labelDirectHitStatusDamageValue.Name = "labelDirectHitStatusDamageValue";
-            labelDirectHitStatusDamageValue.Size = new Size(105, 20);
-            labelDirectHitStatusDamageValue.TabIndex = 77;
             // 
             // MainWindow
             // 
@@ -1811,5 +1837,7 @@
         private Label labelDirectHitStatusDamageValue;
         private Label labelDirectHitStatusDPS;
         private Label labelDirectHitStatusDPSValue;
+        private Label labelDirectForcedStatusDPS;
+        private Label labelDirectForcedStatusDPSValue;
     }
 }
