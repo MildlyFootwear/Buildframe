@@ -136,8 +136,13 @@ namespace Buildframe.Methods.Calculation
 
                 stats.baseCriticalChance += s.baseCriticalChance;
                 stats.baseCriticalDamage += s.baseCriticalDamage;
-
-                stats.baseStatusChance += s.baseStatusChance;
+                if (s.tags.Contains("Divide_Status_By_Base_Multishot"))
+                {
+                    stats.baseStatusChance += s.baseStatusChance / stats.baseMultishot;
+                } else
+                {
+                    stats.baseStatusChance += s.baseStatusChance;
+                }
                 stats.baseStatusDamage += s.baseStatusDamage;
 
                 stats.baseReserveAmmo += s.baseReserveAmmo;
@@ -215,8 +220,14 @@ namespace Buildframe.Methods.Calculation
 
                 stats.finalCriticalChance += s.finalCriticalChance;
                 stats.finalCriticalDamage += s.finalCriticalDamage;
-
-                stats.finalStatusChance += s.finalStatusChance;
+                if (s.tags.Contains("Divide_Status_By_Base_Multishot"))
+                {
+                    stats.finalStatusChance += s.finalStatusChance / stats.baseMultishot;
+                }
+                else
+                {
+                    stats.finalStatusChance += s.finalStatusChance;
+                }
                 stats.finalStatusDamage += s.finalStatusDamage;
 
                 stats.ammoRegen += s.ammoRegen;
