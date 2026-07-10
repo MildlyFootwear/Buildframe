@@ -154,6 +154,14 @@
             labelDirectHitStatusDamageValue = new Label();
             labelDirectForcedStatusDPS = new Label();
             labelDirectForcedStatusDPSValue = new Label();
+            labelElectricDPSValue = new Label();
+            labelElectricDPS = new Label();
+            labelToxinDPSValue = new Label();
+            labelToxinDPS = new Label();
+            labelHeatDPSValue = new Label();
+            labelHeatDPS = new Label();
+            labelSlashDPSValue = new Label();
+            labelSlashDPS = new Label();
             tabControlMiscStats = new TabControl();
             tabPageDamageStatistics = new TabPage();
             tabPageDirectStatusStatistics = new TabPage();
@@ -1607,6 +1615,86 @@
             labelDirectForcedStatusDPSValue.TabIndex = 81;
             toolTipLabelInfo.SetToolTip(labelDirectForcedStatusDPSValue, "Represents forced status procs, not those from extra hits.");
             // 
+            // labelElectricDPSValue
+            // 
+            labelElectricDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelElectricDPSValue.CausesValidation = false;
+            labelElectricDPSValue.Location = new Point(165, 106);
+            labelElectricDPSValue.Name = "labelElectricDPSValue";
+            labelElectricDPSValue.Size = new Size(105, 20);
+            labelElectricDPSValue.TabIndex = 91;
+            toolTipLabelInfo.SetToolTip(labelElectricDPSValue, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelElectricDPS
+            // 
+            labelElectricDPS.AutoSize = true;
+            labelElectricDPS.Location = new Point(4, 106);
+            labelElectricDPS.Name = "labelElectricDPS";
+            labelElectricDPS.Size = new Size(143, 15);
+            labelElectricDPS.TabIndex = 90;
+            labelElectricDPS.Text = "Electric Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(labelElectricDPS, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelToxinDPSValue
+            // 
+            labelToxinDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelToxinDPSValue.CausesValidation = false;
+            labelToxinDPSValue.Location = new Point(165, 85);
+            labelToxinDPSValue.Name = "labelToxinDPSValue";
+            labelToxinDPSValue.Size = new Size(105, 20);
+            labelToxinDPSValue.TabIndex = 89;
+            toolTipLabelInfo.SetToolTip(labelToxinDPSValue, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelToxinDPS
+            // 
+            labelToxinDPS.AutoSize = true;
+            labelToxinDPS.Location = new Point(4, 85);
+            labelToxinDPS.Name = "labelToxinDPS";
+            labelToxinDPS.Size = new Size(133, 15);
+            labelToxinDPS.TabIndex = 88;
+            labelToxinDPS.Text = "Toxin Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(labelToxinDPS, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelHeatDPSValue
+            // 
+            labelHeatDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelHeatDPSValue.CausesValidation = false;
+            labelHeatDPSValue.Location = new Point(165, 64);
+            labelHeatDPSValue.Name = "labelHeatDPSValue";
+            labelHeatDPSValue.Size = new Size(105, 20);
+            labelHeatDPSValue.TabIndex = 87;
+            toolTipLabelInfo.SetToolTip(labelHeatDPSValue, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelHeatDPS
+            // 
+            labelHeatDPS.AutoSize = true;
+            labelHeatDPS.Location = new Point(4, 64);
+            labelHeatDPS.Name = "labelHeatDPS";
+            labelHeatDPS.Size = new Size(130, 15);
+            labelHeatDPS.TabIndex = 86;
+            labelHeatDPS.Text = "Heat Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(labelHeatDPS, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelSlashDPSValue
+            // 
+            labelSlashDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelSlashDPSValue.CausesValidation = false;
+            labelSlashDPSValue.Location = new Point(165, 43);
+            labelSlashDPSValue.Name = "labelSlashDPSValue";
+            labelSlashDPSValue.Size = new Size(105, 20);
+            labelSlashDPSValue.TabIndex = 85;
+            toolTipLabelInfo.SetToolTip(labelSlashDPSValue, "Be mindful of how the DoT behaves ingame.");
+            // 
+            // labelSlashDPS
+            // 
+            labelSlashDPS.AutoSize = true;
+            labelSlashDPS.Location = new Point(4, 43);
+            labelSlashDPS.Name = "labelSlashDPS";
+            labelSlashDPS.Size = new Size(132, 15);
+            labelSlashDPS.TabIndex = 84;
+            labelSlashDPS.Text = "Slash Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(labelSlashDPS, "Be mindful of how the DoT behaves ingame.");
+            // 
             // tabControlMiscStats
             // 
             tabControlMiscStats.Appearance = TabAppearance.FlatButtons;
@@ -1648,6 +1736,14 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
+            tableLayoutPanel3.Controls.Add(labelElectricDPSValue, 1, 5);
+            tableLayoutPanel3.Controls.Add(labelElectricDPS, 0, 5);
+            tableLayoutPanel3.Controls.Add(labelToxinDPSValue, 1, 4);
+            tableLayoutPanel3.Controls.Add(labelToxinDPS, 0, 4);
+            tableLayoutPanel3.Controls.Add(labelHeatDPSValue, 1, 3);
+            tableLayoutPanel3.Controls.Add(labelHeatDPS, 0, 3);
+            tableLayoutPanel3.Controls.Add(labelSlashDPSValue, 1, 2);
+            tableLayoutPanel3.Controls.Add(labelSlashDPS, 0, 2);
             tableLayoutPanel3.Controls.Add(labelDirectHitStatusDamage, 0, 0);
             tableLayoutPanel3.Controls.Add(labelDirectHitStatusDamageValue, 1, 0);
             tableLayoutPanel3.Controls.Add(labelElectricWeightDamage, 2, 5);
@@ -1839,5 +1935,13 @@
         private Label labelDirectHitStatusDPSValue;
         private Label labelDirectForcedStatusDPS;
         private Label labelDirectForcedStatusDPSValue;
+        private Label labelElectricDPSValue;
+        private Label labelElectricDPS;
+        private Label labelToxinDPSValue;
+        private Label labelToxinDPS;
+        private Label labelHeatDPSValue;
+        private Label labelHeatDPS;
+        private Label labelSlashDPSValue;
+        private Label labelSlashDPS;
     }
 }
