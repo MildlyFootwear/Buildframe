@@ -46,6 +46,16 @@ namespace Buildframe.Methods.Calculation
         /// </summary>
         /// <param name="stats"></param>
         /// <returns></returns>
+        public static double getModTau(StatsData stats)
+        {
+            return Weapon.calculateBaseDamage(stats) * (stats.modTau / 100);
+        }
+
+        /// <summary>
+        /// Returns the value of damage only scaled by base damage, before modifiers like Deadhead/Roar/etc
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
         public static double getModCorrosive(StatsData stats)
         {
             return Weapon.calculateBaseDamage(stats) * (stats.modCorrosive / 100);
@@ -132,6 +142,15 @@ namespace Buildframe.Methods.Calculation
         public static double getBaseAndModToxin(StatsData stats)
         {
             return Weapon.calculateBaseDamage(stats) * (stats.modToxin / 100) + stats.baseToxin;
+        }
+        /// <summary>
+        /// Returns the damage of a given element considering only the weapon's base damage and the mod's percentage increase, before modifiers like Deadhead/Roar/etc
+        /// </summary>
+        /// <param name="stats"></param>
+        /// <returns></returns>
+        public static double getBaseAndModTau(StatsData stats)
+        {
+            return Weapon.calculateBaseDamage(stats) * (stats.modTau / 100) + stats.baseTau;
         }
         /// <summary>
         /// Returns the damage of a given element considering only the weapon's base damage and the mod's percentage increase, before modifiers like Deadhead/Roar/etc

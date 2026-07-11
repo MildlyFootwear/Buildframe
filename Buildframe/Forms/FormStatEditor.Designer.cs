@@ -84,6 +84,8 @@
             numericUpDownBaseGas = new NumericUpDown();
             label28 = new Label();
             label79 = new Label();
+            labelBaseTau = new Label();
+            numericUpDownBaseTau = new NumericUpDown();
             tabControl1 = new TabControl();
             identifiersPage = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -151,6 +153,8 @@
             label52 = new Label();
             label80 = new Label();
             numericUpDownModDamage = new NumericUpDown();
+            labelModTau = new Label();
+            numericUpDownModTau = new NumericUpDown();
             miscPage = new TabPage();
             tableLayoutPanel4 = new TableLayoutPanel();
             numericUpDownAmmoRegen = new NumericUpDown();
@@ -240,6 +244,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseDamage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseMagnetic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseGas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseTau).BeginInit();
             tabControl1.SuspendLayout();
             identifiersPage.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -271,6 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModTau).BeginInit();
             miscPage.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAmmoRegen).BeginInit();
@@ -378,9 +384,11 @@
             tableLayoutPanel1.Controls.Add(numericUpDownBaseGas, 3, 13);
             tableLayoutPanel1.Controls.Add(label28, 0, 13);
             tableLayoutPanel1.Controls.Add(label79, 0, 0);
+            tableLayoutPanel1.Controls.Add(labelBaseTau, 2, 14);
+            tableLayoutPanel1.Controls.Add(numericUpDownBaseTau, 3, 14);
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 14;
+            tableLayoutPanel1.RowCount = 15;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
@@ -394,8 +402,9 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
-            tableLayoutPanel1.Size = new Size(391, 360);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.Size = new Size(391, 387);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // numericUpDownBaseReserveAmmo
@@ -424,12 +433,13 @@
             // checkBoxIncarnon
             // 
             checkBoxIncarnon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            checkBoxIncarnon.AutoSize = true;
             checkBoxIncarnon.BackgroundImageLayout = ImageLayout.None;
             checkBoxIncarnon.CheckAlign = ContentAlignment.MiddleCenter;
             checkBoxIncarnon.Location = new Point(127, 340);
             checkBoxIncarnon.Margin = new Padding(0);
             checkBoxIncarnon.Name = "checkBoxIncarnon";
-            checkBoxIncarnon.Size = new Size(77, 19);
+            checkBoxIncarnon.Size = new Size(77, 23);
             checkBoxIncarnon.TabIndex = 79;
             checkBoxIncarnon.TextAlign = ContentAlignment.MiddleCenter;
             checkBoxIncarnon.UseVisualStyleBackColor = true;
@@ -889,7 +899,7 @@
             label18.AutoSize = true;
             label18.Location = new Point(208, 340);
             label18.Name = "label18";
-            label18.Size = new Size(50, 19);
+            label18.Size = new Size(50, 23);
             label18.TabIndex = 41;
             label18.Text = "baseGas";
             label18.TextAlign = ContentAlignment.MiddleCenter;
@@ -1030,7 +1040,7 @@
             label28.AutoSize = true;
             label28.Location = new Point(4, 340);
             label28.Name = "label28";
-            label28.Size = new Size(54, 19);
+            label28.Size = new Size(54, 23);
             label28.TabIndex = 78;
             label28.Text = "Incarnon";
             label28.TextAlign = ContentAlignment.MiddleCenter;
@@ -1046,6 +1056,32 @@
             label79.Size = new Size(383, 50);
             label79.TabIndex = 80;
             label79.Text = "This is for weapon info cards or incarnon perks specifying \"base\".\r\nEnter stats as a flat number unless instructed otherwise.\r\nCharge Time is currently unimplemented. Approximate it using speed.";
+            // 
+            // labelBaseTau
+            // 
+            labelBaseTau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            labelBaseTau.AutoSize = true;
+            labelBaseTau.Location = new Point(208, 364);
+            labelBaseTau.Name = "labelBaseTau";
+            labelBaseTau.Size = new Size(49, 22);
+            labelBaseTau.TabIndex = 83;
+            labelBaseTau.Text = "baseTau";
+            labelBaseTau.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDownBaseTau
+            // 
+            numericUpDownBaseTau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            numericUpDownBaseTau.AutoSize = true;
+            numericUpDownBaseTau.DecimalPlaces = 2;
+            numericUpDownBaseTau.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            numericUpDownBaseTau.Location = new Point(294, 364);
+            numericUpDownBaseTau.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownBaseTau.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownBaseTau.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownBaseTau.Name = "numericUpDownBaseTau";
+            numericUpDownBaseTau.Size = new Size(95, 23);
+            numericUpDownBaseTau.TabIndex = 84;
+            numericUpDownBaseTau.TextAlign = HorizontalAlignment.Center;
             // 
             // tabControl1
             // 
@@ -1265,9 +1301,11 @@
             tableLayoutPanel3.Controls.Add(label52, 0, 3);
             tableLayoutPanel3.Controls.Add(label80, 0, 0);
             tableLayoutPanel3.Controls.Add(numericUpDownModDamage, 1, 1);
+            tableLayoutPanel3.Controls.Add(labelModTau, 2, 14);
+            tableLayoutPanel3.Controls.Add(numericUpDownModTau, 3, 14);
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 14;
+            tableLayoutPanel3.RowCount = 16;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
@@ -1281,8 +1319,10 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
-            tableLayoutPanel3.Size = new Size(380, 364);
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.Size = new Size(380, 391);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // numericUpDownModReserveAmmo
@@ -1922,6 +1962,31 @@
             numericUpDownModDamage.TabIndex = 52;
             numericUpDownModDamage.TextAlign = HorizontalAlignment.Center;
             // 
+            // labelModTau
+            // 
+            labelModTau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            labelModTau.AutoSize = true;
+            labelModTau.Location = new Point(216, 364);
+            labelModTau.Name = "labelModTau";
+            labelModTau.Size = new Size(50, 22);
+            labelModTau.TabIndex = 85;
+            labelModTau.Text = "modTau";
+            labelModTau.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDownModTau
+            // 
+            numericUpDownModTau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            numericUpDownModTau.AutoSize = true;
+            numericUpDownModTau.DecimalPlaces = 2;
+            numericUpDownModTau.Location = new Point(303, 364);
+            numericUpDownModTau.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModTau.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownModTau.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModTau.Name = "numericUpDownModTau";
+            numericUpDownModTau.Size = new Size(75, 23);
+            numericUpDownModTau.TabIndex = 86;
+            numericUpDownModTau.TextAlign = HorizontalAlignment.Center;
+            // 
             // miscPage
             // 
             miscPage.Controls.Add(tableLayoutPanel4);
@@ -1994,9 +2059,9 @@
             tableLayoutPanel4.Controls.Add(numericUpDownFinalMagnetic, 3, 12);
             tableLayoutPanel4.Controls.Add(numericUpDownFinalGas, 3, 13);
             tableLayoutPanel4.Controls.Add(label81, 0, 0);
-            tableLayoutPanel4.Location = new Point(2, 3);
+            tableLayoutPanel4.Location = new Point(3, 3);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 14;
+            tableLayoutPanel4.RowCount = 15;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
@@ -2011,6 +2076,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.Size = new Size(369, 364);
             tableLayoutPanel4.TabIndex = 2;
             // 
@@ -2034,7 +2100,7 @@
             labelAmmoRegeneration.AutoSize = true;
             labelAmmoRegeneration.Location = new Point(4, 340);
             labelAmmoRegeneration.Name = "labelAmmoRegeneration";
-            labelAmmoRegeneration.Size = new Size(90, 23);
+            labelAmmoRegeneration.Size = new Size(90, 19);
             labelAmmoRegeneration.TabIndex = 86;
             labelAmmoRegeneration.Text = "Ammo Regen/s";
             labelAmmoRegeneration.TextAlign = ContentAlignment.MiddleCenter;
@@ -2514,7 +2580,7 @@
             label68.AutoSize = true;
             label68.Location = new Point(207, 340);
             label68.Name = "label68";
-            label68.Size = new Size(49, 23);
+            label68.Size = new Size(49, 19);
             label68.TabIndex = 41;
             label68.Text = "finalGas";
             label68.TextAlign = ContentAlignment.MiddleCenter;
@@ -2770,6 +2836,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseDamage).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseMagnetic).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseGas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseTau).EndInit();
             tabControl1.ResumeLayout(false);
             identifiersPage.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
@@ -2803,6 +2870,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReloadTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModAttackSpeed).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModTau).EndInit();
             miscPage.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
@@ -3024,5 +3092,9 @@
         private NumericUpDown numericUpDownModReserveAmmo;
         private Label labelAmmoRegeneration;
         private NumericUpDown numericUpDownAmmoRegen;
+        private Label labelModTau;
+        private NumericUpDown numericUpDownModTau;
+        private Label labelBaseTau;
+        private NumericUpDown numericUpDownBaseTau;
     }
 }

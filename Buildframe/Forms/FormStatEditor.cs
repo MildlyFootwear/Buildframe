@@ -126,6 +126,7 @@ namespace Buildframe.Forms
             numericUpDownBaseCold.Value = (decimal)stats.baseCold;
             numericUpDownBaseElectric.Value = (decimal)stats.baseElectric;
             numericUpDownBaseToxin.Value = (decimal)stats.baseToxin;
+            numericUpDownBaseTau.Value = (decimal)stats.baseTau;
             numericUpDownBaseBlast.Value = (decimal)stats.baseBlast;
             numericUpDownBaseRadiation.Value = (decimal)stats.baseRadiation;
             numericUpDownBaseViral.Value = (decimal)stats.baseViral;
@@ -153,6 +154,7 @@ namespace Buildframe.Forms
             numericUpDownModCold.Value = (decimal)stats.modCold;
             numericUpDownModElectric.Value = (decimal)stats.modElectric;
             numericUpDownModToxin.Value = (decimal)stats.modToxin;
+            numericUpDownModTau.Value = (decimal)stats.modTau;
             numericUpDownModBlast.Value = (decimal)stats.modBlast;
             numericUpDownModRadiation.Value = (decimal)stats.modRadiation;
             numericUpDownModViral.Value = (decimal)stats.modViral;
@@ -323,6 +325,7 @@ namespace Buildframe.Forms
             stats.baseCorrosive = (double)numericUpDownBaseCorrosive.Value;
             stats.baseMagnetic = (double)numericUpDownBaseMagnetic.Value;
             stats.baseGas = (double)numericUpDownBaseGas.Value;
+            stats.baseTau = (double)numericUpDownBaseTau.Value;
             stats.baseMultishot = (double)numericUpDownBaseMultishot.Value;
             stats.baseCriticalChance = (double)numericUpDownBaseCriticalChance.Value;
             stats.baseCriticalDamage = (double)numericUpDownBaseCriticalDamage.Value;
@@ -350,6 +353,7 @@ namespace Buildframe.Forms
             stats.modCorrosive = (double)numericUpDownModCorrosive.Value;
             stats.modMagnetic = (double)numericUpDownModMagnetic.Value;
             stats.modGas = (double)numericUpDownModGas.Value;
+            stats.modTau = (double)numericUpDownModTau.Value;
             stats.modMultishot = (double)numericUpDownModMultishot.Value;
             stats.modCriticalChance = (double)numericUpDownModCriticalChance.Value;
             stats.modCriticalDamage = (double)numericUpDownModCriticalDamage.Value;

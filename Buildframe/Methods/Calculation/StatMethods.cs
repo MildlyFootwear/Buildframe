@@ -124,6 +124,7 @@ namespace Buildframe.Methods.Calculation
                 stats.baseCold += s.baseCold;
                 stats.baseElectric += s.baseElectric;
                 stats.baseToxin += s.baseToxin;
+                stats.baseTau += s.baseTau;
 
                 stats.baseBlast += s.baseBlast;
                 stats.baseRadiation += s.baseRadiation;
@@ -171,6 +172,7 @@ namespace Buildframe.Methods.Calculation
                 stats.modCold += s.modCold;
                 stats.modElectric += s.modElectric;
                 stats.modToxin += s.modToxin;
+                stats.modTau += s.modTau;
 
                 stats.modBlast += s.modBlast;
                 stats.modRadiation += s.modRadiation;

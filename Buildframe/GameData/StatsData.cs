@@ -31,6 +31,8 @@
         public double baseElectric = 0;
         public double baseToxin = 0;
 
+        public double baseTau = 0;
+
         public double baseBlast = 0;
         public double baseRadiation = 0;
         public double baseViral = 0;
@@ -69,6 +71,8 @@
         public double modCold = 0;
         public double modElectric = 0;
         public double modToxin = 0;
+
+        public double modTau = 0;
 
         public double modBlast = 0;
         public double modRadiation = 0;

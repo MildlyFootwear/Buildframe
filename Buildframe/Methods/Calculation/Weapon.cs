@@ -6,7 +6,7 @@ namespace Buildframe.Methods.Calculation
     {
         public static double calculateBaseDamage(StatsData stats)
         {
-            return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
+            return stats.baseDamage + stats.baseSlash + stats.baseImpact + stats.basePuncture + stats.baseHeat + stats.baseElectric + stats.baseCold + stats.baseToxin + stats.baseTau + stats.baseCorrosive + stats.baseViral + stats.baseRadiation + stats.baseBlast + stats.baseMagnetic + stats.baseGas;
         }
         /// <summary>
         /// Calculates the damage multiplier provided by generic damage boosts involving +DMG%, faction damage, and damage multipliers.
@@ -35,6 +35,7 @@ namespace Buildframe.Methods.Calculation
             double modElectric = Elemental.getModElectric(stats);
             double modCold = Elemental.getModCold(stats);
             double modToxin = Elemental.getModToxin(stats);
+            double modTau = Elemental.getModTau(stats);
 
             double modCorrosive = Elemental.getModCorrosive(stats);
             double modViral = Elemental.getModViral(stats);
@@ -43,7 +44,7 @@ namespace Buildframe.Methods.Calculation
             double modMagnetic = Elemental.getModMagnetic(stats);
             double modGas = Elemental.getModGas(stats);
 
-            double modElemental = modHeat + modElectric + modCold + modToxin + modCorrosive + modViral + modRadiation + modBlast + modMagnetic + modGas;
+            double modElemental = modHeat + modElectric + modCold + modToxin + modTau + modCorrosive + modViral + modRadiation + modBlast + modMagnetic + modGas;
             double modPhysical = modSlash + modImpact + modPuncture;
 
             double moddedDamage = (baseDamage + modElemental + modPhysical) * modDamageMult;

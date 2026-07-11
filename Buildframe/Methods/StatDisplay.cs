@@ -75,6 +75,10 @@ namespace Buildframe.Methods
             {
                 s += "Base Toxin Damage: " + stats.baseToxin + "\n";
             }
+            if (stats.baseTau != 0)
+            {
+                s += "Base Tau Damage: " + stats.baseTau + "\n";
+            }
 
             if (stats.baseBlast != 0)
             {
@@ -211,6 +215,10 @@ namespace Buildframe.Methods
             if (stats.modToxin != 0)
             {
                 s += "Mod Toxin: " + stats.modToxin + "%\n";
+            }
+            if (stats.modTau != 0)
+            {
+                s += "Mod Tau: " + stats.modTau + "%\n";
             }
 
             if (stats.modBlast != 0)

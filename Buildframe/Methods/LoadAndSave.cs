@@ -93,6 +93,9 @@ namespace Buildframe.Methods
                 if (split[0] == "baseToxin")
                     stats.baseToxin = Convert.ToDouble(split[1]);
 
+                if (split[0] == "baseTau")
+                    stats.baseTau = Convert.ToDouble(split[1]);
+
                 if (split[0] == "baseBlast")
                     stats.baseBlast = Convert.ToDouble(split[1]);
                 if (split[0] == "baseRadiation")
@@ -162,6 +165,9 @@ namespace Buildframe.Methods
                     stats.modElectric = Convert.ToDouble(split[1]);
                 if (split[0] == "modToxin")
                     stats.modToxin = Convert.ToDouble(split[1]);
+
+                if (split[0] == "modTau")
+                    stats.modTau = Convert.ToDouble(split[1]);
 
                 if (split[0] == "modBlast")
                     stats.modBlast = Convert.ToDouble(split[1]);
@@ -305,6 +311,7 @@ namespace Buildframe.Methods
             s += "\nbaseCold=" + Convert.ToString(stats.baseCold);
             s += "\nbaseElectric=" + Convert.ToString(stats.baseElectric);
             s += "\nbaseToxin=" + Convert.ToString(stats.baseToxin);
+            s += "\nbaseTau=" + Convert.ToString(stats.baseTau);
 
             s += "\nbaseBlast=" + Convert.ToString(stats.baseBlast);
             s += "\nbaseRadiation=" + Convert.ToString(stats.baseRadiation);
@@ -344,6 +351,7 @@ namespace Buildframe.Methods
             s += "\nmodCold=" + Convert.ToString(stats.modCold);
             s += "\nmodElectric=" + Convert.ToString(stats.modElectric);
             s += "\nmodToxin=" + Convert.ToString(stats.modToxin);
+            s += "\nmodTau=" + Convert.ToString(stats.modTau);
 
             s += "\nmodBlast=" + Convert.ToString(stats.modBlast);
             s += "\nmodRadiation=" + Convert.ToString(stats.modRadiation);
