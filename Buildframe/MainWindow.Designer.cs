@@ -166,6 +166,7 @@
             tabPageDamageStatistics = new TabPage();
             tabPageDirectStatusStatistics = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
+            tabPageRadialStatusStatistics = new TabPage();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -1700,6 +1701,7 @@
             tabControlMiscStats.Appearance = TabAppearance.FlatButtons;
             tabControlMiscStats.Controls.Add(tabPageDamageStatistics);
             tabControlMiscStats.Controls.Add(tabPageDirectStatusStatistics);
+            tabControlMiscStats.Controls.Add(tabPageRadialStatusStatistics);
             tabControlMiscStats.Location = new Point(310, 446);
             tabControlMiscStats.Name = "tabControlMiscStats";
             tabControlMiscStats.SelectedIndex = 0;
@@ -1769,6 +1771,16 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel3.Size = new Size(560, 123);
             tableLayoutPanel3.TabIndex = 7;
+            // 
+            // tabPageRadialStatusStatistics
+            // 
+            tabPageRadialStatusStatistics.Location = new Point(4, 27);
+            tabPageRadialStatusStatistics.Name = "tabPageRadialStatusStatistics";
+            tabPageRadialStatusStatistics.Padding = new Padding(3);
+            tabPageRadialStatusStatistics.Size = new Size(566, 120);
+            tabPageRadialStatusStatistics.TabIndex = 2;
+            tabPageRadialStatusStatistics.Text = "Radial Status Statistics";
+            tabPageRadialStatusStatistics.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -1943,5 +1955,6 @@
         private Label labelHeatDPS;
         private Label labelSlashDPSValue;
         private Label labelSlashDPS;
+        private TabPage tabPageRadialStatusStatistics;
     }
 }
