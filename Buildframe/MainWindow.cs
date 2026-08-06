@@ -366,9 +366,75 @@ namespace Buildframe
                 }
                 selectedFiremodeRadialWithAppliedStats = Methods.Calculation.StatMethods.sumStats(stats, overrideRadial);
 
+
+                double averageCritMult = Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats);
+                double nonCritDamageMult = Methods.Calculation.Weapon.calculateModDamageMultiplier(selectedFiremodeRadialWithAppliedStats);
+
+                double hitDamage = Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeRadialWithAppliedStats, true, true) * averageCritMult;
+
+                double effectiveStatusDamage = Methods.Calculation.Weapon.calculateEffectiveStatusDamage(selectedFiremodeRadialWithAppliedStats);
+                labelRadialStatusDamageValue.Text = Math.Round(effectiveStatusDamage, 2).ToString("#,##0");
+
                 double multishot = Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats);
                 double statusChance = Methods.Calculation.Weapon.calculateModStatusChance(selectedFiremodeRadialWithAppliedStats);
                 double speed = Methods.Calculation.Weapon.calculateModSpeed(selectedFiremodeRadialWithAppliedStats);
+
+                double radialStatusDPS = multishot * statusChance / 100 * speed * effectiveStatusDamage;
+                labelRadialStatusDPSValue.Text = radialStatusDPS.ToString("#,##0");
+                labelRadialForcedStatusDPSValue.Text = (multishot * speed * effectiveStatusDamage).ToString("#,##0");
+
+
+                double moddedSlashDamage = Methods.Calculation.Physical.getBaseAndModSlash(selectedFiremodeWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                double slashWeight = 1 / (hitDamage / moddedSlashDamage) * 100;
+                if (slashWeight > 0)
+                {
+                    labelRadialSlashWeightValue.Text = Math.Round(slashWeight, 2).ToString() + "%";
+                    labelRadialSlashDPSValue.Text = ((slashWeight / 100 * radialStatusDPS) * 0.35).ToString("#,##0");
+                }
+                else
+                {
+                    labelRadialSlashWeightValue.Text = "N/A";
+                    labelRadialSlashDPSValue.Text = "N/A";
+                }
+
+                double moddedHeatDamage = Methods.Calculation.Elemental.getBaseAndModHeat(selectedFiremodeRadialWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                double heatWeight = 1 / (hitDamage / moddedHeatDamage) * 100;
+                if (heatWeight > 0)
+                {
+                    labelRadialHeatWeightDamageValue.Text = Math.Round(heatWeight, 2).ToString() + "% (" + selectedFiremodeRadialWithAppliedStats.modHeat.ToString() + "%)";
+                    labelRadialHeatDPSValue.Text = (heatWeight / 100 * radialStatusDPS * (selectedFiremodeRadialWithAppliedStats.modHeat / 100 + 1) * 0.5).ToString("#,##0");
+                }
+                else
+                {
+                    labelRadialHeatWeightDamageValue.Text = "N/A";
+                    labelRadialHeatDPSValue.Text = "N/A";
+                }
+
+                double moddedToxinDamage = Methods.Calculation.Elemental.getBaseAndModToxin(selectedFiremodeRadialWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                double toxinWeight = 1 / (hitDamage / moddedToxinDamage) * 100;
+                if (toxinWeight > 0)
+                {
+                    labelRadialToxinWeightDamageValue.Text = Math.Round(toxinWeight, 2).ToString() + "% (" + selectedFiremodeRadialWithAppliedStats.modToxin.ToString() + "%)";
+                    labelRadialToxinDPSValue.Text = (toxinWeight / 100 * radialStatusDPS * (selectedFiremodeRadialWithAppliedStats.modToxin / 100 + 1) * 0.5).ToString("#,##0");
+                }
+                else
+                {
+                    labelRadialToxinWeightDamageValue.Text = "N/A";
+                    labelRadialToxinDPSValue.Text = "N/A";
+                }
+
+                double moddedElectricDamage = Methods.Calculation.Elemental.getBaseAndModElectric(selectedFiremodeRadialWithAppliedStats) * nonCritDamageMult * averageCritMult;
+                double electricWeight = 1 / (hitDamage / moddedElectricDamage) * 100;
+                if (electricWeight > 0)
+                {
+                    labelRadialElectricWeightDamageValue.Text = Math.Round(electricWeight, 2).ToString() + "% (" + selectedFiremodeRadialWithAppliedStats.modElectric.ToString() + "%)";
+                    labelRadialElectricDPSValue.Text = (electricWeight / 100 * radialStatusDPS * (selectedFiremodeRadialWithAppliedStats.modElectric / 100 + 1) * 0.5).ToString("#,##0");
+                }
+                else
+                {
+                    labelRadialElectricWeightDamageValue.Text = "N/A";
+                    labelRadialElectricDPSValue.Text = "N/A";
+                }
 
                 double DPSBurst = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats);
                 double DPSSustained = Methods.Calculation.Weapon.calculateModDPS(selectedFiremodeRadialWithAppliedStats, true);
@@ -1001,6 +1067,21 @@ namespace Buildframe
             radialValueLabels.Add(labelSummedDPSBurstValue);
             radialValueLabels.Add(labelSummedDPSSustainedValue);
 
+            radialValueLabels.Add(labelRadialSlashWeightValue);
+            radialValueLabels.Add(labelRadialSlashDPSValue);
+
+            radialValueLabels.Add(labelRadialHeatWeightDamageValue);
+            radialValueLabels.Add(labelRadialHeatDPSValue);
+
+            radialValueLabels.Add(labelRadialToxinWeightDamageValue);
+            radialValueLabels.Add(labelRadialToxinDPSValue);
+
+            radialValueLabels.Add(labelRadialElectricWeightDamageValue);
+            radialValueLabels.Add(labelRadialElectricDPSValue);
+
+            radialValueLabels.Add(labelRadialStatusDamageValue);
+            radialValueLabels.Add(labelRadialStatusDPSValue);
+            radialValueLabels.Add(labelRadialForcedStatusDPSValue);
             if (File.Exists("lastbuild.cfg"))
             {
                 WriteLineIfDebug("Loading last session from file");

@@ -162,11 +162,34 @@
             labelHeatDPS = new Label();
             labelSlashDPSValue = new Label();
             labelSlashDPS = new Label();
+            labelRadialElectricDPSValue = new Label();
+            label2 = new Label();
+            labelRadialToxinDPSValue = new Label();
+            label4 = new Label();
+            labelRadialHeatDPSValue = new Label();
+            label6 = new Label();
+            labelRadialSlashDPSValue = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            labelRadialStatusDamageValue = new Label();
+            label22 = new Label();
+            labelRadialStatusDPSValue = new Label();
+            label24 = new Label();
+            labelRadialForcedStatusDPSValue = new Label();
             tabControlMiscStats = new TabControl();
             tabPageDamageStatistics = new TabPage();
             tabPageDirectStatusStatistics = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
             tabPageRadialStatusStatistics = new TabPage();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            label11 = new Label();
+            labelRadialElectricWeightDamageValue = new Label();
+            label13 = new Label();
+            labelRadialToxinWeightDamageValue = new Label();
+            label18 = new Label();
+            labelRadialHeatWeightDamageValue = new Label();
+            label20 = new Label();
+            labelRadialSlashWeightValue = new Label();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -175,6 +198,8 @@
             tabPageDamageStatistics.SuspendLayout();
             tabPageDirectStatusStatistics.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            tabPageRadialStatusStatistics.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
@@ -1696,6 +1721,146 @@
             labelSlashDPS.Text = "Slash Tick DPS (Approx)";
             toolTipLabelInfo.SetToolTip(labelSlashDPS, "Be mindful of how the DoT behaves ingame.");
             // 
+            // labelRadialElectricDPSValue
+            // 
+            labelRadialElectricDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialElectricDPSValue.CausesValidation = false;
+            labelRadialElectricDPSValue.Location = new Point(165, 106);
+            labelRadialElectricDPSValue.Name = "labelRadialElectricDPSValue";
+            labelRadialElectricDPSValue.Size = new Size(105, 20);
+            labelRadialElectricDPSValue.TabIndex = 91;
+            toolTipLabelInfo.SetToolTip(labelRadialElectricDPSValue, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(4, 106);
+            label2.Name = "label2";
+            label2.Size = new Size(143, 15);
+            label2.TabIndex = 90;
+            label2.Text = "Electric Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(label2, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelRadialToxinDPSValue
+            // 
+            labelRadialToxinDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialToxinDPSValue.CausesValidation = false;
+            labelRadialToxinDPSValue.Location = new Point(165, 85);
+            labelRadialToxinDPSValue.Name = "labelRadialToxinDPSValue";
+            labelRadialToxinDPSValue.Size = new Size(105, 20);
+            labelRadialToxinDPSValue.TabIndex = 89;
+            toolTipLabelInfo.SetToolTip(labelRadialToxinDPSValue, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(4, 85);
+            label4.Name = "label4";
+            label4.Size = new Size(133, 15);
+            label4.TabIndex = 88;
+            label4.Text = "Toxin Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(label4, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelRadialHeatDPSValue
+            // 
+            labelRadialHeatDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialHeatDPSValue.CausesValidation = false;
+            labelRadialHeatDPSValue.Location = new Point(165, 64);
+            labelRadialHeatDPSValue.Name = "labelRadialHeatDPSValue";
+            labelRadialHeatDPSValue.Size = new Size(105, 20);
+            labelRadialHeatDPSValue.TabIndex = 87;
+            toolTipLabelInfo.SetToolTip(labelRadialHeatDPSValue, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(4, 64);
+            label6.Name = "label6";
+            label6.Size = new Size(130, 15);
+            label6.TabIndex = 86;
+            label6.Text = "Heat Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(label6, "Only applicable when not combined into a different element.\r\nBe mindful of how the DoT behaves ingame.");
+            // 
+            // labelRadialSlashDPSValue
+            // 
+            labelRadialSlashDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialSlashDPSValue.CausesValidation = false;
+            labelRadialSlashDPSValue.Location = new Point(165, 43);
+            labelRadialSlashDPSValue.Name = "labelRadialSlashDPSValue";
+            labelRadialSlashDPSValue.Size = new Size(105, 20);
+            labelRadialSlashDPSValue.TabIndex = 85;
+            toolTipLabelInfo.SetToolTip(labelRadialSlashDPSValue, "Be mindful of how the DoT behaves ingame.");
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(4, 43);
+            label8.Name = "label8";
+            label8.Size = new Size(132, 15);
+            label8.TabIndex = 84;
+            label8.Text = "Slash Tick DPS (Approx)";
+            toolTipLabelInfo.SetToolTip(label8, "Be mindful of how the DoT behaves ingame.");
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(4, 1);
+            label9.Name = "label9";
+            label9.Size = new Size(140, 15);
+            label9.TabIndex = 76;
+            label9.Text = "Radial Hit Status Damage";
+            toolTipLabelInfo.SetToolTip(label9, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.\r\n");
+            // 
+            // labelRadialStatusDamageValue
+            // 
+            labelRadialStatusDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialStatusDamageValue.CausesValidation = false;
+            labelRadialStatusDamageValue.Location = new Point(165, 1);
+            labelRadialStatusDamageValue.Name = "labelRadialStatusDamageValue";
+            labelRadialStatusDamageValue.Size = new Size(105, 20);
+            labelRadialStatusDamageValue.TabIndex = 77;
+            toolTipLabelInfo.SetToolTip(labelRadialStatusDamageValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.\r\n");
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(277, 1);
+            label22.Name = "label22";
+            label22.Size = new Size(117, 15);
+            label22.TabIndex = 78;
+            label22.Text = "Radial Hit Status DPS";
+            toolTipLabelInfo.SetToolTip(label22, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
+            // 
+            // labelRadialStatusDPSValue
+            // 
+            labelRadialStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialStatusDPSValue.CausesValidation = false;
+            labelRadialStatusDPSValue.Location = new Point(438, 1);
+            labelRadialStatusDPSValue.Name = "labelRadialStatusDPSValue";
+            labelRadialStatusDPSValue.Size = new Size(118, 20);
+            labelRadialStatusDPSValue.TabIndex = 79;
+            toolTipLabelInfo.SetToolTip(labelRadialStatusDPSValue, "Calculated via effective status damage times status per second.\r\nScale manually via specific status weight, DMG%, and mechanic.");
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(277, 22);
+            label24.Name = "label24";
+            label24.Size = new Size(137, 15);
+            label24.TabIndex = 80;
+            label24.Text = "Radial Forced Status DPS";
+            toolTipLabelInfo.SetToolTip(label24, "Represents forced status procs, not those from extra hits.");
+            // 
+            // labelRadialForcedStatusDPSValue
+            // 
+            labelRadialForcedStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialForcedStatusDPSValue.CausesValidation = false;
+            labelRadialForcedStatusDPSValue.Location = new Point(438, 22);
+            labelRadialForcedStatusDPSValue.Name = "labelRadialForcedStatusDPSValue";
+            labelRadialForcedStatusDPSValue.Size = new Size(118, 20);
+            labelRadialForcedStatusDPSValue.TabIndex = 81;
+            toolTipLabelInfo.SetToolTip(labelRadialForcedStatusDPSValue, "Represents forced status procs, not those from extra hits.");
+            // 
             // tabControlMiscStats
             // 
             tabControlMiscStats.Appearance = TabAppearance.FlatButtons;
@@ -1774,6 +1939,7 @@
             // 
             // tabPageRadialStatusStatistics
             // 
+            tabPageRadialStatusStatistics.Controls.Add(tableLayoutPanel4);
             tabPageRadialStatusStatistics.Location = new Point(4, 27);
             tabPageRadialStatusStatistics.Name = "tabPageRadialStatusStatistics";
             tabPageRadialStatusStatistics.Padding = new Padding(3);
@@ -1781,6 +1947,120 @@
             tabPageRadialStatusStatistics.TabIndex = 2;
             tabPageRadialStatusStatistics.Text = "Radial Status Statistics";
             tabPageRadialStatusStatistics.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tableLayoutPanel4.ColumnCount = 4;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
+            tableLayoutPanel4.Controls.Add(labelRadialElectricDPSValue, 1, 5);
+            tableLayoutPanel4.Controls.Add(label2, 0, 5);
+            tableLayoutPanel4.Controls.Add(labelRadialToxinDPSValue, 1, 4);
+            tableLayoutPanel4.Controls.Add(label4, 0, 4);
+            tableLayoutPanel4.Controls.Add(labelRadialHeatDPSValue, 1, 3);
+            tableLayoutPanel4.Controls.Add(label6, 0, 3);
+            tableLayoutPanel4.Controls.Add(labelRadialSlashDPSValue, 1, 2);
+            tableLayoutPanel4.Controls.Add(label8, 0, 2);
+            tableLayoutPanel4.Controls.Add(label9, 0, 0);
+            tableLayoutPanel4.Controls.Add(labelRadialStatusDamageValue, 1, 0);
+            tableLayoutPanel4.Controls.Add(label11, 2, 5);
+            tableLayoutPanel4.Controls.Add(labelRadialElectricWeightDamageValue, 3, 5);
+            tableLayoutPanel4.Controls.Add(label13, 2, 4);
+            tableLayoutPanel4.Controls.Add(labelRadialToxinWeightDamageValue, 3, 4);
+            tableLayoutPanel4.Controls.Add(label18, 2, 3);
+            tableLayoutPanel4.Controls.Add(labelRadialHeatWeightDamageValue, 3, 3);
+            tableLayoutPanel4.Controls.Add(label20, 2, 2);
+            tableLayoutPanel4.Controls.Add(labelRadialSlashWeightValue, 3, 2);
+            tableLayoutPanel4.Controls.Add(label22, 2, 0);
+            tableLayoutPanel4.Controls.Add(labelRadialStatusDPSValue, 3, 0);
+            tableLayoutPanel4.Controls.Add(label24, 2, 1);
+            tableLayoutPanel4.Controls.Add(labelRadialForcedStatusDPSValue, 3, 1);
+            tableLayoutPanel4.Location = new Point(0, 3);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 6;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.Size = new Size(560, 123);
+            tableLayoutPanel4.TabIndex = 8;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(277, 106);
+            label11.Name = "label11";
+            label11.Size = new Size(134, 15);
+            label11.TabIndex = 68;
+            label11.Text = "Electric Weight (DMG%)";
+            // 
+            // labelRadialElectricWeightDamageValue
+            // 
+            labelRadialElectricWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialElectricWeightDamageValue.CausesValidation = false;
+            labelRadialElectricWeightDamageValue.Location = new Point(438, 106);
+            labelRadialElectricWeightDamageValue.Name = "labelRadialElectricWeightDamageValue";
+            labelRadialElectricWeightDamageValue.Size = new Size(118, 20);
+            labelRadialElectricWeightDamageValue.TabIndex = 69;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(277, 85);
+            label13.Name = "label13";
+            label13.Size = new Size(124, 15);
+            label13.TabIndex = 66;
+            label13.Text = "Toxin Weight (DMG%)";
+            // 
+            // labelRadialToxinWeightDamageValue
+            // 
+            labelRadialToxinWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialToxinWeightDamageValue.CausesValidation = false;
+            labelRadialToxinWeightDamageValue.Location = new Point(438, 85);
+            labelRadialToxinWeightDamageValue.Name = "labelRadialToxinWeightDamageValue";
+            labelRadialToxinWeightDamageValue.Size = new Size(118, 20);
+            labelRadialToxinWeightDamageValue.TabIndex = 67;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(277, 64);
+            label18.Name = "label18";
+            label18.Size = new Size(121, 15);
+            label18.TabIndex = 64;
+            label18.Text = "Heat Weight (DMG%)";
+            // 
+            // labelRadialHeatWeightDamageValue
+            // 
+            labelRadialHeatWeightDamageValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialHeatWeightDamageValue.CausesValidation = false;
+            labelRadialHeatWeightDamageValue.Location = new Point(438, 64);
+            labelRadialHeatWeightDamageValue.Name = "labelRadialHeatWeightDamageValue";
+            labelRadialHeatWeightDamageValue.Size = new Size(118, 20);
+            labelRadialHeatWeightDamageValue.TabIndex = 65;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(277, 43);
+            label20.Name = "label20";
+            label20.Size = new Size(75, 15);
+            label20.TabIndex = 62;
+            label20.Text = "Slash Weight";
+            // 
+            // labelRadialSlashWeightValue
+            // 
+            labelRadialSlashWeightValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialSlashWeightValue.CausesValidation = false;
+            labelRadialSlashWeightValue.Location = new Point(438, 43);
+            labelRadialSlashWeightValue.Name = "labelRadialSlashWeightValue";
+            labelRadialSlashWeightValue.Size = new Size(118, 20);
+            labelRadialSlashWeightValue.TabIndex = 63;
             // 
             // MainWindow
             // 
@@ -1813,6 +2093,9 @@
             tabPageDirectStatusStatistics.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            tabPageRadialStatusStatistics.ResumeLayout(false);
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1956,5 +2239,28 @@
         private Label labelSlashDPSValue;
         private Label labelSlashDPS;
         private TabPage tabPageRadialStatusStatistics;
+        private TableLayoutPanel tableLayoutPanel4;
+        private Label labelRadialElectricDPSValue;
+        private Label label2;
+        private Label labelRadialToxinDPSValue;
+        private Label label4;
+        private Label labelRadialHeatDPSValue;
+        private Label label6;
+        private Label labelRadialSlashDPSValue;
+        private Label label8;
+        private Label label9;
+        private Label labelRadialStatusDamageValue;
+        private Label label11;
+        private Label labelRadialElectricWeightDamageValue;
+        private Label label13;
+        private Label labelRadialToxinWeightDamageValue;
+        private Label label18;
+        private Label labelRadialHeatWeightDamageValue;
+        private Label label20;
+        private Label labelRadialSlashWeightValue;
+        private Label label22;
+        private Label labelRadialStatusDPSValue;
+        private Label label24;
+        private Label labelRadialForcedStatusDPSValue;
     }
 }
