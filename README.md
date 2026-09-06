@@ -24,6 +24,8 @@ Multishot_Consumes_Reserve_Ammo - typically paired with the above effect, sets i
 
 Multishot_Locked - tag designed for Acuity mods and certain incarnon fire modes that have a hitscan AoE effect.
 
+Divide_Status_By_Base_Multishot - lowers the status increase from a non-firemode stat based off of the base multishot of a firemode, typically for incarnon effects specifying a different increase between firemodes.
+
 Firerate_Locked - Cannonade mods.
 
 ExcludeRadialFire - will exclude an effect from applying to radial firemodes.
