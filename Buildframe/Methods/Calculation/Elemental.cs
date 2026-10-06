@@ -11,7 +11,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getModHeat(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modHeat / 100);
+            return Weapon.calculateBaseDamage(stats) * ((stats.modHeat + stats.modNoCombineHeat) / 100);
         }
         /// <summary>
         /// Returns the value of damage only scaled by base damage, before modifiers like Deadhead/Roar/etc
@@ -20,7 +20,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getModCold(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modCold / 100);
+            return Weapon.calculateBaseDamage(stats) * ((stats.modCold + stats.modNoCombineCold) / 100);
         }
         /// <summary>
         /// Returns the value of damage only scaled by base damage, before modifiers like Deadhead/Roar/etc
@@ -29,7 +29,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getModElectric(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modElectric / 100);
+            return Weapon.calculateBaseDamage(stats) * ((stats.modElectric + stats.modNoCombineElectric) / 100);
         }
         /// <summary>
         /// Returns the value of damage only scaled by base damage, before modifiers like Deadhead/Roar/etc
@@ -38,7 +38,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getModToxin(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modToxin / 100);
+            return Weapon.calculateBaseDamage(stats) * ((stats.modToxin + stats.modNoCombineToxin) / 100);
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getBaseAndModHeat(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modHeat / 100) + stats.baseHeat;
+            return Weapon.calculateBaseDamage(stats) * ((stats.modHeat + stats.modNoCombineHeat) / 100) + stats.baseHeat;
         }
         /// <summary>
         /// Returns the damage of a given element considering only the weapon's base damage and the mod's percentage increase, before modifiers like Deadhead/Roar/etc
@@ -123,7 +123,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getBaseAndModCold(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modCold / 100) + stats.baseCold;
+            return Weapon.calculateBaseDamage(stats) * ((stats.modCold + stats.modNoCombineCold) / 100) + stats.baseCold;
         }
         /// <summary>
         /// Returns the damage of a given element considering only the weapon's base damage and the mod's percentage increase, before modifiers like Deadhead/Roar/etc
@@ -132,7 +132,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getBaseAndModElectric(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modElectric / 100) + stats.baseElectric;
+            return Weapon.calculateBaseDamage(stats) * ((stats.modElectric + stats.modNoCombineElectric) / 100) + stats.baseElectric;
         }
         /// <summary>
         /// Returns the damage of a given element considering only the weapon's base damage and the mod's percentage increase, before modifiers like Deadhead/Roar/etc
@@ -141,7 +141,7 @@ namespace Buildframe.Methods.Calculation
         /// <returns></returns>
         public static double getBaseAndModToxin(StatsData stats)
         {
-            return Weapon.calculateBaseDamage(stats) * (stats.modToxin / 100) + stats.baseToxin;
+            return Weapon.calculateBaseDamage(stats) * ((stats.modToxin + stats.modNoCombineToxin) / 100) + stats.baseToxin;
         }
         /// <summary>
         /// Returns the damage of a given element considering only the weapon's base damage and the mod's percentage increase, before modifiers like Deadhead/Roar/etc

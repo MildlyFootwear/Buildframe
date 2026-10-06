@@ -250,8 +250,8 @@ namespace Buildframe
                 double heatWeight = 1 / (directHitDamage / moddedHeatDamage) * 100;
                 if (heatWeight > 0)
                 {
-                    labelHeatWeightDamageValue.Text = Math.Round(heatWeight, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modHeat.ToString() + "%)";
-                    labelHeatDPSValue.Text = (heatWeight / 100 * directHitStatusDPS * (selectedFiremodeWithAppliedStats.modHeat / 100 + 1) * 0.5).ToString("#,##0");
+                    labelHeatWeightDamageValue.Text = Math.Round(heatWeight, 2).ToString() + "% (" + (selectedFiremodeWithAppliedStats.modHeat + selectedFiremodeWithAppliedStats.modNoCombineHeat).ToString() + "%)";
+                    labelHeatDPSValue.Text = (heatWeight / 100 * directHitStatusDPS * ((selectedFiremodeWithAppliedStats.modHeat + selectedFiremodeWithAppliedStats.modNoCombineHeat) / 100 + 1) * 0.5).ToString("#,##0");
                 }
                 else
                 {
@@ -263,8 +263,8 @@ namespace Buildframe
                 double toxinWeight = 1 / (directHitDamage / moddedToxinDamage) * 100;
                 if (toxinWeight > 0)
                 {
-                    labelToxinWeightDamageValue.Text = Math.Round(toxinWeight, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modToxin.ToString() + "%)";
-                    labelToxinDPSValue.Text = (toxinWeight / 100 * directHitStatusDPS * (selectedFiremodeWithAppliedStats.modToxin / 100 + 1) * 0.5).ToString("#,##0");
+                    labelToxinWeightDamageValue.Text = Math.Round(toxinWeight, 2).ToString() + "% (" + (selectedFiremodeWithAppliedStats.modToxin + selectedFiremodeWithAppliedStats.modNoCombineToxin).ToString() + "%)";
+                    labelToxinDPSValue.Text = (toxinWeight / 100 * directHitStatusDPS * ((selectedFiremodeWithAppliedStats.modToxin + selectedFiremodeWithAppliedStats.modNoCombineToxin) / 100 + 1) * 0.5).ToString("#,##0");
                 }
                 else
                 {
@@ -276,8 +276,8 @@ namespace Buildframe
                 double electricWeight = 1 / (directHitDamage / moddedElectricDamage) * 100;
                 if (electricWeight > 0)
                 {
-                    labelElectricWeightDamageValue.Text = Math.Round(electricWeight, 2).ToString() + "% (" + selectedFiremodeWithAppliedStats.modElectric.ToString() + "%)";
-                    labelElectricDPSValue.Text = (electricWeight / 100 * directHitStatusDPS * (selectedFiremodeWithAppliedStats.modElectric / 100 + 1) * 0.5).ToString("#,##0");
+                    labelElectricWeightDamageValue.Text = Math.Round(electricWeight, 2).ToString() + "% (" + (selectedFiremodeWithAppliedStats.modElectric + selectedFiremodeWithAppliedStats.modNoCombineElectric).ToString() + "%)";
+                    labelElectricDPSValue.Text = (electricWeight / 100 * directHitStatusDPS * ((selectedFiremodeWithAppliedStats.modElectric + selectedFiremodeWithAppliedStats.modNoCombineElectric) / 100 + 1) * 0.5).ToString("#,##0");
                 }
                 else
                 {
