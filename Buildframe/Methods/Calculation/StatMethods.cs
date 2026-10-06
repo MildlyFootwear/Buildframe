@@ -168,11 +168,26 @@ namespace Buildframe.Methods.Calculation
                 stats.modImpact += s.modImpact;
                 stats.modPuncture += s.modPuncture;
 
-                stats.modHeat += s.modHeat;
-                stats.modCold += s.modCold;
-                stats.modElectric += s.modElectric;
-                stats.modToxin += s.modToxin;
                 stats.modTau += s.modTau;
+
+                if (!s.tags.Contains("No_Combine"))
+                {
+                    stats.modHeat += s.modHeat;
+                    stats.modCold += s.modCold;
+                    stats.modElectric += s.modElectric;
+                    stats.modToxin += s.modToxin;
+                } else
+                {
+                    stats.modNoCombineHeat += s.modHeat;
+                    stats.modNoCombineCold += s.modCold;
+                    stats.modNoCombineElectric += s.modElectric;
+                    stats.modNoCombineToxin += s.modToxin;
+                }
+
+                stats.modNoCombineHeat += s.modNoCombineHeat;
+                stats.modNoCombineCold += s.modNoCombineCold;
+                stats.modNoCombineElectric += s.modNoCombineElectric;
+                stats.modNoCombineToxin += s.modNoCombineToxin;
 
                 stats.modBlast += s.modBlast;
                 stats.modRadiation += s.modRadiation;

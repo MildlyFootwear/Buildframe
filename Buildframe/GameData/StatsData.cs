@@ -72,6 +72,11 @@
         public double modElectric = 0;
         public double modToxin = 0;
 
+        public double modNoCombineHeat = 0;
+        public double modNoCombineCold = 0;
+        public double modNoCombineElectric = 0;
+        public double modNoCombineToxin = 0;
+
         public double modTau = 0;
 
         public double modBlast = 0;
