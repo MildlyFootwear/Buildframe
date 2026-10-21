@@ -116,7 +116,6 @@ namespace Buildframe.Forms
             numericUpDownBaseDamage.Value = (decimal)stats.baseDamage;
             numericUpDownBaseAttackSpeed.Value = (decimal)stats.baseAttackSpeed;
             numericUpDownBaseReloadTime.Value = (decimal)stats.baseReloadTime;
-            numericUpDownBaseAmmoEfficiency.Value = (decimal)stats.baseAmmoEfficiency;
             numericUpDownBaseMagazine.Value = (decimal)stats.baseMagazine;
             numericUpDownBaseChargeTime.Value = (decimal)stats.baseChargeTime;
             numericUpDownBaseImpact.Value = (decimal)stats.baseImpact;
@@ -141,7 +140,7 @@ namespace Buildframe.Forms
             numericUpDownBaseReserveAmmo.Value = (decimal)stats.baseReserveAmmo;
 
             numericUpDownModDamage.Value = (decimal)stats.modDamage;
-            numericUpDownAbilityWeaponDamage.Value = (decimal)stats.modDamagePercentage;
+            numericUpDownModAmmoEfficiency.Value = (decimal)stats.modAmmoEfficiency;
             numericUpDownModDamageFaction.Value = (decimal)stats.modDamageFaction;
             numericUpDownModAttackSpeed.Value = (decimal)stats.modAttackSpeed;
             numericUpDownModReloadTime.Value = (decimal)stats.modReloadTime;
@@ -309,7 +308,6 @@ namespace Buildframe.Forms
             stats.baseDamage = (double)numericUpDownBaseDamage.Value;
             stats.baseAttackSpeed = (double)numericUpDownBaseAttackSpeed.Value;
             stats.baseReloadTime = (double)numericUpDownBaseReloadTime.Value;
-            stats.baseAmmoEfficiency = (double)numericUpDownBaseAmmoEfficiency.Value;
             stats.baseMagazine = (double)numericUpDownBaseMagazine.Value;
             stats.baseChargeTime = (double)numericUpDownBaseChargeTime.Value;
             stats.baseImpact = (double)numericUpDownBaseImpact.Value;
@@ -334,7 +332,7 @@ namespace Buildframe.Forms
             stats.baseReserveAmmo = (double)numericUpDownBaseReserveAmmo.Value;
 
             stats.modDamage = (double)numericUpDownModDamage.Value;
-            stats.modDamagePercentage = (double)numericUpDownAbilityWeaponDamage.Value;
+            stats.modAmmoEfficiency = (double)numericUpDownModAmmoEfficiency.Value;
             stats.modDamageFaction = (double)numericUpDownModDamageFaction.Value;
             stats.modAttackSpeed = (double)numericUpDownModAttackSpeed.Value;
             stats.modReloadTime = (double)numericUpDownModReloadTime.Value;
@@ -363,6 +361,7 @@ namespace Buildframe.Forms
 
             stats.finalDamagePercentage = (double)numericUpDownFinalDamageMult.Value - 100;
             stats.finalAttackSpeed = (double)numericUpDownFinalAttackSpeed.Value - 100;
+            stats.finalAmmoEfficiency = (double)numericUpDownFinalAmmoEfficiency.Value;
             stats.finalReloadTime = (double)numericUpDownFinalReloadTime.Value;
             stats.finalMagazine = (double)numericUpDownFinalMagazine.Value;
             stats.finalChargeTime = (double)numericUpDownFinalChargeTime.Value;

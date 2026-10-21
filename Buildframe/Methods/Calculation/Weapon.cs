@@ -1,4 +1,5 @@
 ﻿using Buildframe.GameData;
+using System.Security.Cryptography;
 
 namespace Buildframe.Methods.Calculation
 {
@@ -175,11 +176,24 @@ namespace Buildframe.Methods.Calculation
         }
         public static double calculateModAmmoEfficiency(StatsData stats)
         {
-            double efficiency = stats.baseAmmoEfficiency + stats.modAmmoEfficiency + stats.finalAmmoEfficiency;
-            if (efficiency > 100)
+            double efficiency = 0;
+            if (stats.modAmmoEfficiency > 75)
+            {
+                efficiency = 75;
+            }
+            else
+            {
+                efficiency = stats.modAmmoEfficiency;
+            }
+
+            if (stats.finalAmmoEfficiency >= 100)
             {
                 efficiency = 100;
+            } else
+            {
+                efficiency /= (100 - stats.finalAmmoEfficiency) / 100;
             }
+
             return efficiency;
         }
         /// <summary>

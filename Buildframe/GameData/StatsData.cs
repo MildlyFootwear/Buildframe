@@ -15,7 +15,6 @@
         public double baseAttackSpeed = 0;
 
         public double baseReloadTime = 0;
-        public double baseAmmoEfficiency = 0;
         public double baseMagazine = 0;
         public double baseChargeTime = 0;
 

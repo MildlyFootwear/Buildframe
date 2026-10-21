@@ -137,7 +137,13 @@ namespace Buildframe.Methods
                     stats.modReloadTime = Convert.ToDouble(split[1]);
                 if (split[0] == "modMagazine")
                     stats.modMagazine = Convert.ToDouble(split[1]);
-                if (split[0] == "modAmmoEfficiency")
+
+                if (split[0] == "baseAmmoEfficiency")
+                {
+                    stats.modAmmoEfficiency = Convert.ToDouble(split[1]);
+                    resaveToConvert = true;
+                }
+                if (split[0] == "modAmmoEfficiency" && stats.modAmmoEfficiency == 0)
                     stats.modAmmoEfficiency = Convert.ToDouble(split[1]);
                 if (split[0] == "modChargeTime")
                     stats.modChargeTime = Convert.ToDouble(split[1]);
@@ -211,11 +217,6 @@ namespace Buildframe.Methods
                 if (split[0] == "finalMagazine")
                     stats.finalMagazine = Convert.ToDouble(split[1]);
 
-                if (split[0] == "baseAmmoEfficiency")
-                {
-                    stats.finalAmmoEfficiency = Convert.ToDouble(split[1]);
-                    resaveToConvert = true;
-                }
                 if (split[0] == "finalAmmoEfficiency" && stats.finalAmmoEfficiency == 0)
                     stats.finalAmmoEfficiency = Convert.ToDouble(split[1]);
 
@@ -307,8 +308,6 @@ namespace Buildframe.Methods
 
             if (stats.baseReloadTime != 0)
                 s += "\nbaseReloadTime=" + Convert.ToString(stats.baseReloadTime);
-            if (stats.baseAmmoEfficiency != 0)
-                s += "\nbaseAmmoEfficiency=" + Convert.ToString(stats.baseAmmoEfficiency);
             if (stats.baseChargeTime != 0)
                 s += "\nbaseChargeTime=" + Convert.ToString(stats.baseChargeTime);
             if (stats.baseMagazine != 0)

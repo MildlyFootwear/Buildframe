@@ -126,10 +126,6 @@ namespace Buildframe.Methods
             {
                 s += "Base Magazine: " + stats.baseMagazine + "\n";
             }
-            if (stats.baseAmmoEfficiency != 0)
-            {
-                s += "Base Ammo Efficiency: " + stats.baseAmmoEfficiency + "%\n";
-            }
             if (stats.baseReloadTime != 0 && stats.ammoRegen != 0)
             {
                 s += "Base Reload Delay: " + stats.baseReloadTime + "s\n";
@@ -328,7 +324,7 @@ namespace Buildframe.Methods
             }
             if (stats.finalAmmoEfficiency != 0)
             {
-                s += "Final Ammo Efficiency: " + stats.finalAmmoEfficiency + "%\n";
+                s += "Ammo Efficiency: " + stats.finalAmmoEfficiency + "%\n";
             }
             if (stats.finalChargeTime != 0)
             {

@@ -112,7 +112,6 @@ namespace Buildframe.Methods.Calculation
                 if (!stats.incarnon)
                 {
                     stats.baseMagazine += s.baseMagazine;
-                    stats.baseAmmoEfficiency += s.baseAmmoEfficiency;
                 }
                 stats.baseChargeTime += s.baseChargeTime;
 

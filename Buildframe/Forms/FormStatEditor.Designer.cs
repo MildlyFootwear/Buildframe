@@ -52,7 +52,6 @@
             numericUpDownBaseMultishot = new NumericUpDown();
             numericUpDownBaseChargeTime = new NumericUpDown();
             numericUpDownBaseMagazine = new NumericUpDown();
-            numericUpDownBaseAmmoEfficiency = new NumericUpDown();
             numericUpDownBaseReloadTime = new NumericUpDown();
             numericUpDownBaseAttackSpeed = new NumericUpDown();
             label24 = new Label();
@@ -78,7 +77,6 @@
             label19 = new Label();
             label5 = new Label();
             label4 = new Label();
-            label3 = new Label();
             numericUpDownBaseDamage = new NumericUpDown();
             numericUpDownBaseMagnetic = new NumericUpDown();
             numericUpDownBaseGas = new NumericUpDown();
@@ -102,7 +100,7 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             numericUpDownModReserveAmmo = new NumericUpDown();
             labelModReserveAmmo = new Label();
-            numericUpDownAbilityWeaponDamage = new NumericUpDown();
+            numericUpDownModAmmoEfficiency = new NumericUpDown();
             numericUpDownModDamageFaction = new NumericUpDown();
             label77 = new Label();
             numericUpDownModCorrosive = new NumericUpDown();
@@ -238,7 +236,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseMultishot).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseChargeTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseMagazine).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseAmmoEfficiency).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseReloadTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseAttackSpeed).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseDamage).BeginInit();
@@ -251,7 +248,7 @@
             modPage.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReserveAmmo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModAmmoEfficiency).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCorrosive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModViral).BeginInit();
@@ -352,7 +349,6 @@
             tableLayoutPanel1.Controls.Add(numericUpDownBaseMultishot, 1, 7);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseChargeTime, 1, 6);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseMagazine, 1, 5);
-            tableLayoutPanel1.Controls.Add(numericUpDownBaseAmmoEfficiency, 1, 4);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseReloadTime, 1, 3);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseAttackSpeed, 1, 2);
             tableLayoutPanel1.Controls.Add(label24, 0, 3);
@@ -378,7 +374,6 @@
             tableLayoutPanel1.Controls.Add(label19, 0, 7);
             tableLayoutPanel1.Controls.Add(label5, 0, 6);
             tableLayoutPanel1.Controls.Add(label4, 0, 5);
-            tableLayoutPanel1.Controls.Add(label3, 0, 4);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseDamage, 1, 1);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseMagnetic, 3, 12);
             tableLayoutPanel1.Controls.Add(numericUpDownBaseGas, 3, 13);
@@ -404,13 +399,13 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.Size = new Size(391, 387);
+            tableLayoutPanel1.Size = new Size(384, 387);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // numericUpDownBaseReserveAmmo
             // 
             numericUpDownBaseReserveAmmo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownBaseReserveAmmo.Location = new Point(128, 316);
+            numericUpDownBaseReserveAmmo.Location = new Point(121, 316);
             numericUpDownBaseReserveAmmo.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseReserveAmmo.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
             numericUpDownBaseReserveAmmo.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -436,7 +431,7 @@
             checkBoxIncarnon.AutoSize = true;
             checkBoxIncarnon.BackgroundImageLayout = ImageLayout.None;
             checkBoxIncarnon.CheckAlign = ContentAlignment.MiddleCenter;
-            checkBoxIncarnon.Location = new Point(127, 340);
+            checkBoxIncarnon.Location = new Point(120, 340);
             checkBoxIncarnon.Margin = new Padding(0);
             checkBoxIncarnon.Name = "checkBoxIncarnon";
             checkBoxIncarnon.Size = new Size(77, 23);
@@ -449,7 +444,7 @@
             numericUpDownBaseCorrosive.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseCorrosive.DecimalPlaces = 2;
             numericUpDownBaseCorrosive.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseCorrosive.Location = new Point(294, 292);
+            numericUpDownBaseCorrosive.Location = new Point(287, 292);
             numericUpDownBaseCorrosive.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseCorrosive.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseCorrosive.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -463,7 +458,7 @@
             numericUpDownBaseViral.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseViral.DecimalPlaces = 2;
             numericUpDownBaseViral.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseViral.Location = new Point(294, 268);
+            numericUpDownBaseViral.Location = new Point(287, 268);
             numericUpDownBaseViral.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseViral.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseViral.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -477,7 +472,7 @@
             numericUpDownBaseRadiation.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseRadiation.DecimalPlaces = 2;
             numericUpDownBaseRadiation.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseRadiation.Location = new Point(294, 244);
+            numericUpDownBaseRadiation.Location = new Point(287, 244);
             numericUpDownBaseRadiation.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseRadiation.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseRadiation.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -491,7 +486,7 @@
             numericUpDownBaseBlast.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseBlast.DecimalPlaces = 2;
             numericUpDownBaseBlast.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseBlast.Location = new Point(294, 220);
+            numericUpDownBaseBlast.Location = new Point(287, 220);
             numericUpDownBaseBlast.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseBlast.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseBlast.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -505,7 +500,7 @@
             numericUpDownBaseToxin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseToxin.DecimalPlaces = 2;
             numericUpDownBaseToxin.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseToxin.Location = new Point(294, 196);
+            numericUpDownBaseToxin.Location = new Point(287, 196);
             numericUpDownBaseToxin.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseToxin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseToxin.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -519,7 +514,7 @@
             numericUpDownBaseElectric.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseElectric.DecimalPlaces = 2;
             numericUpDownBaseElectric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseElectric.Location = new Point(294, 172);
+            numericUpDownBaseElectric.Location = new Point(287, 172);
             numericUpDownBaseElectric.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseElectric.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseElectric.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -533,7 +528,7 @@
             numericUpDownBaseCold.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseCold.DecimalPlaces = 2;
             numericUpDownBaseCold.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseCold.Location = new Point(294, 148);
+            numericUpDownBaseCold.Location = new Point(287, 148);
             numericUpDownBaseCold.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseCold.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseCold.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -547,7 +542,7 @@
             numericUpDownBaseHeat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseHeat.DecimalPlaces = 2;
             numericUpDownBaseHeat.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseHeat.Location = new Point(294, 124);
+            numericUpDownBaseHeat.Location = new Point(287, 124);
             numericUpDownBaseHeat.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseHeat.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseHeat.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -561,7 +556,7 @@
             numericUpDownBaseSlash.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseSlash.DecimalPlaces = 2;
             numericUpDownBaseSlash.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseSlash.Location = new Point(294, 100);
+            numericUpDownBaseSlash.Location = new Point(287, 100);
             numericUpDownBaseSlash.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseSlash.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseSlash.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -575,7 +570,7 @@
             numericUpDownBasePuncture.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBasePuncture.DecimalPlaces = 2;
             numericUpDownBasePuncture.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBasePuncture.Location = new Point(294, 76);
+            numericUpDownBasePuncture.Location = new Point(287, 76);
             numericUpDownBasePuncture.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBasePuncture.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBasePuncture.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -589,7 +584,7 @@
             numericUpDownBaseImpact.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseImpact.DecimalPlaces = 2;
             numericUpDownBaseImpact.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseImpact.Location = new Point(294, 52);
+            numericUpDownBaseImpact.Location = new Point(287, 52);
             numericUpDownBaseImpact.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseImpact.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseImpact.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -602,7 +597,7 @@
             // 
             numericUpDownBaseStatusDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseStatusDamage.DecimalPlaces = 2;
-            numericUpDownBaseStatusDamage.Location = new Point(128, 292);
+            numericUpDownBaseStatusDamage.Location = new Point(121, 292);
             numericUpDownBaseStatusDamage.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseStatusDamage.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDownBaseStatusDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -615,7 +610,7 @@
             // 
             numericUpDownBaseStatusChance.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseStatusChance.DecimalPlaces = 2;
-            numericUpDownBaseStatusChance.Location = new Point(128, 268);
+            numericUpDownBaseStatusChance.Location = new Point(121, 268);
             numericUpDownBaseStatusChance.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseStatusChance.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDownBaseStatusChance.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -629,7 +624,7 @@
             numericUpDownBaseCriticalDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseCriticalDamage.DecimalPlaces = 2;
             numericUpDownBaseCriticalDamage.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseCriticalDamage.Location = new Point(128, 244);
+            numericUpDownBaseCriticalDamage.Location = new Point(121, 244);
             numericUpDownBaseCriticalDamage.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseCriticalDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownBaseCriticalDamage.Name = "numericUpDownBaseCriticalDamage";
@@ -641,7 +636,7 @@
             // 
             numericUpDownBaseCriticalChance.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseCriticalChance.DecimalPlaces = 2;
-            numericUpDownBaseCriticalChance.Location = new Point(128, 220);
+            numericUpDownBaseCriticalChance.Location = new Point(121, 220);
             numericUpDownBaseCriticalChance.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseCriticalChance.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDownBaseCriticalChance.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -655,7 +650,7 @@
             numericUpDownBaseMultishot.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseMultishot.DecimalPlaces = 2;
             numericUpDownBaseMultishot.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseMultishot.Location = new Point(128, 196);
+            numericUpDownBaseMultishot.Location = new Point(121, 196);
             numericUpDownBaseMultishot.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseMultishot.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseMultishot.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -671,7 +666,7 @@
             numericUpDownBaseChargeTime.DecimalPlaces = 2;
             numericUpDownBaseChargeTime.Enabled = false;
             numericUpDownBaseChargeTime.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseChargeTime.Location = new Point(128, 172);
+            numericUpDownBaseChargeTime.Location = new Point(121, 172);
             numericUpDownBaseChargeTime.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseChargeTime.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownBaseChargeTime.Name = "numericUpDownBaseChargeTime";
@@ -682,7 +677,7 @@
             // numericUpDownBaseMagazine
             // 
             numericUpDownBaseMagazine.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownBaseMagazine.Location = new Point(128, 148);
+            numericUpDownBaseMagazine.Location = new Point(121, 148);
             numericUpDownBaseMagazine.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseMagazine.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseMagazine.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -691,23 +686,12 @@
             numericUpDownBaseMagazine.TabIndex = 58;
             numericUpDownBaseMagazine.TextAlign = HorizontalAlignment.Center;
             // 
-            // numericUpDownBaseAmmoEfficiency
-            // 
-            numericUpDownBaseAmmoEfficiency.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownBaseAmmoEfficiency.Location = new Point(128, 124);
-            numericUpDownBaseAmmoEfficiency.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownBaseAmmoEfficiency.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownBaseAmmoEfficiency.Name = "numericUpDownBaseAmmoEfficiency";
-            numericUpDownBaseAmmoEfficiency.Size = new Size(75, 23);
-            numericUpDownBaseAmmoEfficiency.TabIndex = 57;
-            numericUpDownBaseAmmoEfficiency.TextAlign = HorizontalAlignment.Center;
-            // 
             // numericUpDownBaseReloadTime
             // 
             numericUpDownBaseReloadTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseReloadTime.DecimalPlaces = 2;
             numericUpDownBaseReloadTime.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseReloadTime.Location = new Point(128, 100);
+            numericUpDownBaseReloadTime.Location = new Point(121, 100);
             numericUpDownBaseReloadTime.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseReloadTime.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownBaseReloadTime.Name = "numericUpDownBaseReloadTime";
@@ -720,7 +704,7 @@
             numericUpDownBaseAttackSpeed.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseAttackSpeed.DecimalPlaces = 2;
             numericUpDownBaseAttackSpeed.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseAttackSpeed.Location = new Point(128, 76);
+            numericUpDownBaseAttackSpeed.Location = new Point(121, 76);
             numericUpDownBaseAttackSpeed.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseAttackSpeed.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownBaseAttackSpeed.Name = "numericUpDownBaseAttackSpeed";
@@ -743,7 +727,7 @@
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label8.AutoSize = true;
-            label8.Location = new Point(208, 100);
+            label8.Location = new Point(201, 100);
             label8.Name = "label8";
             label8.Size = new Size(58, 23);
             label8.TabIndex = 51;
@@ -754,7 +738,7 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label7.AutoSize = true;
-            label7.Location = new Point(208, 76);
+            label7.Location = new Point(201, 76);
             label7.Name = "label7";
             label7.Size = new Size(79, 23);
             label7.TabIndex = 49;
@@ -765,7 +749,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
-            label6.Location = new Point(208, 52);
+            label6.Location = new Point(201, 52);
             label6.Name = "label6";
             label6.Size = new Size(68, 23);
             label6.TabIndex = 47;
@@ -798,7 +782,7 @@
             // 
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
-            label9.Location = new Point(208, 124);
+            label9.Location = new Point(201, 124);
             label9.Name = "label9";
             label9.Size = new Size(56, 23);
             label9.TabIndex = 52;
@@ -809,7 +793,7 @@
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label10.AutoSize = true;
-            label10.Location = new Point(208, 148);
+            label10.Location = new Point(201, 148);
             label10.Name = "label10";
             label10.Size = new Size(56, 23);
             label10.TabIndex = 24;
@@ -820,7 +804,7 @@
             // 
             label11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label11.AutoSize = true;
-            label11.Location = new Point(208, 172);
+            label11.Location = new Point(201, 172);
             label11.Name = "label11";
             label11.Size = new Size(69, 23);
             label11.TabIndex = 25;
@@ -831,7 +815,7 @@
             // 
             label12.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label12.AutoSize = true;
-            label12.Location = new Point(208, 196);
+            label12.Location = new Point(201, 196);
             label12.Name = "label12";
             label12.Size = new Size(59, 23);
             label12.TabIndex = 26;
@@ -842,7 +826,7 @@
             // 
             label13.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label13.AutoSize = true;
-            label13.Location = new Point(208, 220);
+            label13.Location = new Point(201, 220);
             label13.Name = "label13";
             label13.Size = new Size(56, 23);
             label13.TabIndex = 36;
@@ -853,7 +837,7 @@
             // 
             label14.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label14.AutoSize = true;
-            label14.Location = new Point(208, 244);
+            label14.Location = new Point(201, 244);
             label14.Name = "label14";
             label14.Size = new Size(81, 23);
             label14.TabIndex = 37;
@@ -864,7 +848,7 @@
             // 
             label15.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label15.AutoSize = true;
-            label15.Location = new Point(208, 268);
+            label15.Location = new Point(201, 268);
             label15.Name = "label15";
             label15.Size = new Size(54, 23);
             label15.TabIndex = 38;
@@ -875,7 +859,7 @@
             // 
             label16.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label16.AutoSize = true;
-            label16.Location = new Point(208, 292);
+            label16.Location = new Point(201, 292);
             label16.Name = "label16";
             label16.Size = new Size(81, 23);
             label16.TabIndex = 39;
@@ -886,7 +870,7 @@
             // 
             label17.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label17.AutoSize = true;
-            label17.Location = new Point(208, 316);
+            label17.Location = new Point(201, 316);
             label17.Name = "label17";
             label17.Size = new Size(81, 23);
             label17.TabIndex = 40;
@@ -897,7 +881,7 @@
             // 
             label18.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label18.AutoSize = true;
-            label18.Location = new Point(208, 340);
+            label18.Location = new Point(201, 340);
             label18.Name = "label18";
             label18.Size = new Size(50, 23);
             label18.TabIndex = 41;
@@ -981,23 +965,12 @@
             label4.Text = "baseMagazine";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            label3.AutoSize = true;
-            label3.Location = new Point(4, 124);
-            label3.Name = "label3";
-            label3.Size = new Size(119, 23);
-            label3.TabIndex = 17;
-            label3.Text = "baseAmmoEfficiency";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // numericUpDownBaseDamage
             // 
             numericUpDownBaseDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownBaseDamage.DecimalPlaces = 2;
             numericUpDownBaseDamage.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseDamage.Location = new Point(128, 52);
+            numericUpDownBaseDamage.Location = new Point(121, 52);
             numericUpDownBaseDamage.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1011,7 +984,7 @@
             numericUpDownBaseMagnetic.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseMagnetic.DecimalPlaces = 2;
             numericUpDownBaseMagnetic.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseMagnetic.Location = new Point(294, 316);
+            numericUpDownBaseMagnetic.Location = new Point(287, 316);
             numericUpDownBaseMagnetic.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseMagnetic.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseMagnetic.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1025,7 +998,7 @@
             numericUpDownBaseGas.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownBaseGas.DecimalPlaces = 2;
             numericUpDownBaseGas.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseGas.Location = new Point(294, 340);
+            numericUpDownBaseGas.Location = new Point(287, 340);
             numericUpDownBaseGas.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseGas.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseGas.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1053,7 +1026,7 @@
             label79.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label79.Location = new Point(4, 1);
             label79.Name = "label79";
-            label79.Size = new Size(383, 50);
+            label79.Size = new Size(376, 50);
             label79.TabIndex = 80;
             label79.Text = "This is for weapon info cards or incarnon perks specifying \"base\".\r\nEnter stats as a flat number unless instructed otherwise.\r\nCharge Time is currently unimplemented. Approximate it using speed.";
             // 
@@ -1061,7 +1034,7 @@
             // 
             labelBaseTau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             labelBaseTau.AutoSize = true;
-            labelBaseTau.Location = new Point(208, 364);
+            labelBaseTau.Location = new Point(201, 364);
             labelBaseTau.Name = "labelBaseTau";
             labelBaseTau.Size = new Size(49, 22);
             labelBaseTau.TabIndex = 83;
@@ -1074,7 +1047,7 @@
             numericUpDownBaseTau.AutoSize = true;
             numericUpDownBaseTau.DecimalPlaces = 2;
             numericUpDownBaseTau.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            numericUpDownBaseTau.Location = new Point(294, 364);
+            numericUpDownBaseTau.Location = new Point(287, 364);
             numericUpDownBaseTau.Margin = new Padding(1, 0, 1, 0);
             numericUpDownBaseTau.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownBaseTau.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1250,7 +1223,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel3.Controls.Add(numericUpDownModReserveAmmo, 1, 13);
             tableLayoutPanel3.Controls.Add(labelModReserveAmmo, 0, 13);
-            tableLayoutPanel3.Controls.Add(numericUpDownAbilityWeaponDamage, 1, 2);
+            tableLayoutPanel3.Controls.Add(numericUpDownModAmmoEfficiency, 1, 2);
             tableLayoutPanel3.Controls.Add(numericUpDownModDamageFaction, 1, 3);
             tableLayoutPanel3.Controls.Add(label77, 0, 2);
             tableLayoutPanel3.Controls.Add(numericUpDownModCorrosive, 3, 11);
@@ -1329,7 +1302,7 @@
             // 
             numericUpDownModReserveAmmo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModReserveAmmo.DecimalPlaces = 2;
-            numericUpDownModReserveAmmo.Location = new Point(136, 340);
+            numericUpDownModReserveAmmo.Location = new Point(129, 340);
             numericUpDownModReserveAmmo.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModReserveAmmo.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDownModReserveAmmo.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1349,24 +1322,24 @@
             labelModReserveAmmo.Text = "modReserveAmmo";
             labelModReserveAmmo.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // numericUpDownAbilityWeaponDamage
+            // numericUpDownModAmmoEfficiency
             // 
-            numericUpDownAbilityWeaponDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownAbilityWeaponDamage.DecimalPlaces = 2;
-            numericUpDownAbilityWeaponDamage.Location = new Point(136, 76);
-            numericUpDownAbilityWeaponDamage.Margin = new Padding(1, 0, 1, 0);
-            numericUpDownAbilityWeaponDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownAbilityWeaponDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
-            numericUpDownAbilityWeaponDamage.Name = "numericUpDownAbilityWeaponDamage";
-            numericUpDownAbilityWeaponDamage.Size = new Size(75, 23);
-            numericUpDownAbilityWeaponDamage.TabIndex = 53;
-            numericUpDownAbilityWeaponDamage.TextAlign = HorizontalAlignment.Center;
+            numericUpDownModAmmoEfficiency.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            numericUpDownModAmmoEfficiency.DecimalPlaces = 2;
+            numericUpDownModAmmoEfficiency.Location = new Point(129, 76);
+            numericUpDownModAmmoEfficiency.Margin = new Padding(1, 0, 1, 0);
+            numericUpDownModAmmoEfficiency.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownModAmmoEfficiency.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDownModAmmoEfficiency.Name = "numericUpDownModAmmoEfficiency";
+            numericUpDownModAmmoEfficiency.Size = new Size(75, 23);
+            numericUpDownModAmmoEfficiency.TabIndex = 53;
+            numericUpDownModAmmoEfficiency.TextAlign = HorizontalAlignment.Center;
             // 
             // numericUpDownModDamageFaction
             // 
             numericUpDownModDamageFaction.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModDamageFaction.DecimalPlaces = 2;
-            numericUpDownModDamageFaction.Location = new Point(136, 100);
+            numericUpDownModDamageFaction.Location = new Point(129, 100);
             numericUpDownModDamageFaction.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModDamageFaction.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModDamageFaction.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1381,21 +1354,21 @@
             label77.AutoSize = true;
             label77.Location = new Point(4, 76);
             label77.Name = "label77";
-            label77.Size = new Size(127, 23);
+            label77.Size = new Size(120, 23);
             label77.TabIndex = 80;
-            label77.Text = "abilityWeaponDamage";
+            label77.Text = "modAmmoEfficiency";
             label77.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // numericUpDownModCorrosive
             // 
             numericUpDownModCorrosive.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModCorrosive.DecimalPlaces = 2;
-            numericUpDownModCorrosive.Location = new Point(303, 292);
+            numericUpDownModCorrosive.Location = new Point(296, 292);
             numericUpDownModCorrosive.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModCorrosive.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModCorrosive.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModCorrosive.Name = "numericUpDownModCorrosive";
-            numericUpDownModCorrosive.Size = new Size(75, 23);
+            numericUpDownModCorrosive.Size = new Size(82, 23);
             numericUpDownModCorrosive.TabIndex = 75;
             numericUpDownModCorrosive.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1403,12 +1376,12 @@
             // 
             numericUpDownModViral.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModViral.DecimalPlaces = 2;
-            numericUpDownModViral.Location = new Point(303, 268);
+            numericUpDownModViral.Location = new Point(296, 268);
             numericUpDownModViral.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModViral.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModViral.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModViral.Name = "numericUpDownModViral";
-            numericUpDownModViral.Size = new Size(75, 23);
+            numericUpDownModViral.Size = new Size(82, 23);
             numericUpDownModViral.TabIndex = 74;
             numericUpDownModViral.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1416,12 +1389,12 @@
             // 
             numericUpDownModRadiation.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModRadiation.DecimalPlaces = 2;
-            numericUpDownModRadiation.Location = new Point(303, 244);
+            numericUpDownModRadiation.Location = new Point(296, 244);
             numericUpDownModRadiation.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModRadiation.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModRadiation.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModRadiation.Name = "numericUpDownModRadiation";
-            numericUpDownModRadiation.Size = new Size(75, 23);
+            numericUpDownModRadiation.Size = new Size(82, 23);
             numericUpDownModRadiation.TabIndex = 73;
             numericUpDownModRadiation.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1429,12 +1402,12 @@
             // 
             numericUpDownModBlast.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModBlast.DecimalPlaces = 2;
-            numericUpDownModBlast.Location = new Point(303, 220);
+            numericUpDownModBlast.Location = new Point(296, 220);
             numericUpDownModBlast.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModBlast.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModBlast.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModBlast.Name = "numericUpDownModBlast";
-            numericUpDownModBlast.Size = new Size(75, 23);
+            numericUpDownModBlast.Size = new Size(82, 23);
             numericUpDownModBlast.TabIndex = 72;
             numericUpDownModBlast.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1442,12 +1415,12 @@
             // 
             numericUpDownModToxin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModToxin.DecimalPlaces = 2;
-            numericUpDownModToxin.Location = new Point(303, 196);
+            numericUpDownModToxin.Location = new Point(296, 196);
             numericUpDownModToxin.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModToxin.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModToxin.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModToxin.Name = "numericUpDownModToxin";
-            numericUpDownModToxin.Size = new Size(75, 23);
+            numericUpDownModToxin.Size = new Size(82, 23);
             numericUpDownModToxin.TabIndex = 71;
             numericUpDownModToxin.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1455,12 +1428,12 @@
             // 
             numericUpDownModElectric.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModElectric.DecimalPlaces = 2;
-            numericUpDownModElectric.Location = new Point(303, 172);
+            numericUpDownModElectric.Location = new Point(296, 172);
             numericUpDownModElectric.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModElectric.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModElectric.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModElectric.Name = "numericUpDownModElectric";
-            numericUpDownModElectric.Size = new Size(75, 23);
+            numericUpDownModElectric.Size = new Size(82, 23);
             numericUpDownModElectric.TabIndex = 70;
             numericUpDownModElectric.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1468,12 +1441,12 @@
             // 
             numericUpDownModCold.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModCold.DecimalPlaces = 2;
-            numericUpDownModCold.Location = new Point(303, 148);
+            numericUpDownModCold.Location = new Point(296, 148);
             numericUpDownModCold.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModCold.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModCold.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModCold.Name = "numericUpDownModCold";
-            numericUpDownModCold.Size = new Size(75, 23);
+            numericUpDownModCold.Size = new Size(82, 23);
             numericUpDownModCold.TabIndex = 69;
             numericUpDownModCold.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1481,12 +1454,12 @@
             // 
             numericUpDownModHeat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModHeat.DecimalPlaces = 2;
-            numericUpDownModHeat.Location = new Point(303, 124);
+            numericUpDownModHeat.Location = new Point(296, 124);
             numericUpDownModHeat.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModHeat.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModHeat.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModHeat.Name = "numericUpDownModHeat";
-            numericUpDownModHeat.Size = new Size(75, 23);
+            numericUpDownModHeat.Size = new Size(82, 23);
             numericUpDownModHeat.TabIndex = 68;
             numericUpDownModHeat.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1494,12 +1467,12 @@
             // 
             numericUpDownModSlash.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModSlash.DecimalPlaces = 2;
-            numericUpDownModSlash.Location = new Point(303, 100);
+            numericUpDownModSlash.Location = new Point(296, 100);
             numericUpDownModSlash.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModSlash.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModSlash.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModSlash.Name = "numericUpDownModSlash";
-            numericUpDownModSlash.Size = new Size(75, 23);
+            numericUpDownModSlash.Size = new Size(82, 23);
             numericUpDownModSlash.TabIndex = 67;
             numericUpDownModSlash.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1507,12 +1480,12 @@
             // 
             numericUpDownModPuncture.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModPuncture.DecimalPlaces = 2;
-            numericUpDownModPuncture.Location = new Point(303, 76);
+            numericUpDownModPuncture.Location = new Point(296, 76);
             numericUpDownModPuncture.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModPuncture.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModPuncture.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModPuncture.Name = "numericUpDownModPuncture";
-            numericUpDownModPuncture.Size = new Size(75, 23);
+            numericUpDownModPuncture.Size = new Size(82, 23);
             numericUpDownModPuncture.TabIndex = 66;
             numericUpDownModPuncture.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1520,12 +1493,12 @@
             // 
             numericUpDownModImpact.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModImpact.DecimalPlaces = 2;
-            numericUpDownModImpact.Location = new Point(303, 52);
+            numericUpDownModImpact.Location = new Point(296, 52);
             numericUpDownModImpact.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModImpact.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModImpact.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModImpact.Name = "numericUpDownModImpact";
-            numericUpDownModImpact.Size = new Size(75, 23);
+            numericUpDownModImpact.Size = new Size(82, 23);
             numericUpDownModImpact.TabIndex = 65;
             numericUpDownModImpact.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1533,7 +1506,7 @@
             // 
             label30.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label30.AutoSize = true;
-            label30.Location = new Point(216, 100);
+            label30.Location = new Point(209, 100);
             label30.Name = "label30";
             label30.Size = new Size(59, 23);
             label30.TabIndex = 51;
@@ -1544,7 +1517,7 @@
             // 
             label31.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label31.AutoSize = true;
-            label31.Location = new Point(216, 76);
+            label31.Location = new Point(209, 76);
             label31.Name = "label31";
             label31.Size = new Size(80, 23);
             label31.TabIndex = 49;
@@ -1555,7 +1528,7 @@
             // 
             label32.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label32.AutoSize = true;
-            label32.Location = new Point(216, 52);
+            label32.Location = new Point(209, 52);
             label32.Name = "label32";
             label32.Size = new Size(69, 23);
             label32.TabIndex = 47;
@@ -1577,7 +1550,7 @@
             // 
             label35.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label35.AutoSize = true;
-            label35.Location = new Point(216, 124);
+            label35.Location = new Point(209, 124);
             label35.Name = "label35";
             label35.Size = new Size(57, 23);
             label35.TabIndex = 52;
@@ -1588,7 +1561,7 @@
             // 
             label36.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label36.AutoSize = true;
-            label36.Location = new Point(216, 148);
+            label36.Location = new Point(209, 148);
             label36.Name = "label36";
             label36.Size = new Size(57, 23);
             label36.TabIndex = 24;
@@ -1599,7 +1572,7 @@
             // 
             label37.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label37.AutoSize = true;
-            label37.Location = new Point(216, 172);
+            label37.Location = new Point(209, 172);
             label37.Name = "label37";
             label37.Size = new Size(70, 23);
             label37.TabIndex = 25;
@@ -1610,7 +1583,7 @@
             // 
             label38.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label38.AutoSize = true;
-            label38.Location = new Point(216, 196);
+            label38.Location = new Point(209, 196);
             label38.Name = "label38";
             label38.Size = new Size(60, 23);
             label38.TabIndex = 26;
@@ -1621,7 +1594,7 @@
             // 
             label39.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label39.AutoSize = true;
-            label39.Location = new Point(216, 220);
+            label39.Location = new Point(209, 220);
             label39.Name = "label39";
             label39.Size = new Size(57, 23);
             label39.TabIndex = 36;
@@ -1632,7 +1605,7 @@
             // 
             label40.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label40.AutoSize = true;
-            label40.Location = new Point(216, 244);
+            label40.Location = new Point(209, 244);
             label40.Name = "label40";
             label40.Size = new Size(82, 23);
             label40.TabIndex = 37;
@@ -1643,7 +1616,7 @@
             // 
             label41.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label41.AutoSize = true;
-            label41.Location = new Point(216, 268);
+            label41.Location = new Point(209, 268);
             label41.Name = "label41";
             label41.Size = new Size(55, 23);
             label41.TabIndex = 38;
@@ -1654,7 +1627,7 @@
             // 
             label42.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label42.AutoSize = true;
-            label42.Location = new Point(216, 292);
+            label42.Location = new Point(209, 292);
             label42.Name = "label42";
             label42.Size = new Size(82, 23);
             label42.TabIndex = 39;
@@ -1665,7 +1638,7 @@
             // 
             label43.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label43.AutoSize = true;
-            label43.Location = new Point(216, 316);
+            label43.Location = new Point(209, 316);
             label43.Name = "label43";
             label43.Size = new Size(82, 23);
             label43.TabIndex = 40;
@@ -1676,7 +1649,7 @@
             // 
             label44.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label44.AutoSize = true;
-            label44.Location = new Point(216, 340);
+            label44.Location = new Point(209, 340);
             label44.Name = "label44";
             label44.Size = new Size(51, 23);
             label44.TabIndex = 41;
@@ -1687,12 +1660,12 @@
             // 
             numericUpDownModMagnetic.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModMagnetic.DecimalPlaces = 2;
-            numericUpDownModMagnetic.Location = new Point(303, 316);
+            numericUpDownModMagnetic.Location = new Point(296, 316);
             numericUpDownModMagnetic.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModMagnetic.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModMagnetic.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModMagnetic.Name = "numericUpDownModMagnetic";
-            numericUpDownModMagnetic.Size = new Size(75, 23);
+            numericUpDownModMagnetic.Size = new Size(82, 23);
             numericUpDownModMagnetic.TabIndex = 76;
             numericUpDownModMagnetic.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1700,12 +1673,12 @@
             // 
             numericUpDownModGas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModGas.DecimalPlaces = 2;
-            numericUpDownModGas.Location = new Point(303, 340);
+            numericUpDownModGas.Location = new Point(296, 340);
             numericUpDownModGas.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModGas.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModGas.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModGas.Name = "numericUpDownModGas";
-            numericUpDownModGas.Size = new Size(75, 23);
+            numericUpDownModGas.Size = new Size(82, 23);
             numericUpDownModGas.TabIndex = 77;
             numericUpDownModGas.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1724,7 +1697,7 @@
             // 
             numericUpDownModStatusDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModStatusDamage.DecimalPlaces = 2;
-            numericUpDownModStatusDamage.Location = new Point(136, 316);
+            numericUpDownModStatusDamage.Location = new Point(129, 316);
             numericUpDownModStatusDamage.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModStatusDamage.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericUpDownModStatusDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1737,7 +1710,7 @@
             // 
             numericUpDownModStatusChance.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModStatusChance.DecimalPlaces = 2;
-            numericUpDownModStatusChance.Location = new Point(136, 292);
+            numericUpDownModStatusChance.Location = new Point(129, 292);
             numericUpDownModStatusChance.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModStatusChance.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModStatusChance.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1772,7 +1745,7 @@
             // 
             numericUpDownModCriticalDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModCriticalDamage.DecimalPlaces = 2;
-            numericUpDownModCriticalDamage.Location = new Point(136, 268);
+            numericUpDownModCriticalDamage.Location = new Point(129, 268);
             numericUpDownModCriticalDamage.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModCriticalDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModCriticalDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1785,7 +1758,7 @@
             // 
             numericUpDownModCriticalChance.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModCriticalChance.DecimalPlaces = 2;
-            numericUpDownModCriticalChance.Location = new Point(136, 244);
+            numericUpDownModCriticalChance.Location = new Point(129, 244);
             numericUpDownModCriticalChance.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModCriticalChance.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModCriticalChance.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1820,7 +1793,7 @@
             // 
             numericUpDownModMultishot.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModMultishot.DecimalPlaces = 2;
-            numericUpDownModMultishot.Location = new Point(136, 220);
+            numericUpDownModMultishot.Location = new Point(129, 220);
             numericUpDownModMultishot.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModMultishot.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModMultishot.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1834,7 +1807,7 @@
             numericUpDownModChargeTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModChargeTime.DecimalPlaces = 2;
             numericUpDownModChargeTime.Enabled = false;
-            numericUpDownModChargeTime.Location = new Point(136, 196);
+            numericUpDownModChargeTime.Location = new Point(129, 196);
             numericUpDownModChargeTime.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModChargeTime.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModChargeTime.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1869,7 +1842,7 @@
             // 
             numericUpDownModMagazine.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModMagazine.DecimalPlaces = 2;
-            numericUpDownModMagazine.Location = new Point(136, 172);
+            numericUpDownModMagazine.Location = new Point(129, 172);
             numericUpDownModMagazine.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModMagazine.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModMagazine.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1882,7 +1855,7 @@
             // 
             numericUpDownModReloadTime.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModReloadTime.DecimalPlaces = 2;
-            numericUpDownModReloadTime.Location = new Point(136, 148);
+            numericUpDownModReloadTime.Location = new Point(129, 148);
             numericUpDownModReloadTime.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModReloadTime.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModReloadTime.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1917,7 +1890,7 @@
             // 
             numericUpDownModAttackSpeed.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModAttackSpeed.DecimalPlaces = 2;
-            numericUpDownModAttackSpeed.Location = new Point(136, 124);
+            numericUpDownModAttackSpeed.Location = new Point(129, 124);
             numericUpDownModAttackSpeed.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModAttackSpeed.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModAttackSpeed.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1953,7 +1926,7 @@
             // 
             numericUpDownModDamage.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             numericUpDownModDamage.DecimalPlaces = 2;
-            numericUpDownModDamage.Location = new Point(136, 52);
+            numericUpDownModDamage.Location = new Point(129, 52);
             numericUpDownModDamage.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModDamage.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModDamage.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
@@ -1966,7 +1939,7 @@
             // 
             labelModTau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             labelModTau.AutoSize = true;
-            labelModTau.Location = new Point(216, 364);
+            labelModTau.Location = new Point(209, 364);
             labelModTau.Name = "labelModTau";
             labelModTau.Size = new Size(50, 22);
             labelModTau.TabIndex = 85;
@@ -1978,12 +1951,12 @@
             numericUpDownModTau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             numericUpDownModTau.AutoSize = true;
             numericUpDownModTau.DecimalPlaces = 2;
-            numericUpDownModTau.Location = new Point(303, 364);
+            numericUpDownModTau.Location = new Point(296, 364);
             numericUpDownModTau.Margin = new Padding(1, 0, 1, 0);
             numericUpDownModTau.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownModTau.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
             numericUpDownModTau.Name = "numericUpDownModTau";
-            numericUpDownModTau.Size = new Size(75, 23);
+            numericUpDownModTau.Size = new Size(82, 23);
             numericUpDownModTau.TabIndex = 86;
             numericUpDownModTau.TextAlign = HorizontalAlignment.Center;
             // 
@@ -2830,7 +2803,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseMultishot).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseChargeTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseMagazine).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownBaseAmmoEfficiency).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseReloadTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseAttackSpeed).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownBaseDamage).EndInit();
@@ -2845,7 +2817,7 @@
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModReserveAmmo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAbilityWeaponDamage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownModAmmoEfficiency).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModDamageFaction).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModCorrosive).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownModViral).EndInit();
@@ -3083,7 +3055,7 @@
         private OpenFileDialog openFileDialog1;
         private Label labelBasePunchthrough;
         private NumericUpDown numericUpDownPunchthrough;
-        private NumericUpDown numericUpDownAbilityWeaponDamage;
+        private NumericUpDown numericUpDownModAmmoEfficiency;
         private NumericUpDown numericUpDownModDamageFaction;
         private NumericUpDown numericUpDownModDamage;
         private NumericUpDown numericUpDownBaseReserveAmmo;
