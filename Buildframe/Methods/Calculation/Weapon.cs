@@ -191,7 +191,7 @@ namespace Buildframe.Methods.Calculation
                 efficiency = 100;
             } else
             {
-                efficiency /= (100 - stats.finalAmmoEfficiency) / 100;
+                efficiency =  100 - ((100 - stats.finalAmmoEfficiency) / 100) * (100 - stats.modAmmoEfficiency);
             }
 
             return efficiency;
