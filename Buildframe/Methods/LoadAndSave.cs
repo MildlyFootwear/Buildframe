@@ -65,8 +65,6 @@ namespace Buildframe.Methods
                     stats.baseReloadTime = Convert.ToDouble(split[1]);
                 if (split[0] == "baseMagazine")
                     stats.baseMagazine = Convert.ToDouble(split[1]);
-                if (split[0] == "baseAmmoEfficiency")
-                    stats.baseAmmoEfficiency = Convert.ToDouble(split[1]);
                 if (split[0] == "baseChargeTime")
                     stats.baseChargeTime = Convert.ToDouble(split[1]);
 
@@ -212,8 +210,15 @@ namespace Buildframe.Methods
                     stats.finalReloadTime = Convert.ToDouble(split[1]);
                 if (split[0] == "finalMagazine")
                     stats.finalMagazine = Convert.ToDouble(split[1]);
-                if (split[0] == "finalAmmoEfficiency")
+
+                if (split[0] == "baseAmmoEfficiency")
+                {
                     stats.finalAmmoEfficiency = Convert.ToDouble(split[1]);
+                    resaveToConvert = true;
+                }
+                if (split[0] == "finalAmmoEfficiency" && stats.finalAmmoEfficiency == 0)
+                    stats.finalAmmoEfficiency = Convert.ToDouble(split[1]);
+
                 if (split[0] == "finalChargeTime")
                     stats.finalChargeTime = Convert.ToDouble(split[1]);
 
@@ -293,120 +298,202 @@ namespace Buildframe.Methods
             s += "\nincarnon=" + Convert.ToString(stats.incarnon);
             s += "\ntags=" + stats.tags;
 
-            s += "\nbaseDamage=" + Convert.ToString(stats.baseDamage);
-            s += "\nbaseDamagePercentage=" + Convert.ToString(stats.baseDamagePercentage);
+            if (stats.baseDamage != 0)
+                s += "\nbaseDamage=" + Convert.ToString(stats.baseDamage);
+            if (stats.baseDamagePercentage != 0)
+                s += "\nbaseDamagePercentage=" + Convert.ToString(stats.baseDamagePercentage);
+            if (stats.baseAttackSpeed != 0)
+                s += "\nbaseAttackSpeed=" + Convert.ToString(stats.baseAttackSpeed);
 
-            s += "\nbaseAttackSpeed=" + Convert.ToString(stats.baseAttackSpeed);
+            if (stats.baseReloadTime != 0)
+                s += "\nbaseReloadTime=" + Convert.ToString(stats.baseReloadTime);
+            if (stats.baseAmmoEfficiency != 0)
+                s += "\nbaseAmmoEfficiency=" + Convert.ToString(stats.baseAmmoEfficiency);
+            if (stats.baseChargeTime != 0)
+                s += "\nbaseChargeTime=" + Convert.ToString(stats.baseChargeTime);
+            if (stats.baseMagazine != 0)
+                s += "\nbaseMagazine=" + Convert.ToString(stats.baseMagazine);
 
-            s += "\nbaseReloadTime=" + Convert.ToString(stats.baseReloadTime);
-            s += "\nbaseAmmoEfficiency=" + Convert.ToString(stats.baseAmmoEfficiency);
-            s += "\nbaseChargeTime=" + Convert.ToString(stats.baseChargeTime);
-            s += "\nbaseMagazine=" + Convert.ToString(stats.baseMagazine);
+            if (stats.baseSlash != 0)
+                s += "\nbaseSlash=" + Convert.ToString(stats.baseSlash);
+            if (stats.baseImpact != 0)
+                s += "\nbaseImpact=" + Convert.ToString(stats.baseImpact);
+            if (stats.basePuncture != 0)
+                s += "\nbasePuncture=" + Convert.ToString(stats.basePuncture);
 
-            s += "\nbaseSlash=" + Convert.ToString(stats.baseSlash);
-            s += "\nbaseImpact=" + Convert.ToString(stats.baseImpact);
-            s += "\nbasePuncture=" + Convert.ToString(stats.basePuncture);
+            if (stats.baseHeat != 0)
+                s += "\nbaseHeat=" + Convert.ToString(stats.baseHeat);
+            if (stats.baseCold != 0)
+                s += "\nbaseCold=" + Convert.ToString(stats.baseCold);
+            if (stats.baseElectric != 0)
+                s += "\nbaseElectric=" + Convert.ToString(stats.baseElectric);
+            if (stats.baseToxin != 0)
+                s += "\nbaseToxin=" + Convert.ToString(stats.baseToxin);
+            if (stats.baseTau != 0)
+                s += "\nbaseTau=" + Convert.ToString(stats.baseTau);
 
-            s += "\nbaseHeat=" + Convert.ToString(stats.baseHeat);
-            s += "\nbaseCold=" + Convert.ToString(stats.baseCold);
-            s += "\nbaseElectric=" + Convert.ToString(stats.baseElectric);
-            s += "\nbaseToxin=" + Convert.ToString(stats.baseToxin);
-            s += "\nbaseTau=" + Convert.ToString(stats.baseTau);
+            if (stats.baseBlast != 0)
+                s += "\nbaseBlast=" + Convert.ToString(stats.baseBlast);
+            if (stats.baseRadiation != 0)
+                s += "\nbaseRadiation=" + Convert.ToString(stats.baseRadiation);
+            if (stats.baseViral != 0)
+                s += "\nbaseViral=" + Convert.ToString(stats.baseViral);
+            if (stats.baseCorrosive != 0)
+                s += "\nbaseCorrosive=" + Convert.ToString(stats.baseCorrosive);
+            if (stats.baseMagnetic != 0)
+                s += "\nbaseMagnetic=" + Convert.ToString(stats.baseMagnetic);
+            if (stats.baseGas != 0)
+                s += "\nbaseGas=" + Convert.ToString(stats.baseGas);
 
-            s += "\nbaseBlast=" + Convert.ToString(stats.baseBlast);
-            s += "\nbaseRadiation=" + Convert.ToString(stats.baseRadiation);
-            s += "\nbaseViral=" + Convert.ToString(stats.baseViral);
-            s += "\nbaseCorrosive=" + Convert.ToString(stats.baseCorrosive);
-            s += "\nbaseMagnetic=" + Convert.ToString(stats.baseMagnetic);
-            s += "\nbaseGas=" + Convert.ToString(stats.baseGas);
+            if (stats.baseMultishot != 0)
+                s += "\nbaseMultishot=" + Convert.ToString(stats.baseMultishot);
 
-            s += "\nbaseMultishot=" + Convert.ToString(stats.baseMultishot);
+            if (stats.baseCriticalChance != 0)
+                s += "\nbaseCriticalChance=" + Convert.ToString(stats.baseCriticalChance);
+            if (stats.baseCriticalDamage != 0)
+                s += "\nbaseCriticalDamage=" + Convert.ToString(stats.baseCriticalDamage);
 
-            s += "\nbaseCriticalChance=" + Convert.ToString(stats.baseCriticalChance);
-            s += "\nbaseCriticalDamage=" + Convert.ToString(stats.baseCriticalDamage);
-
-            s += "\nbaseStatusChance=" + Convert.ToString(stats.baseStatusChance);
-            s += "\nbaseStatusDamage=" + Convert.ToString(stats.baseStatusDamage);
-            s += "\nbaseReserveAmmo=" + Convert.ToString(stats.baseReserveAmmo);
-
-
-
-            s += "\nmodDamage=" + Convert.ToString(stats.modDamage);
-            s += "\nmodDamagePercentage=" + Convert.ToString(stats.modDamagePercentage);
-            s += "\nmodDamageFaction=" + Convert.ToString(stats.modDamageFaction);
-
-            s += "\nmodAttackSpeed=" + Convert.ToString(stats.modAttackSpeed);
-
-            s += "\nmodReloadTime=" + Convert.ToString(stats.modReloadTime);
-            s += "\nmodAmmoEfficiency=" + Convert.ToString(stats.modAmmoEfficiency);
-            s += "\nmodChargeTime=" + Convert.ToString(stats.modChargeTime);
-            s += "\nmodMagazine=" + Convert.ToString(stats.modMagazine);
-
-
-            s += "\nmodSlash=" + Convert.ToString(stats.modSlash);
-            s += "\nmodImpact=" + Convert.ToString(stats.modImpact);
-            s += "\nmodPuncture=" + Convert.ToString(stats.modPuncture);
-
-            s += "\nmodHeat=" + Convert.ToString(stats.modHeat);
-            s += "\nmodCold=" + Convert.ToString(stats.modCold);
-            s += "\nmodElectric=" + Convert.ToString(stats.modElectric);
-            s += "\nmodToxin=" + Convert.ToString(stats.modToxin);
-            s += "\nmodTau=" + Convert.ToString(stats.modTau);
-
-            s += "\nmodBlast=" + Convert.ToString(stats.modBlast);
-            s += "\nmodRadiation=" + Convert.ToString(stats.modRadiation);
-            s += "\nmodViral=" + Convert.ToString(stats.modViral);
-            s += "\nmodCorrosive=" + Convert.ToString(stats.modCorrosive);
-            s += "\nmodMagnetic=" + Convert.ToString(stats.modMagnetic);
-            s += "\nmodGas=" + Convert.ToString(stats.modGas);
-
-            s += "\nmodMultishot=" + Convert.ToString(stats.modMultishot);
-
-            s += "\nmodCriticalChance=" + Convert.ToString(stats.modCriticalChance);
-            s += "\nmodCriticalDamage=" + Convert.ToString(stats.modCriticalDamage);
-
-            s += "\nmodStatusChance=" + Convert.ToString(stats.modStatusChance);
-            s += "\nmodStatusDamage=" + Convert.ToString(stats.modStatusDamage);
-            s += "\nmodReserveAmmo=" + Convert.ToString(stats.modReserveAmmo);
+            if (stats.baseStatusChance != 0)
+                s += "\nbaseStatusChance=" + Convert.ToString(stats.baseStatusChance);
+            if (stats.baseStatusDamage != 0)
+                s += "\nbaseStatusDamage=" + Convert.ToString(stats.baseStatusDamage);
+            if (stats.baseReserveAmmo != 0)
+                s += "\nbaseReserveAmmo=" + Convert.ToString(stats.baseReserveAmmo);
 
 
+            if (stats.modDamage != 0)
+                s += "\nmodDamage=" + Convert.ToString(stats.modDamage);
+            if (stats.modDamagePercentage != 0)
+                s += "\nmodDamagePercentage=" + Convert.ToString(stats.modDamagePercentage);
+            if (stats.modDamageFaction != 0)
+                s += "\nmodDamageFaction=" + Convert.ToString(stats.modDamageFaction);
 
-            s += "\nfinalDamage=" + Convert.ToString(stats.finalDamage);
-            s += "\nfinalDamagePercentage=" + Convert.ToString(stats.finalDamagePercentage);
+            if (stats.modAttackSpeed != 0)
+                s += "\nmodAttackSpeed=" + Convert.ToString(stats.modAttackSpeed);
 
-            s += "\nfinalAttackSpeed=" + Convert.ToString(stats.finalAttackSpeed);
+            if (stats.modReloadTime != 0)
+                s += "\nmodReloadTime=" + Convert.ToString(stats.modReloadTime);
+            if (stats.modAmmoEfficiency != 0)
+                s += "\nmodAmmoEfficiency=" + Convert.ToString(stats.modAmmoEfficiency);
+            if (stats.modChargeTime != 0)
+                s += "\nmodChargeTime=" + Convert.ToString(stats.modChargeTime);
+            if (stats.modMagazine != 0)
+                s += "\nmodMagazine=" + Convert.ToString(stats.modMagazine);
 
-            s += "\nfinalReloadTime=" + Convert.ToString(stats.finalReloadTime);
-            s += "\nfinalAmmoEfficiency=" + Convert.ToString(stats.finalAmmoEfficiency);
-            s += "\nfinalChargeTime=" + Convert.ToString(stats.finalChargeTime);
-            s += "\nfinalMagazine=" + Convert.ToString(stats.finalMagazine);
 
-            s += "\nfinalSlash=" + Convert.ToString(stats.finalSlash);
-            s += "\nfinalImpact=" + Convert.ToString(stats.finalImpact);
-            s += "\nfinalPuncture=" + Convert.ToString(stats.finalPuncture);
+            if (stats.modSlash != 0)
+                s += "\nmodSlash=" + Convert.ToString(stats.modSlash);
+            if (stats.modImpact != 0)
+                s += "\nmodImpact=" + Convert.ToString(stats.modImpact);
+            if (stats.modPuncture != 0)
+                s += "\nmodPuncture=" + Convert.ToString(stats.modPuncture);
 
-            s += "\nfinalHeat=" + Convert.ToString(stats.finalHeat);
-            s += "\nfinalCold=" + Convert.ToString(stats.finalCold);
-            s += "\nfinalElectric=" + Convert.ToString(stats.finalElectric);
-            s += "\nfinalToxin=" + Convert.ToString(stats.finalToxin);
+            if (stats.modHeat != 0)
+                s += "\nmodHeat=" + Convert.ToString(stats.modHeat);
+            if (stats.modCold != 0)
+                s += "\nmodCold=" + Convert.ToString(stats.modCold);
+            if (stats.modElectric != 0)
+                s += "\nmodElectric=" + Convert.ToString(stats.modElectric);
+            if (stats.modToxin != 0)
+                s += "\nmodToxin=" + Convert.ToString(stats.modToxin);
+            if (stats.modTau != 0)
+                s += "\nmodTau=" + Convert.ToString(stats.modTau);
 
-            s += "\nfinalBlast=" + Convert.ToString(stats.finalBlast);
-            s += "\nfinalRadiation=" + Convert.ToString(stats.finalRadiation);
-            s += "\nfinalViral=" + Convert.ToString(stats.finalViral);
-            s += "\nfinalCorrosive=" + Convert.ToString(stats.finalCorrosive);
-            s += "\nfinalMagnetic=" + Convert.ToString(stats.finalMagnetic);
-            s += "\nfinalGas=" + Convert.ToString(stats.finalGas);
+            if (stats.modBlast != 0)
+                s += "\nmodBlast=" + Convert.ToString(stats.modBlast);
+            if (stats.modRadiation != 0)
+                s += "\nmodRadiation=" + Convert.ToString(stats.modRadiation);
+            if (stats.modViral != 0)
+                s += "\nmodViral=" + Convert.ToString(stats.modViral);
+            if (stats.modCorrosive != 0)
+                s += "\nmodCorrosive=" + Convert.ToString(stats.modCorrosive);
+            if (stats.modMagnetic != 0)
+                s += "\nmodMagnetic=" + Convert.ToString(stats.modMagnetic);
+            if (stats.modGas != 0)
+                s += "\nmodGas=" + Convert.ToString(stats.modGas);
 
-            s += "\nfinalMultishot=" + Convert.ToString(stats.finalMultishot);
+            if (stats.modMultishot != 0)
+                s += "\nmodMultishot=" + Convert.ToString(stats.modMultishot);
 
-            s += "\nfinalCriticalChance=" + Convert.ToString(stats.finalCriticalChance);
-            s += "\nfinalCriticalDamage=" + Convert.ToString(stats.finalCriticalDamage);
+            if (stats.modCriticalChance != 0)
+                s += "\nmodCriticalChance=" + Convert.ToString(stats.modCriticalChance);
+            if (stats.modCriticalDamage != 0)
+                s += "\nmodCriticalDamage=" + Convert.ToString(stats.modCriticalDamage);
 
-            s += "\nfinalStatusChance=" + Convert.ToString(stats.finalStatusChance);
-            s += "\nfinalStatusDamage=" + Convert.ToString(stats.finalStatusDamage);
+            if (stats.modStatusChance != 0)
+                s += "\nmodStatusChance=" + Convert.ToString(stats.modStatusChance);
+            if (stats.modStatusDamage != 0)
+                s += "\nmodStatusDamage=" + Convert.ToString(stats.modStatusDamage);
+            if (stats.modReserveAmmo != 0)
+                s += "\nmodReserveAmmo=" + Convert.ToString(stats.modReserveAmmo);
 
-            s += "\npunchthrough=" + Convert.ToString(stats.punchthrough);
-            s += "\nammoRegen=" + Convert.ToString(stats.ammoRegen);
+
+            if (stats.finalDamage != 0)
+                s += "\nfinalDamage=" + Convert.ToString(stats.finalDamage);
+            if (stats.finalDamagePercentage != 0)
+                s += "\nfinalDamagePercentage=" + Convert.ToString(stats.finalDamagePercentage);
+
+            if (stats.finalAttackSpeed != 0)
+                s += "\nfinalAttackSpeed=" + Convert.ToString(stats.finalAttackSpeed);
+
+            if (stats.finalReloadTime != 0)
+                s += "\nfinalReloadTime=" + Convert.ToString(stats.finalReloadTime);
+            if (stats.finalMagazine != 0)
+                s += "\nfinalMagazine=" + Convert.ToString(stats.finalMagazine);
+            if (stats.finalAmmoEfficiency != 0)
+                s += "\nfinalAmmoEfficiency=" + Convert.ToString(stats.finalAmmoEfficiency);
+            if (stats.finalChargeTime != 0)
+                s += "\nfinalChargeTime=" + Convert.ToString(stats.finalChargeTime);
+            if (stats.finalMagazine != 0)
+                s += "\nfinalMagazine=" + Convert.ToString(stats.finalMagazine);
+
+            if (stats.finalSlash != 0)
+                s += "\nfinalSlash=" + Convert.ToString(stats.finalSlash);
+            if (stats.finalImpact != 0)
+                s += "\nfinalImpact=" + Convert.ToString(stats.finalImpact);
+            if (stats.finalPuncture != 0)
+                s += "\nfinalPuncture=" + Convert.ToString(stats.finalPuncture);
+
+            if (stats.finalHeat != 0)
+                s += "\nfinalHeat=" + Convert.ToString(stats.finalHeat);
+            if (stats.finalCold != 0)
+                s += "\nfinalCold=" + Convert.ToString(stats.finalCold);
+            if (stats.finalElectric != 0)
+                s += "\nfinalElectric=" + Convert.ToString(stats.finalElectric);
+            if (stats.finalToxin != 0)
+                s += "\nfinalToxin=" + Convert.ToString(stats.finalToxin);
+
+            if (stats.finalBlast != 0)
+                s += "\nfinalBlast=" + Convert.ToString(stats.finalBlast);
+            if (stats.finalRadiation != 0)
+                s += "\nfinalRadiation=" + Convert.ToString(stats.finalRadiation);
+            if (stats.finalViral != 0)
+                s += "\nfinalViral=" + Convert.ToString(stats.finalViral);
+            if (stats.finalCorrosive != 0)
+                s += "\nfinalCorrosive=" + Convert.ToString(stats.finalCorrosive);
+            if (stats.finalMagnetic != 0)
+                s += "\nfinalMagnetic=" + Convert.ToString(stats.finalMagnetic);
+            if (stats.finalGas != 0)
+                s += "\nfinalGas=" + Convert.ToString(stats.finalGas);
+
+            if (stats.finalMultishot != 0)
+                s += "\nfinalMultishot=" + Convert.ToString(stats.finalMultishot);
+
+            if (stats.finalCriticalChance != 0)
+                s += "\nfinalCriticalChance=" + Convert.ToString(stats.finalCriticalChance);
+            if (stats.finalCriticalDamage != 0)
+                s += "\nfinalCriticalDamage=" + Convert.ToString(stats.finalCriticalDamage);
+
+            if (stats.finalStatusChance != 0)
+                s += "\nfinalStatusChance=" + Convert.ToString(stats.finalStatusChance);
+            if (stats.finalStatusDamage != 0)
+                s += "\nfinalStatusDamage=" + Convert.ToString(stats.finalStatusDamage);
+
+            if (stats.punchthrough != 0)
+                s += "\npunchthrough=" + Convert.ToString(stats.punchthrough);
+            if (stats.ammoRegen != 0)
+                s += "\nammoRegen=" + Convert.ToString(stats.ammoRegen);
+
 
 
             if (Path.GetDirectoryName(path) != null && Path.GetDirectoryName(path) != string.Empty)
