@@ -169,6 +169,7 @@ namespace Buildframe.Forms
 
             numericUpDownFinalDamageMult.Value = (decimal)stats.finalDamagePercentage + 100;
             numericUpDownFinalAttackSpeed.Value = (decimal)stats.finalAttackSpeed + 100;
+            numericUpDownFinalAmmoEfficiency.Value = (decimal)stats.finalAmmoEfficiency;
             numericUpDownFinalReloadTime.Value = (decimal)stats.finalReloadTime;
             numericUpDownFinalMagazine.Value = (decimal)stats.finalMagazine;
             numericUpDownFinalChargeTime.Value = (decimal)stats.finalChargeTime;
