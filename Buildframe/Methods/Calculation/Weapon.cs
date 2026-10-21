@@ -177,7 +177,7 @@ namespace Buildframe.Methods.Calculation
         public static double calculateModAmmoEfficiency(StatsData stats)
         {
             double efficiency = 0;
-            if (stats.modAmmoEfficiency > 75)
+            if (stats.modAmmoEfficiency >= 75)
             {
                 efficiency = 75;
             }
@@ -191,7 +191,7 @@ namespace Buildframe.Methods.Calculation
                 efficiency = 100;
             } else
             {
-                efficiency =  100 - ((100 - stats.finalAmmoEfficiency) / 100) * (100 - stats.modAmmoEfficiency);
+                efficiency =  100 - ((100 - stats.finalAmmoEfficiency) / 100) * (100 - efficiency);
             }
 
             return efficiency;
