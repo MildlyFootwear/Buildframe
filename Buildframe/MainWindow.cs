@@ -453,6 +453,18 @@ namespace Buildframe
                 else
                     labelRadialDPSSustainedValue.Text = "N/A";
 
+                if (selectedFiremodeRadialWithAppliedStats.extraHit > 0)
+                {
+                    double extraHitDPS = speed * multishot * hitDamage * selectedFiremodeRadialWithAppliedStats.extraHit;
+                    labelRadialExtraHitDPSValue.Text = extraHitDPS.ToString("#,##0");
+                    labelRadialExtraHitStatusDPSValue.Text = (extraHitDPS * (selectedFiremodeRadialWithAppliedStats.modDamageFaction / 100 + 1) * (selectedFiremodeRadialWithAppliedStats.modStatusDamage / 100 + 1)).ToString("#,##0");
+                }
+                else
+                {
+                    labelRadialExtraHitDPSValue.Text = "N/A";
+                    labelRadialExtraHitStatusDPSValue.Text = "N/A";
+                }
+
                 summedDamage += Methods.Calculation.Weapon.calculateModDamagePreCritPreMultishot(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModAverageCritMultiplier(selectedFiremodeRadialWithAppliedStats) * Methods.Calculation.Weapon.calculateModMultishot(selectedFiremodeRadialWithAppliedStats);
                 summedDPSBurst += DPSBurst;
                 summedDPSSustained += DPSSustained;
@@ -1082,6 +1094,9 @@ namespace Buildframe
             radialValueLabels.Add(labelRadialStatusDamageValue);
             radialValueLabels.Add(labelRadialStatusDPSValue);
             radialValueLabels.Add(labelRadialForcedStatusDPSValue);
+
+            radialValueLabels.Add(labelRadialExtraHitDPSValue);
+            radialValueLabels.Add(labelRadialExtraHitStatusDPSValue);
             if (File.Exists("lastbuild.cfg"))
             {
                 WriteLineIfDebug("Loading last session from file");

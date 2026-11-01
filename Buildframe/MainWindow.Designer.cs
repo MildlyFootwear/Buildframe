@@ -125,6 +125,7 @@
             openFileDialog1 = new OpenFileDialog();
             toolTipEffectInfo = new ToolTip(components);
             tableLayoutPanelDamageStats = new TableLayoutPanel();
+            labelRadialExtraHitDPS = new Label();
             labelTotalDamageValue = new Label();
             labelTotalFireTimeValue = new Label();
             labelTotalFireTime = new Label();
@@ -139,6 +140,7 @@
             labelExtraHitDamageValue = new Label();
             labelExtraHitDPSValue = new Label();
             labelExtraHitStatusDPSValue = new Label();
+            labelRadialExtraHitStatusDPS = new Label();
             labelElectricWeightDamageValue = new Label();
             labelElectricWeightDamage = new Label();
             labelToxinWeightDamageValue = new Label();
@@ -190,6 +192,8 @@
             labelRadialHeatWeightDamageValue = new Label();
             label20 = new Label();
             labelRadialSlashWeightValue = new Label();
+            labelRadialExtraHitDPSValue = new Label();
+            labelRadialExtraHitStatusDPSValue = new Label();
             toolStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -1351,6 +1355,8 @@
             tableLayoutPanelDamageStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
             tableLayoutPanelDamageStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
             tableLayoutPanelDamageStats.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
+            tableLayoutPanelDamageStats.Controls.Add(labelRadialExtraHitDPSValue, 3, 3);
+            tableLayoutPanelDamageStats.Controls.Add(labelRadialExtraHitDPS, 2, 3);
             tableLayoutPanelDamageStats.Controls.Add(labelTotalDamageValue, 1, 1);
             tableLayoutPanelDamageStats.Controls.Add(labelTotalFireTimeValue, 1, 0);
             tableLayoutPanelDamageStats.Controls.Add(labelTotalFireTime, 0, 0);
@@ -1365,6 +1371,8 @@
             tableLayoutPanelDamageStats.Controls.Add(labelExtraHitDamageValue, 3, 0);
             tableLayoutPanelDamageStats.Controls.Add(labelExtraHitDPSValue, 3, 1);
             tableLayoutPanelDamageStats.Controls.Add(labelExtraHitStatusDPSValue, 3, 2);
+            tableLayoutPanelDamageStats.Controls.Add(labelRadialExtraHitStatusDPS, 2, 4);
+            tableLayoutPanelDamageStats.Controls.Add(labelRadialExtraHitStatusDPSValue, 3, 4);
             tableLayoutPanelDamageStats.Location = new Point(0, 3);
             tableLayoutPanelDamageStats.Name = "tableLayoutPanelDamageStats";
             tableLayoutPanelDamageStats.RowCount = 6;
@@ -1376,6 +1384,15 @@
             tableLayoutPanelDamageStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDamageStats.Size = new Size(560, 123);
             tableLayoutPanelDamageStats.TabIndex = 5;
+            // 
+            // labelRadialExtraHitDPS
+            // 
+            labelRadialExtraHitDPS.AutoSize = true;
+            labelRadialExtraHitDPS.Location = new Point(277, 64);
+            labelRadialExtraHitDPS.Name = "labelRadialExtraHitDPS";
+            labelRadialExtraHitDPS.Size = new Size(111, 15);
+            labelRadialExtraHitDPS.TabIndex = 80;
+            labelRadialExtraHitDPS.Text = "Radial Extra Hit DPS";
             // 
             // labelTotalDamageValue
             // 
@@ -1502,6 +1519,15 @@
             labelExtraHitStatusDPSValue.Name = "labelExtraHitStatusDPSValue";
             labelExtraHitStatusDPSValue.Size = new Size(118, 20);
             labelExtraHitStatusDPSValue.TabIndex = 79;
+            // 
+            // labelRadialExtraHitStatusDPS
+            // 
+            labelRadialExtraHitStatusDPS.AutoSize = true;
+            labelRadialExtraHitStatusDPS.Location = new Point(277, 85);
+            labelRadialExtraHitStatusDPS.Name = "labelRadialExtraHitStatusDPS";
+            labelRadialExtraHitStatusDPS.Size = new Size(146, 15);
+            labelRadialExtraHitStatusDPS.TabIndex = 81;
+            labelRadialExtraHitStatusDPS.Text = "Radial Extra Hit Status DPS";
             // 
             // labelElectricWeightDamageValue
             // 
@@ -2062,6 +2088,24 @@
             labelRadialSlashWeightValue.Size = new Size(118, 20);
             labelRadialSlashWeightValue.TabIndex = 63;
             // 
+            // labelRadialExtraHitDPSValue
+            // 
+            labelRadialExtraHitDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialExtraHitDPSValue.CausesValidation = false;
+            labelRadialExtraHitDPSValue.Location = new Point(438, 64);
+            labelRadialExtraHitDPSValue.Name = "labelRadialExtraHitDPSValue";
+            labelRadialExtraHitDPSValue.Size = new Size(118, 20);
+            labelRadialExtraHitDPSValue.TabIndex = 82;
+            // 
+            // labelRadialExtraHitStatusDPSValue
+            // 
+            labelRadialExtraHitStatusDPSValue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelRadialExtraHitStatusDPSValue.CausesValidation = false;
+            labelRadialExtraHitStatusDPSValue.Location = new Point(438, 85);
+            labelRadialExtraHitStatusDPSValue.Name = "labelRadialExtraHitStatusDPSValue";
+            labelRadialExtraHitStatusDPSValue.Size = new Size(118, 20);
+            labelRadialExtraHitStatusDPSValue.TabIndex = 83;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2262,5 +2306,9 @@
         private Label labelRadialStatusDPSValue;
         private Label label24;
         private Label labelRadialForcedStatusDPSValue;
+        private Label labelRadialExtraHitDPS;
+        private Label labelRadialExtraHitStatusDPS;
+        private Label labelRadialExtraHitDPSValue;
+        private Label labelRadialExtraHitStatusDPSValue;
     }
 }
