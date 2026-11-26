@@ -188,12 +188,24 @@ namespace Buildframe.Methods.Calculation
                 stats.modNoCombineElectric += s.modNoCombineElectric;
                 stats.modNoCombineToxin += s.modNoCombineToxin;
 
+
                 stats.modBlast += s.modBlast;
                 stats.modRadiation += s.modRadiation;
                 stats.modViral += s.modViral;
                 stats.modCorrosive += s.modCorrosive;
                 stats.modMagnetic += s.modMagnetic;
                 stats.modGas += s.modGas;
+
+                stats.modDoTHeat += s.modHeat;
+                stats.modDoTElectric += s.modElectric;
+                stats.modDoTToxin += s.modToxin;
+                stats.modDoTGas += s.modGas;
+
+
+                stats.modDoTHeat += s.modDoTHeat;
+                stats.modDoTElectric += s.modDoTElectric;
+                stats.modDoTToxin += s.modDoTToxin;
+                stats.modDoTGas += s.modDoTGas;
 
                 stats.modMultishot += s.modMultishot;
 

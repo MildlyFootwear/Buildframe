@@ -85,6 +85,11 @@
         public double modMagnetic = 0;
         public double modGas = 0;
 
+        public double modDoTHeat = 0;
+        public double modDoTElectric = 0;
+        public double modDoTToxin = 0;
+        public double modDoTGas = 0;
+
         public double modMultishot = 0;
 
         public double modCriticalChance = 0;
